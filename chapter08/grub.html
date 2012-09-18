@@ -4,26 +4,26 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      8.4.&nbsp;使用 GRUB 设置引导过程
+      8.4.&nbsp;ä½¿ç¨ GRUB è®¾ç½®å¼å¯¼è¿ç¨
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120829">
+  <body class="lfs" id="lfs-SVN-20120916">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120829
+        Linux From Scratch - 版本 SVN-20120916
       </h4>
       <h3>
         第&nbsp;8&nbsp;章&nbsp;使 LFS 系统可以启动
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="kernel.html" title="Linux-3.5.2">上一页</a>
+          <a accesskey="p" href="kernel.html" title="Linux-3.5.4">上一页</a>
           <p>
-            Linux-3.5.2
+            Linux-3.5.4
           </p>
         </li>
         <li class="next">
@@ -39,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-bootable-grub" name="ch-bootable-grub"></a>8.4. 使用 GRUB
-        设置引导过程
+        <a id="ch-bootable-grub" name="ch-bootable-grub"></a>8.4. ä½¿ç¨ GRUB
+        è®¾ç½®å¼å¯¼è¿ç¨
       </h1>
       <div class="sect2" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
@@ -104,14 +104,6 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</kbd>
           on <code class="filename">hdc</code>, that second hard drive would
           still be <span class="emphasis"><em>(hd1)</em></span>.
         </p>
-        <p>
-          You can determine what GRUB thinks your disk devices are by
-          running:
-        </p>
-        <pre class="userinput">
-<kbd class="command">grub-mkdevicemap --device-map=device.map
-cat device.map</kbd>
-</pre>
       </div>
       <div class="sect2" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
@@ -166,25 +158,6 @@ cat device.map</kbd>
         <pre class="userinput">
 <kbd class="command">grub-install /dev/sda</kbd>
 </pre>
-        <div class="admon note">
-          <img alt="[注意]" src="../images/note.png" />
-          <h3>
-            注意
-          </h3>
-          <p>
-            <span class="application">grub-install</span> is a script and
-            calls another program, grub-probe, that may fail with a message
-            "cannot stat `/dev/root'". If so, create a temporary symbolic
-            link from your root partition to /dev/root:
-          </p>
-          <pre class="userinput">
-<kbd class="command">ln -sv /dev/sda2 /dev/root</kbd>
-</pre>
-          <p>
-            The symbolic link will only be present until the system is
-            rebooted. The link is only needed for the installation procedure.
-          </p>
-        </div>
       </div>
       <div class="sect2" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
@@ -202,8 +175,8 @@ set timeout=5
 insmod ext2
 set root=(hd0,2)
 
-menuentry "GNU/Linux, Linux 3.5.2-lfs-SVN-20120829" {
-        linux   /boot/vmlinuz-3.5.2-lfs-SVN-20120829 root=/dev/sda2 ro
+menuentry "GNU/Linux, Linux 3.5.4-lfs-SVN-20120916" {
+        linux   /boot/vmlinuz-3.5.4-lfs-SVN-20120916 root=/dev/sda2 ro
 }</code>
 EOF</kbd>
 </pre>
@@ -250,9 +223,9 @@ EOF</kbd>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="kernel.html" title="Linux-3.5.2">上一页</a>
+          <a accesskey="p" href="kernel.html" title="Linux-3.5.4">上一页</a>
           <p>
-            Linux-3.5.2
+            Linux-3.5.4
           </p>
         </li>
         <li class="next">
@@ -268,7 +241,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>

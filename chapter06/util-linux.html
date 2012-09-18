@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.22.&nbsp;Util-linux-2.21.2
+      6.22.&nbsp;Util-linux-2.22
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120829">
+  <body class="lfs" id="lfs-SVN-20120916">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120829
+        Linux From Scratch - 版本 SVN-20120916
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.22.
-        Util-linux-2.21.2
+        Util-linux-2.22
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -61,7 +61,7 @@
             </div>
             <div class="seg">
               <strong class="segtitle">需求磁盘空间:</strong> <span class=
-              "segbody">81 MB</span>
+              "segbody">83 MB</span>
             </div>
           </div>
         </div>
@@ -80,7 +80,8 @@
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
-    $(grep -rl '/etc/adjtime' .)
+     $(grep -rl '/etc/adjtime' .)
+
 mkdir -pv /var/lib/hwclock</kbd>
 </pre>
       </div>
@@ -89,8 +90,31 @@ mkdir -pv /var/lib/hwclock</kbd>
           6.22.2. Installation of Util-linux
         </h2>
         <pre class="userinput">
-<kbd class="command">./configure</kbd>
+<kbd class=
+"command">./configure --disable-su --disable-sulogin --disable-login</kbd>
 </pre>
+        <div class="variablelist">
+          <p class="title">
+            <b>The meaning of the configure option:</b>
+          </p>
+          <dl>
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--disable-*</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                These switches disable building su, sulogin, and login. They
+                duplicate the same programs provided by <a class="xref" href=
+                "shadow.html" title=
+                "6.25.&nbsp;Shadow-4.1.5.1">第&nbsp;6.25&nbsp;节
+                “Shadow-4.1.5.1”</a>. They also require <a class="ulink"
+                href="http://www.linuxfromscratch.org/blfs//view/svn/postlfs/linux-pam.html">
+                Linux-PAM</a> which is not available in LFS.
+              </p>
+            </dd>
+          </dl>
+        </div>
         <p>
           Compile the package:
         </p>
@@ -1423,6 +1447,20 @@ mkdir -pv /var/lib/hwclock</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="libmount" name="libmount"></a><span class=
+                    "term"><code class="filename">libmount</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Contains routines for block device mounting and
+                    unmounting
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="libuuid" name="libuuid"></a><span class=
                     "term"><code class="filename">libuuid</code></span>
                   </p>
@@ -1459,7 +1497,7 @@ mkdir -pv /var/lib/hwclock</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>

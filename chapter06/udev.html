@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.61.&nbsp;Udev-188 (Extracted from systemd-188)
+      6.61.&nbsp;Udev-189 (Extracted from systemd-189)
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120829">
+  <body class="lfs" id="lfs-SVN-20120916">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120829
+        Linux From Scratch - 版本 SVN-20120916
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-188
-        (Extracted from systemd-188)
+        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-189
+        (Extracted from systemd-189)
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -79,7 +79,7 @@
           <p>
             This package is a little different from other packages. The
             initial package that is extracted is <code class=
-            "filename">systemd-188.tar.xz</code> even though the application
+            "filename">systemd-189.tar.xz</code> even though the application
             we are installing is udev. After changing to the systemd
             directory, follow the instructions below.
           </p>
@@ -89,19 +89,19 @@
           Udev. Unpack it into the systemd source directory:
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-188-3.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-189.tar.bz2</kbd>
 </pre>
         <p>
           Compile the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-188/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-189/Makefile.lfs</kbd>
 </pre>
         <p>
           Install the package:
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-188/Makefile.lfs install</kbd>
+<kbd class="command">make -f udev-lfs-189/Makefile.lfs install</kbd>
 </pre>
         <p>
           Finally set up the persistent network udev rules. This task will be
@@ -115,7 +115,7 @@
           following script to work.
         </p>
         <pre class="userinput">
-<kbd class="command">bash udev-lfs-188/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-189/init-net-rules.sh</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -295,7 +295,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>

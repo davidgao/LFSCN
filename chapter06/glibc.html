@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120829">
+  <body class="lfs" id="lfs-SVN-20120916">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120829
+        Linux From Scratch - 版本 SVN-20120916
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>
@@ -106,12 +106,12 @@
           When running <span class="command"><strong>make
           install</strong></span>, a script called <code class=
           "filename">test-installation.pl</code> performs a small sanity test
-          on our newly installed Glibc. However, it contains a bug that
-          causes it to fail, so prevent it from running by issuing the
-          following command:
+          on our newly installed Glibc. Use a patch to fix the bug that
+          causes it to fail:
         </p>
         <pre class="userinput">
-<kbd class="command">sed -i '/test-installation.pl/d' Makefile</kbd>
+<kbd class=
+"command">patch -Np1 -i ../glibc-2.16.0-fix_test_installation-1.patch</kbd>
 </pre>
         <p>
           The <span class="command"><strong>ldd</strong></span> shell script
@@ -258,7 +258,7 @@ grep Error glibc-check-log</kbd>
 </pre>
         <p>
           Install NIS and RPC related headers that are not installed by
-          default; these are required ito rebuild glibc and by several BLFS
+          default; these are required to rebuild glibc and by several BLFS
           packages:
         </p>
         <pre class="userinput">
@@ -369,17 +369,20 @@ EOF</kbd>
         <pre class="userinput">
 <kbd class="command">tar -xf ../tzdata2012e.tar.gz
 
-mkdir -pv /usr/share/zoneinfo/{posix,right} 
+ZONEINFO=/usr/share/zoneinfo
+mkdir -pv $ZONEINFO/{posix,right} 
 
-for tz in etcetera southamerica northamerica europe africa antarctica \
-          asia australasia backward pacificnew solar87 solar88 solar89 systemv; do
-    zic -L /dev/null   -d /usr/share/zoneinfo       -y "sh yearistype.sh" ${tz} 
-    zic -L /dev/null   -d /usr/share/zoneinfo/posix -y "sh yearistype.sh" ${tz} 
-    zic -L leapseconds -d /usr/share/zoneinfo/right -y "sh yearistype.sh" ${tz}
+for tz in etcetera southamerica northamerica europe africa antarctica  \
+          asia australasia backward pacificnew solar87 solar88 solar89 \
+          systemv; do
+    zic -L /dev/null   -d $ZONEINFO       -y "sh yearistype.sh" ${tz} 
+    zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz} 
+    zic -L leapseconds -d $ZONEINFO/right -y "sh yearistype.sh" ${tz}
 done
 
-cp -v zone.tab iso3166.tab /usr/share/zoneinfo 
-zic -d /usr/share/zoneinfo -p America/New_York</kbd>
+cp -v zone.tab iso3166.tab $ZONEINFO
+zic -d $ZONEINFO -p America/New_York
+unset ZONEINFO</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
@@ -1260,7 +1263,7 @@ mkdir /etc/ld.so.conf.d</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>

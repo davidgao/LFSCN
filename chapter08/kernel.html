@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      8.3.&nbsp;Linux-3.5.2
+      8.3.&nbsp;Linux-3.5.4
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120829">
+  <body class="lfs" id="lfs-SVN-20120916">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120829
+        Linux From Scratch - 版本 SVN-20120916
       </h4>
       <h3>
         第&nbsp;8&nbsp;章&nbsp;使 LFS 系统可以启动
@@ -27,9 +27,10 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="grub.html" title="使用 GRUB 设置引导过程">下一页</a>
+          <a accesskey="n" href="grub.html" title=
+          "ä½¿ç¨ GRUB è®¾ç½®å¼å¯¼è¿ç¨">下一页</a>
           <p>
-            使用 GRUB 设置引导过程
+            ä½¿ç¨ GRUB è®¾ç½®å¼å¯¼è¿ç¨
           </p>
         </li>
         <li class="up">
@@ -38,14 +39,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-bootable-kernel" name="ch-bootable-kernel"></a>8.3.
-        Linux-3.5.2
+        Linux-3.5.4
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -152,7 +153,7 @@ Device Drivers  ---&gt;
           If desired, skip kernel configuration by copying the kernel config
           file, <code class="filename">.config</code>, from the host system
           (assuming it is available) to the unpacked <code class=
-          "filename">linux-3.5.2</code> directory. However, we do not
+          "filename">linux-3.5.4</code> directory. However, we do not
           recommend this option. It is often better to explore all the
           configuration menus and create the kernel configuration from
           scratch.
@@ -171,7 +172,7 @@ Device Drivers  ---&gt;
           "7.4.&nbsp;Device and Module Handling on an LFS System">第&nbsp;7.4&nbsp;节
           “Device and Module Handling on an LFS System”</a> and in the kernel
           documentation in the <code class=
-          "filename">linux-3.5.2/Documentation</code> directory. Also,
+          "filename">linux-3.5.4/Documentation</code> directory. Also,
           <code class="filename">modprobe.conf(5)</code> may be of interest.
         </p>
         <p>
@@ -195,7 +196,7 @@ Device Drivers  ---&gt;
         </p>
         <pre class="userinput">
 <kbd class=
-"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.5.2-lfs-SVN-20120829</kbd>
+"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.5.4-lfs-SVN-20120916</kbd>
 </pre>
         <p>
           <code class="filename">System.map</code> is a symbol file for the
@@ -206,7 +207,7 @@ Device Drivers  ---&gt;
           file:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v System.map /boot/System.map-3.5.2</kbd>
+<kbd class="command">cp -v System.map /boot/System.map-3.5.4</kbd>
 </pre>
         <p>
           The kernel configuration file <code class="filename">.config</code>
@@ -216,14 +217,14 @@ Device Drivers  ---&gt;
           is a good idea to keep this file for future reference:
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v .config /boot/config-3.5.2</kbd>
+<kbd class="command">cp -v .config /boot/config-3.5.4</kbd>
 </pre>
         <p>
           Install the documentation for the Linux kernel:
         </p>
         <pre class="userinput">
-<kbd class="command">install -d /usr/share/doc/linux-3.5.2
-cp -r Documentation/* /usr/share/doc/linux-3.5.2</kbd>
+<kbd class="command">install -d /usr/share/doc/linux-3.5.4
+cp -r Documentation/* /usr/share/doc/linux-3.5.4</kbd>
 </pre>
         <p>
           It is important to note that the files in the kernel source
@@ -242,7 +243,7 @@ cp -r Documentation/* /usr/share/doc/linux-3.5.2</kbd>
         <p>
           If the kernel source tree is going to be retained, run <span class=
           "command"><strong>chown -R 0:0</strong></span> on the <code class=
-          "filename">linux-3.5.2</code> directory to ensure all files are
+          "filename">linux-3.5.4</code> directory to ensure all files are
           owned by user <span class="emphasis"><em>root</em></span>.
         </p>
         <div class="admon warning">
@@ -313,13 +314,13 @@ EOF</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">Installed files:</strong> <span class=
-              "segbody">config-3.5.2, vmlinux-3.5.2-lfs-SVN-20120829-3.5.2,
-              and System.map-3.5.2</span>
+              "segbody">config-3.5.4, vmlinux-3.5.4-lfs-SVN-20120916-3.5.4,
+              and System.map-3.5.4</span>
             </div>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/lib/modules,
-              /usr/share/doc/linux-3.5.2</span>
+              /usr/share/doc/linux-3.5.4</span>
             </div>
           </div>
         </div>
@@ -334,7 +335,7 @@ EOF</kbd>
                 <td>
                   <p>
                     <a id="config" name="config"></a><span class=
-                    "term"><code class="filename">config-3.5.2</code></span>
+                    "term"><code class="filename">config-3.5.4</code></span>
                   </p>
                 </td>
                 <td>
@@ -348,7 +349,7 @@ EOF</kbd>
                   <p>
                     <a id="lfskernel" name="lfskernel"></a><span class=
                     "term"><code class=
-                    "filename">vmlinux-3.5.2-lfs-SVN-20120829</code></span>
+                    "filename">vmlinux-3.5.4-lfs-SVN-20120916</code></span>
                   </p>
                 </td>
                 <td>
@@ -369,7 +370,7 @@ EOF</kbd>
                   <p>
                     <a id="System.map" name="System.map"></a><span class=
                     "term"><code class=
-                    "filename">System.map-3.5.2</code></span>
+                    "filename">System.map-3.5.4</code></span>
                   </p>
                 </td>
                 <td>
@@ -394,9 +395,10 @@ EOF</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="grub.html" title="使用 GRUB 设置引导过程">下一页</a>
+          <a accesskey="n" href="grub.html" title=
+          "ä½¿ç¨ GRUB è®¾ç½®å¼å¯¼è¿ç¨">下一页</a>
           <p>
-            使用 GRUB 设置引导过程
+            ä½¿ç¨ GRUB è®¾ç½®å¼å¯¼è¿ç¨
           </p>
         </li>
         <li class="up">
@@ -405,7 +407,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120829">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
         </li>
       </ul>
     </div>
