@@ -67,7 +67,7 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.9.1. Installation of Glibc
+          6.9.1. 安装 Glibc
         </h2>
         <div class="admon note">
           <img alt="[注意]" src="../images/note.png" />
@@ -75,16 +75,13 @@
             注意
           </h3>
           <p>
-            Some packages outside of LFS suggest installing GNU libiconv in
-            order to translate data from one encoding to another. The
-            project's home page (<a class="ulink" href=
+            LFS 之外的某些程序包推荐安装 GNU libiconv 用于转换文本编码。此工程的主页 (<a class="ulink"
+            href=
             "http://www.gnu.org/software/libiconv/">http://www.gnu.org/software/libiconv/</a>)
-            says “<span class="quote">This library provides an <code class=
-            "function">iconv()</code> implementation, for use on systems
-            which don't have one, or whose implementation cannot convert
-            from/to Unicode.</span>” Glibc provides an <code class=
-            "function">iconv()</code> implementation and can convert from/to
-            Unicode, therefore libiconv is not required on an LFS system.
+            表示 “<span class="quote">此库提供一个 <code class=
+            "function">iconv()</code> 实现，用于没有提供此实现或无法操作 Unicode 的系统。</span>”
+            Glibc 提供一个 <code class="function">iconv()</code> 实现并且可以操作
+            Unicode，所以在 LFS 系统上不必安装 libiconv。
           </p>
         </div>
         <p>
