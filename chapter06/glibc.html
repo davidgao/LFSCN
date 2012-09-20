@@ -85,62 +85,53 @@
           </p>
         </div>
         <p>
-          The Glibc build system is self-contained and will install
-          perfectly, even though the compiler specs file and linker are still
-          pointing at <code class="filename">/tools</code>. The specs and
-          linker cannot be adjusted before the Glibc install because the
-          Glibc autoconf tests would give false results and defeat the goal
-          of achieving a clean build.
+          Glibc 编制系统是很完备的，即使编译器的 specs 文件和链接器仍然指向 <code class=
+          "filename">/tools</code> 也能完美地编制。specs 和链接器不能在 Glibc 安装之前进行，因为
+          Glibc 的 autoconf 测试会给出不正确的结果，也就无法实现清洁的编制。
         </p>
         <p>
-          Fix a problem that causes the build to fail in the LFS environment:
+          修复一个导致在 LFS 环境中导致编制失败的问题：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">sed -i 's#&lt;rpc/types.h&gt;#"rpc/types.h"#' sunrpc/rpc_clntout.c</kbd>
 </pre>
         <p>
-          When running <span class="command"><strong>make
-          install</strong></span>, a script called <code class=
-          "filename">test-installation.pl</code> performs a small sanity test
-          on our newly installed Glibc. Use a patch to fix the bug that
-          causes it to fail:
+          在运行 <span class="command"><strong>make install</strong></span>
+          的时候，一个叫做 <code class="filename">test-installation.pl</code>
+          的脚本会对新安装的 Glibc 进行一个小的稳定性测试。用一个补丁修复导致它失败的漏洞：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../glibc-2.16.0-fix_test_installation-1.patch</kbd>
 </pre>
         <p>
-          The <span class="command"><strong>ldd</strong></span> shell script
-          contains Bash-specific syntax. Change its default program
-          interpreter to <span class=
-          "command"><strong>/bin/bash</strong></span> in case another
-          <span class="command"><strong>/bin/sh</strong></span> is installed
-          as described in the <a class="ulink" href=
+          <span class="command"><strong>ldd</strong></span> 这个 shell 脚本包含
+          Bash 特有的语法。如果按照 BLFS 中 <a class="ulink" href=
           "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/shells.html">
-          Shells</a> chapter of the BLFS book:
+          Shells</a> 一章中的介绍安装了另外的 <span class=
+          "command"><strong>/bin/sh</strong></span>，将其默认解释器改为 <span class=
+          "command"><strong>/bin/bash</strong></span>：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i 's|@BASH@|/bin/bash|' elf/ldd.bash.in</kbd>
 </pre>
         <p>
-          Now fix a problem that causes some applications to crash when
-          utilizing problem nameservers:
+          现在修复一个在使用有问题的名称服务器时导致某些程序崩溃的问题：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../glibc-2.16.0-res_query_fix-1.patch</kbd>
 </pre>
         <p>
-          The Glibc documentation recommends building Glibc outside of the
-          source directory in a dedicated build directory:
+          Glibc 文档推荐在源代码目录外另建目录编译 Glibc：
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir -v ../glibc-build
 cd ../glibc-build</kbd>
 </pre>
         <p>
-          Prepare Glibc for compilation:
+          准备编译 Glibc：
         </p>
         <pre class="userinput">
 <kbd class="command">../glibc-2.16.0/configure  \
@@ -152,7 +143,7 @@ cd ../glibc-build</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the new configure options:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -161,16 +152,15 @@ cd ../glibc-build</kbd>
             </dt>
             <dd>
               <p>
-                This changes the location of the <span class=
-                "command"><strong>pt_chown</strong></span> program from its
-                default of <code class="filename">/usr/libexec</code> to
-                <code class="filename">/usr/lib/glibc</code>.
+                此项将 <span class="command"><strong>pt_chown</strong></span>
+                程序的位置从默认的 <code class="filename">/usr/libexec</code> 改为
+                <code class="filename">/usr/lib/glibc</code>。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
@@ -181,82 +171,70 @@ cd ../glibc-build</kbd>
             重要
           </h3>
           <p>
-            In this section, the test suite for Glibc is considered critical.
-            Do not skip it under any circumstance.
+            这一节中，Glibc 的测试套件是十分重要的。无论如何都不要跳过它。
           </p>
         </div>
         <p>
-          Generally a few tests do not pass, but you can generally ignore any
-          of the test failures listed below. Now test the build results:
+          通常有些测试无法通过，但你可以忽略以下列出的测试失败。现在测试结果：
         </p>
         <pre class="userinput">
 <kbd class="command">make -k check 2&gt;&amp;1 | tee glibc-check-log
 grep Error glibc-check-log</kbd>
 </pre>
         <p>
-          You will probably see an expected (ignored) failure in the
-          <span class="emphasis"><em>posix/annexc</em></span> and
+          你很可能会在 <span class="emphasis"><em>posix/annexc</em></span> 和
           <span class="emphasis"><em>conform/run-conformtest</em></span>
-          tests. In addition the Glibc test suite is somewhat dependent on
-          the host system. This is a list of the most common issues:
+          测试中看到期待的 (被忽略的) 测试失败。另外，Glibc 略微依赖宿主系统。以下列出最常见的问题：
         </p>
         <div class="itemizedlist">
           <ul>
             <li>
               <p>
-                The <span class="emphasis"><em>nptl/tst-clock2</em></span>,
-                <span class="emphasis"><em>nptl/tst-attr3</em></span>,
-                <span class="emphasis"><em>tst/tst-cputimer1</em></span>, and
-                <span class="emphasis"><em>rt/tst-cpuclock2</em></span> tests
-                have been known to fail. The reason is not completely
-                understood, but indications are that minor timing issues can
-                trigger these failures.
+                <span class=
+                "emphasis"><em>nptl/tst-clock2</em></span>、<span class=
+                "emphasis"><em>nptl/tst-attr3</em></span>、<span class=
+                "emphasis"><em>tst/tst-cputimer1</em></span> 和 <span class=
+                "emphasis"><em>rt/tst-cpuclock2</em></span>
+                已知无法通过。原因尚不完全明确，但可能是由于细微的时钟问题导致。
               </p>
             </li>
             <li>
               <p>
-                The math tests sometimes fail when running on systems where
-                the CPU is not a relatively new genuine Intel or authentic
-                AMD processor.
+                在不太新的 Intel/AMD CPU 上数学测试有时会无法通过。
               </p>
             </li>
             <li>
               <p>
-                When running on older and slower hardware or on systems under
-                load, some tests can fail because of test timeouts being
-                exceeded. Modifying the make check command to set a
-                TIMEOUTFACTOR is reported to help eliminate these errors
-                (e.g. <span class="command"><strong>TIMEOUTFACTOR=16 make -k
-                check</strong></span>).
+                在运行于较古老，较缓慢或者负荷很重的系统上时，有些测试会由于超时而无法通过。改动 make check 命令，设置一个
+                TIMEOUTFACTOR 已知可以减少这些错误 (例如 <span class=
+                "command"><strong>TIMEOUTFACTOR=16 make -k
+                check</strong></span>。
               </p>
             </li>
             <li>
               <p>
-                Other tests known to fail on some architectures are
-                posix/bug-regex32, misc/tst-writev, elf/check-textrel,
-                nptl/tst-getpid2, and stdio-common/bug22.
+                在某些架构上已知可能失败的测试包括
+                posix/bug-regex32、misc/tst-writev、elf/check-textrel、nptl/tst-getpid2
+                和 stdio-common/bug22。
               </p>
             </li>
           </ul>
         </div>
         <p>
-          Though it is a harmless message, the install stage of Glibc will
-          complain about the absence of <code class=
-          "filename">/etc/ld.so.conf</code>. Prevent this warning with:
+          虽然只是一个无害的消息，Glibc 的安装步骤会因为不存在 <code class=
+          "filename">/etc/ld.so.conf</code> 而报错。如此防止此警告：
         </p>
         <pre class="userinput">
 <kbd class="command">touch /etc/ld.so.conf</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Install NIS and RPC related headers that are not installed by
-          default; these are required to rebuild glibc and by several BLFS
-          packages:
+          安装默认没有安装的 NIS 和 RPC 相关的头文件；重新编制 glibc 和几个 BLFS 程序包要求它们：
         </p>
         <pre class="userinput">
 <kbd class="command">cp -v ../glibc-2.16.0/sunrpc/rpc/*.h /usr/include/rpc
@@ -264,23 +242,17 @@ cp -v ../glibc-2.16.0/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
 cp -v ../glibc-2.16.0/nis/rpcsvc/*.h /usr/include/rpcsvc</kbd>
 </pre>
         <p>
-          The locales that can make the system respond in a different
-          language were not installed by the above command. None of the
-          locales are required, but if some of them are missing, test suites
-          of the future packages would skip important testcases.
+          区域数据可以使系统以一种不同的语言响应，但没有被以上的命令安装。这些区域数据都不是必须的，但如果其中存在缺失，未来的程序包的测试套件可能会跳过重要的测试情况。
         </p>
         <p>
-          Individual locales can be installed using the <span class=
-          "command"><strong>localedef</strong></span> program. E.g., the
-          first <span class="command"><strong>localedef</strong></span>
-          command below combines the <code class=
-          "filename">/usr/share/i18n/locales/cs_CZ</code> charset-independent
-          locale definition with the <code class=
-          "filename">/usr/share/i18n/charmaps/UTF-8.gz</code> charmap
-          definition and appends the result to the <code class=
-          "filename">/usr/lib/locale/locale-archive</code> file. The
-          following instructions will install the minimum set of locales
-          necessary for the optimal coverage of tests:
+          分立的区域数据可以使用 <span class="command"><strong>localedef</strong></span>
+          程序安装。例如，以下第一条 <span class=
+          "command"><strong>localedef</strong></span> 命令将 <code class=
+          "filename">/usr/share/i18n/locales/cs_CZ</code> 这个独立于字符集的区域数据定义与
+          <code class="filename">/usr/share/i18n/charmaps/UTF-8.gz</code>
+          这个字符集定义组合，并将结果附加到 <code class=
+          "filename">/usr/lib/locale/locale-archive</code>
+          文件。以下指令会安装覆盖必要测试需要的最少区域数据：
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir -pv /usr/lib/locale
@@ -307,39 +279,32 @@ localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
 localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
 </pre>
         <p>
-          In addition, install the locale for your own country, language and
-          character set.
+          随后，安装你自己国家的区域数据。
         </p>
         <p>
-          Alternatively, install all locales listed in the <code class=
-          "filename">glibc-2.16.0/localedata/SUPPORTED</code> file (it
-          includes every locale listed above and many more) at once with the
-          following time-consuming command:
+          你可以用这样一条很消耗时间的命令一次性安装在 <code class=
+          "filename">glibc-2.16.0/localedata/SUPPORTED</code> 文件中列出的所有区域数据
+          (它包含以上所有，以及很多其他的区域数据)：
         </p>
         <pre class="userinput">
 <kbd class="command">make localedata/install-locales</kbd>
 </pre>
         <p>
-          Then use the <span class=
-          "command"><strong>localedef</strong></span> command to create and
-          install locales not listed in the <code class=
-          "filename">glibc-2.16.0/localedata/SUPPORTED</code> file in the
-          unlikely case you need them.
+          然后使用 <span class="command"><strong>localedef</strong></span> 命令创建
+          <code class="filename">glibc-2.16.0/localedata/SUPPORTED</code>
+          文件中没有列出的区域数据。需要它们的情况并不多见。(译注：简体中文 UTF-8 的用户不需要如此)。
         </p>
       </div>
       <div class="configuration" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="conf-glibc" name="conf-glibc"></a>6.9.2. Configuring Glibc
+          <a id="conf-glibc" name="conf-glibc"></a>6.9.2. 配置 Glibc
         </h2>
         <p>
-          The <code class="filename">/etc/nsswitch.conf</code> file needs to
-          be created because, although Glibc provides defaults when this file
-          is missing or corrupt, the Glibc defaults do not work well in a
-          networked environment. The time zone also needs to be configured.
+          需要创建 <code class="filename">/etc/nsswitch.conf</code> 这个文件，因为虽然
+          Glibc 在此文件缺失或损坏时提供默认值，在联网环境中这些默认值工作的并不好。另外还要配置时区。
         </p>
         <p>
-          Create a new file <code class="filename">/etc/nsswitch.conf</code>
-          by running the following:
+          运行以下命令创建 <code class="filename">/etc/nsswitch.conf</code>：
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; /etc/nsswitch.conf &lt;&lt; "EOF"
@@ -361,7 +326,7 @@ rpc: files
 EOF</kbd>
 </pre>
         <p>
-          Install timezone data:
+          安装时区数据：
         </p>
         <pre class="userinput">
 <kbd class="command">tar -xf ../tzdata2012e.tar.gz
@@ -383,7 +348,7 @@ unset ZONEINFO</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the zic commands:</b>
+            <b>zic 命令的含义：</b>
           </p>
           <dl>
             <dt>
@@ -392,16 +357,13 @@ unset ZONEINFO</kbd>
             </dt>
             <dd>
               <p>
-                This creates posix timezones, without any leap seconds. It is
-                conventional to put these in both <code class=
-                "filename">zoneinfo</code> and <code class=
-                "filename">zoneinfo/posix</code>. It is necessary to put the
-                POSIX timezones in <code class="filename">zoneinfo</code>,
-                otherwise various test-suites will report errors. On an
-                embedded system, where space is tight and you do not intend
-                to ever update the timezones, you could save 1.9MB by not
-                using the <code class="filename">posix</code> directory, but
-                some applications or test-suites might give less good results
+                此项创建 posix 时区，不包含闰秒。将它们置于 <code class=
+                "filename">zoneinfo</code> 和 <code class=
+                "filename">zoneinfo/posix</code> 是一种惯例。将 POSIX 时区置于
+                <code class="filename">zoneinfo</code>
+                中是必要的，否则有的测试套件就会报错。在嵌入式系统中，空间并不充足，你也不会想要更新时区，就可以不使用
+                <code class="filename">posix</code> 目录，能够节省
+                1.9MB，但是某些应用程序或者测试套件的结果可能不会很理想
               </p>
             </dd>
             <dt>
