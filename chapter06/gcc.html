@@ -232,23 +232,20 @@ cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</kbd>
 </pre>
         <p>
-          If everything is working correctly, there should be no errors, and
-          the output of the last command will be (allowing for
-          platform-specific differences in dynamic linker name):
+          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异) 应为：
         </p>
         <pre class="screen">
 <code class=
 "computeroutput">[Requesting program interpreter: /lib/ld-linux.so.2]</code>
 </pre>
         <p>
-          Now make sure that we're setup to use the correct startfiles:
+          现在确保设置为使用正确的起始文件：
         </p>
         <pre class="userinput">
 <kbd class="command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd>
 </pre>
         <p>
-          If everything is working correctly, there should be no errors, and
-          the output of the last command will be:
+          如果一切工作正常，就不应改出错，最后一条命令的输出应为：
         </p>
         <pre class="screen">
 <code class=
@@ -268,13 +265,13 @@ readelf -l a.out | grep ': /lib'</kbd>
           "filename">/usr/lib</code> directory.
         </p>
         <p>
-          Verify that the compiler is searching for the correct header files:
+          检查一下编译器是否寻找正确的头文件：
         </p>
         <pre class="userinput">
 <kbd class="command">grep -B4 '^ /usr/include' dummy.log</kbd>
 </pre>
         <p>
-          This command should return successfully with the following output:
+          此命令应该成功返回并给出以下输出：
         </p>
         <pre class="screen">
 <code class="computeroutput">#include &lt;...&gt; search starts here:
@@ -300,16 +297,13 @@ readelf -l a.out | grep ': /lib'</kbd>
           </p>
         </div>
         <p>
-          Next, verify that the new linker is being used with the correct
-          search paths:
+          下一步检查新的链接器使用正确的搜索路径：
         </p>
         <pre class="userinput">
 <kbd class="command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd>
 </pre>
         <p>
-          If everything is working correctly, there should be no errors, and
-          the output of the last command (allowing for platform-specific
-          target triplets) will be:
+          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许目标三联字串中有针对平台的差异) 应为：
         </p>
         <pre class="screen">
 <code class="computeroutput">SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")
@@ -333,44 +327,36 @@ SEARCH_DIR("/lib")
 SEARCH_DIR("/usr/lib");</code>
 </pre>
         <p>
-          Next make sure that we're using the correct libc:
+          下一步确认我们使用的是正确的 libc：
         </p>
         <pre class="userinput">
 <kbd class="command">grep "/lib.*/libc.so.6 " dummy.log</kbd>
 </pre>
         <p>
-          If everything is working correctly, there should be no errors, and
-          the output of the last command (allowing for a lib64 directory on
-          64-bit hosts) will be:
+          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许 64 位宿主上有 lib64 目录) 应为：
         </p>
         <pre class="screen">
 <code class="computeroutput">attempt to open /lib/libc.so.6 succeeded</code>
 </pre>
         <p>
-          Lastly, make sure GCC is using the correct dynamic linker:
+          最后，确保 GCC 使用正确的动态链接器：
         </p>
         <pre class="userinput">
 <kbd class="command">grep found dummy.log</kbd>
 </pre>
         <p>
-          If everything is working correctly, there should be no errors, and
-          the output of the last command will be (allowing for
-          platform-specific differences in dynamic linker name and a lib64
-          directory on 64-bit hosts):
+          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异、64 位宿主上有 lib64 目录)
+          应为：
         </p>
         <pre class="screen">
 <code class="computeroutput">found ld-linux.so.2 at /lib/ld-linux.so.2</code>
 </pre>
         <p>
-          If the output does not appear as shown above or is not received at
-          all, then something is seriously wrong. Investigate and retrace the
-          steps to find out where the problem is and correct it. The most
-          likely reason is that something went wrong with the specs file
-          adjustment. Any issues will need to be resolved before continuing
-          on with the process.
+          如果输出不如上文所示或者根本没有输出，那么一定有某个地方严重出错了。回溯步骤，找出问题并且修正。最可能出现的原因是 specs
+          文件调节出错。在进行下一步之前一定要解决所有问题。
         </p>
         <p>
-          Once everything is working correctly, clean up the test files:
+          一切都正常工作之后，清理测试文件：
         </p>
         <pre class="userinput">
 <kbd class="command">rm -v dummy.c a.out dummy.log</kbd>
