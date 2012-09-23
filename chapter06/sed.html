@@ -65,16 +65,16 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.18.1. Installation of Sed
+          6.18.1. 安装 Sed
         </h2>
         <p>
-          First, fix some regression tests:
+          首先，修复一些回归测试
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../sed-4.2.1-testsuite_fixes-1.patch</kbd>
 </pre>
         <p>
-          Prepare Sed for compilation:
+          准备编译 Sed：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -82,7 +82,7 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the new configure option:</b>
+            <b>新的配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -91,38 +91,37 @@
             </dt>
             <dd>
               <p>
-                This sets the directory where the HTML documentation will be
-                installed to.
+                此项设置将要安装 HTML 文档的目录。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          Generate the HTML documentation:
+          生成 HTML 文档：
         </p>
         <pre class="userinput">
 <kbd class="command">make html</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Install the HTML documentation:
+          安装 HTML 文档：
         </p>
         <pre class="userinput">
 <kbd class="command">make -C doc install-html</kbd>
@@ -135,18 +134,18 @@
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed program:</strong>
-              <span class="segbody">sed</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">sed</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/share/doc/sed-4.2.1</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/share/doc/sed-4.2.1</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -160,7 +159,7 @@
                 </td>
                 <td>
                   <p>
-                    Filters and transforms text files in a single pass
+                    通过一次简单的操作筛选和改变文本文件
                   </p>
                 </td>
               </tr>
