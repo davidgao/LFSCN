@@ -66,71 +66,64 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.13.1. Installation of Binutils
+          6.13.1. 安装 Binutils
         </h2>
         <p>
-          Verify that the PTYs are working properly inside the chroot
-          environment by performing a simple test:
+          运行一个简单的测试确认 PTY 在 chroot 环境中正常工作：
         </p>
         <pre class="userinput">
 <kbd class="command">expect -c "spawn ls"</kbd>
 </pre>
         <p>
-          This command should output the following:
+          此命令应该输出以下信息：
         </p>
         <pre class="screen">
 <code class="computeroutput">spawn ls</code>
 </pre>
         <p>
-          If, instead, the output includes the message below, then the
-          environment is not set up for proper PTY operation. This issue
-          needs to be resolved before running the test suites for Binutils
-          and GCC:
+          如果输出包含以下消息，那就意味着环境没有为 PTY 操作设置好。此问题需要在运行 Binutils 和 GCC 的测试套件之前解决：
         </p>
         <pre class="screen">
 <code class="computeroutput">The system has no more ptys.
 Ask your system administrator to create more.</code>
 </pre>
         <p>
-          Suppress the installation of an outdated <code class=
-          "filename">standards.info</code> file as a newer one is installed
-          later on in the Autoconf instructions:
+          阻止安装一个过时的 <code class="filename">standards.info</code> 文件，因为稍后在
+          Autoconf 指令中会安装一个更新的：
         </p>
         <pre class="userinput">
 <kbd class="command">rm -fv etc/standards.info
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in</kbd>
 </pre>
         <p>
-          Apply a patch to prevent a build failure when using compiler
-          optimizations:
+          应用一个补丁防止在使用编译器优化是编制失败：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../binutils-2.22-build_fix-1.patch</kbd>
 </pre>
         <p>
-          The Binutils documentation recommends building Binutils outside of
-          the source directory in a dedicated build directory:
+          Binutils 文档推荐在源代码目录外另建目录编制 Binutils：
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir -v ../binutils-build
 cd ../binutils-build</kbd>
 </pre>
         <p>
-          Prepare Binutils for compilation:
+          准备编译 Binutils：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">../binutils-2.22/configure --prefix=/usr --enable-shared</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make tooldir=/usr</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the make parameter:</b>
+            <b>make 参数的含义：</b>
           </p>
           <dl>
             <dt>
