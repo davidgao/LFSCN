@@ -49,9 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Util-linux package contains miscellaneous utility programs.
-          Among them are utilities for handling file systems, consoles,
-          partitions, and messages.
+          Util-linux 程序包包含大量工具程序。其中有处理文件系统、控制台、分区和消息的程序。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -68,15 +66,13 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.22.1. FHS compliance notes
+          6.22.1. FHS 兼容注记
         </h2>
         <p>
-          The FHS recommends using the <code class=
-          "filename">/var/lib/hwclock</code> directory instead of the usual
-          <code class="filename">/etc</code> directory as the location for
-          the <code class="filename">adjtime</code> file. To make the
-          <span class="command"><strong>hwclock</strong></span> program
-          FHS-compliant, run the following:
+          FHS 推荐使用 <code class="filename">/var/lib/hwclock</code> 目录而不是通常的
+          <code class="filename">/etc</code> 目录作为 <code class=
+          "filename">adjtime</code> 文件的位置。要使 <span class=
+          "command"><strong>hwclock</strong></span> 程序兼容 FHS，运行以下：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
@@ -87,7 +83,7 @@ mkdir -pv /var/lib/hwclock</kbd>
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.22.2. Installation of Util-linux
+          6.22.2. 安装 Util-linux
         </h2>
         <pre class="userinput">
 <kbd class=
@@ -95,7 +91,7 @@ mkdir -pv /var/lib/hwclock</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure option:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -104,28 +100,28 @@ mkdir -pv /var/lib/hwclock</kbd>
             </dt>
             <dd>
               <p>
-                These switches disable building su, sulogin, and login. They
-                duplicate the same programs provided by <a class="xref" href=
+                这些开关禁用编制 su、sulogin 和 login。它们与 <a class="xref" href=
                 "shadow.html" title=
                 "6.25.&nbsp;Shadow-4.1.5.1">第&nbsp;6.25&nbsp;节
-                “Shadow-4.1.5.1”</a>. They also require <a class="ulink"
-                href="http://www.linuxfromscratch.org/blfs//view/svn/postlfs/linux-pam.html">
-                Linux-PAM</a> which is not available in LFS.
+                “Shadow-4.1.5.1”</a> 提供的副本重复了，并且需求 LFS 中不可用的 <a class="ulink"
+                href=
+                "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/linux-pam.html">
+                Linux-PAM</a>。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          此程序包不包含测试套件。
         </p>
         <p>
-          Install the package:
+          安装程序包
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -134,43 +130,30 @@ mkdir -pv /var/lib/hwclock</kbd>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
           <a id="contents-utillinux" name="contents-utillinux"></a>6.22.3.
-          Contents of Util-linux
+          Util-linux 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">addpart, agetty, blkid, blockdev, cal,
-              cfdisk, chcpu, chkdupexe, chrt, col, colcrt, colrm, column,
-              ctrlaltdel, cytune, delpart, dmesg, fallocate, fdformat, fdisk,
-              findfs, findmnt, flock, fsck, fsck.cramfs, fsck.minix,
-              fsfreeze, fstrim, getopt, hexdump, hwclock, i386, ionice,
-              ipcmk, ipcrm, ipcs, isosize, ldattach, linux32, linux64,
-              logger, look, losetup, lsblk, lscpu, mcookie, mkfs, mkfs.bfs,
-              mkfs.cramfs, mkfs.minix, mkswap, more, mount, mountpoint,
-              namei, partx, pg, pivot_root, prlimit, raw, readprofile,
-              rename, renice, rev, rtcwake, script, scriptreplay, setarch,
-              setsid, setterm, sfdisk, swaplabel, swapoff (link to swapon),
-              swapon, switch_root, tailf, taskset, tunelp, ul, umount,
-              unshare, uuidd, uuidgen, wall, whereis, wipefs, and
-              x86_64</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">addpart、agetty、blkid、blockdev、cal、cfdisk、chcpu、chkdupexe、chrt、col、colcrt、colrm、column、ctrlaltdel、cytune、delpart、dmesg、fallocate、fdformat、fdisk、findfs、findmnt、flock、fsck、fsck.cramfs、fsck.minix、fsfreeze、fstrim、getopt、hexdump、hwclock、i386、ionice、ipcmk、ipcrm、ipcs、isosize、ldattach、linux32、linux64、logger、look、losetup、lsblk、lscpu、mcookie、mkfs、mkfs.bfs、mkfs.cramfs、mkfs.minix、mkswap、more、mount、mountpoint、namei、partx、pg、pivot_root、prlimit、raw、readprofile、rename、renice、rev、rtcwake、script、scriptreplay、setarch、setsid、setterm、sfdisk、swaplabel、swapoff
+              (到 swapon
+              的链接)、swapon、switch_root、tailf、taskset、tunelp、ul、umount、unshare、uuidd、uuidgen、wall、whereis、wipefs
+              和 x86_64</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">libblkid.{a,so}, libmount.{a,so},
-              libuuid.{a,so}</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">libblkid.{a,so}、libmount.{a,so}、libuuid.{a,so}</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/usr/include/blkid,
-              /usr/include/libmount, /usr/include/uuid, /usr/share/getopt,
-              /var/lib/hwclock</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/include/blkid、/usr/include/libmount、/usr/include/uuid、/usr/share/getopt、/var/lib/hwclock</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -185,7 +168,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Informs the Linux kernel of new partitions
+                    通知内核有新的分区
                   </p>
                 </td>
               </tr>
@@ -199,9 +182,8 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Opens a tty port, prompts for a login name, and then
-                    invokes the <span class=
-                    "command"><strong>login</strong></span> program
+                    打开一个 tty 端口，提示输入登录名然后调用 <span class=
+                    "command"><strong>login</strong></span> 程序
                   </p>
                 </td>
               </tr>
@@ -215,8 +197,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A command line utility to locate and print block device
-                    attributes
+                    一个命令行工具，定位并打印块设备属性
                   </p>
                 </td>
               </tr>
@@ -230,8 +211,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Allows users to call block device ioctls from the command
-                    line
+                    允许用户从命令行调用块设备 ioctls
                   </p>
                 </td>
               </tr>
@@ -244,7 +224,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Displays a simple calendar
+                    显示一个简单的日历
                   </p>
                 </td>
               </tr>
@@ -258,7 +238,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Manipulates the partition table of the given device
+                    修改给定设备的分区表
                   </p>
                 </td>
               </tr>
@@ -272,7 +252,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Modifies the state of CPUs
+                    修改 CPU 状态
                   </p>
                 </td>
               </tr>
@@ -286,7 +266,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Finds duplicate executables
+                    查找重复的可执行文件
                   </p>
                 </td>
               </tr>
@@ -300,7 +280,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Manipulates real-time attributes of a process
+                    修改进程的实时属性
                   </p>
                 </td>
               </tr>
@@ -313,7 +293,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Filters out reverse line feeds
+                    筛选反向换行
                   </p>
                 </td>
               </tr>
@@ -327,10 +307,8 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Filters <span class=
-                    "command"><strong>nroff</strong></span> output for
-                    terminals that lack some capabilities, such as
-                    overstriking and half-lines
+                    为缺乏重叠字符和半行等兼容性的终端筛选 <span class=
+                    "command"><strong>nroff</strong></span> 输出
                   </p>
                 </td>
               </tr>
@@ -344,7 +322,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Filters out the given columns
+                    筛选指定的栏目
                   </p>
                 </td>
               </tr>
@@ -358,7 +336,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Formats a given file into multiple columns
+                    将指定文件格式化分成多栏
                   </p>
                 </td>
               </tr>
@@ -372,8 +350,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Sets the function of the Ctrl+Alt+Del key combination to
-                    a hard or a soft reset
+                    将 Ctrl+Alt+Del 组合键的功能设置为硬重启或软重启
                   </p>
                 </td>
               </tr>
@@ -387,8 +364,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Tunes the parameters of the serial line drivers for
-                    Cyclades cards
+                    调节 Cyclades 卡的串行线路驱动参数
                   </p>
                 </td>
               </tr>
@@ -402,7 +378,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Asks the Linux kernel to remove a partition
+                    要求 Linux 内核移除一个分区
                   </p>
                 </td>
               </tr>
@@ -416,7 +392,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Dumps the kernel boot messages
+                    转储内核引导消息
                   </p>
                 </td>
               </tr>
@@ -430,7 +406,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Preallocates space to a file
+                    给文件预先分配空间
                   </p>
                 </td>
               </tr>
@@ -444,7 +420,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Low-level formats a floppy disk
+                    低级格式化软盘
                   </p>
                 </td>
               </tr>
@@ -458,7 +434,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Manipulates the paritition table of the given device
+                    修改给定设备的分区表
                   </p>
                 </td>
               </tr>
@@ -472,8 +448,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Finds a file system by label or Universally Unique
-                    Identifier (UUID)
+                    按标签或通用唯一识别码 (UUID) 寻找文件系统
                   </p>
                 </td>
               </tr>
@@ -487,8 +462,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Is a command line interface to the libmount library for
-                    work with mountinfo, fstab and mtab files
+                    是 libmount 库的一个命令行界面，用于与 mountinfo、fstab 和 mtab 文件一同工作
                   </p>
                 </td>
               </tr>
@@ -502,8 +476,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Acquires a file lock and then executes a command with the
-                    lock held
+                    获得一个文件锁然后在保持之的状态下运行一条命令
                   </p>
                 </td>
               </tr>
@@ -517,7 +490,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Is used to check, and optionally repair, file systems
+                    用于检查或者修复文件系统
                   </p>
                 </td>
               </tr>
@@ -531,8 +504,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Performs a consistency check on the Cramfs file system on
-                    the given device
+                    对给定设备上的 Cramfs 文件系统进行容量检查
                   </p>
                 </td>
               </tr>
@@ -546,8 +518,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Performs a consistency check on the Minix file system on
-                    the given device
+                    对给定设备上的 Minix 文件系统进行容量检查
                   </p>
                 </td>
               </tr>
@@ -561,8 +532,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Is a very simple wrapper around FIFREEZE/FITHAW ioctl
-                    kernel driver operations
+                    一个非常简单的 FIFREEZE/FITHAW ioctl 内核驱动操作包裹
                   </p>
                 </td>
               </tr>
@@ -576,7 +546,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Discards unused blocks on a mounted filesystem
+                    在挂载的文件系统上弃置未使用的块
                   </p>
                 </td>
               </tr>
@@ -590,7 +560,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Parses options in the given command line
+                    解析给定命令行的选项
                   </p>
                 </td>
               </tr>
@@ -604,8 +574,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Dumps the given file in hexadecimal or in another given
-                    format
+                    以十六进制或其他给定格式转储给定文件
                   </p>
                 </td>
               </tr>
@@ -619,9 +588,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Reads or sets the system's hardware clock, also called
-                    the Real-Time Clock (RTC) or Basic Input-Output System
-                    (BIOS) clock
+                    读取或者设置系统的硬件时钟，也叫做实时时钟 (RTC) 或者基本输入输出系统 (BIOS) clock
                   </p>
                 </td>
               </tr>
@@ -635,7 +602,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A symbolic link to setarch
+                    到 setarch 的符号链接
                   </p>
                 </td>
               </tr>
@@ -649,8 +616,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Gets or sets the io scheduling class and priority for a
-                    program
+                    获取或设置一个程序的时间表类别和优先级
                   </p>
                 </td>
               </tr>
@@ -664,7 +630,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Creates various IPC resources
+                    创建多种 IPC 资源
                   </p>
                 </td>
               </tr>
@@ -678,8 +644,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Removes the given Inter-Process Communication (IPC)
-                    resource
+                    移除给定的 IPC 资源
                   </p>
                 </td>
               </tr>
@@ -693,7 +658,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Provides IPC status information
+                    提供 IPC 状态信息
                   </p>
                 </td>
               </tr>
@@ -707,7 +672,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Reports the size of an iso9660 file system
+                    报告 iso9660 文件系统的尺寸
                   </p>
                 </td>
               </tr>
@@ -721,7 +686,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Attaches a line discipline to a serial line
+                    给串行线路附加一个行约束
                   </p>
                 </td>
               </tr>
@@ -735,7 +700,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A symbolic link to setarch
+                    到 setarch 的符号链接
                   </p>
                 </td>
               </tr>
@@ -749,7 +714,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A symbolic link to setarch
+                    到 setarch 的符号链接
                   </p>
                 </td>
               </tr>
@@ -763,7 +728,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Enters the given message into the system log
+                    将给定的消息写入系统日志
                   </p>
                 </td>
               </tr>
@@ -777,7 +742,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Displays lines that begin with the given string
+                    显示以给定字符串开始的行
                   </p>
                 </td>
               </tr>
@@ -791,7 +756,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Sets up and controls loop devices
+                    设置并控制回环设备
                   </p>
                 </td>
               </tr>
@@ -805,8 +770,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Lists information about all or selected block devices in
-                    a tree-like format.
+                    树形列出所有或者选中的块设备的信息
                   </p>
                 </td>
               </tr>
@@ -820,7 +784,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Prints CPU architecture information
+                    打印出 CPU 架构信息
                   </p>
                 </td>
               </tr>
@@ -834,9 +798,8 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Generates magic cookies (128-bit random hexadecimal
-                    numbers) for <span class=
-                    "command"><strong>xauth</strong></span>
+                    创建 magic cookies (128 位十六进制数) 供 <span class=
+                    "command"><strong>xauth</strong></span> 使用
                   </p>
                 </td>
               </tr>
@@ -850,8 +813,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Builds a file system on a device (usually a hard disk
-                    partition)
+                    在设备 (通常是硬盘) 上创建文件系统
                   </p>
                 </td>
               </tr>
@@ -865,7 +827,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Creates a Santa Cruz Operations (SCO) bfs file system
+                    创建 Santa Cruz Operations (SCO) bfs 文件系统
                   </p>
                 </td>
               </tr>
@@ -879,7 +841,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Creates a cramfs file system
+                    创建 cramfs 文件系统
                   </p>
                 </td>
               </tr>
@@ -893,7 +855,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Creates a Minix file system
+                    创建 Minix 文件系统
                   </p>
                 </td>
               </tr>
@@ -907,8 +869,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Initializes the given device or file to be used as a swap
-                    area
+                    将给定的设备或者文件初始化并用于交换区
                   </p>
                 </td>
               </tr>
@@ -922,7 +883,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A filter for paging through text one screen at a time
+                    一个筛选器，在屏幕上分页显示文本
                   </p>
                 </td>
               </tr>
@@ -936,8 +897,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Attaches the file system on the given device to a
-                    specified directory in the file-system tree
+                    将给定设备上的文件系统挂载到文件系统树中的指定目录
                   </p>
                 </td>
               </tr>
@@ -951,7 +911,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Checks if the directory is a mountpoint
+                    检查目录是否是挂载点
                   </p>
                 </td>
               </tr>
@@ -965,7 +925,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Shows the symbolic links in the given pathnames
+                    显示给定路径名中的符号链接
                   </p>
                 </td>
               </tr>
@@ -979,8 +939,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Tells the kernel about the presence and numbering of
-                    on-disk partitions
+                    将磁盘上分区的存在和编号告知内核
                   </p>
                 </td>
               </tr>
@@ -993,7 +952,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Displays a text file one screen full at a time
+                    显示文本文件，每次一整个屏幕
                   </p>
                 </td>
               </tr>
@@ -1007,8 +966,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Makes the given file system the new root file system of
-                    the current process
+                    使给定的文件成为当前进程新的根文件系统
                   </p>
                 </td>
               </tr>
@@ -1022,7 +980,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Get and set a process' resource limits
+                    获取并设置一个进程的资源限制
                   </p>
                 </td>
               </tr>
@@ -1035,7 +993,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Bind a Linux raw character device to a block device
+                    将一个 Linux 字符设备捆绑到一个块设备上
                   </p>
                 </td>
               </tr>
@@ -1049,7 +1007,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Reads kernel profiling information
+                    如去内核分析信息
                   </p>
                 </td>
               </tr>
@@ -1063,8 +1021,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Renames the given files, replacing a given string with
-                    another
+                    重命名给定文件，将给定字符串替换为另一个
                   </p>
                 </td>
               </tr>
@@ -1078,7 +1035,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Alters the priority of running processes
+                    调节运行中进程的优先级
                   </p>
                 </td>
               </tr>
@@ -1091,7 +1048,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Reverses the lines of a given file
+                    将给定文件按行倒序输出
                   </p>
                 </td>
               </tr>
@@ -1105,8 +1062,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to enter a system sleep state until specified wakeup
-                    time
+                    用于进入系统睡眠状态直到指定的唤醒时间
                   </p>
                 </td>
               </tr>
@@ -1120,7 +1076,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Makes a typescript of a terminal session
+                    为一个终端会话制作打字稿
                   </p>
                 </td>
               </tr>
@@ -1134,7 +1090,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Plays back typescripts using timing information
+                    使用计时信息回放打字稿
                   </p>
                 </td>
               </tr>
@@ -1148,8 +1104,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Changes reported architecture in a new program
-                    environment and sets personality flags
+                    在新的程序环境中改变报告的架构并设置个性标记
                   </p>
                 </td>
               </tr>
@@ -1163,7 +1118,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Runs the given program in a new session
+                    在新的会话中运行指定程序
                   </p>
                 </td>
               </tr>
@@ -1177,7 +1132,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Sets terminal attributes
+                    设置终端属性
                   </p>
                 </td>
               </tr>
@@ -1191,7 +1146,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A disk partition table manipulator
+                    一个磁盘分区表修改工具
                   </p>
                 </td>
               </tr>
@@ -1205,7 +1160,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Allows to change swaparea UUID and label
+                    允许改变交换空间的 UUID 和标签
                   </p>
                 </td>
               </tr>
@@ -1219,7 +1174,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Disables devices and files for paging and swapping
+                    禁用文件和设备的交换和分页
                   </p>
                 </td>
               </tr>
@@ -1233,8 +1188,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Enables devices and files for paging and swapping and
-                    lists the devices and files currently in use
+                    启用文件和设备的交换和分页并列出正在使用的文件和设备
                   </p>
                 </td>
               </tr>
@@ -1248,8 +1202,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Switches to another filesystem as the root of the mount
-                    tree
+                    切换到另一个文件系统作为挂载树的根
                   </p>
                 </td>
               </tr>
@@ -1263,9 +1216,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Tracks the growth of a log file. Displays the last 10
-                    lines of a log file, then continues displaying any new
-                    entries in the log file as they are created
+                    追踪一个日志文件的膨胀；显示其最后 10 行然后每当有新条目创建时显示之
                   </p>
                 </td>
               </tr>
@@ -1279,7 +1230,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Retrieves or sets a process' CPU affinity
+                    取回或者设置一个进程的 CPU 亲和力
                   </p>
                 </td>
               </tr>
@@ -1293,7 +1244,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Tunes the parameters of the line printer
+                    调节行打印机的参数
                   </p>
                 </td>
               </tr>
@@ -1306,8 +1257,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A filter for translating underscores into escape
-                    sequences indicating underlining for the terminal in use
+                    一个筛选器，将下划线翻译成供当前终端使用的转义序列
                   </p>
                 </td>
               </tr>
@@ -1321,7 +1271,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Disconnects a file system from the system's file tree
+                    将一个文件系统从系统的文件树上断开
                   </p>
                 </td>
               </tr>
@@ -1335,7 +1285,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Runs a program with some namespaces unshared from parent
+                    运行一个程序，使其某些命名空间独立于父进程
                   </p>
                 </td>
               </tr>
@@ -1349,8 +1299,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A daemon used by the UUID library to generate time-based
-                    UUIDs in a secure and guranteed-unique fashion.
+                    一个 daemon，被 UUID 库用于以安全并保证不同的方法创建基于时间的 UUID。
                   </p>
                 </td>
               </tr>
@@ -1364,10 +1313,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Creates new UUIDs. Each new UUID can reasonably be
-                    considered unique among all UUIDs created, on the local
-                    system and on other systems, in the past and in the
-                    future
+                    创建新的 UUID。每个新的 UUID 都可以认为是唯一的，无论在本机系统上还是其他系统上，无论过去还是未来
                   </p>
                 </td>
               </tr>
@@ -1381,9 +1327,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Displays the contents of a file or, by default, its
-                    standard input, on the terminals of all currently logged
-                    in users
+                    在当前登录的所有用户的终端上显示文件内容，默认显示标准输入
                   </p>
                 </td>
               </tr>
@@ -1397,8 +1341,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Reports the location of the binary, source, and man page
-                    for the given command
+                    报告给定命令的二进制、源代码和手册页的位置
                   </p>
                 </td>
               </tr>
@@ -1412,7 +1355,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Wipes a filesystem signature from a device
+                    从设备擦除文件系统签名
                   </p>
                 </td>
               </tr>
@@ -1426,7 +1369,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    A symbolic link to setarch
+                    到 setarch 的符号链接
                   </p>
                 </td>
               </tr>
@@ -1439,8 +1382,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Contains routines for device identification and token
-                    extraction
+                    包含用于设备识别和标记提取的途径
                   </p>
                 </td>
               </tr>
@@ -1453,8 +1395,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Contains routines for block device mounting and
-                    unmounting
+                    包含用于块设备挂载和卸载的途径
                   </p>
                 </td>
               </tr>
@@ -1467,8 +1408,7 @@ mkdir -pv /var/lib/hwclock</kbd>
                 </td>
                 <td>
                   <p>
-                    Contains routines for generating unique identifiers for
-                    objects that may be accessible beyond the local system
+                    包含用于创建可能在本地系统以外能够访问的对象的唯一标识符的途径
                   </p>
                 </td>
               </tr>
