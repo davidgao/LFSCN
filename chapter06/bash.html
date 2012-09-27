@@ -65,17 +65,16 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.33.1. Installation of Bash
+          6.33.1. 安装 Bash
         </h2>
         <p>
-          First, apply the following patch to fix various bugs that have been
-          addressed upstream:
+          首先应用以下补丁修复上游指出的多个漏洞：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../bash-4.2-fixes-9.patch</kbd>
 </pre>
         <p>
-          Prepare Bash for compilation:
+          准备编译 Bash：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr                     \
@@ -86,7 +85,7 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -95,8 +94,7 @@
             </dt>
             <dd>
               <p>
-                This option designates the directory into which HTML
-                formatted documentation will be installed.
+                此选项指定 HTML 格式的文档的安装目录。
               </p>
             </dd>
             <dt>
@@ -105,47 +103,42 @@
             </dt>
             <dd>
               <p>
-                This option tells Bash to use the <code class=
-                "filename">readline</code> library that is already installed
-                on the system rather than using its own readline version.
+                此选项告诉 Bash 使用系统上已经安装的 <code class="filename">readline</code>
+                库而不使用自己的 readline 版本。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          Skip down to “<span class="quote">Install the package</span>” if
-          not running the test suite.
+          如果不运行测试套件那么跳到 “<span class="quote">安装程序包</span>”。
         </p>
         <p>
-          To prepare the tests, ensure that the <code class=
-          "systemitem">nobody</code> user can write to the sources tree:
+          要准备测试，确保 <code class="systemitem">nobody</code> 用户可以写入源代码树：
         </p>
         <pre class="userinput">
 <kbd class="command">chown -Rv nobody .</kbd>
 </pre>
         <p>
-          Now, run the tests as the <code class="systemitem">nobody</code>
-          user:
+          现在，作为 <code class="systemitem">nobody</code> 用户运行测试：
         </p>
         <pre class="userinput">
 <kbd class="command">su nobody -s /bin/bash -c "PATH=$PATH make tests"</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Run the newly compiled <span class=
-          "command"><strong>bash</strong></span> program (replacing the one
-          that is currently being executed):
+          运行新编译的 <span class="command"><strong>bash</strong></span> 程序
+          (替换掉现在在运行的副本)：
         </p>
         <pre class="userinput">
 <kbd class="command">exec /bin/bash --login +h</kbd>
@@ -156,10 +149,8 @@
             注意
           </h3>
           <p>
-            The parameters used make the <span class=
-            "command"><strong>bash</strong></span> process an interactive
-            login shell and continue to disable hashing so that new programs
-            are found as they become available.
+            这些选项使 <span class="command"><strong>bash</strong></span>
+            进程成为一个交互的登录 shell 并且继续禁用哈希使得新的程序一旦被可用就会立刻被发现。
           </p>
         </div>
       </div>
@@ -170,19 +161,18 @@
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">bash, bashbug, and sh (link to
-              bash)</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">bash、bashbug 和 sh (到 bash 的链接)</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/share/doc/bash-4.2</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/share/doc/bash-4.2</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -197,10 +187,7 @@
                 </td>
                 <td>
                   <p>
-                    A widely-used command interpreter; it performs many types
-                    of expansions and substitutions on a given command line
-                    before executing it, thus making this interpreter a
-                    powerful tool
+                    一个广泛使用的翻译器；在运行命令之前对其进行很多扩展和替换，使其成为一个强大的工具
                   </p>
                 </td>
               </tr>
@@ -214,9 +201,8 @@
                 </td>
                 <td>
                   <p>
-                    A shell script to help the user compose and mail standard
-                    formatted bug reports concerning <span class=
-                    "command"><strong>bash</strong></span>
+                    一个 shell 脚本，帮助用户组织和发送标准格式的有关 <span class=
+                    "command"><strong>bash</strong></span> 的漏洞报告
                   </p>
                 </td>
               </tr>
@@ -229,14 +215,12 @@
                 </td>
                 <td>
                   <p>
-                    A symlink to the <span class=
-                    "command"><strong>bash</strong></span> program; when
-                    invoked as <span class=
-                    "command"><strong>sh</strong></span>, <span class=
-                    "command"><strong>bash</strong></span> tries to mimic the
-                    startup behavior of historical versions of <span class=
-                    "command"><strong>sh</strong></span> as closely as
-                    possible, while conforming to the POSIX standard as well
+                    到 <span class="command"><strong>bash</strong></span>
+                    程序的符号链接；被作为 <span class=
+                    "command"><strong>sh</strong></span> 调用时 <span class=
+                    "command"><strong>bash</strong></span> 试图尽可能模仿
+                    <span class="command"><strong>sh</strong></span>
+                    历史版本的行为，并且符合 POSIX 标准的要求
                   </p>
                 </td>
               </tr>

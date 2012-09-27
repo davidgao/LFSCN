@@ -49,7 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Procps package contains programs for monitoring processes.
+          Procps 程序包包含用于监控进程的程序。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -66,43 +66,41 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.30.1. Installation of Procps
+          6.30.1. 安装 Procps
         </h2>
         <p>
-          Apply a patch to prevent an error message from being displayed when
-          determining the kernel clock tick rate:
+          应用一个补丁，防止获取内核时钟频率时显示错误信息：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../procps-3.2.8-fix_HZ_errors-1.patch</kbd>
 </pre>
         <p>
-          Apply a patch to fix a unicode related issue in the <span class=
-          "command"><strong>watch</strong></span> program:
+          应用一个补丁修复 <span class="command"><strong>watch</strong></span> 程序中一个和
+          unicode 有关的漏洞：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">patch -Np1 -i ../procps-3.2.8-watch_unicode-1.patch</kbd>
 </pre>
         <p>
-          Fix a bug in the Makefile, which prevents procps from building with
-          make-3.82:
+          修复 Makefile 中的一个问题，此问题使 procps 无法以 make-3.82 编制：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">sed -i -e 's@\*/module.mk@proc/module.mk ps/module.mk@' Makefile</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          此程序包不包含测试套件。
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -110,26 +108,25 @@
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-procps" name="contents-procps"></a>6.30.2. Contents
-          of Procps
+          <a id="contents-procps" name="contents-procps"></a>6.30.2. Procps
+          的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">free, kill, pgrep, pkill, pmap, ps, pwdx,
-              skill, slabtop, snice, sysctl, tload, top, uptime, vmstat, w,
-              and watch</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">free、kill、pgrep、pkill、pmap、ps、pwdx、skill、slabtop、snice、sysctl、tload、top、uptime、vmstat、w
+              和 watch</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed library:</strong>
-              <span class="segbody">libproc.so</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">libproc.so</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -144,8 +141,7 @@
                 </td>
                 <td>
                   <p>
-                    Reports the amount of free and used memory (both physical
-                    and swap memory) in the system
+                    报告系统中已用和可用内存的数量 (包括物理内存和交换)
                   </p>
                 </td>
               </tr>
@@ -159,7 +155,7 @@
                 </td>
                 <td>
                   <p>
-                    Sends signals to processes
+                    给进程发信号
                   </p>
                 </td>
               </tr>
@@ -173,8 +169,7 @@
                 </td>
                 <td>
                   <p>
-                    Looks up processes based on their name and other
-                    attributes
+                    按名称和其他属性查找进程
                   </p>
                 </td>
               </tr>
@@ -188,8 +183,7 @@
                 </td>
                 <td>
                   <p>
-                    Signals processes based on their name and other
-                    attributes
+                    按名称和其他属性给进程发信号
                   </p>
                 </td>
               </tr>
@@ -203,7 +197,7 @@
                 </td>
                 <td>
                   <p>
-                    Reports the memory map of the given process
+                    报告给定进程的内存映射
                   </p>
                 </td>
               </tr>
@@ -216,7 +210,7 @@
                 </td>
                 <td>
                   <p>
-                    Lists the current running processes
+                    列出当前正在运行的进程
                   </p>
                 </td>
               </tr>
@@ -230,7 +224,7 @@
                 </td>
                 <td>
                   <p>
-                    Reports the current working directory of a process
+                    报告一个进程的当前工作目录
                   </p>
                 </td>
               </tr>
@@ -244,7 +238,7 @@
                 </td>
                 <td>
                   <p>
-                    Sends signals to processes matching the given criteria
+                    给匹配给定标准的进程发信号
                   </p>
                 </td>
               </tr>
@@ -258,8 +252,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays detailed kernel slap cache information in real
-                    time
+                    实时显示详细的内核 slap 缓存信息
                   </p>
                 </td>
               </tr>
@@ -273,8 +266,7 @@
                 </td>
                 <td>
                   <p>
-                    Changes the scheduling priority of processes matching the
-                    given criteria
+                    改变匹配指定标准的进程的调度优先级
                   </p>
                 </td>
               </tr>
@@ -288,7 +280,7 @@
                 </td>
                 <td>
                   <p>
-                    Modifies kernel parameters at run time
+                    运行时修改内核参数
                   </p>
                 </td>
               </tr>
@@ -302,7 +294,7 @@
                 </td>
                 <td>
                   <p>
-                    Prints a graph of the current system load average
+                    显示当前系统平均负载的图表
                   </p>
                 </td>
               </tr>
@@ -315,9 +307,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays a list of the most CPU intensive processes; it
-                    provides an ongoing look at processor activity in real
-                    time
+                    列出最 CPU 密集的进程；实时监测处理器活动
                   </p>
                 </td>
               </tr>
@@ -331,8 +321,7 @@
                 </td>
                 <td>
                   <p>
-                    Reports how long the system has been running, how many
-                    users are logged on, and the system load averages
+                    报告系统已经运行的时间、登录的优化和系统平均负载
                   </p>
                 </td>
               </tr>
@@ -346,9 +335,7 @@
                 </td>
                 <td>
                   <p>
-                    Reports virtual memory statistics, giving information
-                    about processes, memory, paging, block Input/Output (IO),
-                    traps, and CPU activity
+                    报告虚拟内存统计数据，给出有关进程、内存、分页、块 IO、陷阱和 CPU 活动的信息
                   </p>
                 </td>
               </tr>
@@ -361,8 +348,7 @@
                 </td>
                 <td>
                   <p>
-                    Shows which users are currently logged on, where, and
-                    since when
+                    显示当前登录的用户以及他们何时在何处登录
                   </p>
                 </td>
               </tr>
@@ -376,9 +362,7 @@
                 </td>
                 <td>
                   <p>
-                    Runs a given command repeatedly, displaying the first
-                    screen-full of its output; this allows a user to watch
-                    the output change over time
+                    重复运行一个给定命令，显示第一屏幕的输出；允许用户贯彻输出如何随时间变化
                   </p>
                 </td>
               </tr>
@@ -391,8 +375,7 @@
                 </td>
                 <td>
                   <p>
-                    Contains the functions used by most programs in this
-                    package
+                    包含此程序包中多数程序使用的函数
                   </p>
                 </td>
               </tr>
