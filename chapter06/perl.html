@@ -66,22 +66,19 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.37.1. Installation of Perl
+          6.37.1. 安装 Perl
         </h2>
         <p>
-          First create a basic <code class="filename">/etc/hosts</code> file
-          to be referenced in one of Perl's configuration files as well as
-          the optional test suite:
+          首先创建一个基本的 <code class="filename">/etc/hosts</code> 文件供 Perl
+          的配置文件和可选的测试套件使用：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">echo "127.0.0.1 localhost $(hostname)" &gt; /etc/hosts</kbd>
 </pre>
         <p>
-          This version of Perl now builds the Compress::Raw::Zlib module. By
-          default Perl will use an internal copy of the Zlib source for the
-          build. Issue the following command so that Perl will use the Zlib
-          library installed on the system:
+          此版本的 Perl 现在编制 Compress::Raw::Zlib 模块。默认地，Perl 会使用其内置的 Zlib
+          源代码副本。运行以下命令使 Perl 使用系统上安装的 Zlib 库：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -91,11 +88,8 @@
     cpan/Compress-Raw-Zlib/config.in</kbd>
 </pre>
         <p>
-          To have full control over the way Perl is set up, you can remove
-          the “<span class="quote">-des</span>” options from the following
-          command and hand-pick the way this package is built. Alternatively,
-          use the command exactly as below to use the defaults that Perl
-          auto-detects:
+          要完全控制 Perl 设置的方式，你可以移除以下命令中的 “<span class="quote">-des</span>”
+          选项并手工选择该程序包编制的方式。也可以直接使用以下命令使用 Perl 自动检测到的默认值：
         </p>
         <pre class="userinput">
 <kbd class="command">sh Configure -des -Dprefix=/usr                 \
@@ -107,7 +101,7 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置脚本的含义：</b>
           </p>
           <dl>
             <dt>
@@ -116,9 +110,8 @@
             </dt>
             <dd>
               <p>
-                This ensures <span class=
-                "command"><strong>perl</strong></span> knows how to tell
-                packages where they should install their perl modules.
+                此项确保 <span class="command"><strong>perl</strong></span>
+                知道如何告诉程序包将 perl 模块放安装到什么地方。
               </p>
             </dd>
             <dt>
@@ -128,9 +121,8 @@
             </dt>
             <dd>
               <p>
-                This corrects an error in the way that <span class=
-                "command"><strong>perldoc</strong></span> invokes the
-                <span class="command"><strong>less</strong></span> program.
+                此项修复 <span class="command"><strong>perldoc</strong></span> 调用
+                <span class="command"><strong>less</strong></span> 程序的方法问题。
               </p>
             </dd>
             <dt>
@@ -140,10 +132,9 @@
             </dt>
             <dd>
               <p>
-                Since Groff is not installed yet, <span class=
-                "command"><strong>Configure</strong></span> thinks that we do
-                not want man pages for Perl. Issuing these parameters
-                overrides this decision.
+                因为 Groff 还没有安装，<span class=
+                "command"><strong>Configure</strong></span> 认为我们不需要 Perl
+                的手册页。执行以下会覆盖这个决定。
               </p>
             </dd>
             <dt>
@@ -152,25 +143,25 @@
             </dt>
             <dd>
               <p>
-                Build a shared libperl needed by some perl modules.
+                编制某些 perl 模块需要的共享的 libperl。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results (approximately 2.5 SBU), issue:
+          要测试结果 (大约 2.5 SBU)，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make -k test</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -183,30 +174,28 @@
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">a2p, c2ph, config_data, corelist, cpan,
-              cpan2dist, cpanp, cpanp-run-perl, dprofpp, enc2xs, find2perl,
-              h2ph, h2xs, instmodsh, json_pp, libnetcfg, perl, perl5.16.1
-              (link to perl), perlbug, perldoc, perlivp, perlthanks (link to
-              perlbug), piconv, pl2pm, pod2html, pod2latex, pod2man,
-              pod2text, pod2usage, podchecker, podselect, prove, psed (link
-              to s2p), pstruct (link to c2ph), ptar, ptardiff, ptargrep, s2p,
-              shasum, splain, and xsubpp</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">a2p、c2ph、config_data、corelist、cpan、cpan2dist、cpanp
+              cpanp-run-perl、dprofpp、enc2xs、find2perl、h2ph、h2xs
+              instmodsh、json_pp、libnetcfg、perl、perl5.16.1 (到 perl
+              的链接)、perlbug、perldoc、perlivp、perlthanks (link to
+              perlbug)、piconv、pl2pm、pod2html、pod2latex、pod2man、pod2text、pod2usage、podchecker、podselect、prove、psed
+              (link to s2p)、pstruct (link to
+              c2ph)、ptar、ptardiff、ptargrep、s2p、shasum、splain 和 xsubpp</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">Several hundred which cannot all be
-              listed here</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">数百个，此处无法一一列出</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/lib/perl5</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/lib/perl5</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -220,7 +209,7 @@
                 </td>
                 <td>
                   <p>
-                    Translates awk to Perl
+                    将 awk 翻译成 Perl
                   </p>
                 </td>
               </tr>
@@ -234,8 +223,8 @@
                 </td>
                 <td>
                   <p>
-                    Dumps C structures as generated from <span class=
-                    "command"><strong>cc -g -S</strong></span>
+                    转储 <span class="command"><strong>cc -g -S</strong></span>
+                    创建的 C 结构
                   </p>
                 </td>
               </tr>
@@ -249,7 +238,7 @@
                 </td>
                 <td>
                   <p>
-                    Queries or changes configuration of Perl modules
+                    询问或者修改 Perl 模块的配置
                   </p>
                 </td>
               </tr>
@@ -263,7 +252,7 @@
                 </td>
                 <td>
                   <p>
-                    A commandline frontend to Module::CoreList
+                    Module::CoreList 的命令行前端
                   </p>
                 </td>
               </tr>
@@ -277,8 +266,7 @@
                 </td>
                 <td>
                   <p>
-                    Interact with the Comprehensive Perl Archive Network
-                    (CPAN) from the command line
+                    从命令行与 CPAN (Perl综合典藏网) 交互
                   </p>
                 </td>
               </tr>
@@ -292,7 +280,7 @@
                 </td>
                 <td>
                   <p>
-                    The CPANPLUS distribution creator
+                    CPANPLUS 发行版创建器
                   </p>
                 </td>
               </tr>
@@ -306,7 +294,7 @@
                 </td>
                 <td>
                   <p>
-                    The CPANPLUS launcher
+                    CPANPLUS 启动器
                   </p>
                 </td>
               </tr>
@@ -320,8 +308,7 @@
                 </td>
                 <td>
                   <p>
-                    Perl script that is used to enable flushing of the output
-                    buffer after each write in spawned processes
+                    Perl 脚本，用于启用在生成的进程的每次写入操作之后立即冲掉输出缓存
                   </p>
                 </td>
               </tr>
@@ -335,7 +322,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays Perl profile data
+                    显示 Perl 分析数据
                   </p>
                 </td>
               </tr>
@@ -349,8 +336,7 @@
                 </td>
                 <td>
                   <p>
-                    Builds a Perl extension for the Encode module from either
-                    Unicode Character Mappings or Tcl Encoding Files
+                    从 Unicode 字符映射表或者 Tcl 映射表给编码模块编制一个 Perl 扩展
                   </p>
                 </td>
               </tr>
@@ -364,8 +350,8 @@
                 </td>
                 <td>
                   <p>
-                    Translates <span class=
-                    "command"><strong>find</strong></span> commands to Perl
+                    将 <span class="command"><strong>find</strong></span>
+                    命令翻译成 Perl
                   </p>
                 </td>
               </tr>
@@ -379,8 +365,8 @@
                 </td>
                 <td>
                   <p>
-                    Converts <code class="filename">.h</code> C header files
-                    to <code class="filename">.ph</code> Perl header files
+                    将 <code class="filename">.h</code> C 头文件转换成 <code class=
+                    "filename">.ph</code> Perl 头文件
                   </p>
                 </td>
               </tr>
@@ -394,8 +380,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts <code class="filename">.h</code> C header files
-                    to Perl extensions
+                    将 <code class="filename">.h</code> C 头文件转换成 Perl 扩展
                   </p>
                 </td>
               </tr>
@@ -409,8 +394,7 @@
                 </td>
                 <td>
                   <p>
-                    Shell script for examining installed Perl modules, and
-                    can even create a tarball from an installed module
+                    Shell 脚本，用于检查安装的 Perl 模块，还可以用于将以安装的模块打包
                   </p>
                 </td>
               </tr>
@@ -424,7 +408,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts data between certain input and output formats
+                    在特定的输入输出格式之间转换数据
                   </p>
                 </td>
               </tr>
@@ -438,8 +422,7 @@
                 </td>
                 <td>
                   <p>
-                    Can be used to configure the <code class=
-                    "filename">libnet</code> Perl module
+                    可以用于配置 <code class="filename">libnet</code> Perl 模块
                   </p>
                 </td>
               </tr>
@@ -453,11 +436,11 @@
                 </td>
                 <td>
                   <p>
-                    Combines some of the best features of C, <span class=
-                    "command"><strong>sed</strong></span>, <span class=
-                    "command"><strong>awk</strong></span> and <span class=
-                    "command"><strong>sh</strong></span> into a single
-                    swiss-army language
+                    将 C、<span class=
+                    "command"><strong>sed</strong></span>、<span class=
+                    "command"><strong>awk</strong></span> 和 <span class=
+                    "command"><strong>sh</strong></span>
+                    的某些最好的特性组合成一种像瑞士军刀一样的语言
                   </p>
                 </td>
               </tr>
@@ -471,8 +454,7 @@
                 </td>
                 <td>
                   <p>
-                    A hard link to <span class=
-                    "command"><strong>perl</strong></span>
+                    到 <span class="command"><strong>perl</strong></span> 的硬链接
                   </p>
                 </td>
               </tr>
@@ -486,8 +468,7 @@
                 </td>
                 <td>
                   <p>
-                    Used to generate bug reports about Perl, or the modules
-                    that come with it, and mail them
+                    用于创建有关 Perl 或其包含的模块的漏洞报告并发送之
                   </p>
                 </td>
               </tr>
@@ -501,9 +482,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays a piece of documentation in pod format that is
-                    embedded in the Perl installation tree or in a Perl
-                    script
+                    以 pod 格式显示一份嵌入在 Perl 安装树或脚本中的文档
                   </p>
                 </td>
               </tr>
@@ -517,9 +496,7 @@
                 </td>
                 <td>
                   <p>
-                    The Perl Installation Verification Procedure; it can be
-                    used to verify that Perl and its libraries have been
-                    installed correctly
+                    Perl 安装验证过程；可以用于验证 Perl 及其库是否正确安装
                   </p>
                 </td>
               </tr>
@@ -533,8 +510,7 @@
                 </td>
                 <td>
                   <p>
-                    Used to generate thank you messages to mail to the Perl
-                    developers
+                    用于创建一条感谢消息供发给 Perl 开发者
                   </p>
                 </td>
               </tr>
@@ -548,8 +524,8 @@
                 </td>
                 <td>
                   <p>
-                    A Perl version of the character encoding converter
-                    <span class="command"><strong>iconv</strong></span>
+                    字符编码转换器 <span class=
+                    "command"><strong>iconv</strong></span> 的一个 Perl 版本
                   </p>
                 </td>
               </tr>
@@ -563,9 +539,8 @@
                 </td>
                 <td>
                   <p>
-                    A rough tool for converting Perl4 <code class=
-                    "filename">.pl</code> files to Perl5 <code class=
-                    "filename">.pm</code> modules
+                    一个粗略的工具，将 Perl4 的 <code class="filename">.pl</code> 文件转换成
+                    Perl5 的 <code class="filename">.pm</code> 模块
                   </p>
                 </td>
               </tr>
@@ -579,7 +554,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts files from pod format to HTML format
+                    将 pod 格式的文件转换成 HTML 格式
                   </p>
                 </td>
               </tr>
@@ -593,7 +568,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts files from pod format to LaTeX format
+                    将 pod 格式的文件转换为 LaTeX 格式
                   </p>
                 </td>
               </tr>
@@ -607,7 +582,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts pod data to formatted *roff input
+                    将 pod 数据转换成格式化的 *roff 数据
                   </p>
                 </td>
               </tr>
@@ -621,7 +596,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts pod data to formatted ASCII text
+                    将 pod 数据抓换成格式化的 ASCII 文本
                   </p>
                 </td>
               </tr>
@@ -635,7 +610,7 @@
                 </td>
                 <td>
                   <p>
-                    Prints usage messages from embedded pod docs in files
+                    显示文件中嵌入的 pod 文档中的使用方式
                   </p>
                 </td>
               </tr>
@@ -649,7 +624,7 @@
                 </td>
                 <td>
                   <p>
-                    Checks the syntax of pod format documentation files
+                    检查 pod 格式文档的语法
                   </p>
                 </td>
               </tr>
@@ -663,7 +638,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays selected sections of pod documentation
+                    显示 pod 文档的选定部分
                   </p>
                 </td>
               </tr>
@@ -677,8 +652,7 @@
                 </td>
                 <td>
                   <p>
-                    Command line tool for running tests against the
-                    Test::Harness module.
+                    命令行工具，用于依据 Test::Harness 模块运行测试
                   </p>
                 </td>
               </tr>
@@ -692,8 +666,8 @@
                 </td>
                 <td>
                   <p>
-                    A Perl version of the stream editor <span class=
-                    "command"><strong>sed</strong></span>
+                    流编辑器 <span class="command"><strong>sed</strong></span> 的
+                    Perl 版本
                   </p>
                 </td>
               </tr>
@@ -707,8 +681,8 @@
                 </td>
                 <td>
                   <p>
-                    Dumps C structures as generated from <span class=
-                    "command"><strong>cc -g -S</strong></span> stabs
+                    转储 <span class="command"><strong>cc -g -S</strong></span>
+                    尝试产生的 C 结构
                   </p>
                 </td>
               </tr>
@@ -722,8 +696,8 @@
                 </td>
                 <td>
                   <p>
-                    A <span class="command"><strong>tar</strong></span>-like
-                    program written in Perl
+                    一个以 Perl 语言写成的类似 <span class=
+                    "command"><strong>tar</strong></span> 的程序
                   </p>
                 </td>
               </tr>
@@ -737,8 +711,7 @@
                 </td>
                 <td>
                   <p>
-                    A Perl program that compares an extracted archive with an
-                    unextracted one
+                    一个 Perl 程序，将提取的归档文件与未归档的进行比较
                   </p>
                 </td>
               </tr>
@@ -752,8 +725,7 @@
                 </td>
                 <td>
                   <p>
-                    A Perl program that applies pattern matching to the
-                    contents of files in a tar archive
+                    一个 Perl 程序，对 tar 归档中的文件内同进行匹配
                   </p>
                 </td>
               </tr>
@@ -766,8 +738,8 @@
                 </td>
                 <td>
                   <p>
-                    Translates <span class=
-                    "command"><strong>sed</strong></span> scripts to Perl
+                    将 <span class="command"><strong>sed</strong></span> 脚本翻译成
+                    Perl
                   </p>
                 </td>
               </tr>
@@ -781,7 +753,7 @@
                 </td>
                 <td>
                   <p>
-                    Prints or checks SHA checksums
+                    打印或者检查 SHA 指纹码
                   </p>
                 </td>
               </tr>
@@ -795,7 +767,7 @@
                 </td>
                 <td>
                   <p>
-                    Is used to force verbose warning diagnostics in Perl
+                    用于强制详细输出 Perl 诊断的警告
                   </p>
                 </td>
               </tr>
@@ -809,7 +781,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts Perl XS code into C code
+                    将 Perl XS 代码转换成 C 代码
                   </p>
                 </td>
               </tr>

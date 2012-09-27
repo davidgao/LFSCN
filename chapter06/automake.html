@@ -50,8 +50,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Automake package contains programs for generating Makefiles for
-          use with Autoconf.
+          Automake 程序包包含创建用于 Autoconf 的 Makefile 的程序。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -68,17 +67,17 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.39.1. Installation of Automake
+          6.39.1. 安装 Automake
         </h2>
         <p>
-          Prepare Automake for compilation:
+          准备编译 Automake：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.12.3</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
@@ -89,18 +88,17 @@
             注意
           </h3>
           <p>
-            The tests take a very long time: over 30 SBUs. Running the tests
-            is not recommended.
+            测试会占用很长时间，超过 30 SBU。不推荐运行之。
           </p>
         </div>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -109,27 +107,24 @@
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
           <a id="contents-automake" name="contents-automake"></a>6.39.2.
-          Contents of Automake
+          Automake 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">acinstall, aclocal, aclocal-1.12,
-              automake, automake-1.12, compile, config.guess, config.sub,
-              depcomp, elisp-comp, install-sh, mdate-sh, missing,
-              mkinstalldirs, py-compile, symlink-tree, and ylwrap</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">acinstall、aclocal、aclocal-1.12、automake、automake-1.12、compile、config.guess、config.sub、depcomp、elisp-comp、install-sh、mdate-sh、missing、mkinstalldirs、py-compile、symlink-tree
+              和 ylwrap</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/usr/share/aclocal-1.12,
-              /usr/share/automake-1.12, /usr/share/doc/automake-1.12.3</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/share/aclocal-1.12、/usr/share/automake-1.12、/usr/share/doc/automake-1.12.3</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -144,7 +139,7 @@
                 </td>
                 <td>
                   <p>
-                    A script that installs aclocal-style M4 files
+                    一个脚本，安装 aclocal 样式的 M4 文件
                   </p>
                 </td>
               </tr>
@@ -158,9 +153,8 @@
                 </td>
                 <td>
                   <p>
-                    Generates <code class="filename">aclocal.m4</code> files
-                    based on the contents of <code class=
-                    "filename">configure.in</code> files
+                    基于 <code class="filename">configure.in</code> 文件的内容创建
+                    <code class="filename">aclocal.m4</code> 文件
                   </p>
                 </td>
               </tr>
@@ -174,8 +168,8 @@
                 </td>
                 <td>
                   <p>
-                    A hard link to <span class=
-                    "command"><strong>aclocal</strong></span>
+                    到 <span class="command"><strong>aclocal</strong></span>
+                    的硬链接
                   </p>
                 </td>
               </tr>
@@ -189,16 +183,13 @@
                 </td>
                 <td>
                   <p>
-                    A tool for automatically generating <code class=
-                    "filename">Makefile.in</code> files from <code class=
-                    "filename">Makefile.am</code> files. To create all the
-                    <code class="filename">Makefile.in</code> files for a
-                    package, run this program in the top-level directory. By
-                    scanning the <code class="filename">configure.in</code>
-                    file, it automatically finds each appropriate
-                    <code class="filename">Makefile.am</code> file and
-                    generates the corresponding <code class=
-                    "filename">Makefile.in</code> file
+                    一个用于以 <code class="filename">Makefile.am</code> 文件创建
+                    <code class="filename">Makefile.in</code>
+                    文件的个工具；要创建一个程序包的所有 <code class=
+                    "filename">Makefile.in</code> 文件，在顶级目录运行此程序；通过扫描
+                    <code class="filename">configure.in</code> 文件，它自动找到每个对应的
+                    <code class="filename">Makefile.am</code> 文件并创建相应的
+                    <code class="filename">Makefile.in</code> 文件
                   </p>
                 </td>
               </tr>
@@ -212,8 +203,8 @@
                 </td>
                 <td>
                   <p>
-                    A hard link to <span class=
-                    "command"><strong>automake</strong></span>
+                    到 <span class="command"><strong>automake</strong></span>
+                    的硬链接
                   </p>
                 </td>
               </tr>
@@ -227,7 +218,7 @@
                 </td>
                 <td>
                   <p>
-                    A wrapper for compilers
+                    编译器的打包
                   </p>
                 </td>
               </tr>
@@ -241,8 +232,7 @@
                 </td>
                 <td>
                   <p>
-                    A script that attempts to guess the canonical triplet for
-                    the given build, host, or target architecture
+                    一个脚本，试图猜测给定的编制、宿主或者目标架构的规范化三联字串
                   </p>
                 </td>
               </tr>
@@ -256,7 +246,7 @@
                 </td>
                 <td>
                   <p>
-                    A configuration validation subroutine script
+                    一个配置校验子途径脚本
                   </p>
                 </td>
               </tr>
@@ -270,9 +260,7 @@
                 </td>
                 <td>
                   <p>
-                    A script for compiling a program so that dependency
-                    information is generated in addition to the desired
-                    output
+                    一个脚本，用于编译一个程序并创建依赖关系信息附加到指定的输出
                   </p>
                 </td>
               </tr>
@@ -286,7 +274,7 @@
                 </td>
                 <td>
                   <p>
-                    Byte-compiles Emacs Lisp code
+                    字节编译 Emacs Lisp 代码
                   </p>
                 </td>
               </tr>
@@ -300,7 +288,7 @@
                 </td>
                 <td>
                   <p>
-                    A script that installs a program, script, or data file
+                    一个脚本，安装程序、脚本或者数据文件
                   </p>
                 </td>
               </tr>
@@ -314,8 +302,7 @@
                 </td>
                 <td>
                   <p>
-                    A script that prints the modification time of a file or
-                    directory
+                    一个脚本，打印出文件或者目录的修改时间
                   </p>
                 </td>
               </tr>
@@ -329,8 +316,7 @@
                 </td>
                 <td>
                   <p>
-                    A script acting as a common stub for missing GNU programs
-                    during an installation
+                    一个脚本，安装时作为缺失的 GNU 程序的通用存根使用
                   </p>
                 </td>
               </tr>
@@ -344,7 +330,7 @@
                 </td>
                 <td>
                   <p>
-                    A script that creates a directory tree
+                    一个脚本，创建目录树
                   </p>
                 </td>
               </tr>
@@ -358,7 +344,7 @@
                 </td>
                 <td>
                   <p>
-                    Compiles a Python program
+                    编译 Python 程序
                   </p>
                 </td>
               </tr>
@@ -372,7 +358,7 @@
                 </td>
                 <td>
                   <p>
-                    A script to create a symlink tree of a directory tree
+                    一个脚本，创建一个目录树的符号链接树
                   </p>
                 </td>
               </tr>
@@ -386,9 +372,8 @@
                 </td>
                 <td>
                   <p>
-                    A wrapper for <span class=
-                    "command"><strong>lex</strong></span> and <span class=
-                    "command"><strong>yacc</strong></span>
+                    <span class="command"><strong>lex</strong></span> 和
+                    <span class="command"><strong>yacc</strong></span> 的一个打包
                   </p>
                 </td>
               </tr>
