@@ -49,11 +49,8 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The GDBM package contains the GNU Database Manager. This is a disk
-          file format database which stores key/data-pairs in single files.
-          The actual data of any record being stored is indexed by a unique
-          key, which can be retrieved in less time than if it was stored in a
-          text file.
+          GDBM 程序包包含 GNU
+          数据库管理器。这是一个磁盘文件格式数据库，将键值/数据对存储在单一文件中。实际上存储的任何记录的实际数据都由不同的键值索引，比在文本文件中访问更快。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -70,17 +67,17 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.35.1. Installation of GDBM
+          6.35.1. 安装 GDBM
         </h2>
         <p>
-          Prepare GDBM for compilation:
+          准备编译 GDBM：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr --enable-libgdbm-compat</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure option:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -89,27 +86,25 @@
             </dt>
             <dd>
               <p>
-                This switch enables the libgdbm compatibility library to be
-                built, as some packages outside of LFS may require the older
-                DBM routines it provides.
+                此开关启用编制 libgdbm 兼容库，因为 LFS 以外的某些程序包需要它提供旧式的 DBM 途径。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -117,25 +112,23 @@
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-gdbm" name="contents-gdbm"></a>6.35.2. Contents of
-          GDBM
+          <a id="contents-gdbm" name="contents-gdbm"></a>6.35.2. GDBM 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed program:</strong>
-              <span class="segbody">testgdbm</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">testgdbm</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">libgdbm.{so,a} and
-              libgdbm_compat.{so,a}</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">libgdbm.{so,a} 和 libgdbm_compat.{so,a}</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -150,7 +143,7 @@
                 </td>
                 <td>
                   <p>
-                    Tests and modifies a GDBM database
+                    检测并修改 GDBM 数据库
                   </p>
                 </td>
               </tr>
@@ -163,7 +156,7 @@
                 </td>
                 <td>
                   <p>
-                    Contains functions to manipulate a hashed database
+                    包含用来修改哈希过的数据库的函数
                   </p>
                 </td>
               </tr>

@@ -49,7 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Inetutils package contains programs for basic networking.
+          Inetutils 程序包包含用于基本网络的程序。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -66,16 +66,16 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.36.1. Installation of Inetutils
+          6.36.1. 安装 Inetutils
         </h2>
         <p>
-          Fix an incompatibility between this package and Glibc-2.16.0
+          修复此程序包与 Glibc-2.16.0 不兼容的问题：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e '/gets is a/d' lib/stdio.in.h</kbd>
 </pre>
         <p>
-          Prepare Inetutils for compilation:
+          准备编译 Inetutils：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr  \
@@ -89,7 +89,7 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -98,11 +98,10 @@
             </dt>
             <dd>
               <p>
-                This option prevents Inetutils from installing the
-                <span class="command"><strong>ifconfig</strong></span>
-                program, which can be used to configure network interfaces.
-                LFS uses <span class="command"><strong>ip</strong></span>
-                from IPRoute2 to perform this task.
+                此许想阻止 Inetutils 安装 <span class=
+                "command"><strong>ifconfig</strong></span> 程序，此程序用于配置网络接口。LFS
+                使用 IPRoute2 中的 <span class=
+                "command"><strong>ip</strong></span> 完成此任务。
               </p>
             </dd>
             <dt>
@@ -111,11 +110,9 @@
             </dt>
             <dd>
               <p>
-                This option prevents Inetutils from installing the
-                <span class="command"><strong>logger</strong></span> program,
-                which is used by scripts to pass messages to the System Log
-                Daemon. Do not install it because Util-linux installed a
-                version earlier.
+                此选项防止 Inetutils 安装 <span class=
+                "command"><strong>logger</strong></span> 程序，它被脚本用于给系统日志
+                Daemon 传递消息。Util-linux 此前已经安装过了。
               </p>
             </dd>
             <dt>
@@ -124,8 +121,7 @@
             </dt>
             <dd>
               <p>
-                This option prevents Inetutils from installing the System Log
-                Daemon, which is installed with the Sysklogd package.
+                此选项阻止 Inetutils 安装系统日志 Daemon，它已经被 Sysklogd 程序包安装过了。
               </p>
             </dd>
             <dt>
@@ -134,11 +130,9 @@
             </dt>
             <dd>
               <p>
-                This option disables the building of the Inetutils
-                <span class="command"><strong>whois</strong></span> client,
-                which is out of date. Instructions for a better <span class=
-                "command"><strong>whois</strong></span> client are in the
-                BLFS book.
+                此选项禁用过时的 <span class="command"><strong>whois</strong></span>
+                客户端。配置一个更好的 <span class=
+                "command"><strong>whois</strong></span> 客户端的指令位于 BLFS 中。
               </p>
             </dd>
             <dt>
@@ -147,34 +141,28 @@
             </dt>
             <dd>
               <p>
-                This disables the installation of the various network servers
-                included as part of the Inetutils package. These servers are
-                deemed not appropriate in a basic LFS system. Some are
-                insecure by nature and are only considered safe on trusted
-                networks. More information can be found at <a class="ulink"
-                href=
+                此项禁用多种网络服务器。这些服务器在基本 LFS 系统中并不合适。其中有的天生不安全，有的只在信任网络内安全。更多信息位于
+                <a class="ulink" href=
                 "http://www.linuxfromscratch.org/blfs/view/svn/basicnet/inetutils.html">
-                http://www.linuxfromscratch.org/blfs/view/svn/basicnet/inetutils.html</a>.
-                Note that better replacements are available for many of these
-                servers.
+                http://www.linuxfromscratch.org/blfs/view/svn/basicnet/inetutils.html</a>。注意其中很多服务器都有更好的替代品。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install
@@ -182,7 +170,7 @@ make -C doc html
 make -C doc install-html docdir=/usr/share/doc/inetutils-1.9.1</kbd>
 </pre>
         <p>
-          Move some programs to their FHS-compliant place:
+          将某些程序移动到与 FHS 兼容的位置：
         </p>
         <pre class="userinput">
 <kbd class="command">mv -v /usr/bin/{hostname,ping,ping6} /bin
@@ -192,20 +180,20 @@ mv -v /usr/bin/traceroute /sbin</kbd>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
           <a id="contents-inetutils" name="contents-inetutils"></a>6.36.2.
-          Contents of Inetutils
+          Inetutils 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">ftp, hostname, ping, ping6, rcp, rexec,
-              rlogin, rsh, talk, telnet, tftp, and traceroute</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">ftp、hostname、ping、ping6、rcp、rexec、rlogin、rsh、talk、telnet、tftp
+              和 traceroute</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -219,7 +207,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Is the file transfer protocol program
+                    文件传输程序
                   </p>
                 </td>
               </tr>
@@ -233,7 +221,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Reports or sets the name of the host
+                    报告或者设置主机名
                   </p>
                 </td>
               </tr>
@@ -247,8 +235,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Sends echo-request packets and reports how long the
-                    replies take
+                    发送要求回执的数据包并报告收到回执所用的时间
                   </p>
                 </td>
               </tr>
@@ -262,8 +249,8 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    A version of <span class=
-                    "command"><strong>ping</strong></span> for IPv6 networks
+                    <span class="command"><strong>ping</strong></span> 的用于
+                    IPv6 网络的版本
                   </p>
                 </td>
               </tr>
@@ -276,7 +263,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Performs remote file copy
+                    进行远程文件复制
                   </p>
                 </td>
               </tr>
@@ -290,7 +277,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    executes commands on a remote host
+                    在远程主机上运行指令
                   </p>
                 </td>
               </tr>
@@ -304,7 +291,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Performs remote login
+                    进行远程登录
                   </p>
                 </td>
               </tr>
@@ -317,7 +304,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Runs a remote shell
+                    运行远程 shell
                   </p>
                 </td>
               </tr>
@@ -331,7 +318,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Is used to chat with another user
+                    用于与其他用户聊天
                   </p>
                 </td>
               </tr>
@@ -345,7 +332,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    An interface to the TELNET protocol
+                    TELNET 协议的一个界面
                   </p>
                 </td>
               </tr>
@@ -359,7 +346,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    A trivial file transfer program
+                    简易文件传输程序
                   </p>
                 </td>
               </tr>
@@ -373,9 +360,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
                 </td>
                 <td>
                   <p>
-                    Traces the route your packets take from the host you are
-                    working on to another host on a network, showing all the
-                    intermediate hops (gateways) along the way
+                    跟踪你正在工作的主机到网络上另一台主机的数据包通过的路由，显示沿途所有中介跃点 (网关)
                   </p>
                 </td>
               </tr>
