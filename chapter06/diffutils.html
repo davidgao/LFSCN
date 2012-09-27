@@ -67,34 +67,34 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.40.1. Installation of Diffutils
+          6.40.1. 安装 Diffutils
         </h2>
         <p>
-          Fix an incompatibility between this package and Glibc-2.16.0
+          修复此程序包与 Glibc-2.16.0 不兼容的问题：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e '/gets is a/d' lib/stdio.in.h</kbd>
 </pre>
         <p>
-          Prepare Diffutils for compilation:
+          准备编译 Diffutils：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -108,14 +108,14 @@
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">cmp, diff, diff3, and sdiff</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">cmp、diff、diff3 和 sdiff</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -129,8 +129,7 @@
                 </td>
                 <td>
                   <p>
-                    Compares two files and reports whether or in which bytes
-                    they differ
+                    比较两个文本文件，按字节输出差异
                   </p>
                 </td>
               </tr>
@@ -144,8 +143,7 @@
                 </td>
                 <td>
                   <p>
-                    Compares two files or directories and reports which lines
-                    in the files differ
+                    比较两个文本文件，按行输出差异
                   </p>
                 </td>
               </tr>
@@ -159,7 +157,7 @@
                 </td>
                 <td>
                   <p>
-                    Compares three files line by line
+                    逐行比较三个文件
                   </p>
                 </td>
               </tr>
@@ -173,7 +171,7 @@
                 </td>
                 <td>
                   <p>
-                    Merges two files and interactively outputs the results
+                    融合两个文件，交互输出结果
                   </p>
                 </td>
               </tr>

@@ -67,10 +67,10 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.42.1. Installation of Findutils
+          6.42.1. 安装 Findutils
         </h2>
         <p>
-          Prepare Findutils for compilation:
+          准备编译 Findutils：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr                   \
@@ -79,7 +79,7 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -88,39 +88,36 @@
             </dt>
             <dd>
               <p>
-                This option changes the location of the <span class=
-                "command"><strong>locate</strong></span> database to be in
-                <code class="filename">/var/lib/locate</code>, which is
-                FHS-compliant.
+                此选项改变 <span class="command"><strong>locate</strong></span>
+                数据库的位置为 <code class="filename">/var/lib/locate</code>，这个位置与
+                FHS 兼容。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Some of the scripts in the LFS-Bootscripts package depend on
-          <span class="command"><strong>find</strong></span>. As <code class=
-          "filename">/usr</code> may not be available during the early stages
-          of booting, this program needs to be on the root partition. The
-          <span class="command"><strong>updatedb</strong></span> script also
-          needs to be modified to correct an explicit path:
+          LFS-bootscripts 中的某些脚本依赖 <span class=
+          "command"><strong>find</strong></span>。由于 <code class=
+          "filename">/usr</code> 在引导早期可能还不可用，此程序需要在根分区上。<span class=
+          "command"><strong>updatedb</strong></span> 脚本也需要修改才能修正这个路径：
         </p>
         <pre class="userinput">
 <kbd class="command">mv -v /usr/bin/find /bin
@@ -135,19 +132,19 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">bigram, code, find, frcode, locate,
-              oldfind, updatedb, and xargs</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">bigram、code、find、frcode、locate、oldfind、updatedb 和
+              xargs</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/lib/findutils</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/lib/findutils</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -162,8 +159,8 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Was formerly used to produce <span class=
-                    "command"><strong>locate</strong></span> databases
+                    曾用于产生 <span class=
+                    "command"><strong>locate</strong></span> 数据库
                   </p>
                 </td>
               </tr>
@@ -177,10 +174,9 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Was formerly used to produce <span class=
-                    "command"><strong>locate</strong></span> databases; it is
-                    the ancestor of <span class=
-                    "command"><strong>frcode</strong></span>.
+                    曾用于产生 <span class=
+                    "command"><strong>locate</strong></span> 数据库；是
+                    <span class="command"><strong>frcode</strong></span> 的前身
                   </p>
                 </td>
               </tr>
@@ -194,8 +190,7 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Searches given directory trees for files matching the
-                    specified criteria
+                    搜索给定的目录树，查找匹配指定条件的文件
                   </p>
                 </td>
               </tr>
@@ -209,10 +204,8 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Is called by <span class=
-                    "command"><strong>updatedb</strong></span> to compress
-                    the list of file names; it uses front-compression,
-                    reducing the database size by a factor of four to five.
+                    被 <span class="command"><strong>updatedb</strong></span>
+                    调用，用于压缩文件名列表；使用前向压缩将数据库尺寸缩减到 1/5 到 1/4
                   </p>
                 </td>
               </tr>
@@ -226,9 +219,7 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Searches through a database of file names and reports the
-                    names that contain a given string or match a given
-                    pattern
+                    搜索一个文件名数据库，报告包含给定字串或匹配给定样式的名称
                   </p>
                 </td>
               </tr>
@@ -242,7 +233,7 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Older version of find, using a different algorithm
+                    旧版本的 find；使用的是一种不同的算法
                   </p>
                 </td>
               </tr>
@@ -256,11 +247,8 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Updates the <span class=
-                    "command"><strong>locate</strong></span> database; it
-                    scans the entire file system (including other file
-                    systems that are currently mounted, unless told not to)
-                    and puts every file name it finds into the database
+                    更新 <span class="command"><strong>locate</strong></span>
+                    数据库；扫描整个文件系统 (默认包含当前挂载的其他文件系统) 并把所有文件名放入数据库
                   </p>
                 </td>
               </tr>
@@ -274,7 +262,7 @@ sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb</kbd>
                 </td>
                 <td>
                   <p>
-                    Can be used to apply a given command to a list of files
+                    可以用于对多个文件应用指定的命令
                   </p>
                 </td>
               </tr>
