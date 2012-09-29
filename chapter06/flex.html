@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120916">
+  <body class="lfs" id="lfs-SVN-20120928">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120916
+        Linux From Scratch - 版本 SVN-20120928
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
         </li>
       </ul>
     </div>
@@ -50,8 +50,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Flex package contains a utility for generating programs that
-          recognize patterns in text.
+          Flex 程序包包含用于创建识别文本样式的程序的工具。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -68,59 +67,58 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.43.1. Installation of Flex
+          6.43.1. 安装 Flex
         </h2>
         <p>
-          First, fix some regression tests:
+          首先修复一些回归测试：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../flex-2.5.37-bison-2.6.1-1.patch</kbd>
 </pre>
         <p>
-          Prepare Flex for compilation:
+          准备编译 Flex：
         </p>
         <pre class="userinput">
-<kbd class=
-"command">./configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info</kbd>
+<kbd class="command">./configure --prefix=/usr             \
+            --mandir=/usr/share/man   \
+            --infodir=/usr/share/info \
+            --docdir=/usr/share/doc/flex-2.5.37</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results (about 0.5 SBU), issue:
+          要测试结果 (大约 0.5 SBU)，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make -k check</kbd>
 </pre>
         <p>
-          There are two tests that fail due to incompatibilities with the
-          most recent version of bison.
+          有两个测试会因为与最新版本的 bison 不兼容而失败。
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          There are some packages that expect to find the <code class=
-          "filename">lex</code> library in <code class=
-          "filename">/usr/lib</code>. Create a symlink to account for this:
+          有一些程序包会在 <code class="filename">/usr/lib</code> 中寻找 <code class=
+          "filename">lex</code> 库。创建一个符号链接解决此问题：
         </p>
         <pre class="userinput">
 <kbd class="command">ln -sv libfl.a /usr/lib/libl.a</kbd>
 </pre>
         <p>
-          A few programs do not know about <span class=
-          "command"><strong>flex</strong></span> yet and try to run its
-          predecessor, <span class="command"><strong>lex</strong></span>. To
-          support those programs, create a wrapper script named <code class=
-          "filename">lex</code> that calls <code class="filename">flex</code>
-          in <span class="command"><strong>lex</strong></span> emulation
-          mode:
+          有几个程序还不知道 <span class=
+          "command"><strong>flex</strong></span>，会试图运行它的前身 <span class=
+          "command"><strong>lex</strong></span>。要支持这些程序，创建一个打包脚本，命名为
+          <code class="filename">lex</code>，以 <span class=
+          "command"><strong>lex</strong></span> 模拟模式调用 <code class=
+          "filename">flex</code>：
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; /usr/bin/lex &lt;&lt; "EOF"
@@ -134,8 +132,7 @@ EOF
 chmod -v 755 /usr/bin/lex</kbd>
 </pre>
         <p>
-          If desired, install the <code class="filename">flex.pdf</code>
-          documentation file:
+          如果需要，安装 <code class="filename">flex.pdf</code> 这个文档：
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir -v /usr/share/doc/flex-2.5.37
@@ -144,24 +141,23 @@ cp    -v doc/flex.pdf /usr/share/doc/flex-2.5.37</kbd>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-flex" name="contents-flex"></a>6.43.2. Contents of
-          Flex
+          <a id="contents-flex" name="contents-flex"></a>6.43.2. Flex 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">flex and lex</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">flex 和 lex</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">libfl.a and libfl_pic.a</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">libfl.a 和 libfl_pic.a</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -176,10 +172,7 @@ cp    -v doc/flex.pdf /usr/share/doc/flex-2.5.37</kbd>
                 </td>
                 <td>
                   <p>
-                    A tool for generating programs that recognize patterns in
-                    text; it allows for the versatility to specify the rules
-                    for pattern-finding, eradicating the need to develop a
-                    specialized program
+                    一个工具，用于创建能够识别文本样式的程序；它允许指定样式查找的规则，消除了开发特定程序的需求
                   </p>
                 </td>
               </tr>
@@ -192,9 +185,8 @@ cp    -v doc/flex.pdf /usr/share/doc/flex-2.5.37</kbd>
                 </td>
                 <td>
                   <p>
-                    A script that runs <span class=
-                    "command"><strong>flex</strong></span> in <span class=
-                    "command"><strong>lex</strong></span> emulation mode
+                    一个脚本，以 <span class="command"><strong>lex</strong></span>
+                    模拟模式运行 <span class="command"><strong>flex</strong></span>
                   </p>
                 </td>
               </tr>
@@ -207,7 +199,7 @@ cp    -v doc/flex.pdf /usr/share/doc/flex-2.5.37</kbd>
                 </td>
                 <td>
                   <p>
-                    The <code class="filename">flex</code> library
+                    <code class="filename">flex</code> 库
                   </p>
                 </td>
               </tr>
@@ -238,7 +230,7 @@ cp    -v doc/flex.pdf /usr/share/doc/flex-2.5.37</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120916">起始页</a>
+          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
         </li>
       </ul>
     </div>
