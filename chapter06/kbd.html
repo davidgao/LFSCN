@@ -49,8 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Kbd package contains key-table files, console fonts, and
-          keyboard utilities.
+          Kbd　程序包包含　key-table　文件，控制台字体和键盘工具。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -67,54 +66,44 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.51.1. Installation of Kbd
+          6.51.1. 安装　Kbd
         </h2>
         <p>
-          The behaviour of <span class=
-          "command"><strong>loadkeys</strong></span> when run without a
-          filename was broken in this release. The following patch fixes
-          this:
+          该发行版中 <span class="command"><strong>loadkeys</strong></span>
+          的运行将会在没有文件名的情况下中断。下面的补丁包修复该问题：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../kbd-1.15.3-upstream_fixes-1.patch</kbd>
 </pre>
         <p>
-          The behaviour of the Backspace and Delete keys is not consistent
-          across the keymaps in the Kbd package. The following patch fixes
-          this issue for i386 keymaps:
+          Backspace　与　Delete　键的行为与　Kbd　程序包中的键盘映射不一致。一下补丁包为　i386　键盘映射解决此问题：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../kbd-1.15.3-backspace-1.patch</kbd>
 </pre>
         <p>
-          After patching, the Backspace key generates the character with code
-          127, and the Delete key generates a well-known escape sequence.
+          安装补丁后，Backspace　键生成为　127 号字符，而 Delete 键生成广为人知的转义序列。
         </p>
         <p>
-          Fix a bug in the Spanish message translations which prevents kbd
-          from building with gettext-0.18.1.1:
+          修复西班牙语信息翻译阻止 kbd 生成 gettext-0.18.1.1 的一个 bug ：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">sed -i '/guardado\ el/s/\(^.*en\ %\)\(.*\)/\14\$\2/' po/es.po</kbd>
 </pre>
         <p>
-          Remove the redundant <span class=
-          "command"><strong>resizecons</strong></span> program (32-bit x86
-          only, needs the defunct svgalib, which predates linux-2.6 and is
-          incompatible with modern KMS, to provide the video mode files - for
-          normal use <span class="command"><strong>setfont</strong></span>
-          sizes the console appropriately) and its manpage.
+          移除多余的 <span class="command"><strong>resizecons</strong></span> 程序
+          (只移除 32 位 x86 版本，因为它需要由早于 linux-2.6 且与现代 KMS 不兼容而已不存在的 svgalib
+          来提供视频模式文件——通常使用 <span class=
+          "command"><strong>setfont</strong></span> 来重设控制台尺寸) 和它的手册页。
         </p>
         <p>
-          The shipped version of <code class="filename">configure.ac</code>
-          is newer than <code class="filename">aclocal.m4</code>, so
-          autotools will be run by <span class=
-          "command"><strong>make</strong></span> which will overwrite the
-          change to <code class="filename">configure</code>. Alter the date
-          and time of <code class="filename">configure.ac</code> - this uses
-          the system timezone, so we pick a time that is sufficiently old in
-          all timezones.
+          装载的 <code class="filename">configure.ac</code> 的版本比 <code class=
+          "filename">aclocal.m4</code> 更新,所以 autotools 会被 <span class=
+          "command"><strong>make</strong></span> 运行，来改写改变到 <code class=
+          "filename">configure</code>。改变 <code class=
+          "filename">configure.ac</code>
+          的日期与时间——这用到系统时区，所以我们选择一个在所有时区中足够老的一个。
         </p>
         <pre class="userinput">
 <kbd class=
@@ -123,14 +112,14 @@ sed -i 's/resizecons.8 //' man/man8/Makefile.in &amp;&amp;
 touch -d '2011-05-07 08:30' configure.ac</kbd>
 </pre>
         <p>
-          Prepare Kbd for compilation:
+          准备编译 Kbd ：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr --datadir=/lib/kbd</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -139,24 +128,23 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
             </dt>
             <dd>
               <p>
-                This option puts keyboard layout data in a directory that
-                will always be on the root partition instead of the default
-                <code class="filename">/usr/share/kbd</code>.
+                这个选项将键盘输出数据存放在一个总是位于根分区的目录下而非默认的 <code class=
+                "filename">/usr/share/kbd</code>。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          这个程序包不包含测试套件。
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -167,29 +155,25 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
             注意
           </h3>
           <p>
-            For some languages (e.g., Belarusian) the Kbd package doesn't
-            provide a useful keymap where the stock “<span class=
-            "quote">by</span>” keymap assumes the ISO-8859-5 encoding, and
-            the CP1251 keymap is normally used. Users of such languages have
-            to download working keymaps separately.
+            对于有些语言 (e.g.，白俄罗斯语) Kbd 程序包在常规的 “<span class="quote">by</span>”
+            键盘映射认定 ISO-8859-5 编码的情况下不提供一个有效的键盘映射，而 CP1251
+            键盘映射通常被用与这种情况。这些语言的用户需要下载单独的有效键盘映射。
           </p>
         </div>
         <p>
-          Some of the scripts in the LFS-Bootscripts package depend on
-          <span class="command"><strong>kbd_mode</strong></span>,
-          <span class="command"><strong>loadkeys</strong></span>,
-          <span class="command"><strong>openvt</strong></span>, and
-          <span class="command"><strong>setfont</strong></span>. As
-          <code class="filename">/usr</code> may not be available during the
-          early stages of booting, those binaries need to be on the root
-          partition:
+          LFS-Bootscripts 程序包中的一些脚本依赖 <span class=
+          "command"><strong>kbd_mode</strong></span>，<span class=
+          "command"><strong>loadkeys</strong></span>，<span class=
+          "command"><strong>openvt</strong></span>，和 <span class=
+          "command"><strong>setfont</strong></span>。鉴于 <code class=
+          "filename">/usr</code> 在早期的引导阶段中可能不可用，那些二进制程序需要位于根分区：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">mv -v /usr/bin/{kbd_mode,loadkeys,openvt,setfont} /bin</kbd>
 </pre>
         <p>
-          If desired, install the documentation:
+          如果需要，安装文档：
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir -v /usr/share/doc/kbd-1.15.3
@@ -199,29 +183,27 @@ cp -R -v doc/* \
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-kbd" name="contents-kbd"></a>6.51.2. Contents of
-          Kbd
+          <a id="contents-kbd" name="contents-kbd"></a>6.51.2. Kbd 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">chvt, deallocvt, dumpkeys, fgconsole,
-              getkeycodes, kbd_mode, kbdrate, loadkeys, loadunimap, mapscrn,
-              openvt, psfaddtable (link to psfxtable), psfgettable (link to
-              psfxtable), psfstriptable (link to psfxtable), psfxtable,
-              setfont, setkeycodes, setleds, setmetamode, showconsolefont,
-              showkey, unicode_start, and unicode_stop</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">chvt、deallocvt、dumpkeys、fgconsole、getkeycodes、kbd_mode、kbdrate、loadkeys、loadunimap、mapscrn、openvt、psfaddtable
+              (link to psfxtable)、psfgettable (link to
+              psfxtable)、psfstriptable (link to psfxtable)、psfxtable、
+              setfont、setkeycodes、setleds、setmetamode、showconsolefont、showkey、unicode_start、and
+              unicode_stop</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/lib/kbd</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/lib/kbd</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -236,7 +218,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Changes the foreground virtual terminal
+                    改变前景的虚拟终端
                   </p>
                 </td>
               </tr>
@@ -250,7 +232,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Deallocates unused virtual terminals
+                    重新分配未使用的虚拟终端
                   </p>
                 </td>
               </tr>
@@ -264,7 +246,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Dumps the keyboard translation tables
+                    转储键盘翻译表格
                   </p>
                 </td>
               </tr>
@@ -278,7 +260,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Prints the number of the active virtual terminal
+                    打印活动的虚拟终端数
                   </p>
                 </td>
               </tr>
@@ -292,7 +274,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Prints the kernel scancode-to-keycode mapping table
+                    打印核心 scancode-to-keycode 映射表
                   </p>
                 </td>
               </tr>
@@ -306,7 +288,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Reports or sets the keyboard mode
+                    报告或设置键盘模式
                   </p>
                 </td>
               </tr>
@@ -320,7 +302,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Sets the keyboard repeat and delay rates
+                    设置键盘重复和延迟绿率
                   </p>
                 </td>
               </tr>
@@ -334,7 +316,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Loads the keyboard translation tables
+                    加载键盘翻译表
                   </p>
                 </td>
               </tr>
@@ -348,7 +330,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Loads the kernel unicode-to-font mapping table
+                    加载核心 unicode-to-font 映射表
                   </p>
                 </td>
               </tr>
@@ -362,10 +344,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    An obsolete program that used to load a user-defined
-                    output character mapping table into the console driver;
-                    this is now done by <span class=
-                    "command"><strong>setfont</strong></span>
+                    一个弃用的被用来加载一个用户定义的输出字符映射表到控制台驱动的程序；这一工作现在由 <span class=
+                    "command"><strong>setfont</strong></span> 完成
                   </p>
                 </td>
               </tr>
@@ -379,7 +359,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Starts a program on a new virtual terminal (VT)
+                    在一个新的虚拟终端 (VT) 上开始一个程序
                   </p>
                 </td>
               </tr>
@@ -393,8 +373,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    A link to <span class=
-                    "command"><strong>psfxtable</strong></span>
+                    一个到 <span class=
+                    "command"><strong>psfxtable</strong></span> 的链接
                   </p>
                 </td>
               </tr>
@@ -408,8 +388,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    A link to <span class=
-                    "command"><strong>psfxtable</strong></span>
+                    一个到 <span class=
+                    "command"><strong>psfxtable</strong></span> 的链接
                   </p>
                 </td>
               </tr>
@@ -423,8 +403,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    A link to <span class=
-                    "command"><strong>psfxtable</strong></span>
+                    一个到 <span class=
+                    "command"><strong>psfxtable</strong></span> 的链接
                   </p>
                 </td>
               </tr>
@@ -438,7 +418,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Handle Unicode character tables for console fonts
+                    为控制台字体处理 Unicode 字符表
                   </p>
                 </td>
               </tr>
@@ -452,8 +432,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Changes the Enhanced Graphic Adapter (EGA) and Video
-                    Graphics Array (VGA) fonts on the console
+                    改变改良图像适配器 (EGA) 和 VGA 在控制台上的字体
                   </p>
                 </td>
               </tr>
@@ -467,8 +446,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Loads kernel scancode-to-keycode mapping table entries;
-                    this is useful if there are unusual keys on the keyboard
+                    加载核心 scancode-to-keycode 映射表入口；这键盘上存在非常规的按键时很有用
                   </p>
                 </td>
               </tr>
@@ -482,7 +460,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Sets the keyboard flags and Light Emitting Diodes (LEDs)
+                    设置键盘上的标识和发光二极管 (LEDs)
                   </p>
                 </td>
               </tr>
@@ -496,7 +474,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Defines the keyboard meta-key handling
+                    定义键盘的 meta-key 处理
                   </p>
                 </td>
               </tr>
@@ -510,7 +488,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Shows the current EGA/VGA console screen font
+                    显示当前 EGA/VGA 控制台屏幕字体
                   </p>
                 </td>
               </tr>
@@ -524,8 +502,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Reports the scancodes, keycodes, and ASCII codes of the
-                    keys pressed on the keyboard
+                    报告键盘上按下的键的扫描码，按键码和 ASCII 码
                   </p>
                 </td>
               </tr>
@@ -539,10 +516,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Puts the keyboard and console in UNICODE mode. Don't use
-                    this program unless your keymap file is in the ISO-8859-1
-                    encoding. For other encodings, this utility produces
-                    incorrect results.
+                    令键盘和控制台为 UNICODE 模式。除非你的键盘映射文件是 ISO-8859-1
+                    编码，不要使用此程序。对于其他编码，这个工具造成错误的结果
                   </p>
                 </td>
               </tr>
@@ -556,7 +531,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    Reverts keyboard and console from UNICODE mode
+                    将键盘和控制台从 UNICODE 模式还原
                   </p>
                 </td>
               </tr>

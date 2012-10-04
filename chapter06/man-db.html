@@ -49,8 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Man-DB package contains programs for finding and viewing man
-          pages.
+          Man-DB 程序包包含用于寻找和查看手册页的程序：
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -67,10 +66,10 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.55.1. Installation of Man-DB
+          6.55.1. 安装 Man-DB
         </h2>
         <p>
-          Prepare Man-DB for compilation:
+          准备编译 Man-DB：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr                        \
@@ -84,7 +83,7 @@
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置脚本的含义：</b>
           </p>
           <dl>
             <dt>
@@ -93,9 +92,8 @@
             </dt>
             <dd>
               <p>
-                This disables making the <span class=
-                "command"><strong>man</strong></span> program setuid to user
-                <code class="systemitem">man</code>.
+                此项防止 <span class="command"><strong>man</strong></span> 程序
+                setuid 为 <code class="systemitem">man</code> 用户。
               </p>
             </dd>
             <dt>
@@ -104,37 +102,33 @@
             </dt>
             <dd>
               <p>
-                These three parameters are used to set some default programs.
-                <span class="command"><strong>lynx</strong></span> is a
-                text-based web browser (see BLFS for installation
-                instructions), <span class=
-                "command"><strong>vgrind</strong></span> converts program
-                sources to Groff input, and <span class=
-                "command"><strong>grap</strong></span> is useful for
-                typesetting graphs in Groff documents. The <span class=
-                "command"><strong>vgrind</strong></span> and <span class=
-                "command"><strong>grap</strong></span> programs are not
-                normally needed for viewing manual pages. They are not part
-                of LFS or BLFS, but you should be able to install them
-                yourself after finishing LFS if you wish to do so.
+                这三个参数用于设置一些默认程序。<span class=
+                "command"><strong>lynx</strong></span> 是一个基于文本的网络浏览器 (安装指令见
+                BLFS)，<span class="command"><strong>vgrind</strong></span>
+                将程序源代码转换成 Groff 输入，<span class=
+                "command"><strong>grap</strong></span> 常用于在 Groff
+                文档中设置图标的变量属性。<span class=
+                "command"><strong>vgrind</strong></span> 和 <span class=
+                "command"><strong>grap</strong></span> 程序通常在查看手册页是不需要，而且不在
+                LFS 或者 BLFS 之内，但是完成 LFS 之后，你应该能够自己安装之。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -142,25 +136,20 @@
       </div>
       <div class="sect2" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.55.2. Non-English Manual Pages in LFS
+          6.55.2. LFS 中的非英语手册页
         </h2>
         <p>
-          The following table shows the character set that Man-DB assumes
-          manual pages installed under <code class=
-          "filename">/usr/share/man/&lt;ll&gt;</code> will be encoded with.
-          In addition to this, Man-DB correctly determines if manual pages
-          installed in that directory are UTF-8 encoded.
+          以下表格显示 Man-DB 认定存储在 <code class=
+          "filename">/usr/share/man/&lt;ll&gt;</code> 用于编码的字符集。除此之外 Man-DB
+          还能正确获知目录中安装的手册页是否是以 UTF-8 编码的。
         </p>
         <div class="table">
-          <a id="idp13976832" name="idp13976832"></a>
+          <a id="idp14044048" name="idp14044048"></a>
           <p class="title">
-            <b>表&nbsp;6.1.&nbsp;Expected character encoding of legacy 8-bit
-            manual pages</b>
+            <b>表&nbsp;6.1.&nbsp;传统 8 位手册页期待的字符编码</b>
           </p>
           <div class="table-contents">
-            <table summary=
-            "Expected character encoding of legacy 8-bit manual pages"
-            border="1">
+            <table summary="传统 8 位手册页期待的字符编码" border="1">
               <colgroup>
                 <col />
                 <col />
@@ -170,29 +159,29 @@
               <thead>
                 <tr>
                   <th>
-                    Language (code)
+                    语言 (代码)
                   </th>
                   <th>
-                    Encoding
+                    编码
                   </th>
                   <th>
-                    Language (code)
+                    语言 (代码)
                   </th>
                   <th>
-                    Encoding
+                    编码
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    Danish (da)
+                    丹麦语 (da)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Croatian (hr)
+                    克罗地亚语 (hr)
                   </td>
                   <td>
                     ISO-8859-2
@@ -200,13 +189,13 @@
                 </tr>
                 <tr>
                   <td>
-                    German (de)
+                    德语 (de)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Hungarian (hu)
+                    匈牙利语 (hu)
                   </td>
                   <td>
                     ISO-8859-2
@@ -214,13 +203,13 @@
                 </tr>
                 <tr>
                   <td>
-                    English (en)
+                    英语 (en)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Japanese (ja)
+                    日语 (ja)
                   </td>
                   <td>
                     EUC-JP
@@ -228,13 +217,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Spanish (es)
+                    西班牙语 (es)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Korean (ko)
+                    韩语 (ko)
                   </td>
                   <td>
                     EUC-KR
@@ -242,13 +231,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Estonian (et)
+                    爱沙尼亚语 (et)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Lithuanian (lt)
+                    立陶宛语 (lt)
                   </td>
                   <td>
                     ISO-8859-13
@@ -256,13 +245,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Finnish (fi)
+                    芬兰语 (fi)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Latvian (lv)
+                    拉脱维亚语 (lv)
                   </td>
                   <td>
                     ISO-8859-13
@@ -270,13 +259,13 @@
                 </tr>
                 <tr>
                   <td>
-                    French (fr)
+                    法语 (fr)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Macedonian (mk)
+                    马其顿语 (mk)
                   </td>
                   <td>
                     ISO-8859-5
@@ -284,13 +273,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Irish (ga)
+                    爱尔兰语 (ga)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Polish (pl)
+                    波兰语 (pl)
                   </td>
                   <td>
                     ISO-8859-2
@@ -298,13 +287,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Galician (gl)
+                    加利西亚语 (gl)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Romanian (ro)
+                    罗马尼亚语 (ro)
                   </td>
                   <td>
                     ISO-8859-2
@@ -312,13 +301,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Indonesian (id)
+                    印尼语 (id)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Russian (ru)
+                    俄语 (ru)
                   </td>
                   <td>
                     KOI8-R
@@ -326,13 +315,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Icelandic (is)
+                    冰岛语 (is)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Slovak (sk)
+                    斯洛伐克语 (sk)
                   </td>
                   <td>
                     ISO-8859-2
@@ -340,13 +329,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Italian (it)
+                    意大利语 (it)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Slovenian (sl)
+                    斯洛文尼亚语 (sl)
                   </td>
                   <td>
                     ISO-8859-2
@@ -354,13 +343,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Norwegian Bokmal (nb)
+                    挪威波克默尔文 (nb)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Serbian Latin (sr@latin)
+                    塞尔维亚拉丁文 (sr@latin)
                   </td>
                   <td>
                     ISO-8859-2
@@ -368,13 +357,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Dutch (nl)
+                    荷兰语 (nl)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Serbian (sr)
+                    塞尔维亚语 (sr)
                   </td>
                   <td>
                     ISO-8859-5
@@ -382,13 +371,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Norwegian Nynorsk (nn)
+                    新挪威语 (nn)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Turkish (tr)
+                    土耳其语 (tr)
                   </td>
                   <td>
                     ISO-8859-9
@@ -396,13 +385,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Norwegian (no)
+                    挪威语 (no)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Ukrainian (uk)
+                    乌克兰语 (uk)
                   </td>
                   <td>
                     KOI8-U
@@ -410,13 +399,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Portuguese (pt)
+                    葡萄牙语 (pt)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Vietnamese (vi)
+                    越南语 (vi)
                   </td>
                   <td>
                     TCVN5712-1
@@ -424,13 +413,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Swedish (sv)
+                    瑞典语 (sv)
                   </td>
                   <td>
                     ISO-8859-1
                   </td>
                   <td>
-                    Simplified Chinese (zh_CN)
+                    简体中文 (zh_CN)
                   </td>
                   <td>
                     GBK
@@ -438,13 +427,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Belarusian (be)
+                    白俄罗斯语 (be)
                   </td>
                   <td>
                     CP1251
                   </td>
                   <td>
-                    Simplified Chinese, Singapore (zh_SG)
+                    新加坡繁体中文 (zh_SG)
                   </td>
                   <td>
                     GBK
@@ -452,13 +441,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Bulgarian (bg)
+                    保加利亚语 (bg)
                   </td>
                   <td>
                     CP1251
                   </td>
                   <td>
-                    Traditional Chinese, Hong Kong (zh_HK)
+                    香港繁体中文 (zh_HK)
                   </td>
                   <td>
                     BIG5HKSCS
@@ -466,13 +455,13 @@
                 </tr>
                 <tr>
                   <td>
-                    Czech (cs)
+                    捷克语 (cs)
                   </td>
                   <td>
                     ISO-8859-2
                   </td>
                   <td>
-                    Traditional Chinese (zh_TW)
+                    台湾繁体中文 (zh_TW)
                   </td>
                   <td>
                     BIG5
@@ -480,7 +469,7 @@
                 </tr>
                 <tr>
                   <td>
-                    Greek (el)
+                    希腊语 (el)
                   </td>
                   <td>
                     ISO-8859-7
@@ -502,33 +491,31 @@
             注意
           </h3>
           <p>
-            Manual pages in languages not in the list are not supported.
+            语言不在此列表中的手册页尚不支持。
           </p>
         </div>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-man-db" name="contents-man-db"></a>6.55.3. Contents
-          of Man-DB
+          <a id="contents-man-db" name="contents-man-db"></a>6.55.3. Man-DB
+          的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">accessdb, apropos (link to whatis),
-              catman, lexgrog, man, mandb, manpath, whatis, and
-              zsoelim</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">accessdb、apropos (到 whatis
+              的链接)、catman、lexgrog、man、mandb、manpath、whatis 和 zsoelim</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/usr/lib/man-db,
-              /usr/share/doc/man-db</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/lib/man-db、/usr/share/doc/man-db</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -543,9 +530,8 @@
                 </td>
                 <td>
                   <p>
-                    Dumps the <span class=
-                    "command"><strong>whatis</strong></span> database
-                    contents in human-readable form
+                    转储 <span class="command"><strong>whatis</strong></span>
+                    数据库内容为可读格式
                   </p>
                 </td>
               </tr>
@@ -559,10 +545,8 @@
                 </td>
                 <td>
                   <p>
-                    Searches the <span class=
-                    "command"><strong>whatis</strong></span> database and
-                    displays the short descriptions of system commands that
-                    contain a given string
+                    搜索 <span class="command"><strong>whatis</strong></span>
+                    数据库并显示包含给定字符串的每个系统命令的简介
                   </p>
                 </td>
               </tr>
@@ -576,7 +560,7 @@
                 </td>
                 <td>
                   <p>
-                    Creates or updates the pre-formatted manual pages
+                    创建或者更新预格式化的手册页
                   </p>
                 </td>
               </tr>
@@ -590,8 +574,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays one-line summary information about a given
-                    manual page
+                    显示给定手册页的单行摘要信息
                   </p>
                 </td>
               </tr>
@@ -604,7 +587,7 @@
                 </td>
                 <td>
                   <p>
-                    Formats and displays the requested manual page
+                    格式化并显示请求的手册页
                   </p>
                 </td>
               </tr>
@@ -618,8 +601,8 @@
                 </td>
                 <td>
                   <p>
-                    Creates or updates the <span class=
-                    "command"><strong>whatis</strong></span> database
+                    创建或更新 <span class=
+                    "command"><strong>whatis</strong></span> 数据库
                   </p>
                 </td>
               </tr>
@@ -633,9 +616,8 @@
                 </td>
                 <td>
                   <p>
-                    Displays the contents of $MANPATH or (if $MANPATH is not
-                    set) a suitable search path based on the settings in
-                    man.conf and the user's environment
+                    显示 $MANPATH 或者 (如果没有设置 $MANPATH) 依据 man.conf
+                    和用户的环境选出的合适的搜索路径中的内容
                   </p>
                 </td>
               </tr>
@@ -649,10 +631,8 @@
                 </td>
                 <td>
                   <p>
-                    Searches the <span class=
-                    "command"><strong>whatis</strong></span> database and
-                    displays the short descriptions of system commands that
-                    contain the given keyword as a separate word
+                    搜索 <span class="command"><strong>whatis</strong></span>
+                    数据库，显示出以独立单词包含给定关键字的所有系统命令的简介
                   </p>
                 </td>
               </tr>
@@ -666,9 +646,8 @@
                 </td>
                 <td>
                   <p>
-                    Reads files and replaces lines of the form <span class=
-                    "emphasis"><em>.so file</em></span> by the contents of
-                    the mentioned <span class="emphasis"><em>file</em></span>
+                    读取文件，将其中的 <span class="emphasis"><em>.so</em></span>
+                    文件表格替换为文件的内容<span class="emphasis"><em>文件</em></span>
                   </p>
                 </td>
               </tr>

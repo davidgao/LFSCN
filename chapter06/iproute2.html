@@ -49,8 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The IPRoute2 package contains programs for basic and advanced
-          IPV4-based networking.
+          IPRoute2 程序包包含用于 IPv4 网络的基本和高级程序。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -67,26 +66,22 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.50.1. Installation of IPRoute2
+          6.50.1. 安装 IPRoute2
         </h2>
         <p>
-          Apply a patch to fix a compilation issue caused by the absence of
-          the iptables package:
+          应用一个补丁修复一个由 iptables 程序包缺失造成的编译问题：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../iproute2-3.6.0-ipset-1.patch</kbd>
 </pre>
         <p>
-          The <span class="command"><strong>arpd</strong></span> binary
-          included in this package is dependent on Berkeley DB. Because
-          <span class="command"><strong>arpd</strong></span> is not a very
-          common requirement on a base Linux system, remove the dependency on
-          Berkeley DB by applying the commands below. If the <span class=
-          "command"><strong>arpd</strong></span> binary is needed,
-          instructions for compiling Berkeley DB can be found in the BLFS
-          Book at <a class="ulink" href=
+          此程序包包含的 <span class="command"><strong>arpd</strong></span> 二进制依赖
+          Berkeley DB。因为 <span class="command"><strong>arpd</strong></span>
+          对于基本 Linux 系统来说不是必要的，应用以下命令移除对 Berkeley DB 的依赖。如果需要 <span class=
+          "command"><strong>arpd</strong></span> 这个二进制，编译 Berkeley DB 的指令位于
+          BLFS 中的 <a class="ulink" href=
           "http://www.linuxfromscratch.org/blfs/view/svn/server/databases.html#db">
-          http://www.linuxfromscratch.org/blfs/view/svn/server/databases.html#db</a>.
+          http://www.linuxfromscratch.org/blfs/view/svn/server/databases.html#db</a>。
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i '/^TARGETS/s@arpd@@g' misc/Makefile
@@ -94,14 +89,14 @@ sed -i /ARPD/d Makefile
 sed -i 's/arpd.8//' man/man8/Makefile</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make DESTDIR=</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the make option:</b>
+            <b>make 选项的含义</b>
           </p>
           <dl>
             <dt>
@@ -110,26 +105,22 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
             </dt>
             <dd>
               <p>
-                This ensures that the IPRoute2 binaries will install into the
-                correct directory. By default, <em class=
-                "parameter"><code>DESTDIR</code></em> is set to <code class=
-                "filename">/usr</code>.
+                此项确保 IPRoute2 的二进制安装到正确的目录。<em class=
+                "parameter"><code>DESTDIR</code></em> 默认设置为 <code class=
+                "filename">/usr</code>。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          This package comes with a test suite, but due to assumptions it
-          makes, it is not possible to reliably run these tests from within
-          the chroot environment. If you wish to run these tests after
-          booting into your new LFS system, ensure you select <code class=
-          "filename">/proc/config.gz</code> CONFIG_IKCONFIG_PROC ("General
-          setup" -&gt; "Enable access to .config through /proc/config.gz")
-          support into your kernel then run 'make alltests' from the
-          <code class="filename">testsuite/</code> subdirectory.
+          此程序包带有测试套件，但由于它所做的一些假设，在 chroot 环境中可靠运行是不可能的。如果你要在引导到新的 LFS
+          系统之后运行这些测试，确保你在内核中选中 <code class="filename">/proc/config.gz</code>
+          CONFIG_IKCONFIG_PROC (位于 "General setup" -&gt; "Enable access to
+          .config through /proc/config.gz") 支持，然后在 <code class=
+          "filename">testsuite/</code> 子目录中执行 make alltests.
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make DESTDIR=              \
@@ -140,26 +131,25 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
           <a id="contents-iproute2" name="contents-iproute2"></a>6.50.2.
-          Contents of IPRoute2
+          IPRoute2 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">ctstat (link to lnstat), genl, ifcfg,
-              ifstat, ip, lnstat, nstat, routef, routel, rtacct, rtmon, rtpr,
-              rtstat (link to lnstat), ss, and tc</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">ctstat (到 lnstat
+              的链接)、genl、ifcfg、ifstat、ip、lnstat、nstat、routef、routel、rtacct、rtmon、rtpr、rtstat
+              (到 lnstat 的链接)、ss 和 tc</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/etc/iproute2, /lib/tc,
-              /usr/share/doc/iproute2-3.6.0, /usr/lib/tc</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">/etc/iproute2、/lib/tc、/usr/share/doc/iproute2-3.6.0、/usr/lib/tc</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -174,7 +164,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Connection status utility
+                    连接状态工具
                   </p>
                 </td>
               </tr>
@@ -198,13 +188,12 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    A shell script wrapper for the <span class=
-                    "command"><strong>ip</strong></span> command. Note that
-                    it requires the <span class=
-                    "command"><strong>arping</strong></span> and <span class=
-                    "command"><strong>rdisk</strong></span> programs from the
-                    iputils package found at <a class="ulink" href=
-                    "http://www.skbuff.net/iputils/">http://www.skbuff.net/iputils/</a>.
+                    <span class="command"><strong>ip</strong></span> 命令的一个
+                    shell 脚本打包；注意它需求 <span class=
+                    "command"><strong>arping</strong></span> 和 <span class=
+                    "command"><strong>rdisk</strong></span> 程序；这些程序来自 iputils
+                    程序包，位于 <a class="ulink" href=
+                    "http://www.skbuff.net/iputils/">http://www.skbuff.net/iputils/</a>
                   </p>
                 </td>
               </tr>
@@ -218,8 +207,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Shows the interface statistics, including the amount of
-                    transmitted and received packets by interface
+                    显示接口统计数据，包括其发送和接收的数据包
                   </p>
                 </td>
               </tr>
@@ -232,53 +220,44 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    The main executable. It has several different functions:
+                    主可执行文件，有几个不同的功能：
                   </p>
                   <p>
                     <span class="command"><strong>ip link <em class=
-                    "replaceable"><code>&lt;device&gt;</code></em></strong></span>
-                    allows users to look at the state of devices and to make
-                    changes
+                    "replaceable"><code>&lt;设备&gt;</code></em></strong></span>
+                    允许用户查看设备状态并作出改动
                   </p>
                   <p>
                     <span class="command"><strong>ip addr</strong></span>
-                    allows users to look at addresses and their properties,
-                    add new addresses, and delete old ones
+                    允许用户查看地址和属性、添加地址和删除旧地址
                   </p>
                   <p>
                     <span class="command"><strong>ip neighbor</strong></span>
-                    allows users to look at neighbor bindings and their
-                    properties, add new neighbor entries, and delete old ones
+                    允许用户查看邻居绑定和属性、添加邻居和删除旧邻居
                   </p>
                   <p>
                     <span class="command"><strong>ip rule</strong></span>
-                    allows users to look at the routing policies and change
-                    them
+                    允许用户查看路由政策并调整之
                   </p>
                   <p>
                     <span class="command"><strong>ip route</strong></span>
-                    allows users to look at the routing table and change
-                    routing table rules
+                    允许用户查看路由表并修改其规则
                   </p>
                   <p>
                     <span class="command"><strong>ip tunnel</strong></span>
-                    allows users to look at the IP tunnels and their
-                    properties, and change them
+                    允许用户查看 IP 隧道及其属性并修改之
                   </p>
                   <p>
                     <span class="command"><strong>ip maddr</strong></span>
-                    allows users to look at the multicast addresses and their
-                    properties, and change them
+                    允许用户查看多播地址及其属性并修改之
                   </p>
                   <p>
                     <span class="command"><strong>ip mroute</strong></span>
-                    allows users to set, change, or delete the multicast
-                    routing
+                    允许用户设置、修改或删除多播路由
                   </p>
                   <p>
                     <span class="command"><strong>ip monitor</strong></span>
-                    allows users to continuously monitor the state of
-                    devices, addresses and routes
+                    允许用户持续监视设备状态、地址和路由
                   </p>
                 </td>
               </tr>
@@ -292,10 +271,8 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Provides Linux network statistics. It is a generalized
-                    and more feature-complete replacement for the old
-                    <span class="command"><strong>rtstat</strong></span>
-                    program
+                    提供 Linux 网络统计数据；比老式的 <span class=
+                    "command"><strong>rtstat</strong></span> 程序更加通用和完善
                   </p>
                 </td>
               </tr>
@@ -309,7 +286,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Shows network statistics
+                    显示网络统计数据
                   </p>
                 </td>
               </tr>
@@ -323,9 +300,8 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    A component of <span class="command"><strong>ip
-                    route</strong></span>. This is for flushing the routing
-                    tables
+                    <span class="command"><strong>ip route</strong></span>
+                    的一个组件；用于刷写路由表
                   </p>
                 </td>
               </tr>
@@ -339,9 +315,8 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    A component of <span class="command"><strong>ip
-                    route</strong></span>. This is for listing the routing
-                    tables
+                    <span class="command"><strong>ip route</strong></span>
+                    的一个组件；用于列出路由表
                   </p>
                 </td>
               </tr>
@@ -355,8 +330,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Displays the contents of <code class=
-                    "filename">/proc/net/rt_acct</code>
+                    显示 <code class="filename">/proc/net/rt_acct</code> 的内容
                   </p>
                 </td>
               </tr>
@@ -370,7 +344,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Route monitoring utility
+                    路由监视工具
                   </p>
                 </td>
               </tr>
@@ -384,8 +358,8 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Converts the output of <span class="command"><strong>ip
-                    -o</strong></span> back into a readable form
+                    将 <span class="command"><strong>ip -o</strong></span>
+                    的输出转换为可读格式
                   </p>
                 </td>
               </tr>
@@ -399,7 +373,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Route status utility
+                    路由状态工具
                   </p>
                 </td>
               </tr>
@@ -412,9 +386,8 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Similar to the <span class=
-                    "command"><strong>netstat</strong></span> command; shows
-                    active connections
+                    类似 <span class="command"><strong>netstat</strong></span>
+                    命令；显示活动的连接
                   </p>
                 </td>
               </tr>
@@ -427,30 +400,27 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
                 </td>
                 <td>
                   <p>
-                    Traffic Controlling Executable; this is for Quality Of
-                    Service (QOS) and Class Of Service (COS) implementations
+                    流量控制程序；用于 QOS 和 COS 的实现
                   </p>
                   <p>
                     <span class="command"><strong>tc qdisc</strong></span>
-                    allows users to setup the queueing discipline
+                    允许用户设置队列原则
                   </p>
                   <p>
                     <span class="command"><strong>tc class</strong></span>
-                    allows users to setup classes based on the queuing
-                    discipline scheduling
+                    允许用户基于队列原则设置类
                   </p>
                   <p>
                     <span class="command"><strong>tc
-                    estimator</strong></span> allows users to estimate the
-                    network flow into a network
+                    estimator</strong></span> 允许用户估计网络上的流量
                   </p>
                   <p>
                     <span class="command"><strong>tc filter</strong></span>
-                    allows users to setup the QOS/COS packet filtering
+                    允许用户设置 QOS/COS 数据包筛选
                   </p>
                   <p>
                     <span class="command"><strong>tc policy</strong></span>
-                    allows users to setup the QOS/COS policies
+                    允许用户设置 QOS/COS 政策
                   </p>
                 </td>
               </tr>
