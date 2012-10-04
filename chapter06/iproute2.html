@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.50.&nbsp;IPRoute2-3.5.1
+      6.50.&nbsp;IPRoute2-3.6.0
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-system-iproute2" name="ch-system-iproute2"></a>6.50.
-        IPRoute2-3.5.1
+        IPRoute2-3.6.0
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -69,6 +69,13 @@
         <h2 class="sect2">
           6.50.1. Installation of IPRoute2
         </h2>
+        <p>
+          Apply a patch to fix a compilation issue caused by the absence of
+          the iptables package:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../iproute2-3.6.0-ipset-1.patch</kbd>
+</pre>
         <p>
           The <span class="command"><strong>arpd</strong></span> binary
           included in this package is dependent on Berkeley DB. Because
@@ -127,7 +134,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
         <pre class="userinput">
 <kbd class="command">make DESTDIR=              \
      MANDIR=/usr/share/man \
-     DOCDIR=/usr/share/doc/iproute2-3.5.1 install</kbd>
+     DOCDIR=/usr/share/doc/iproute2-3.6.0 install</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -146,7 +153,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
             <div class="seg">
               <strong class="segtitle">Installed directories:</strong>
               <span class="segbody">/etc/iproute2, /lib/tc,
-              /usr/share/doc/iproute2-3.5.1, /usr/lib/tc</span>
+              /usr/share/doc/iproute2-3.6.0, /usr/lib/tc</span>
             </div>
           </div>
         </div>
@@ -472,7 +479,7 @@ sed -i 's/arpd.8//' man/man8/Makefile</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

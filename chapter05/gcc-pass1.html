@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      5.5.&nbsp;GCC-4.7.1 - 第一遍
+      5.5.&nbsp;GCC-4.7.2 - 第一遍
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;5&nbsp;章&nbsp;搭建临时系统
@@ -29,9 +29,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="linux-headers.html" title=
-          "Linux-3.5.4 API 头文件">下一页</a>
+          "Linux-3.6 API 头文件">下一页</a>
           <p>
-            Linux-3.5.4 API 头文件
+            Linux-3.6 API 头文件
           </p>
         </li>
         <li class="up">
@@ -40,14 +40,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-tools-gcc-pass1" name="ch-tools-gcc-pass1"></a>5.5.
-        GCC-4.7.1 - 第一遍
+        GCC-4.7.2 - 第一遍
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -145,7 +145,7 @@ cd ../gcc-build</kbd>
           准备编译 GCC：
         </p>
         <pre class="userinput">
-<kbd class="command">../gcc-4.7.1/configure         \
+<kbd class="command">../gcc-4.7.2/configure         \
     --target=$LFS_TGT          \
     --prefix=/tools            \
     --with-sysroot=$LFS        \
@@ -163,7 +163,7 @@ cd ../gcc-build</kbd>
     --disable-libgomp          \
     --disable-libquadmath      \
     --enable-languages=c       \
-    --with-mpfr-include=$(pwd)/../gcc-4.7.1/mpfr/src \
+    --with-mpfr-include=$(pwd)/../gcc-4.7.2/mpfr/src \
     --with-mpfr-lib=$(pwd)/mpfr/src/.libs</kbd>
 </pre>
         <div class="variablelist">
@@ -283,7 +283,7 @@ cd ../gcc-build</kbd>
         </p>
         <pre class="userinput">
 <kbd class=
-"command">ln -vs libgcc.a `$LFS_TGT-gcc -print-libgcc-file-name | sed 's/libgcc/&amp;_eh/'`</kbd>
+"command">ln -sv libgcc.a `$LFS_TGT-gcc -print-libgcc-file-name | sed 's/libgcc/&amp;_eh/'`</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -305,9 +305,9 @@ cd ../gcc-build</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="linux-headers.html" title=
-          "Linux-3.5.4 API 头文件">下一页</a>
+          "Linux-3.6 API 头文件">下一页</a>
           <p>
-            Linux-3.5.4 API 头文件
+            Linux-3.6 API 头文件
           </p>
         </li>
         <li class="up">
@@ -316,7 +316,7 @@ cd ../gcc-build</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

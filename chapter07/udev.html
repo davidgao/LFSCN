@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;7&nbsp;章&nbsp;设置系统引导脚本
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
@@ -126,75 +126,22 @@
             "systemitem">sysfs</code> knows about the devices present on a
             system and what device numbers should be used for them. Drivers
             that have been compiled into the kernel directly register their
-            objects with <code class="systemitem">sysfs</code> as they are
-            detected by the kernel. For drivers compiled as modules, this
-            registration will happen when the module is loaded. Once the
-            <code class="systemitem">sysfs</code> filesystem is mounted (on
-            <code class="filename">/sys</code>), data which the built-in
-            drivers registered with <code class="systemitem">sysfs</code> are
-            available to userspace processes and to <span class=
-            "command"><strong>udevd</strong></span> for processing (including
+            objects with a <code class="systemitem">sysfs</code> (devtmpfs
+            internally) as they are detected by the kernel. For drivers
+            compiled as modules, this registration will happen when the
+            module is loaded. Once the <code class="systemitem">sysfs</code>
+            filesystem is mounted (on /sys), data which the drivers register
+            with <code class="systemitem">sysfs</code> are available to
+            userspace processes and to udevd for processing (including
             modifications to device nodes).
           </p>
         </div>
         <div class="sect3" lang="zh-cn" xml:lang="zh-cn">
           <h3 class="sect3">
-            7.4.2.2. Udev Bootscripts
+            7.4.2.2. Device Node Creation
           </h3>
           <p>
-            The <span class=
-            "command"><strong>/etc/rc.d/init.d/udev</strong></span>
-            initscript takes care of creating device nodes when Linux is
-            booted. The script unsets the uevent handler from the default of
-            <span class="command"><strong>/sbin/hotplug</strong></span>. This
-            is done because the kernel no longer needs to call out to an
-            external binary. Instead <span class=
-            "command"><strong>udevd</strong></span> will listen on a netlink
-            socket for uevents that the kernel raises. Next, the bootscript
-            copies any static device nodes that exist in <code class=
-            "filename">/lib/udev/devices</code> to <code class=
-            "filename">/dev</code>. This is necessary because some devices,
-            directories, and symlinks are needed before the dynamic device
-            handling processes are available during the early stages of
-            booting a system, or are required by <span class=
-            "command"><strong>udevd</strong></span> itself. Creating static
-            device nodes in <code class="filename">/lib/udev/devices</code>
-            also provides an easy workaround for devices that are not
-            supported by the dynamic device handling infrastructure. The
-            bootscript then starts the Udev daemon, <span class=
-            "command"><strong>udevd</strong></span>, which will act on any
-            uevents it receives. Finally, the bootscript forces the kernel to
-            replay uevents for any devices that have already been registered
-            and then waits for <span class=
-            "command"><strong>udevd</strong></span> to handle them.
-          </p>
-          <p>
-            The <span class=
-            "command"><strong>/etc/rc.d/init.d/udev_retry</strong></span>
-            initscript takes care of re-triggering events for subsystems
-            whose rules may rely on filesystems that are not mounted until
-            the <span class="command"><strong>mountfs</strong></span> script
-            is run (in particular, /usr and /var may cause this). This script
-            runs after the <span class=
-            "command"><strong>mountfs</strong></span> script, so those rules
-            (if re-triggered) should succeed the second time around. It is
-            configured from the <code class=
-            "filename">/etc/sysconfig/udev_retry</code> file; any words in
-            this file other than comments are considered subsystem names to
-            trigger at retry time. (To find the subsystem of a device, use
-            <span class="command"><strong>udevadm info
-            --attribute-walk</strong></span>.)
-          </p>
-        </div>
-        <div class="sect3" lang="zh-cn" xml:lang="zh-cn">
-          <h3 class="sect3">
-            7.4.2.3. Device Node Creation
-          </h3>
-          <p>
-            In recent version of udev, <span class=
-            "command"><strong>udevd</strong></span> no longer creates device
-            files in <code class="filename">/dev</code>. Instead, this must
-            be handled in the kernel, by the <code class=
+            Device files are created by the kernel by the <code class=
             "systemitem">devtmpfs</code> filesystem. Any driver that wishes
             to register a device node will go through <code class=
             "systemitem">devtmpfs</code> (via the driver core) to do it. When
@@ -212,17 +159,66 @@
             "command"><strong>udevd</strong></span> will create additional
             symlinks to the device node, or change its permissions, owner, or
             group, or modify the internal <span class=
-            "command"><strong>udevd</strong></span> database entry for that
-            object.
+            "command"><strong>udevd</strong></span> database entry (name) for
+            that object.
           </p>
           <p>
             The rules in these three directories are numbered in a similar
-            fashion to the LFS-Bootscripts package, and all three directories
+            fashion to the LFS-Bootscripts package and all three directories
             are merged together. If <span class=
             "command"><strong>udevd</strong></span> can't find a rule for the
             device it is creating, it will leave the permissions and
             ownership at whatever <code class="systemitem">devtmpfs</code>
             used initially.
+          </p>
+        </div>
+        <div class="sect3" lang="zh-cn" xml:lang="zh-cn">
+          <h3 class="sect3">
+            7.4.2.3. Udev Bootscripts
+          </h3>
+          <p>
+            The first LFS bootscript, <code class=
+            "filename">/etc/init.d/mountvirtfs</code> will copy any devices
+            located in <code class="filename">/lib/udev/devices</code> to
+            <code class="filename">/dev</code>. This is necessary because
+            some devices, directories, and symlinks are needed before the
+            dynamic device handling processes are available during the early
+            stages of booting a system, or are required by <span class=
+            "command"><strong>udevd</strong></span> itself. Creating static
+            device nodes in <code class="filename">/lib/udev/devices</code>
+            also provides an easy workaround for devices that are not
+            supported by the dynamic device handling infrastructure.
+          </p>
+          <p>
+            The <code class="filename">/etc/rc.d/init.d/udev</code>
+            initscript starts <span class=
+            "command"><strong>udevd</strong></span>, triggers any "coldplug"
+            devices that have already been created by the kernel and waits
+            for any rules to complete. The script also unsets the uevent
+            handler from the default of <code class=
+            "filename">/sbin/hotplug</code> . This is done because the kernel
+            no longer needs to call out to an external binary. Instead
+            <span class="command"><strong>udevd</strong></span> will listen
+            on a netlink socket for uevents that the kernel raises.
+          </p>
+          <p>
+            The <span class=
+            "command"><strong>/etc/rc.d/init.d/udev_retry</strong></span>
+            initscript takes care of re-triggering events for subsystems
+            whose rules may rely on filesystems that are not mounted until
+            the <span class="command"><strong>mountfs</strong></span> script
+            is run (in particular, <code class="filename">/usr</code> and
+            <code class="filename">/var</code> may cause this). This script
+            runs after the <span class=
+            "command"><strong>mountfs</strong></span> script, so those rules
+            (if re-triggered) should succeed the second time around. It is
+            configured from the <code class=
+            "filename">/etc/sysconfig/udev_retry</code> file; any words in
+            this file other than comments are considered subsystem names to
+            trigger at retry time. To find the subsystem of a device, use
+            <span class="command"><strong>udevadm info --attribute-walk
+            &lt;device&gt;</strong></span> where &lt;device&gt; is a an
+            absolure path in /dev or /sys such as /dev/sr0 or /sys/class/rtc.
           </p>
         </div>
         <div class="sect3" lang="zh-cn" xml:lang="zh-cn">
@@ -295,7 +291,7 @@
             Udev will only load a module if it has a bus-specific alias and
             the bus driver properly exports the necessary aliases to
             <code class="systemitem">sysfs</code>. In other cases, one should
-            arrange module loading by other means. With Linux-3.5.4, Udev is
+            arrange module loading by other means. With Linux-3.6, Udev is
             known to load properly-written drivers for INPUT, IDE, PCI, USB,
             SCSI, SERIO, and FireWire devices.
           </p>
@@ -318,7 +314,7 @@
             If there is no <code class="filename">modalias</code> file in the
             relevant directory under <code class="filename">/sys/bus</code>,
             this means that the kernel developers have not yet added modalias
-            support to this bus type. With Linux-3.5.4, this is the case with
+            support to this bus type. With Linux-3.6, this is the case with
             ISA busses. Expect this issue to be fixed in later kernel
             versions.
           </p>
@@ -487,13 +483,6 @@
                 http://www.kernel.org/pub/linux/kernel/people/mochel/doc/papers/ols-2005/mochel.pdf</a>
               </p>
             </li>
-            <li>
-              <p>
-                Pointers to further reading <a class="ulink" href=
-                "http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html">
-                http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html</a>
-              </p>
-            </li>
           </ul>
         </div>
       </div>
@@ -520,7 +509,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

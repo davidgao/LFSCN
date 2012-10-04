@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.55.&nbsp;Man-DB-2.6.2
+      6.55.&nbsp;Man-DB-2.6.3
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -27,9 +27,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="patch.html" title="Patch-2.7">下一页</a>
+          <a accesskey="n" href="patch.html" title="Patch-2.7.1">下一页</a>
           <p>
-            Patch-2.7
+            Patch-2.7.1
           </p>
         </li>
         <li class="up">
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-system-man-db" name="ch-system-man-db"></a>6.55.
-        Man-DB-2.6.2
+        Man-DB-2.6.3
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -70,18 +70,12 @@
           6.55.1. Installation of Man-DB
         </h2>
         <p>
-          Fix an incompatibility between this package and Glibc-2.16.0
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i -e '/gets is a/d' gnulib/lib/stdio.in.h</kbd>
-</pre>
-        <p>
           Prepare Man-DB for compilation:
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr                        \
             --libexecdir=/usr/lib                \
-            --docdir=/usr/share/doc/man-db-2.6.2 \
+            --docdir=/usr/share/doc/man-db-2.6.3 \
             --sysconfdir=/etc                    \
             --disable-setuid                     \
             --with-browser=/usr/bin/lynx         \
@@ -158,7 +152,7 @@
           installed in that directory are UTF-8 encoded.
         </p>
         <div class="table">
-          <a id="idp14086272" name="idp14086272"></a>
+          <a id="idp13976832" name="idp13976832"></a>
           <p class="title">
             <b>表&nbsp;6.1.&nbsp;Expected character encoding of legacy 8-bit
             manual pages</b>
@@ -692,9 +686,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="patch.html" title="Patch-2.7">下一页</a>
+          <a accesskey="n" href="patch.html" title="Patch-2.7.1">下一页</a>
           <p>
-            Patch-2.7
+            Patch-2.7.1
           </p>
         </li>
         <li class="up">
@@ -703,7 +697,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

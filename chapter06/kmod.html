@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -28,9 +28,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="libpipeline.html" title=
-          "Libpipeline-1.2.1">下一页</a>
+          "Libpipeline-1.2.2">下一页</a>
           <p>
-            Libpipeline-1.2.1
+            Libpipeline-1.2.2
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
@@ -69,6 +69,12 @@
         <h2 class="sect2">
           6.52.1. Installation of Kmod
         </h2>
+        <p>
+          Apply a patch to fix a testsuite issue on 32-bit machines:
+        </p>
+        <pre class="userinput">
+<kbd class="command">patch -Np1 -i ../kmod-10-testsuite-1.patch</kbd>
+</pre>
         <p>
           Prepare Kmod for compilation:
         </p>
@@ -286,9 +292,9 @@ ln -sv kmod /bin/lsmod</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="libpipeline.html" title=
-          "Libpipeline-1.2.1">下一页</a>
+          "Libpipeline-1.2.2">下一页</a>
           <p>
-            Libpipeline-1.2.1
+            Libpipeline-1.2.2
           </p>
         </li>
         <li class="up">
@@ -297,7 +303,7 @@ ln -sv kmod /bin/lsmod</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

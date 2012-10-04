@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
@@ -48,7 +48,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Less package contains a text file viewer.
+          Less 程序包包含一个文本文件阅读器。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -65,17 +65,17 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.48.1. Installation of Less
+          6.48.1. 安装 Less
         </h2>
         <p>
-          Prepare Less for compilation:
+          准备编译 Less：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr --sysconfdir=/etc</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置脚本的含义：</b>
           </p>
           <dl>
             <dt>
@@ -84,24 +84,22 @@
             </dt>
             <dd>
               <p>
-                This option tells the programs created by the package to look
-                in <code class="filename">/etc</code> for the configuration
-                files.
+                此选项告诉该程序包创建的程序到 <code class="filename">/etc</code> 中寻找配置文件。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          此程序包不包含测试套件。
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -109,20 +107,19 @@
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-less" name="contents-less"></a>6.48.2. Contents of
-          Less
+          <a id="contents-less" name="contents-less"></a>6.48.2. Less 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">less, lessecho, and lesskey</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">less、lessecho 和 lesskey</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -137,9 +134,7 @@
                 </td>
                 <td>
                   <p>
-                    A file viewer or pager; it displays the contents of the
-                    given file, letting the user scroll, find strings, and
-                    jump to marks
+                    一个文件阅读器或者分页器；显示给定文件的内容并允许用户滚动、查找字符串和跳转到标记
                   </p>
                 </td>
               </tr>
@@ -153,10 +148,9 @@
                 </td>
                 <td>
                   <p>
-                    Needed to expand meta-characters, such as <span class=
-                    "emphasis"><em>*</em></span> and <span class=
-                    "emphasis"><em>?</em></span>, in filenames on Unix
-                    systems
+                    用于在 Unix 系统的文件名中扩展元字符，例如 <span class=
+                    "emphasis"><em>*</em></span> 和 <span class=
+                    "emphasis"><em>?</em></span>
                   </p>
                 </td>
               </tr>
@@ -170,8 +164,8 @@
                 </td>
                 <td>
                   <p>
-                    Used to specify the key bindings for <span class=
-                    "command"><strong>less</strong></span>
+                    用于指定 <span class="command"><strong>less</strong></span>
+                    的按键绑定
                   </p>
                 </td>
               </tr>
@@ -200,7 +194,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

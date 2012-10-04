@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
@@ -67,35 +67,35 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.44.1. Installation of Gettext
+          6.44.1. 安装 Gettext
         </h2>
         <p>
-          Fix an incompatibility between this package and Glibc-2.16.0:
+          修复此程序包和 Glibc-2.16.0 间的一个不兼容问题：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e '/gets is a/d' gettext-*/*/stdio.in.h</kbd>
 </pre>
         <p>
-          Prepare Gettext for compilation:
+          准备编译 Gettext ：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr \
             --docdir=/usr/share/doc/gettext-0.18.1.1</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results (this takes a long time, around 3 SBUs), issue:
+          要测试结果 (这需要较长时间，大约 3 SBUs) ，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -109,29 +109,25 @@
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">autopoint, config.charset, config.rpath,
-              envsubst, gettext, gettext.sh, gettextize, hostname, msgattrib,
-              msgcat, msgcmp, msgcomm, msgconv, msgen, msgexec, msgfilter,
-              msgfmt, msggrep, msginit, msgmerge, msgunfmt, msguniq,
-              ngettext, recode-sr-latin, and xgettext</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">autopoint、config.charset、config.rpath、envsubst、gettext、gettext.sh、gettextize、hostname、msgattrib、msgcat、msgcmp、msgcomm、msgconv、msgen、msgexec、msgfilter、msgfmt、msggrep、msginit、msgmerge、msgunfmt、msguniq、ngettext、recode-sr-latin、和
+              xgettext</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">libasprintf.{a,so}, libgettextlib.so,
-              libgettextpo.{a,so}, libgettextsrc.so, and
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">libasprintf.{a,so}、libgettextlib.so、libgettextpo.{a,so}、libgettextsrc.so、and
               preloadable_libintl.so</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/usr/lib/gettext,
-              /usr/share/doc/gettext-0.18.1.1, /usr/share/gettext</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/lib/gettext, /usr/share/doc/gettext-0.18.1.1,
+              /usr/share/gettext</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -146,8 +142,7 @@
                 </td>
                 <td>
                   <p>
-                    Copies standard Gettext infrastructure files into a
-                    source package
+                    复制标准 Gettext 基础文件到一个源程序包
                   </p>
                 </td>
               </tr>
@@ -161,8 +156,7 @@
                 </td>
                 <td>
                   <p>
-                    Outputs a system-dependent table of character encoding
-                    aliases
+                    输出一个基于系统的字符编码镜像表
                   </p>
                 </td>
               </tr>
@@ -176,9 +170,7 @@
                 </td>
                 <td>
                   <p>
-                    Outputs a system-dependent set of variables, describing
-                    how to set the runtime search path of shared libraries in
-                    an executable
+                    输出一组基于系统的变量，他们描述如何设置一个可执行文件中共享库的运行库搜索路径
                   </p>
                 </td>
               </tr>
@@ -192,7 +184,7 @@
                 </td>
                 <td>
                   <p>
-                    Substitutes environment variables in shell format strings
+                    替换 shell 格式字符串中的环境变量
                   </p>
                 </td>
               </tr>
@@ -206,9 +198,7 @@
                 </td>
                 <td>
                   <p>
-                    Translates a natural language message into the user's
-                    language by looking up the translation in a message
-                    catalog
+                    查阅某一信息目录来将一种自然语言翻译成用户的语言
                   </p>
                 </td>
               </tr>
@@ -222,7 +212,7 @@
                 </td>
                 <td>
                   <p>
-                    Primarily serves as a shell function library for gettext
+                    主要用作一个 gettext 的一个 shell 函数库
                   </p>
                 </td>
               </tr>
@@ -236,9 +226,7 @@
                 </td>
                 <td>
                   <p>
-                    Copies all standard Gettext files into the given
-                    top-level directory of a package to begin
-                    internationalizing it
+                    复制所有标准 Gettext 文件到某一程序包下的给定顶层目录来开始其国际化进程
                   </p>
                 </td>
               </tr>
@@ -252,7 +240,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays a network hostname in various forms
+                    一不同的方式显示一个网络 host 名称
                   </p>
                 </td>
               </tr>
@@ -266,8 +254,7 @@
                 </td>
                 <td>
                   <p>
-                    Filters the messages of a translation catalog according
-                    to their attributes and manipulates the attributes
+                    根据它们属性的筛选一个翻译目录中的信息，并处理这些属性
                   </p>
                 </td>
               </tr>
@@ -281,8 +268,7 @@
                 </td>
                 <td>
                   <p>
-                    Concatenates and merges the given <code class=
-                    "filename">.po</code> files
+                    连接并混合给定的 <code class="filename">.po</code> 文件
                   </p>
                 </td>
               </tr>
@@ -296,8 +282,8 @@
                 </td>
                 <td>
                   <p>
-                    Compares two <code class="filename">.po</code> files to
-                    check that both contain the same set of msgid strings
+                    比较两个 <code class="filename">.po</code> 文件以检查它们是否包含相同的
+                    msgid 字符串组
                   </p>
                 </td>
               </tr>
@@ -311,8 +297,7 @@
                 </td>
                 <td>
                   <p>
-                    Finds the messages that are common to to the given
-                    <code class="filename">.po</code> files
+                    找到给定 <code class="filename">.po</code> 文件共有的信息
                   </p>
                 </td>
               </tr>
@@ -326,8 +311,7 @@
                 </td>
                 <td>
                   <p>
-                    Converts a translation catalog to a different character
-                    encoding
+                    转换一个翻译目录为一种不同的字符编码
                   </p>
                 </td>
               </tr>
@@ -341,7 +325,7 @@
                 </td>
                 <td>
                   <p>
-                    Creates an English translation catalog
+                    创建一个英文翻译目录
                   </p>
                 </td>
               </tr>
@@ -355,8 +339,7 @@
                 </td>
                 <td>
                   <p>
-                    Applies a command to all translations of a translation
-                    catalog
+                    应用一个命令到某一翻译目录的所有翻译
                   </p>
                 </td>
               </tr>
@@ -370,8 +353,7 @@
                 </td>
                 <td>
                   <p>
-                    Applies a filter to all translations of a translation
-                    catalog
+                    应用一个筛选到某一翻译目录的所有翻译
                   </p>
                 </td>
               </tr>
@@ -385,8 +367,7 @@
                 </td>
                 <td>
                   <p>
-                    Generates a binary message catalog from a translation
-                    catalog
+                    根据一个翻译目录生成一个二进制信息目录
                   </p>
                 </td>
               </tr>
@@ -400,8 +381,7 @@
                 </td>
                 <td>
                   <p>
-                    Extracts all messages of a translation catalog that match
-                    a given pattern or belong to some given source files
+                    提取某一符合一个给定样式或属于一些给定源文件的翻译目录中的所有信息
                   </p>
                 </td>
               </tr>
@@ -415,9 +395,7 @@
                 </td>
                 <td>
                   <p>
-                    Creates a new <code class="filename">.po</code> file,
-                    initializing the meta information with values from the
-                    user's environment
+                    创建一个新的 <code class="filename">.po</code> 文件，用用户环境的值初始化元信息
                   </p>
                 </td>
               </tr>
@@ -431,7 +409,7 @@
                 </td>
                 <td>
                   <p>
-                    Combines two raw translations into a single file
+                    组合两个原始翻译到一个文件中
                   </p>
                 </td>
               </tr>
@@ -445,8 +423,7 @@
                 </td>
                 <td>
                   <p>
-                    Decompiles a binary message catalog into raw translation
-                    text
+                    反编译一个二进制信息目录为原始翻译文档
                   </p>
                 </td>
               </tr>
@@ -460,7 +437,7 @@
                 </td>
                 <td>
                   <p>
-                    Unifies duplicate translations in a translation catalog
+                    使某一翻译目录下的镜像翻译一致
                   </p>
                 </td>
               </tr>
@@ -474,8 +451,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays native language translations of a textual
-                    message whose grammatical form depends on a number
+                    显示某一语法形式基于一个数字的原文信息的本地语言翻译
                   </p>
                 </td>
               </tr>
@@ -489,7 +465,7 @@
                 </td>
                 <td>
                   <p>
-                    Recodes Serbian text from Cyrillic to Latin script
+                    重编码 Cyrillic 脚本的 Serbian 文本到 Latin 脚本
                   </p>
                 </td>
               </tr>
@@ -503,8 +479,7 @@
                 </td>
                 <td>
                   <p>
-                    Extracts the translatable message lines from the given
-                    source files to make the first translation template
+                    提取给定源文件中可翻译的信息行来制作初次翻译样板
                   </p>
                 </td>
               </tr>
@@ -517,13 +492,10 @@
                 </td>
                 <td>
                   <p>
-                    defines the <span class=
-                    "emphasis"><em>autosprintf</em></span> class, which makes
-                    C formatted output routines usable in C++ programs, for
-                    use with the <span class=
-                    "emphasis"><em>&lt;string&gt;</em></span> strings and the
-                    <span class="emphasis"><em>&lt;iostream&gt;</em></span>
-                    streams
+                    定义 <span class="emphasis"><em>autosprintf</em></span>
+                    类，它使 C 格式输出途径在 C++ 程序中可用，以使用 <span class=
+                    "emphasis"><em>&lt;string&gt;</em></span> 字符串和
+                    <span class="emphasis"><em>&lt;iostream&gt;</em></span> 流
                   </p>
                 </td>
               </tr>
@@ -537,9 +509,7 @@
                 </td>
                 <td>
                   <p>
-                    a private library containing common routines used by the
-                    various Gettext programs; these are not intended for
-                    general use
+                    使一个包含通常途径的私有库被不同的 Gettext 程序使用；这并不是为了一般的用途
                   </p>
                 </td>
               </tr>
@@ -552,15 +522,12 @@
                 </td>
                 <td>
                   <p>
-                    Used to write specialized programs that process
-                    <code class="filename">.po</code> files; this library is
-                    used when the standard applications shipped with Gettext
-                    (such as <span class=
-                    "command"><strong>msgcomm</strong></span>, <span class=
-                    "command"><strong>msgcmp</strong></span>, <span class=
-                    "command"><strong>msgattrib</strong></span>, and
-                    <span class="command"><strong>msgen</strong></span>) will
-                    not suffice
+                    用来编写特殊的处理 <code class="filename">.po</code> 文件的程序；这个库在
+                    Gettext 包含的应用程序 （比如 <span class=
+                    "command"><strong>msgcomm</strong></span>，<span class=
+                    "command"><strong>msgcmp</strong></span>，<span class=
+                    "command"><strong>msgattrib</strong></span>，和
+                    <span class="command"><strong>msgen</strong></span>）不能满足时被用到
                   </p>
                 </td>
               </tr>
@@ -574,9 +541,7 @@
                 </td>
                 <td>
                   <p>
-                    A private library containing common routines used by the
-                    various Gettext programs; these are not intended for
-                    general use
+                    一个被不同 Gettext 程序使用到的包含通常途径的私有库；这并不是为了一般的用途
                   </p>
                 </td>
               </tr>
@@ -591,9 +556,8 @@
                 </td>
                 <td>
                   <p>
-                    A library, intended to be used by LD_PRELOAD that assists
-                    <code class="filename">libintl</code> in logging
-                    untranslated messages.
+                    一个被 LD_PRELOAD 用以在记录未翻译信息时辅助 <code class=
+                    "filename">libintl</code> 。
                   </p>
                 </td>
               </tr>
@@ -622,7 +586,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>

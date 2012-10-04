@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20120928">
+  <body class="lfs" id="lfs-SVN-20121002">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20120928
+        Linux From Scratch - 版本 SVN-20121002
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
@@ -68,29 +68,29 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.46.1. Installation of Xz
+          6.46.1. 安装 Xz
         </h2>
         <p>
-          Prepare Xz for compilation with:
+          如此准备编译 Xz：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">./configure --prefix=/usr --libdir=/lib --docdir=/usr/share/doc/xz-5.0.4</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make pkgconfigdir=/usr/lib/pkgconfig install</kbd>
@@ -103,30 +103,28 @@
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">lzcat (link to xz), lzcmp (link to
-              xzdiff), lzdiff (link to xzdiff), lzegrep (link to xzgrep),
-              lzfgrep (link to xzgrep), lzgrep (link to xzgrep), lzless (link
-              to xzless), lzma (link to xz), lzmadec, lzmainfo, lzmore (link
-              to xzmore), unlzma (link to xz), unxz, (link to xz), xz, xzcat
-              (link to xz), xzcmp (link to xzdiff), xzdec, xzdiff, xzegrep
-              (link to xzgrep), xzfgrep (link to xzgrep), xzgrep, xzless,
-              xzmore</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">lzcat (到 xz 的链接)、lzcmp (到 xzdiff 的链接)、lzdiff (到
+              xzdiff 的链接)、lzegrep (到 xzgrep 的链接)、lzfgrep (到 xzgrep
+              的链接)、lzgrep (到 xzgrep 的链接)、lzless (到 xzless 的链接)、lzma (到 xz
+              的链接)、lzmadec、lzmainfo、lzmore (到 xzmore 的链接)、unlzma (到 xz
+              的链接)、unxz (到 xz 的链接)、xz、xzcat (到 xz 的链接)、xzcmp (到 xzdiff
+              的链接)、xzdec、xzdiff、xzegrep (到 xzgrep 的链接)、xzfgrep (到 xzgrep
+              的链接)、xzgrep、xzless、xzmore</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">liblzma.{a,so}</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">liblzma.{a,so}</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/usr/include/lzma and
-              /usr/share/doc/xz-5.0.4</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/include/lzma 和 /usr/share/doc/xz-5.0.4</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -141,7 +139,7 @@
                 </td>
                 <td>
                   <p>
-                    Decompresses to standard output
+                    解压缩至标准输出
                   </p>
                 </td>
               </tr>
@@ -155,8 +153,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>cmp</strong></span> on
-                    LZMA compressed files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>cmp</strong></span>
                   </p>
                 </td>
               </tr>
@@ -170,8 +168,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>diff</strong></span>
-                    on LZMA compressed files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>diff</strong></span>
                   </p>
                 </td>
               </tr>
@@ -185,8 +183,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>egrep</strong></span>
-                    on LZMA compressed files files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>egrep</strong></span>
                   </p>
                 </td>
               </tr>
@@ -200,8 +198,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>fgrep</strong></span>
-                    on LZMA compressed files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>fgrep</strong></span>
                   </p>
                 </td>
               </tr>
@@ -215,8 +213,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>grep</strong></span>
-                    on LZMA compressed files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>grep</strong></span>
                   </p>
                 </td>
               </tr>
@@ -230,8 +228,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>less</strong></span>
-                    on LZMA compressed files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>less</strong></span>
                   </p>
                 </td>
               </tr>
@@ -245,7 +243,7 @@
                 </td>
                 <td>
                   <p>
-                    Compresses or decompresses files using the LZMA format
+                    以 LZMA 格式压缩或解压缩文件
                   </p>
                 </td>
               </tr>
@@ -259,7 +257,7 @@
                 </td>
                 <td>
                   <p>
-                    A small and fast decoder for LZMA compressed files
+                    小而快的 LZMA 压缩文件的解码器
                   </p>
                 </td>
               </tr>
@@ -273,8 +271,7 @@
                 </td>
                 <td>
                   <p>
-                    Shows information stored in the LZMA compressed file
-                    header
+                    显示 LZMA 文件头中存储的信息
                   </p>
                 </td>
               </tr>
@@ -288,8 +285,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>more</strong></span>
-                    on LZMA compressed files
+                    对 LZMA 压缩的文件运行 <span class=
+                    "command"><strong>more</strong></span>
                   </p>
                 </td>
               </tr>
@@ -303,7 +300,7 @@
                 </td>
                 <td>
                   <p>
-                    Decompresses files using the LZMA format
+                    解压缩 LZMA 格式的文件
                   </p>
                 </td>
               </tr>
@@ -317,7 +314,7 @@
                 </td>
                 <td>
                   <p>
-                    Decompresses files using the XZ format
+                    解压缩 XZ 格式的文件
                   </p>
                 </td>
               </tr>
@@ -330,7 +327,7 @@
                 </td>
                 <td>
                   <p>
-                    Compresses or decompresses files using the XZ format
+                    以 XZ 格式压缩或解压缩文件
                   </p>
                 </td>
               </tr>
@@ -344,7 +341,7 @@
                 </td>
                 <td>
                   <p>
-                    Decompresses to standard output
+                    解压缩至标准输出
                   </p>
                 </td>
               </tr>
@@ -358,8 +355,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>cmp</strong></span> on
-                    XZ compressed files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>cmp</strong></span>
                   </p>
                 </td>
               </tr>
@@ -373,7 +370,7 @@
                 </td>
                 <td>
                   <p>
-                    A small and fast decoder for XZ compressed files
+                    小而快的 XZ 压缩文件解码器
                   </p>
                 </td>
               </tr>
@@ -387,8 +384,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>diff</strong></span>
-                    on XZ compressed files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>diff</strong></span>
                   </p>
                 </td>
               </tr>
@@ -402,8 +399,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>egrep</strong></span>
-                    on XZ compressed files files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>egrep</strong></span>
                   </p>
                 </td>
               </tr>
@@ -417,8 +414,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>fgrep</strong></span>
-                    on XZ compressed files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>fgrep</strong></span>
                   </p>
                 </td>
               </tr>
@@ -432,8 +429,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>grep</strong></span>
-                    on XZ compressed files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>grep</strong></span>
                   </p>
                 </td>
               </tr>
@@ -447,8 +444,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>less</strong></span>
-                    on XZ compressed files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>less</strong></span>
                   </p>
                 </td>
               </tr>
@@ -462,8 +459,8 @@
                 </td>
                 <td>
                   <p>
-                    Runs <span class="command"><strong>more</strong></span>
-                    on XZ compressed files
+                    对 XZ 格式压缩的文件运行 <span class=
+                    "command"><strong>more</strong></span>
                   </p>
                 </td>
               </tr>
@@ -476,8 +473,7 @@
                 </td>
                 <td>
                   <p>
-                    The library implementing lossless, block-sorting data
-                    compression, using the Lempel-Ziv-Markov chain algorithm
+                    此库实现无损、块排序数据压缩，使用 LZMA 算法。
                   </p>
                 </td>
               </tr>
@@ -506,7 +502,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20120928">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
         </li>
       </ul>
     </div>
