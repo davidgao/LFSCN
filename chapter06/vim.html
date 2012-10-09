@@ -22,16 +22,15 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="udev.html" title=
-          "Udev-193 (Extracted from systemd-193)">上一页</a>
+          "Udev-193 (提取自 systemd-193)">上一页</a>
           <p>
-            Udev-193 (Extracted from systemd-193)
+            Udev-193 (提取自 systemd-193)
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="aboutdebug.html" title=
-          "About Debugging Symbols">下一页</a>
+          <a accesskey="n" href="aboutdebug.html" title="有关调试符号">下一页</a>
           <p>
-            About Debugging Symbols
+            有关调试符号
           </p>
         </li>
         <li class="up">
@@ -50,7 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Vim package contains a powerful text editor.
+          Vim 程序包包含一个强大的文本编辑器。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -67,39 +66,36 @@
         <div class="admon tip">
           <img alt="[提示]" src="../images/tip.png" />
           <h3>
-            Alternatives to Vim
+            Vim 的替代品
           </h3>
           <p>
-            If you prefer another editor—such as Emacs, Joe, or Nano—please
-            refer to <a class="ulink" href=
+            如果你喜欢其它的编辑器——例如 Emacs、Joe 或者 Nano——请参考 <a class="ulink" href=
             "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/editors.html">
-            http://www.linuxfromscratch.org/blfs/view/svn/postlfs/editors.html</a>
-            for suggested installation instructions.
+            http://www.linuxfromscratch.org/blfs/view/svn/postlfs/editors.html</a>，其中包含推荐的安装指令。
           </p>
         </div>
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.62.1. Installation of Vim
+          6.62.1. 安装 Vim
         </h2>
         <p>
-          First, change the default location of the <code class=
-          "filename">vimrc</code> configuration file to <code class=
-          "filename">/etc</code>:
+          首先改变 <code class="filename">vimrc</code> 配置文件的默认位置到 <code class=
+          "filename">/etc</code>：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">echo '#define SYS_VIMRC_FILE "/etc/vimrc"' &gt;&gt; src/feature.h</kbd>
 </pre>
         <p>
-          Now prepare Vim for compilation:
+          现在准备编译 Vim：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr --enable-multibyte</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the configure options:</b>
+            <b>配置选项的含义：</b>
           </p>
           <dl>
             <dt>
@@ -108,49 +104,39 @@
             </dt>
             <dd>
               <p>
-                This switch enables support for editing files in multibyte
-                character encodings. This is needed if using a locale with a
-                multibyte character set. This switch is also helpful to be
-                able to edit text files initially created in Linux
-                distributions like Fedora that use UTF-8 as a default
-                character set.
+                此开关启用编辑多字节字符编码文件的支持。如果使用了带有多字节字符集的区域数据就需要开启。此开关对于编辑由 Fedora
+                等默认使用 UTF-8 字符集的 Linux 发行版创建的文本文件也有用。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行：
         </p>
         <pre class="userinput">
 <kbd class="command">make test</kbd>
 </pre>
         <p>
-          However, this test suite outputs a lot of binary data to the
-          screen, which can cause issues with the settings of the current
-          terminal. This can be resolved by redirecting the output to a log
-          file. A successful test will result in the words "ALL DONE" at
-          completion.
+          然而，此测试套件会向屏幕输出大量二进制数据，可能导致当前终端的设置出现问题。可以将输出重定向到一个日志文件来解决。测试成功会输出
+          “ALL DONE”。
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Many users are used to using <span class=
-          "command"><strong>vi</strong></span> instead of <span class=
-          "command"><strong>vim</strong></span>. To allow execution of
-          <span class="command"><strong>vim</strong></span> when users
-          habitually enter <span class="command"><strong>vi</strong></span>,
-          create a symlink for both the binary and the man page in the
-          provided languages:
+          很多用户习惯于使用 <span class="command"><strong>vi</strong></span> 而不是
+          <span class="command"><strong>vim</strong></span>。要允许在用户按习惯输入
+          <span class="command"><strong>vi</strong></span> 时运行 <span class=
+          "command"><strong>vim</strong></span>，创建其二进制和提供的手册页语言的符号链接：
         </p>
         <pre class="userinput">
 <kbd class="command">ln -sv vim /usr/bin/vi
@@ -159,42 +145,31 @@ for L in  /usr/share/man/{,*/}man1/vim.1; do
 done</kbd>
 </pre>
         <p>
-          By default, Vim's documentation is installed in <code class=
-          "filename">/usr/share/vim</code>. The following symlink allows the
-          documentation to be accessed via <code class=
-          "filename">/usr/share/doc/vim-7.3</code>, making it consistent with
-          the location of documentation for other packages:
+          Vim 的文档默认安装于 <code class=
+          "filename">/usr/share/vim</code>。以下符号链接允许通过 <code class=
+          "filename">/usr/share/doc/vim-7.3</code> 访问之，使其与其他程序包的手册位置一致：
         </p>
         <pre class="userinput">
 <kbd class="command">ln -sv ../vim/vim73/doc /usr/share/doc/vim-7.3</kbd>
 </pre>
         <p>
-          If an X Window System is going to be installed on the LFS system,
-          it may be necessary to recompile Vim after installing X. Vim comes
-          with a GUI version of the editor that requires X and some
-          additional libraries to be installed. For more information on this
-          process, refer to the Vim documentation and the Vim installation
-          page in the BLFS book at <a class="ulink" href=
+          如果要在 LFS 系统上安装 X 窗口系统，安装过后可能需要重新编译 Vim。Vim 编辑器带有一个图形界面版本，需求 X
+          和一些额外的库。有关此过程，参考 BLFS 中的 <a class="ulink" href=
           "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/editors.html#postlfs-editors-vim">
-          http://www.linuxfromscratch.org/blfs/view/svn/postlfs/editors.html#postlfs-editors-vim</a>.
+          http://www.linuxfromscratch.org/blfs/view/svn/postlfs/editors.html#postlfs-editors-vim</a>。
         </p>
       </div>
       <div class="configuration" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="conf-vim" name="conf-vim"></a>6.62.2. Configuring Vim
+          <a id="conf-vim" name="conf-vim"></a>6.62.2. 配置 Vim
         </h2>
         <p>
-          By default, <span class="command"><strong>vim</strong></span> runs
-          in vi-incompatible mode. This may be new to users who have used
-          other editors in the past. The “<span class=
-          "quote">nocompatible</span>” setting is included below to highlight
-          the fact that a new behavior is being used. It also reminds those
-          who would change to “<span class="quote">compatible</span>” mode
-          that it should be the first setting in the configuration file. This
-          is necessary because it changes other settings, and overrides must
-          come after this setting. Create a default <span class=
-          "command"><strong>vim</strong></span> configuration file by running
-          the following:
+          <span class="command"><strong>vim</strong></span> 默认以不兼容 vi
+          的模式运行。这对于过去使用过其他编辑器的用户来说可能很陌生。以下包括了 “<span class=
+          "quote">不兼容的</span>” 设置，以突出使用了新的行为这一事实。它也提醒想要使用 “<span class=
+          "quote">兼容</span>”
+          模式的用户在配置文件起始处设置之。这非常必要，因为他会改变其他设置，而覆盖必须在此之后。运行以下命令创建一个默认的
+          <span class="command"><strong>vim</strong></span> 配置文件：
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; /etc/vimrc &lt;&lt; "EOF"
@@ -211,25 +186,20 @@ endif
 EOF</kbd>
 </pre>
         <p>
-          The <em class="parameter"><code>set nocompatible</code></em>
-          setting makes <span class="command"><strong>vim</strong></span>
-          behave in a more useful way (the default) than the vi-compatible
-          manner. Remove the “<span class="quote">no</span>” to keep the old
-          <span class="command"><strong>vi</strong></span> behavior. The
-          <em class="parameter"><code>set backspace=2</code></em> setting
-          allows backspacing over line breaks, autoindents, and the start of
-          insert. The <em class="parameter"><code>syntax on</code></em>
-          parameter enables vim's syntax highlighting. Finally, the
-          <span class="emphasis"><em>if</em></span> statement with the
-          <em class="parameter"><code>set background=dark</code></em> setting
-          corrects <span class="command"><strong>vim</strong></span>'s guess
-          about the background color of some terminal emulators. This gives
-          the highlighting a better color scheme for use on the black
-          background of these programs.
+          <em class="parameter"><code>set nocompatible</code></em> 设置使
+          <span class="command"><strong>vim</strong></span> 以更通用的方式 (默认) 而不是
+          vi 兼容模式运行。移除 “<span class="quote">no</span>” 以保持旧的 <span class=
+          "command"><strong>vi</strong></span> 行为。<em class=
+          "parameter"><code>set backspace=2</code></em>
+          设置允许跨行退格、自动回车和开始插入。<em class="parameter"><code>syntax
+          on</code></em> 参数启用 vim 的语法高亮。最后 <span class=
+          "emphasis"><em>if</em></span> 声明和 <em class="parameter"><code>set
+          background=dark</code></em> 设置修正 <span class=
+          "command"><strong>vim</strong></span>
+          对某些终端模拟器背景颜色的猜测。此项对于这些程序上的黑背景能给出更好的高亮色彩方案。
         </p>
         <p>
-          Documentation for other available options can be obtained by
-          running the following command:
+          其他可用选项的文档可以通过运行以下命令获取：
         </p>
         <pre class="userinput">
 <kbd class="command">vim -c ':options'</kbd>
@@ -240,51 +210,45 @@ EOF</kbd>
             注意
           </h3>
           <p>
-            By default, Vim only installs spell files for the English
-            language. To install spell files for your preferred language,
-            download the <code class="filename">*.spl</code> and optionally,
-            the <code class="filename">*.sug</code> files for your language
-            and character encoding from <a class="ulink" href=
+            Vim 默认只安装英语的拼写文件。要安装其他语言的拼写文件，到 <a class="ulink" href=
             "ftp://ftp.vim.org/pub/vim/runtime/spell/">ftp://ftp.vim.org/pub/vim/runtime/spell/</a>
-            and save them to <code class=
-            "filename">/usr/share/vim/vim73/spell/</code>.
+            下载你的语言和字符编码的 <code class="filename">*.spl</code>，还可以包括
+            <code class="filename">*.sug</code> 文件并保存到 <code class=
+            "filename">/usr/share/vim/vim73/spell/</code> 中。
           </p>
           <p>
-            To use these spell files, some configuration in <code class=
-            "filename">/etc/vimrc</code> is needed, e.g.:
+            要使用这些拼写文件需要 <code class="filename">/etc/vimrc</code> 中的一些配置，例如：
           </p>
           <pre class="screen">
 <code class="literal">set spelllang=en,ru
 set spell</code>
 </pre>
           <p>
-            For more information, see the appropriate README file located at
-            the URL above.
+            更多信息位于对应的 README 和以上地址中。
           </p>
         </div>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-vim" name="contents-vim"></a>6.62.3. Contents of
-          Vim
+          <a id="contents-vim" name="contents-vim"></a>6.62.3. Vim 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">ex (link to vim), rview (link to vim),
-              rvim (link to vim), vi (link to vim), view (link to vim), vim,
-              vimdiff (link to vim), vimtutor, and xxd</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">ex (到 vim 的链接)、rview (到 vim 的链接)、rvim (到 vim 的链接)、vi
+              (到 vim 的链接)、view (到 vim 的链接)、vim、vimdiff (到 vim 的链接)、vimtutor 和
+              xxd</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/share/vim</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">/usr/share/vim</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -298,8 +262,8 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Starts <span class="command"><strong>vim</strong></span>
-                    in ex mode
+                    以 <span class="command"><strong>vim</strong></span> ex
+                    模式启动 vim
                   </p>
                 </td>
               </tr>
@@ -313,11 +277,9 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Is a restricted version of <span class=
-                    "command"><strong>view</strong></span>; no shell commands
-                    can be started and <span class=
-                    "command"><strong>view</strong></span> cannot be
-                    suspended
+                    是 <span class="command"><strong>view</strong></span>
+                    的一个受限制版本；不能启动 shell 命令，<span class=
+                    "command"><strong>view</strong></span> 也不能挂起
                   </p>
                 </td>
               </tr>
@@ -331,10 +293,9 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Is a restricted version of <span class=
-                    "command"><strong>vim</strong></span>; no shell commands
-                    can be started and <span class=
-                    "command"><strong>vim</strong></span> cannot be suspended
+                    是 <span class="command"><strong>vim</strong></span>
+                    的一个受限制版本；不能启动 shell 命令，<span class=
+                    "command"><strong>vim</strong></span> 也不能挂起
                   </p>
                 </td>
               </tr>
@@ -347,7 +308,7 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Link to <span class="command"><strong>vim</strong></span>
+                    到 <span class="command"><strong>vim</strong></span> 的链接
                   </p>
                 </td>
               </tr>
@@ -361,8 +322,7 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Starts <span class="command"><strong>vim</strong></span>
-                    in read-only mode
+                    以制度模式启动 <span class="command"><strong>vim</strong></span>
                   </p>
                 </td>
               </tr>
@@ -375,7 +335,7 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Is the editor
+                    编辑器
                   </p>
                 </td>
               </tr>
@@ -389,9 +349,8 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Edits two or three versions of a file with <span class=
-                    "command"><strong>vim</strong></span> and show
-                    differences
+                    以 <span class="command"><strong>vim</strong></span>
+                    编辑一个文件的两个或者三个版本并显示差异
                   </p>
                 </td>
               </tr>
@@ -405,8 +364,8 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Teaches the basic keys and commands of <span class=
-                    "command"><strong>vim</strong></span>
+                    讲解 <span class="command"><strong>vim</strong></span>
+                    的基本按键和命令
                   </p>
                 </td>
               </tr>
@@ -419,8 +378,7 @@ set spell</code>
                 </td>
                 <td>
                   <p>
-                    Creates a hex dump of the given file; it can also do the
-                    reverse, so it can be used for binary patching
+                    创建给定文件的十六进制转储或反之，可以用于二进制补丁
                   </p>
                 </td>
               </tr>
@@ -433,16 +391,15 @@ set spell</code>
       <ul>
         <li class="prev">
           <a accesskey="p" href="udev.html" title=
-          "Udev-193 (Extracted from systemd-193)">上一页</a>
+          "Udev-193 (提取自 systemd-193)">上一页</a>
           <p>
-            Udev-193 (Extracted from systemd-193)
+            Udev-193 (提取自 systemd-193)
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="aboutdebug.html" title=
-          "About Debugging Symbols">下一页</a>
+          <a accesskey="n" href="aboutdebug.html" title="有关调试符号">下一页</a>
           <p>
-            About Debugging Symbols
+            有关调试符号
           </p>
         </li>
         <li class="up">

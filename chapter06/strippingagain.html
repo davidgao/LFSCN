@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.64.&nbsp;Stripping Again
+      6.64.&nbsp;再次剥离
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
@@ -21,17 +21,15 @@
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="aboutdebug.html" title=
-          "About Debugging Symbols">上一页</a>
+          <a accesskey="p" href="aboutdebug.html" title="有关调试符号">上一页</a>
           <p>
-            About Debugging Symbols
+            有关调试符号
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="revisedchroot.html" title=
-          "Cleaning Up">下一页</a>
+          <a accesskey="n" href="revisedchroot.html" title="清理">下一页</a>
           <p>
-            Cleaning Up
+            清理
           </p>
         </li>
         <li class="up">
@@ -47,35 +45,26 @@
     <div class="sect1" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-system-strippingagain" name=
-        "ch-system-strippingagain"></a>6.64. Stripping Again
+        "ch-system-strippingagain"></a>6.64. 再次剥离
       </h1>
       <p>
-        If the intended user is not a programmer and does not plan to do any
-        debugging on the system software, the system size can be decreased by
-        about 90 MB by removing the debugging symbols from binaries and
-        libraries. This causes no inconvenience other than not being able to
-        debug the software fully anymore.
+        如果目标用户不是程序员并且没有计划调试系统软件，就可以通过从二进制和库中移除调试符号来使系统尺寸减少大约 90
+        MB。除了彻底无法调试这些软件之外，此操作不会导致任何不便。
       </p>
       <p>
-        Most people who use the command mentioned below do not experience any
-        difficulties. However, it is easy to make a typo and render the new
-        system unusable, so before running the <span class=
-        "command"><strong>strip</strong></span> command, it is a good idea to
-        make a backup of the LFS system in its current state.
+        使用以下提到的命令，多数用户不会遇到任何困难，然而，很容易出现输入错误使新的系统无法使用，所以在运行 <span class=
+        "command"><strong>strip</strong></span> 命令之前推荐备份 LFS 系统的当前状态。
       </p>
       <p>
-        Before performing the stripping, take special care to ensure that
-        none of the binaries that are about to be stripped are running. If
-        unsure whether the user entered chroot with the command given in
-        <a class="xref" href="chroot.html" title=
-        "6.4.&nbsp;进入 Chroot 环境">第&nbsp;6.4&nbsp;节 “进入 Chroot 环境,”</a> first
-        exit from chroot:
+        在进行剥离之前，要确保其中没有任何一个二进制正在运行。如果不清楚是否是按<a class="xref" href=
+        "chroot.html" title="6.4.&nbsp;进入 Chroot 环境">第&nbsp;6.4&nbsp;节 “进入
+        Chroot 环境,”</a>中的指令进入的 chroot 环境，首先退出之：
       </p>
       <pre class="userinput">
 <kbd class="command">logout</kbd>
 </pre>
       <p>
-        Then reenter it with:
+        然后重新进入之：
       </p>
       <pre class="userinput">
 <kbd class="command">chroot $LFS /tools/bin/env -i \
@@ -84,32 +73,28 @@
     /tools/bin/bash --login</kbd>
 </pre>
       <p>
-        Now the binaries and libraries can be safely stripped:
+        现在二进制和库就可以安全剥离了：
       </p>
       <pre class="userinput">
 <kbd class="command">/tools/bin/find /{,usr/}{bin,lib,sbin} -type f \
   -exec /tools/bin/strip --strip-debug '{}' ';'</kbd>
 </pre>
       <p>
-        A large number of files will be reported as having their file format
-        not recognized. These warnings can be safely ignored. These warnings
-        indicate that those files are scripts instead of binaries.
+        大量文件会因为格式不支持而报错。这些警告可以安全忽略，这些文件都是脚本而不是二进制。
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="aboutdebug.html" title=
-          "About Debugging Symbols">上一页</a>
+          <a accesskey="p" href="aboutdebug.html" title="有关调试符号">上一页</a>
           <p>
-            About Debugging Symbols
+            有关调试符号
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="revisedchroot.html" title=
-          "Cleaning Up">下一页</a>
+          <a accesskey="n" href="revisedchroot.html" title="清理">下一页</a>
           <p>
-            Cleaning Up
+            清理
           </p>
         </li>
         <li class="up">

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.61.&nbsp;Udev-193 (Extracted from systemd-193)
+      6.61.&nbsp;Udev-193 (提取自 systemd-193)
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
@@ -44,15 +44,13 @@
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-193
-        (Extracted from systemd-193)
+        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-193 (提取自
+        systemd-193)
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Udev package contains programs for dynamic creation of device
-          nodes. The development of udev has been merged with systemd, but
-          most of systemd is incompatible with LFS. Here we build and install
-          just the needed udev files.
+          Udev 程序包包含用于动态创建设备节点的程序。Udev 的开发已经融合到 systemd 中，但由于其大部分与 LFS
+          不兼容，我们此处只编译安装需要的 udev 文件。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -69,7 +67,7 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.61.1. Installation of Udev
+          6.61.1. 安装 Udev
         </h2>
         <div class="admon note">
           <img alt="[注意]" src="../images/note.png" />
@@ -77,42 +75,35 @@
             注意
           </h3>
           <p>
-            This package is a little different from other packages. The
-            initial package that is extracted is <code class=
-            "filename">systemd-193.tar.xz</code> even though the application
-            we are installing is udev. After changing to the systemd
-            directory, follow the instructions below.
+            此程序包与其他程序包略有不同，虽然安装的应用程序是 udev 但是初始解压缩的程序包是 <code class=
+            "filename">systemd-193.tar.xz</code>。在切换至 systemd 目录中之后按以下指令执行。
           </p>
         </div>
         <p>
-          The udev-lfs tarball contains LFS-specific files used to build
-          Udev. Unpack it into the systemd source directory:
+          udev-lfs 压缩包包含 LFS 特有的文件，用于编制 Udev。将其解包至 systemd 原地码目录中：
         </p>
         <pre class="userinput">
 <kbd class="command">tar -xvf ../udev-lfs-193.tar.bz2</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make -f udev-lfs-193/Makefile.lfs</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make -f udev-lfs-193/Makefile.lfs install</kbd>
 </pre>
         <p>
-          Finally set up the persistent network udev rules. This task will be
-          explained in detail in <a class="xref" href=
+          最后设置稳定的 udev 网络规则。此任务在<a class="xref" href=
           "../chapter07/network.html#stable-net-names" title=
           "7.2.1.&nbsp;Creating stable names for network interfaces">第&nbsp;7.2.1&nbsp;节
-          “Creating stable names for network interfaces”</a>. Note that the
-          <code class="filename">/sys</code> and <code class=
-          "filename">/proc</code> filesystems must be mounted in the chroot
-          environment as explained at the beginning of this chapter for the
-          following script to work.
+          “Creating stable names for network interfaces”</a>中具体讲解。注意
+          <code class="filename">/sys</code> 和 <code class=
+          "filename">/proc</code> 文件系统必须按本章开始处说明的方式挂载于 chroot 环境中，以下脚本才能够工作。
         </p>
         <pre class="userinput">
 <kbd class="command">bash udev-lfs-193/init-net-rules.sh</kbd>
@@ -120,30 +111,28 @@
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-udev" name="contents-udev"></a>6.61.2. Contents of
-          Udev
+          <a id="contents-udev" name="contents-udev"></a>6.61.2. Udev 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">accelerometer, ata_id, cdrom_id, collect,
-              mtd_probe, scsi_id, v4l_id, udevadm, and udevd</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">accelerometer、ata_id、cdrom_id、collect、mtd_probe、scsi_id、v4l_id、udevadm
+              和 udevd</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed libraries:</strong>
-              <span class="segbody">libudev.so</span>
+              <strong class="segtitle">安装的库:</strong> <span class=
+              "segbody">libudev.so</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/etc/udev, /lib/udev, /lib/firmware,
-              /usr/share/doc/udev</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/etc/udev、/lib/udev、/lib/firmware、/usr/share/doc/udev</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -158,8 +147,7 @@
                 </td>
                 <td>
                   <p>
-                    Provides Udev with a unique string and additional
-                    information (uuid, label) for an ATA drive
+                    对于 ATA 驱动器，给 Udev 提供一个独有的字符串以及额外信息 (uuid 和卷标)
                   </p>
                 </td>
               </tr>
@@ -173,8 +161,7 @@
                 </td>
                 <td>
                   <p>
-                    Provides Udev with the capabilities of a CD-ROM or
-                    DVD-ROM drive
+                    使 Udev 兼容 CD-ROM 或者 DVD-ROM 驱动器
                   </p>
                 </td>
               </tr>
@@ -188,9 +175,7 @@
                 </td>
                 <td>
                   <p>
-                    Given an ID for the current uevent and a list of IDs (for
-                    all target uevents), registers the current ID and
-                    indicates whether all target IDs have been registered
+                    给定当前以及一列 uevent ID，注册当前 ID 并指示所有目标 ID 是否注册过
                   </p>
                 </td>
               </tr>
@@ -204,9 +189,7 @@
                 </td>
                 <td>
                   <p>
-                    Provides Udev with a unique SCSI identifier based on the
-                    data returned from sending a SCSI INQUIRY command to the
-                    specified device
+                    基于特定设备对 SCSI INQUIRY 命令返回的数据给 Udev 提供一个独有的 SCSI 标识符
                   </p>
                 </td>
               </tr>
@@ -220,10 +203,8 @@
                 </td>
                 <td>
                   <p>
-                    Generic udev administration tool: controls the udevd
-                    daemon, provides info from the Udev database, monitors
-                    uevents, waits for uevents to finish, tests Udev
-                    configuration, and triggers uevents for a given device
+                    通用 udev 管理工具：控制 udevd daemon、从 Udev 数据库中提供信息、监视
+                    uevent、并对于给定的设备激发uevent
                   </p>
                 </td>
               </tr>
@@ -237,9 +218,8 @@
                 </td>
                 <td>
                   <p>
-                    A daemon that listens for uevents on the netlink socket,
-                    creates devices and runs the configured external programs
-                    in response to these uevents
+                    一个 daemon，监听 netlink 接口上的 uevent、创建设备并运行配置好的外置程序响应这些
+                    uevent
                   </p>
                 </td>
               </tr>
@@ -252,7 +232,7 @@
                 </td>
                 <td>
                   <p>
-                    A library interface to udev device information
+                    udev 设备信息的一个库界面
                   </p>
                 </td>
               </tr>
@@ -265,8 +245,7 @@
                 </td>
                 <td>
                   <p>
-                    Contains Udev configuration files, device permissions,
-                    and rules for device naming
+                    包含 Udev 配置文件、设备权限和设备命名规则
                   </p>
                 </td>
               </tr>

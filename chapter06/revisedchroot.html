@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.65.&nbsp;Cleaning Up
+      6.65.&nbsp;清理
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
@@ -21,10 +21,9 @@
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="strippingagain.html" title=
-          "Stripping Again">上一页</a>
+          <a accesskey="p" href="strippingagain.html" title="再次剥离">上一页</a>
           <p>
-            Stripping Again
+            再次剥离
           </p>
         </li>
         <li class="next">
@@ -47,11 +46,10 @@
     <div class="sect1" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-system-revisedchroot" name=
-        "ch-system-revisedchroot"></a>6.65. Cleaning Up
+        "ch-system-revisedchroot"></a>6.65. 清理
       </h1>
       <p>
-        From now on, when reentering the chroot environment after exiting,
-        use the following modified chroot command:
+        从现在开始，如果要重新进入 chroot 环境，使用以下修改过的命令：
       </p>
       <pre class="userinput">
 <kbd class="command">chroot "$LFS" /usr/bin/env -i \
@@ -60,10 +58,8 @@
     /bin/bash --login</kbd>
 </pre>
       <p>
-        The reason for this is that the programs in <code class=
-        "filename">/tools</code> are no longer needed. Since they are no
-        longer needed you can delete the <code class="filename">/tools</code>
-        directory if so desired.
+        原因在于 <code class="filename">/tools</code> 中的工具不再需要了。所以 <code class=
+        "filename">/tools</code> 目录可以移除了。
       </p>
       <div class="admon note">
         <img alt="[注意]" src="../images/note.png" />
@@ -71,31 +67,26 @@
           注意
         </h3>
         <p>
-          Removing <code class="filename">/tools</code> will also remove the
-          temporary copies of Tcl, Expect, and DejaGNU which were used for
-          running the toolchain tests. If you need these programs later on,
-          they will need to be recompiled and re-installed. The BLFS book has
-          instructions for this (see <a class="ulink" href=
-          "http://www.linuxfromscratch.org/blfs/">http://www.linuxfromscratch.org/blfs/</a>).
+          移除 <code class="filename">/tools</code> 也会移除 Tcl、Expect 和 DejaGNU
+          的用于运行工具链测试的临时副本。如果你仍然需要它们，需要重新编译和安装。BLFS 中有相关指令 (参考 <a class=
+          "ulink" href=
+          "http://www.linuxfromscratch.org/blfs/">http://www.linuxfromscratch.org/blfs/</a>)。
         </p>
       </div>
       <p>
-        If the virtual kernel file systems have been unmounted, either
-        manually or through a reboot, ensure that the virtual kernel file
-        systems are mounted when reentering the chroot. This process was
-        explained in <a class="xref" href="kernfs.html#ch-system-bindmount"
-        title="6.2.2.&nbsp;挂载并填充 /dev">第&nbsp;6.2.2&nbsp;节 “挂载并填充 /dev”</a>
-        and <a class="xref" href="kernfs.html#ch-system-kernfsmount" title=
-        "6.2.3.&nbsp;挂载虚拟内核文件系统">第&nbsp;6.2.3&nbsp;节 “挂载虚拟内核文件系统”</a>.
+        无论手动还是由于重新引导系统，如果虚拟内核文件系统被卸载了，在进入 chroot 环境时要挂载它们。此过程在 <a class=
+        "xref" href="kernfs.html#ch-system-bindmount" title=
+        "6.2.2.&nbsp;挂载并填充 /dev">第&nbsp;6.2.2&nbsp;节 “挂载并填充 /dev”</a> 和
+        <a class="xref" href="kernfs.html#ch-system-kernfsmount" title=
+        "6.2.3.&nbsp;挂载虚拟内核文件系统">第&nbsp;6.2.3&nbsp;节 “挂载虚拟内核文件系统”</a> 中有讲解。
       </p>
     </div>
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="strippingagain.html" title=
-          "Stripping Again">上一页</a>
+          <a accesskey="p" href="strippingagain.html" title="再次剥离">上一页</a>
           <p>
-            Stripping Again
+            再次剥离
           </p>
         </li>
         <li class="next">

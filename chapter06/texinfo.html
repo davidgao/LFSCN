@@ -28,9 +28,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="udev.html" title=
-          "Udev-193 (Extracted from systemd-193)">下一页</a>
+          "Udev-193 (提取自 systemd-193)">下一页</a>
           <p>
-            Udev-193 (Extracted from systemd-193)
+            Udev-193 (提取自 systemd-193)
           </p>
         </li>
         <li class="up">
@@ -67,41 +67,41 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.60.1. Installation of Texinfo
+          6.60.1. 安装 Texinfo
         </h2>
         <p>
-          Prepare Texinfo for compilation:
+          准备编译 Texinfo：
         </p>
         <pre class="userinput">
 <kbd class="command">./configure --prefix=/usr</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          To test the results, issue:
+          要测试结果，执行
         </p>
         <pre class="userinput">
 <kbd class="command">make check</kbd>
 </pre>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
 </pre>
         <p>
-          Optionally, install the components belonging in a TeX installation:
+          可以选择安装 TeX 的某些组件：
         </p>
         <pre class="userinput">
 <kbd class="command">make TEXMF=/usr/share/texmf install-tex</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the make parameter:</b>
+            <b>make 参数的含义：</b>
           </p>
           <dl>
             <dt>
@@ -110,22 +110,16 @@
             </dt>
             <dd>
               <p>
-                The <code class="envar">TEXMF</code> makefile variable holds
-                the location of the root of the TeX tree if, for example, a
-                TeX package will be installed later.
+                若此后安装 TeX 程序包，<code class="envar">TEXMF</code> 这个 makefile
+                变量将保存 TeX 目录树根的位置。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          The Info documentation system uses a plain text file to hold its
-          list of menu entries. The file is located at <code class=
-          "filename">/usr/share/info/dir</code>. Unfortunately, due to
-          occasional problems in the Makefiles of various packages, it can
-          sometimes get out of sync with the info pages installed on the
-          system. If the <code class="filename">/usr/share/info/dir</code>
-          file ever needs to be recreated, the following optional commands
-          will accomplish the task:
+          Info 文档系统使用纯文本文件保存菜单条目。此文件位于 <code class=
+          "filename">/usr/share/info/dir</code>。然而由于不同程序的 Makefile
+          有时会出现问题，此文件可能会与系统上安装的信息页不同步。以下可选命令可以重新创建此文件：
         </p>
         <pre class="userinput">
 <kbd class="command">cd /usr/share/info
@@ -143,19 +137,19 @@ done</kbd>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">info, infokey, install-info, makeinfo,
-              pdftexi2dvi, texi2dvi, texi2pdf, and texindex</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">info、infokey、install-info、makeinfo、pdftexi2dvi、texi2dvi、texi2pdf
+              和 texindex</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directory:</strong>
-              <span class="segbody">/usr/share/texinfo</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/usr/share/texinfo</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -170,12 +164,10 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to read info pages which are similar to man pages,
-                    but often go much deeper than just explaining all the
-                    available command line options. For example, compare
-                    <span class="command"><strong>man bison</strong></span>
-                    and <span class="command"><strong>info
-                    bison</strong></span>.
+                    用于阅读类似手册页的信息页，通常比只是解释所有可用的命令行选项更加深入；例如 <span class=
+                    "command"><strong>man bison</strong></span> 和
+                    <span class="command"><strong>info bison</strong></span>
+                    明显不同
                   </p>
                 </td>
               </tr>
@@ -189,8 +181,7 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Compiles a source file containing Info customizations
-                    into a binary format
+                    将包含 Info 自定义的源文件编译成二进制格式
                   </p>
                 </td>
               </tr>
@@ -204,9 +195,8 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to install info pages; it updates entries in the
-                    <span class="command"><strong>info</strong></span> index
-                    file
+                    用于安装信息页；它更新 <span class=
+                    "command"><strong>info</strong></span> 索引文件
                   </p>
                 </td>
               </tr>
@@ -220,8 +210,7 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Translates the given Texinfo source documents into info
-                    pages, plain text, or HTML
+                    将给定的 Texinfo 源代码文档翻译成信息页、纯文本或者 HTML
                   </p>
                 </td>
               </tr>
@@ -235,8 +224,7 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to format the given Texinfo document into a Portable
-                    Document Format (PDF) file
+                    用于将给定的 Texinfo 文档格式化为 PDF 文件
                   </p>
                 </td>
               </tr>
@@ -250,8 +238,7 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to format the given Texinfo document into a
-                    device-independent file that can be printed
+                    用于将给定的 Texinfo 文档格式化为 dvi 文件
                   </p>
                 </td>
               </tr>
@@ -265,8 +252,7 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to format the given Texinfo document into a Portable
-                    Document Format (PDF) file
+                    用于将给定的 Texinfo 文档格式化为 PDF 文件
                   </p>
                 </td>
               </tr>
@@ -280,7 +266,7 @@ done</kbd>
                 </td>
                 <td>
                   <p>
-                    Used to sort Texinfo index files
+                    用于排序 Texinfo 索引文件
                   </p>
                 </td>
               </tr>
@@ -299,9 +285,9 @@ done</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="udev.html" title=
-          "Udev-193 (Extracted from systemd-193)">下一页</a>
+          "Udev-193 (提取自 systemd-193)">下一页</a>
           <p>
-            Udev-193 (Extracted from systemd-193)
+            Udev-193 (提取自 systemd-193)
           </p>
         </li>
         <li class="up">
