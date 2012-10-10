@@ -49,8 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Sysvinit package contains programs for controlling the startup,
-          running, and shutdown of the system.
+          Sysvinit 程序包包含控制系统启动，运行和关机的程序。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -67,32 +66,26 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.58.1. Installation of Sysvinit
+          6.58.1. 安装 Sysvinit
         </h2>
         <p>
-          When run-levels are changed (for example, when halting the system),
-          <span class="command"><strong>init</strong></span> sends
-          termination signals to those processes that <span class=
-          "command"><strong>init</strong></span> itself started and that
-          should not be running in the new run-level. While doing this,
-          <span class="command"><strong>init</strong></span> outputs messages
-          like “<span class="quote">Sending processes the TERM signal</span>”
-          which seem to imply that it is sending these signals to all
-          currently running processes. To avoid this misinterpretation,
-          modify the source so that these messages read like “<span class=
+          当运行等级改变 (例如终止系统时)， <span class=
+          "command"><strong>init</strong></span> 传递终止信号到各个由 <span class=
+          "command"><strong>init</strong></span> 本身启动且不应当在新运行等级下运行的进程。如此做时，
+          <span class="command"><strong>init</strong></span> 输出例如
+          “<span class="quote">Sending processes the TERM signal</span>”
+          的暗示它正在传递这些信号到当前所有运行进程的信息。要避免这一误解，修改源文件中的信息为 “<span class=
           "quote">Sending processes configured via /etc/inittab the TERM
-          signal</span>” instead:
+          signal</span>” ：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">sed -i 's@Sending processes@&amp; configured via /etc/inittab@g' src/init.c</kbd>
 </pre>
         <p>
-          Maintained versions of the <span class=
-          "command"><strong>wall</strong></span> and <span class=
-          "command"><strong>mountpoint</strong></span> programs were
-          installed earlier by Util-linux. Suppress the installation of
-          Sysvinit's versions of these programs and their man pages:
+          <span class="command"><strong>wall</strong></span> 和 <span class=
+          "command"><strong>mountpoint</strong></span> 程序正在维护的版本在此前已由
+          Util-linux 安装。阻止这些程序和它们的手册页在 Sysvinit 版本中的安装：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e 's/utmpdump wall/utmpdump/' \
@@ -100,16 +93,16 @@
        -e 's/mountpoint.1 wall.1//' src/Makefile</kbd>
 </pre>
         <p>
-          Compile the package:
+          编译程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make -C src</kbd>
 </pre>
         <p>
-          This package does not come with a test suite.
+          这个程序包不包含测试套件。
         </p>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make -C src install</kbd>
@@ -118,23 +111,22 @@
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
           <a id="contents-sysvinit" name="contents-sysvinit"></a>6.58.2.
-          Contents of Sysvinit
+          Sysvinit 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed programs:</strong>
-              <span class="segbody">bootlogd, fstab-decode, halt, init,
-              killall5, last, lastb (link to last), mesg, pidof (link to
-              killall5), poweroff (link to halt), reboot (link to halt),
-              runlevel, shutdown, sulogin, telinit (link to init), and
-              utmpdump</span>
+              <strong class="segtitle">安装的程序:</strong> <span class=
+              "segbody">bootlogd、fstab-decode、halt、init、killall5、last、lastb
+              (link to last)、mesg、pidof (link to killall5)、poweroff (link to
+              halt), reboot (link to halt)、runlevel、shutdown、sulogin、telinit
+              (link to init) 和 utmpdump</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -149,7 +141,7 @@
                 </td>
                 <td>
                   <p>
-                    Logs boot messages to a log file
+                    记录引导信息到一个日志文件
                   </p>
                 </td>
               </tr>
@@ -163,7 +155,7 @@
                 </td>
                 <td>
                   <p>
-                    Run a command with fstab-encoded arguments
+                    以 fstab 编码的参数运行一个命令
                   </p>
                 </td>
               </tr>
@@ -177,13 +169,11 @@
                 </td>
                 <td>
                   <p>
-                    Normally invokes <span class=
-                    "command"><strong>shutdown</strong></span> with the
-                    <em class="parameter"><code>-h</code></em> option, except
-                    when already in run-level 0, then it tells the kernel to
-                    halt the system; it notes in the file <code class=
-                    "filename">/var/log/wtmp</code> that the system is being
-                    brought down
+                    以 <em class="parameter"><code>-h</code></em> 选项正常调用
+                    <span class=
+                    "command"><strong>shutdown</strong></span>，在系统已经处于运行等级 0
+                    时则告知内核终止系统；它在 <code class="filename">/var/log/wtmp</code>
+                    文件中记录系统正被关闭的信息
                   </p>
                 </td>
               </tr>
@@ -197,9 +187,7 @@
                 </td>
                 <td>
                   <p>
-                    The first process to be started when the kernel has
-                    initialized the hardware which takes over the boot
-                    process and starts all the proceses it is instructed to
+                    内核初始化硬件后首先启动的进程，用以接管引导进程和启动它指向的所有进程
                   </p>
                 </td>
               </tr>
@@ -213,9 +201,7 @@
                 </td>
                 <td>
                   <p>
-                    Sends a signal to all processes, except the processes in
-                    its own session so it will not kill the shell running the
-                    script that called it
+                    传递一个信息到除在其自身会话中的进程外的所有进程，因此它不会终止运行调用它的脚本的 shell
                   </p>
                 </td>
               </tr>
@@ -229,10 +215,8 @@
                 </td>
                 <td>
                   <p>
-                    Shows which users last logged in (and out), searching
-                    back through the <code class=
-                    "filename">/var/log/wtmp</code> file; it also shows
-                    system boots, shutdowns, and run-level changes
+                    检索 <code class="filename">/var/log/wtmp</code>
+                    文件并显示用户最后一次登陆 (与登出) 的系统；它同样显示系统引导，关机和运行等级的改变
                   </p>
                 </td>
               </tr>
@@ -246,8 +230,8 @@
                 </td>
                 <td>
                   <p>
-                    Shows the failed login attempts, as logged in
-                    <code class="filename">/var/log/btmp</code>
+                    显示记录在 <code class="filename">/var/log/btmp</code>
+                    中的失败的登陆尝试
                   </p>
                 </td>
               </tr>
@@ -261,8 +245,7 @@
                 </td>
                 <td>
                   <p>
-                    Controls whether other users can send messages to the
-                    current user's terminal
+                    控制其他用户能否传递信息到当前用户的终端
                   </p>
                 </td>
               </tr>
@@ -276,7 +259,7 @@
                 </td>
                 <td>
                   <p>
-                    Reports the PIDs of the given programs
+                    报告给定程序的 PIDs
                   </p>
                 </td>
               </tr>
@@ -290,8 +273,7 @@
                 </td>
                 <td>
                   <p>
-                    Tells the kernel to halt the system and switch off the
-                    computer (see <span class=
+                    告知内核终止系统且关闭计算机 (参见 <span class=
                     "command"><strong>halt</strong></span>)
                   </p>
                 </td>
@@ -306,7 +288,7 @@
                 </td>
                 <td>
                   <p>
-                    Tells the kernel to reboot the system (see <span class=
+                    告知内核重新引导系统 (参见 <span class=
                     "command"><strong>halt</strong></span>)
                   </p>
                 </td>
@@ -321,9 +303,8 @@
                 </td>
                 <td>
                   <p>
-                    Reports the previous and the current run-level, as noted
-                    in the last run-level record in <code class=
-                    "filename">/var/run/utmp</code>
+                    报告记录在 <code class="filename">/var/run/utmp</code>
+                    中的最近一次运行等级记录中的最近和当前运行等级
                   </p>
                 </td>
               </tr>
@@ -337,8 +318,7 @@
                 </td>
                 <td>
                   <p>
-                    Brings the system down in a secure way, signaling all
-                    processes and notifying all logged-in users
+                    以安全途径关闭系统，通知所有进程与所有登陆的用户
                   </p>
                 </td>
               </tr>
@@ -352,10 +332,9 @@
                 </td>
                 <td>
                   <p>
-                    Allows <code class="systemitem">root</code> to log in; it
-                    is normally invoked by <span class=
-                    "command"><strong>init</strong></span> when the system
-                    goes into single user mode
+                    允许 <code class="systemitem">root</code> 登陆；它一般由
+                    <span class="command"><strong>init</strong></span>
+                    在系统进入单独用户模式时调用
                   </p>
                 </td>
               </tr>
@@ -369,8 +348,8 @@
                 </td>
                 <td>
                   <p>
-                    Tells <span class="command"><strong>init</strong></span>
-                    which run-level to change to
+                    通知 <span class="command"><strong>init</strong></span>
+                    运行等级被改为何等级
                   </p>
                 </td>
               </tr>
@@ -384,8 +363,7 @@
                 </td>
                 <td>
                   <p>
-                    Displays the content of the given login file in a more
-                    user-friendly format
+                    以一种更加用户友好的格式显示给定登入文件的内容
                   </p>
                 </td>
               </tr>
