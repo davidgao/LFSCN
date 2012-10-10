@@ -55,20 +55,20 @@
       <p>
         一个最小的系统需要一个至少 2.8GB 大的分区。这使得我们有足够的空间存储我们的软件包并进行编译。然而，如果你想要在这个 LFS
         系统之上安装其他的软件，额外的空间必不可少。一个 10GB 的分区是比较合理的。LFS
-        系统本身并不使用这么大的空间，但是编译一些软件的时候需要比较大的临时空间。
+        系统本身并不使用这么大的空间，但是编译一些软件的时候需要比较大的临时空间，这些空间在程序包安装后可以释放掉。
       </p>
       <p>
-        如果没有足够大的内存 (RAM) 进行编译，一个比较好的解决方法是使用 <code class=
-        "systemitem">swap</code> 空间。内核使用这个机制提供更大的可用内存。LFS 系统可以与宿主系统使用同一个
-        <code class="systemitem">swap</code> 分区，所以我们没有必要重新创建一个。
+        如果没有足够大的 RAM 进行编译，一个比较好的解决方法是使用 <code class="systemitem">swap</code>
+        空间。内核用它存储不常用的数据并将更多内存留给活动进程使用。LFS 系统可以与宿主系统使用同一个 <code class=
+        "systemitem">swap</code> 分区，这种情况下就没有必要重新创建一个。
       </p>
       <p>
         使用磁盘分区工具 <span class="command"><strong>cfdisk</strong></span> 或者
         <span class="command"><strong>fdisk</strong></span>
-        并将你希望使用的硬盘作为命令行参数传入—例如，<code class="filename">/dev/hda</code> 代表第一块
-        IDE 硬盘。请根据需要创建一个 Linux 分区，或者 <code class="systemitem">swap</code>
+        并将你希望使用的硬盘作为命令行参数传入——例如，<code class="filename">/dev/hda</code> 代表第一块
+        IDE 硬盘。请根据需要创建 Linux 分区和 <code class="systemitem">swap</code>
         分区。如果你不知道如何使用这两个工具，请查阅 man 手册 <code class="filename">cfdisk(8)</code>
-        或者 <code class="filename">fdisk(8)</code> 了解更多使用方法。
+        或者 <code class="filename">fdisk(8)</code>。
       </p>
       <div class="admon note">
         <img alt="[注意]" src="../images/note.png" />

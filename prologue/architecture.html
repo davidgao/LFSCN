@@ -46,11 +46,8 @@
         <a id="pre-architecture" name="pre-architecture"></a>iii. LFS 目标架构
       </h1>
       <p>
-        LFS 基本的目标架构是 32 位 Intel CPU。如果你此前没有编制过 LFS 系统，或许你就应该从这个架构开始。这个 32
-        位架构是最广泛支持的 Linux 系统，对开源和专有软件兼容性也最好。
-      </p>
-      <p>
-        另一方面，本书中的指令已知可以经过修改后用于 Power PC 和 64 位 AMD/Intel CPU。要编制一个利用这些 CPU
+        LFS 基本的目标架构是 AMD/Intel x86 (32 位) 和 x86_64 (64 位)
+        CPU。另一方面，本书中的指令已知可以经过修改后用于 Power PC CPU。要编制一个利用这些 CPU
         之一的系统，主要的前提条件比此后几页提到的多一项，就是一个已存在的 Linux 系统，比如更早安装的 LFS、Ubuntu、Red
         Hat、Fedora、SuSE 或者其他指向这一架构的发行版。此外注意，32 位发行版可以安装于 64 位 AMD/Intel CPU
         的电脑上并用作宿主系统。
@@ -77,10 +74,10 @@
       </p>
       <p>
         关于 64 位系统还有最后一点要说，有些程序包当前无法在 “<span class="quote">纯粹的</span>” 64
-        位系统上编制或者需要特定的编制指令。通常这些程序包中嵌入了 32 位特有的汇编指令，在64位系统上编制会失败。这样的程序包括
-        <a class="ulink" href=
-        "http://www.linuxfromscratch.org/blfs/view/svn/">BLFS</a> 中用到的一些 Xorg
-        驱动。这些问题多数可以解决，但可能需要特定的过程或补丁。
+        位系统上编制或者需要特定的编制指令。通常这些程序包中嵌入了 32
+        位特有的汇编指令，在64位系统上编制会失败。这样的程序包括<a class="ulink" href=
+        "http://xorg.freedesktop.org/releases/individual/driver/">此处</a>的一些传统图形卡的
+        Xorg 驱动。这些问题多数可以解决，但可能需要特定的过程或补丁。
       </p>
     </div>
     <div class="navfooter">
