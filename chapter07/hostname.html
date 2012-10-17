@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;7&nbsp;章&nbsp;设置系统引导脚本
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -49,24 +49,21 @@
         配置系统主机名
       </h1>
       <p>
-        Part of the job of the <span class=
-        "command"><strong>localnet</strong></span> script is setting the
-        system's hostname. This needs to be configured in the <code class=
-        "filename">/etc/sysconfig/network</code> file.
+        <span class="command"><strong>localnet</strong></span>
+        脚本的部分工作就是设置系统的主机名。它需要在 <code class=
+        "filename">/etc/sysconfig/network</code> 文件中配置。
       </p>
       <p>
-        Create the <code class="filename">/etc/sysconfig/network</code> file
-        and enter a hostname by running:
+        创建 <code class="filename">/etc/sysconfig/network</code>
+        文件并输入一个主机名，运行：
       </p>
       <pre class="userinput">
 <kbd class="command">echo "HOSTNAME=<em class=
 "replaceable"><code>&lt;lfs&gt;</code></em>" &gt; /etc/sysconfig/network</kbd>
 </pre>
       <p>
-        <em class="replaceable"><code>&lt;lfs&gt;</code></em> needs to be
-        replaced with the name given to the computer. Do not enter the Fully
-        Qualified Domain Name (FQDN) here. That information is put in the
-        <code class="filename">/etc/hosts</code> file.
+        <em class="replaceable"><code>&lt;lfs&gt;</code></em> 应改为计算机名。不要在此处输入
+        FDQN，该信息应存入 <code class="filename">/etc/hosts</code> 文件。
       </p>
     </div>
     <div class="navfooter">
@@ -90,7 +87,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

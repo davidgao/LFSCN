@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;7&nbsp;章&nbsp;设置系统引导脚本
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -119,8 +119,20 @@
 # Skip reading from the console
 #HEADLESS=yes
 
-# Skip cleaning /tmp
-#SKIPTMPCLEAN=yes
+# Speed up boot without waiting for settle in udev_retry
+#OMIT_UDEV_RETRY_SETTLE=yes
+
+# Write out fsck progress if yes
+#VERBOSE_FSCK=no
+
+# Speed up boot without waiting for settle in udev
+#OMIT_UDEV_SETTLE=y
+
+# Speed up boot without waiting for settle in udev_retry
+#OMIT_UDEV_RETRY_SETTLE=yes
+
+# Skip cleaning /tmp if yes
+#SKIPTMPCLEAN=no
 
 # For setclock
 #UTC=1
@@ -169,7 +181,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

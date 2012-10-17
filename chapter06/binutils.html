@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -115,6 +115,22 @@ cd ../binutils-build</kbd>
 <kbd class=
 "command">../binutils-2.22/configure --prefix=/usr --enable-shared</kbd>
 </pre>
+        <div class="admon note">
+          <img alt="[注意]" src="../images/note.png" />
+          <h3>
+            注意
+          </h3>
+          <p>
+            <span class="command"><strong>configure</strong></span>
+            还有一个可选参数，<code class="option">--enable-lto</code>，可以用于允许
+            <span class="command"><strong>ar</strong></span>、<span class=
+            "command"><strong>nm</strong></span> 和 <span class=
+            "command"><strong>ranlib</strong></span> 命令接受 <code class=
+            "option">--plugin</code> 参数，进而允许 <span class=
+            "command"><strong>gcc</strong></span> 在需要的时候进行 “<span class=
+            "quote">链接时优化</span>”。LFS 和 BLFS 中现在都没有程序包使用此功能。
+          </p>
+        </div>
         <p>
           编译程序包：
         </p>
@@ -494,7 +510,7 @@ cd ../binutils-build</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

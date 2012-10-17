@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -328,7 +328,7 @@ EOF</kbd>
           安装时区数据：
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xf ../tzdata2012e.tar.gz
+<kbd class="command">tar -xf ../tzdata2012f.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right} 
@@ -475,7 +475,7 @@ mkdir /etc/ld.so.conf.d</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序:</strong> <span class=
-              "segbody">catchsegv、gencat、getconf、getent、iconv、iconvconfig、ldconfig、ldd、lddlibc4、locale、localedef、mtrace、nscd、pcprofiledump、pt_chown、rpcgen、sln、sotruss、sprof、tzselect、xtrace、dump
+              "segbody">catchsegv、gencat、getconf、getent、iconv、iconvconfig、ldconfig、ldd、lddlibc4、locale、localedef、makedb、mtrace、nscd、pcprofiledump、pldd、pt_chown、rpcgen、sln、sotruss、sprof、tzselect、xtrace、dump
               和 zic</span>
             </div>
             <div class="seg">
@@ -654,6 +654,20 @@ mkdir /etc/ld.so.conf.d</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="makedb" name="makedb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>makedb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    由文本输入创建一个简单的数据库
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="mtrace" name="mtrace"></a><span class=
                     "term"><span class=
                     "command"><strong>mtrace</strong></span></span>
@@ -690,6 +704,20 @@ mkdir /etc/ld.so.conf.d</kbd>
                 <td>
                   <p>
                     转储 PC 分析产生的信息
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pldd" name="pldd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pldd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    列出运行中的进程使用的动态共享对象
                   </p>
                 </td>
               </tr>
@@ -1152,7 +1180,7 @@ mkdir /etc/ld.so.conf.d</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

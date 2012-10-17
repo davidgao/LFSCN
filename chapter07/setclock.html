@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;7&nbsp;章&nbsp;设置系统引导脚本
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -48,45 +48,32 @@
         setclock 脚本
       </h1>
       <p>
-        The <span class="command"><strong>setclock</strong></span> script
-        reads the time from the hardware clock, also known as the BIOS or the
-        Complementary Metal Oxide Semiconductor (CMOS) clock. If the hardware
-        clock is set to UTC, this script will convert the hardware clock's
-        time to the local time using the <code class=
-        "filename">/etc/localtime</code> file (which tells the <span class=
-        "command"><strong>hwclock</strong></span> program which timezone the
-        user is in). There is no way to detect whether or not the hardware
-        clock is set to UTC, so this needs to be configured manually.
+        <span class="command"><strong>setclock</strong></span> 脚本从硬件时钟 (又称
+        BIOS 或 CMOS) 读取时间。如果硬件时钟设置为 UTC，此脚本会将其转换为 <code class=
+        "filename">/etc/localtime</code> 文件 (告知 <span class=
+        "command"><strong>hwclock</strong></span> 程序用户所在的时区)
+        中时区的时间。无法探测硬件时钟是否设置为 UTC，所以此项应收工配置。
       </p>
       <p>
-        The <span class="command"><strong>setclock</strong></span> is run via
-        <span class="application">udev</span> when the kernel detects the
-        hardware capability upon boot. It can also be run manually with the
-        stop parameter to store the system time to the CMOS clock.
+        <span class="command"><strong>setclock</strong></span>
+        在引导时内核检测到硬件支持时通过 <span class="application">udev</span>
+        运行。还可以手工不带参数运行麻将系统时间写入 CMOS 时钟。
       </p>
       <p>
-        If you cannot remember whether or not the hardware clock is set to
-        UTC, find out by running the <strong class="userinput"><code>hwclock
-        --localtime --show</code></strong> command. This will display what
-        the current time is according to the hardware clock. If this time
-        matches whatever your watch says, then the hardware clock is set to
-        local time. If the output from <span class=
-        "command"><strong>hwclock</strong></span> is not local time, chances
-        are it is set to UTC time. Verify this by adding or subtracting the
-        proper amount of hours for the timezone to the time shown by
-        <span class="command"><strong>hwclock</strong></span>. For example,
-        if you are currently in the MST timezone, which is also known as GMT
-        -0700, add seven hours to the local time.
+        如果你无法记住硬件时钟是否设置为 UTC，运行 <strong class="userinput"><code>hwclock
+        --localtime --show</code></strong>
+        命令。它会显示你硬件时钟的当前时间。如果这个时间和你手表上的时间相同，那就表示硬件时钟设置为本地时间。如果其输出不是本地时间，它有可能是一定可能设置为
+        UTC。将 <span class="command"><strong>hwclock</strong></span>
+        输出的时间加减正确的小时数。例如，位于中国大陆的 GMT +0800 时区的用户应该将 <span class=
+        "command"><strong>hwclock</strong></span> 的输出减去 8 小时。
       </p>
       <p>
-        Change the value of the <code class="envar">UTC</code> variable below
-        to a value of <em class="parameter"><code>0</code></em> (zero) if the
-        hardware clock is <span class="emphasis"><em>not</em></span> set to
-        UTC time.
+        如果你的硬件时钟<span class="emphasis"><em>未</em></span>设置为 UTC 时间，将以下
+        <code class="envar">UTC</code> 变量的值改为 <em class=
+        "parameter"><code>0</code></em> (数字零)。
       </p>
       <p>
-        Create a new file <code class="filename">/etc/sysconfig/clock</code>
-        by running the following:
+        运行以下命令创建一个新文件 <code class="filename">/etc/sysconfig/clock</code>：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; /etc/sysconfig/clock &lt;&lt; "EOF"
@@ -94,19 +81,16 @@
 
 UTC=1
 
-# Set this to any options you might need to give to hwclock, 
-# such as machine hardware clock type for Alphas.
+# 将此项设置为任何你要传递给 hwclock 的参数，例如机器时钟类型
 CLOCKPARAMS=
 
 # End /etc/sysconfig/clock</code>
 EOF</kbd>
 </pre>
       <p>
-        A good hint explaining how to deal with time on LFS is available at
         <a class="ulink" href=
-        "http://www.linuxfromscratch.org/hints/downloads/files/time.txt">http://www.linuxfromscratch.org/hints/downloads/files/time.txt</a>.
-        It explains issues such as time zones, UTC, and the <code class=
-        "envar">TZ</code> environment variable.
+        "http://www.linuxfromscratch.org/hints/downloads/files/time.txt">此处</a>有一个有关
+        LFS 系统上事件处理的提示。它解释了时区、UTC 和 <code class="envar">TZ</code> 环境变量的相关信息
       </p>
       <div class="admon note">
         <img alt="[注意]" src="../images/note.png" />
@@ -114,8 +98,8 @@ EOF</kbd>
           注意
         </h3>
         <p>
-          The CLOCKPARAMS and UTC paramaters may be alternatively set in the
-          <code class="filename">/etc/sysconfig/rc.site</code> file.
+          CLOCKPARAMS 和 UTC 参数也可以在 <code class=
+          "filename">/etc/sysconfig/rc.site</code> 文件中设置。
         </p>
       </div>
     </div>
@@ -139,7 +123,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

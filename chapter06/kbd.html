@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -49,7 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          Kbd　程序包包含　key-table　文件，控制台字体和键盘工具。
+          Kbd 程序包包含按键表文件、控制台字体和键盘工具。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -66,26 +66,26 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          6.51.1. 安装　Kbd
+          6.51.1. 安装 Kbd
         </h2>
         <p>
-          该发行版中 <span class="command"><strong>loadkeys</strong></span>
-          的运行将会在没有文件名的情况下中断。下面的补丁包修复该问题：
+          此发布版本中 <span class="command"><strong>loadkeys</strong></span>
+          在不带有文件名运行时的行为是不正常的。以下补丁修复之：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../kbd-1.15.3-upstream_fixes-1.patch</kbd>
 </pre>
         <p>
-          Backspace　与　Delete　键的行为与　Kbd　程序包中的键盘映射不一致。一下补丁包为　i386　键盘映射解决此问题：
+          退格键和删除键的行为在 Kbd 程序包中不同的键盘映射中是不一致的。以下补丁为 i386 键盘映射解决此问题：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../kbd-1.15.3-backspace-1.patch</kbd>
 </pre>
         <p>
-          安装补丁后，Backspace　键生成为　127 号字符，而 Delete 键生成广为人知的转义序列。
+          应用补丁后，Backspace 键生成为 127 号字符，而 Delete 键生成广为人知的转义序列。
         </p>
         <p>
-          修复西班牙语信息翻译阻止 kbd 生成 gettext-0.18.1.1 的一个 bug ：
+          修复西班牙语信息翻译阻止 kbd 与 gettext-0.18.1.1 一同编制的一个漏洞：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -100,8 +100,8 @@
         <p>
           装载的 <code class="filename">configure.ac</code> 的版本比 <code class=
           "filename">aclocal.m4</code> 更新,所以 autotools 会被 <span class=
-          "command"><strong>make</strong></span> 运行，来改写改变到 <code class=
-          "filename">configure</code>。改变 <code class=
+          "command"><strong>make</strong></span> 运行，将改变覆盖到 <code class=
+          "filename">configure</code> 中。改变 <code class=
           "filename">configure.ac</code>
           的日期与时间——这用到系统时区，所以我们选择一个在所有时区中足够老的一个。
         </p>
@@ -128,7 +128,7 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
             </dt>
             <dd>
               <p>
-                这个选项将键盘输出数据存放在一个总是位于根分区的目录下而非默认的 <code class=
+                此选项将键盘布局数据存置于一个总是位于根分区的目录下而非默认的 <code class=
                 "filename">/usr/share/kbd</code>。
               </p>
             </dd>
@@ -141,7 +141,7 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          这个程序包不包含测试套件。
+          此程序包不包含测试套件。
         </p>
         <p>
           安装程序包：
@@ -155,9 +155,9 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
             注意
           </h3>
           <p>
-            对于有些语言 (e.g.，白俄罗斯语) Kbd 程序包在常规的 “<span class="quote">by</span>”
-            键盘映射认定 ISO-8859-5 编码的情况下不提供一个有效的键盘映射，而 CP1251
-            键盘映射通常被用与这种情况。这些语言的用户需要下载单独的有效键盘映射。
+            对于有些语言 (如白俄罗斯语)， Kbd 程序包在常规的 “<span class="quote">by</span>”
+            键盘映射认定 ISO-8859-5 编码的情况下无法提供有效的键盘映射，此情况下通常使用 CP1251
+            键盘映射。这些语言的用户需要单独下载能够工作的效键盘映射。
           </p>
         </div>
         <p>
@@ -166,7 +166,7 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
           "command"><strong>loadkeys</strong></span>，<span class=
           "command"><strong>openvt</strong></span>，和 <span class=
           "command"><strong>setfont</strong></span>。鉴于 <code class=
-          "filename">/usr</code> 在早期的引导阶段中可能不可用，那些二进制程序需要位于根分区：
+          "filename">/usr</code> 在引导早期阶段中可能不可用，这些二进制程序需要位于根分区上：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -189,9 +189,9 @@ cp -R -v doc/* \
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序:</strong> <span class=
-              "segbody">chvt、deallocvt、dumpkeys、fgconsole、getkeycodes、kbd_mode、kbdrate、loadkeys、loadunimap、mapscrn、openvt、psfaddtable
-              (link to psfxtable)、psfgettable (link to
-              psfxtable)、psfstriptable (link to psfxtable)、psfxtable、
+              "segbody">chvt、deallocvt、dumpkeys、fgconsole、getkeycodes、kbdinfo、kbd_mode、kbdrate、loadkeys、loadunimap、mapscrn、openvt、psfaddtable
+              (到 psfxtable 的链接)、psfgettable (到 psfxtable 的链接)、psfstriptable
+              (到 psfxtable 的链接)、psfxtable、
               setfont、setkeycodes、setleds、setmetamode、showconsolefont、showkey、unicode_start、and
               unicode_stop</span>
             </div>
@@ -232,7 +232,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    重新分配未使用的虚拟终端
+                    解除分配未使用的虚拟终端
                   </p>
                 </td>
               </tr>
@@ -246,7 +246,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    转储键盘翻译表格
+                    转储键盘翻译表
                   </p>
                 </td>
               </tr>
@@ -281,6 +281,20 @@ cp -R -v doc/* \
               <tr>
                 <td>
                   <p>
+                    <a id="kbdinfo" name="kbdinfo"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kbdinfo</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    获取一个控制台的状态信息
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="kbd_mode" name="kbd_mode"></a><span class=
                     "term"><span class=
                     "command"><strong>kbd_mode</strong></span></span>
@@ -302,7 +316,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    设置键盘重复和延迟绿率
+                    设置键盘重复和延迟率
                   </p>
                 </td>
               </tr>
@@ -330,7 +344,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    加载核心 unicode-to-font 映射表
+                    加载内核 unicode-to-font 映射表
                   </p>
                 </td>
               </tr>
@@ -344,7 +358,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    一个弃用的被用来加载一个用户定义的输出字符映射表到控制台驱动的程序；这一工作现在由 <span class=
+                    一个弃用的程序，曾用于向控制台驱动程序中加载用户定义的输出字符映射表；此工作现在由 <span class=
                     "command"><strong>setfont</strong></span> 完成
                   </p>
                 </td>
@@ -359,7 +373,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    在一个新的虚拟终端 (VT) 上开始一个程序
+                    在一个新的虚拟终端 (VT) 上启动一个程序
                   </p>
                 </td>
               </tr>
@@ -373,8 +387,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    一个到 <span class=
-                    "command"><strong>psfxtable</strong></span> 的链接
+                    到 <span class="command"><strong>psfxtable</strong></span>
+                    的链接
                   </p>
                 </td>
               </tr>
@@ -388,8 +402,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    一个到 <span class=
-                    "command"><strong>psfxtable</strong></span> 的链接
+                    到 <span class="command"><strong>psfxtable</strong></span>
+                    的链接
                   </p>
                 </td>
               </tr>
@@ -403,8 +417,8 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    一个到 <span class=
-                    "command"><strong>psfxtable</strong></span> 的链接
+                    到 <span class="command"><strong>psfxtable</strong></span>
+                    的链接
                   </p>
                 </td>
               </tr>
@@ -432,7 +446,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    改变改良图像适配器 (EGA) 和 VGA 在控制台上的字体
+                    改变控制台上的 EGA 和 VGA 字体
                   </p>
                 </td>
               </tr>
@@ -446,7 +460,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    加载核心 scancode-to-keycode 映射表入口；这键盘上存在非常规的按键时很有用
+                    加载核心 scancode-to-keycode 映射表条目；这键盘上存在非常规按键时很有用
                   </p>
                 </td>
               </tr>
@@ -460,7 +474,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    设置键盘上的标识和发光二极管 (LEDs)
+                    设置键盘上的标识和 LED
                   </p>
                 </td>
               </tr>
@@ -474,7 +488,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    定义键盘的 meta-key 处理
+                    定义键盘的 meta 按键处理
                   </p>
                 </td>
               </tr>
@@ -502,7 +516,7 @@ cp -R -v doc/* \
                 </td>
                 <td>
                   <p>
-                    报告键盘上按下的键的扫描码，按键码和 ASCII 码
+                    报告键盘上按下的键的扫描码、按键码和 ASCII 码
                   </p>
                 </td>
               </tr>
@@ -517,7 +531,7 @@ cp -R -v doc/* \
                 <td>
                   <p>
                     令键盘和控制台为 UNICODE 模式。除非你的键盘映射文件是 ISO-8859-1
-                    编码，不要使用此程序。对于其他编码，这个工具造成错误的结果
+                    编码，不要使用此程序。对于其他编码，此工具会产生错误的结果
                   </p>
                 </td>
               </tr>
@@ -561,7 +575,7 @@ cp -R -v doc/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

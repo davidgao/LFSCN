@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -72,11 +72,11 @@
           当运行等级改变 (例如终止系统时)， <span class=
           "command"><strong>init</strong></span> 传递终止信号到各个由 <span class=
           "command"><strong>init</strong></span> 本身启动且不应当在新运行等级下运行的进程。如此做时，
-          <span class="command"><strong>init</strong></span> 输出例如
+          <span class="command"><strong>init</strong></span> 输出像
           “<span class="quote">Sending processes the TERM signal</span>”
-          的暗示它正在传递这些信号到当前所有运行进程的信息。要避免这一误解，修改源文件中的信息为 “<span class=
+          这样的消息，似乎是暗示它正在传递这些信号到当前所有运行进程的信息。要避免这一误解，修改源文件中的信息为 “<span class=
           "quote">Sending processes configured via /etc/inittab the TERM
-          signal</span>” ：
+          signal</span>”：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -85,12 +85,11 @@
         <p>
           <span class="command"><strong>wall</strong></span> 和 <span class=
           "command"><strong>mountpoint</strong></span> 程序正在维护的版本在此前已由
-          Util-linux 安装。阻止这些程序和它们的手册页在 Sysvinit 版本中的安装：
+          Util-linux 安装。阻止这些程序和它们的手册页的 Sysvinit 版本被安装：
         </p>
         <pre class="userinput">
-<kbd class="command">sed -i -e 's/utmpdump wall/utmpdump/' \
-       -e '/= mountpoint/d' \
-       -e 's/mountpoint.1 wall.1//' src/Makefile</kbd>
+<kbd class="command">sed -i -e 's/utmpdump/d' \
+       -e '/mountpoint/d' src/Makefile</kbd>
 </pre>
         <p>
           编译程序包：
@@ -118,9 +117,9 @@
             <div class="seg">
               <strong class="segtitle">安装的程序:</strong> <span class=
               "segbody">bootlogd、fstab-decode、halt、init、killall5、last、lastb
-              (link to last)、mesg、pidof (link to killall5)、poweroff (link to
-              halt), reboot (link to halt)、runlevel、shutdown、sulogin、telinit
-              (link to init) 和 utmpdump</span>
+              (到 last 的链接)、mesg、pidof (到 killall5 的链接)、poweroff (到 halt
+              的链接)、reboot (到 halt 的链接)、runlevel、shutdown、sulogin 和 telinit (到
+              init 的链接)</span>
             </div>
           </div>
         </div>
@@ -353,20 +352,6 @@
                   </p>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="utmpdump" name="utmpdump"></a><span class=
-                    "term"><span class=
-                    "command"><strong>utmpdump</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    以一种更加用户友好的格式显示给定登入文件的内容
-                  </p>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -392,7 +377,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

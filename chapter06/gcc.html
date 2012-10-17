@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
@@ -134,6 +134,21 @@ cd ../gcc-build</kbd>
               </p>
             </dd>
           </dl>
+        </div>
+        <div class="admon note">
+          <img alt="[注意]" src="../images/note.png" />
+          <h3>
+            注意
+          </h3>
+          <p>
+            <span class="command"><strong>configure</strong></span>
+            还有一个可选参数，<code class="option">--enable-lto</code>，可以用于允许
+            <span class="command"><strong>gcc</strong></span> 在需要的时候进行
+            “<span class="quote">链接时优化</span>”。LFS 和 BLFS 中现在都没有程序包使用此功能。
+          </p>
+          <p>
+            要使用此特性，在 <span class="application">binutils</span> 中也要启用它。
+          </p>
         </div>
         <p>
           编译程序包：
@@ -353,7 +368,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序:</strong> <span class=
-              "segbody">c++、cc (到 gcc 的链接)、cpp、g++、gcc、gccbug 和 gcov</span>
+              "segbody">c++、cc (到 gcc
+              的链接)、cpp、g++、gcc、gcc-ar、gcc-nm、gcc-ranlib、gccbug 和 gcov</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的库:</strong> <span class=
@@ -435,6 +451,54 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
                 <td>
                   <p>
                     C 编译器
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcc-ar" name="gcc-ar"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gcc-ar</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>ar</strong></span>
+                    的一个打包，在命令行中加入一个插件。此程序只用于添加 “<span class=
+                    "quote">链接时优化</span>”，对于默认编制选项并没有什么用处
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcc-nm" name="gcc-nm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gcc-nm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>nm</strong></span>
+                    的一个打包，在命令行中加入一个插件。此程序只用于添加 “<span class=
+                    "quote">链接时优化</span>”，对于默认编制选项并没有什么用处
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gcc-ranlib" name="gcc-ranlib"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gcc-ranlib</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>ranlib</strong></span>
+                    的一个打包，在命令行中加入一个插件。此程序只用于添加 “<span class=
+                    "quote">链接时优化</span>”，对于默认编制选项并没有什么用处
                   </p>
                 </td>
               </tr>
@@ -610,7 +674,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>

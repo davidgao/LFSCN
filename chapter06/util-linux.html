@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.22.&nbsp;Util-linux-2.22
+      6.22.&nbsp;Util-linux-2.22.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121002">
+  <body class="lfs" id="lfs-SVN-20121015">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121002
+        Linux From Scratch - 版本 SVN-20121015
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.22.
-        Util-linux-2.22
+        Util-linux-2.22.1
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -136,9 +136,9 @@ mkdir -pv /var/lib/hwclock</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序:</strong> <span class=
-              "segbody">addpart、agetty、blkid、blockdev、cal、cfdisk、chcpu、chkdupexe、chrt、col、colcrt、colrm、column、ctrlaltdel、cytune、delpart、dmesg、fallocate、fdformat、fdisk、findfs、findmnt、flock、fsck、fsck.cramfs、fsck.minix、fsfreeze、fstrim、getopt、hexdump、hwclock、i386、ionice、ipcmk、ipcrm、ipcs、isosize、ldattach、linux32、linux64、logger、look、losetup、lsblk、lscpu、mcookie、mkfs、mkfs.bfs、mkfs.cramfs、mkfs.minix、mkswap、more、mount、mountpoint、namei、partx、pg、pivot_root、prlimit、raw、readprofile、rename、renice、rev、rtcwake、script、scriptreplay、setarch、setsid、setterm、sfdisk、swaplabel、swapoff
+              "segbody">addpart、agetty、blkid、blockdev、cal、cfdisk、chcpu、chrt、col、colcrt、colrm、column、ctrlaltdel、cytune、delpart、dmesg、eject、fallocate、fdformat、fdisk、findfs、findmnt、flock、fsck、fsck.cramfs、fsck.minix、fsfreeze、fstrim、getopt、hexdump、hwclock、i386、ionice、ipcmk、ipcrm、ipcs、isosize、ldattach、linux32、linux64、logger、look、losetup、lsblk、lscpu、lslocks、mcookie、mkfs、mkfs.bfs、mkfs.cramfs、mkfs.minix、mkswap、more、mount、mountpoint、namei、partx、pg、pivot_root、prlimit、raw、readprofile、rename、renice、resizepart、rev、rtcwake、script、scriptreplay、setarch、setsid、setterm、sfdisk、swaplabel、swapoff
               (到 swapon
-              的链接)、swapon、switch_root、tailf、taskset、tunelp、ul、umount、unshare、uuidd、uuidgen、wall、whereis、wipefs
+              的链接)、swapon、switch_root、tailf、taskset、tunelp、ul、umount、unshare、utmpdump、uuidd、uuidgen、wall、wdctl、whereis、wipefs
               和 x86_64</span>
             </div>
             <div class="seg">
@@ -253,20 +253,6 @@ mkdir -pv /var/lib/hwclock</kbd>
                 <td>
                   <p>
                     修改 CPU 状态
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="chkdupexe" name="chkdupexe"></a><span class=
-                    "term"><span class=
-                    "command"><strong>chkdupexe</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    查找重复的可执行文件
                   </p>
                 </td>
               </tr>
@@ -393,6 +379,20 @@ mkdir -pv /var/lib/hwclock</kbd>
                 <td>
                   <p>
                     转储内核引导消息
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="eject" name="eject"></a><span class=
+                    "term"><span class=
+                    "command"><strong>eject</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    弹出可移动介质
                   </p>
                 </td>
               </tr>
@@ -791,6 +791,20 @@ mkdir -pv /var/lib/hwclock</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="lslocks" name="lslocks"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lslocks</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    列出本地系统锁
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="mcookie" name="mcookie"></a><span class=
                     "term"><span class=
                     "command"><strong>mcookie</strong></span></span>
@@ -1036,6 +1050,20 @@ mkdir -pv /var/lib/hwclock</kbd>
                 <td>
                   <p>
                     调节运行中进程的优先级
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="resizepart" name="resizepart"></a><span class=
+                    "term"><span class=
+                    "command"><strong>resizepart</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    要求内核调节一个分区的尺寸
                   </p>
                 </td>
               </tr>
@@ -1292,6 +1320,20 @@ mkdir -pv /var/lib/hwclock</kbd>
               <tr>
                 <td>
                   <p>
+                    <a id="utmpdump" name="utmpdump"></a><span class=
+                    "term"><span class=
+                    "command"><strong>utmpdump</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    以更加用户友好的格式显示给定登录文件的内容
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
                     <a id="uuidd" name="uuidd"></a><span class=
                     "term"><span class=
                     "command"><strong>uuidd</strong></span></span>
@@ -1328,6 +1370,20 @@ mkdir -pv /var/lib/hwclock</kbd>
                 <td>
                   <p>
                     在当前登录的所有用户的终端上显示文件内容，默认显示标准输入
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wdctl" name="wdctl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wdctl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    显示硬件监视器状态
                   </p>
                 </td>
               </tr>
@@ -1437,7 +1493,7 @@ mkdir -pv /var/lib/hwclock</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121002">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121015">起始页</a>
         </li>
       </ul>
     </div>
