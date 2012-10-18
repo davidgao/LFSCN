@@ -48,39 +48,33 @@
         /etc/hosts 文件
       </h1>
       <p>
-        If a network card is to be configured, decide on the IP address,
-        fully-qualified domain name (FQDN), and possible aliases for use in
-        the <code class="filename">/etc/hosts</code> file. The syntax is:
+        如果要配置一个网卡，选定 IP 地址、FQDN 和用于 <code class="filename">/etc/hosts</code>
+        文件的可用对应关系。语法为：
       </p>
       <pre class="screen">
 <code class="literal">IP_address myhost.example.org aliases</code>
 </pre>
       <p>
-        Unless the computer is to be visible to the Internet (i.e., there is
-        a registered domain and a valid block of assigned IP addresses—most
-        users do not have this), make sure that the IP address is in the
-        private network IP address range. Valid ranges are:
+        除非计算机对互联网可见 (例如有注册的域和可用的 IP 地址块——多数用户没有)，确保 IP 地址在私有 IP
+        地址区间中。可用的区间包括：
       </p>
       <pre class="screen">
-<code class="literal">Private Network Address Range      Normal Prefix
-10.0.0.1 - 10.255.255.254           8
-172.x.0.1 - 172.x.255.254           16
-192.168.y.1 - 192.168.y.254         24</code>
+<code class="literal">私有网络地址区间             通常的前缀位数
+10.0.0.1 - 10.255.255.254       8
+172.x.0.1 - 172.x.255.254       16
+192.168.y.1 - 192.168.y.254     24</code>
 </pre>
       <p>
-        x can be any number in the range 16-31. y can be any number in the
-        range 0-255.
+        x 可以是 16-31 的数值，y 可以是 0-255 的数值。
       </p>
       <p>
-        A valid private IP address could be 192.168.1.1. A valid FQDN for
-        this IP could be lfs.example.org.
+        一个可用的私有 IP 地址可以是 192.168.1.1。对于此 IP 地址可用的 FQDN 可以是 lfs.example.org。
       </p>
       <p>
-        Even if not using a network card, a valid FQDN is still required.
-        This is necessary for certain programs to operate correctly.
+        即使没有使用网卡，有些程序也需要一个可用的 FQDN 才能正确工作。
       </p>
       <p>
-        Create the <code class="filename">/etc/hosts</code> file by running:
+        运行以下命令创建 <code class="filename">/etc/hosts</code> 文件：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; /etc/hosts &lt;&lt; "EOF"
@@ -95,17 +89,14 @@
 EOF</kbd>
 </pre>
       <p>
-        The <em class="replaceable"><code>&lt;192.168.1.1&gt;</code></em> and
+        <em class="replaceable"><code>&lt;192.168.1.1&gt;</code></em> 和
         <em class=
-        "replaceable"><code>&lt;HOSTNAME.example.org&gt;</code></em> values
-        need to be changed for specific uses or requirements (if assigned an
-        IP address by a network/system administrator and the machine will be
-        connected to an existing network). The optional alias name(s) can be
-        omitted.
+        "replaceable"><code>&lt;HOSTNAME.example.org&gt;</code></em>
+        的值应该按照指定的用途或者需求进行修改 (如果由网络/系统管理员分配了一个 IP
+        地址并且计算机要链接到已经存在的网络)。可选的对应名称可以忽略。
       </p>
       <p>
-        If a network card is not going to be configured, create the
-        <code class="filename">/etc/hosts</code> file by running:
+        如果不配置网卡，运行以下命令创建 <code class="filename">/etc/hosts</code> 文件：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; /etc/hosts &lt;&lt; "EOF"

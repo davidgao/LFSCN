@@ -49,22 +49,16 @@
         <a id="ch-scripts-site" name="ch-scripts-site"></a>7.12. rc.site 文件
       </h1>
       <p>
-        The optional <code class="filename">/etc/sysconfig/rc.site</code>
-        file contains settings that are automatically set for each boot
-        script. It can alternatively set the values specified in the
-        <code class="filename">hostname</code>, <code class=
-        "filename">console</code>, and <code class="filename">clock</code>
-        files in the <code class="filename">/etc/sysconfig/</code> directory.
-        If the associated variables are present in both these separate files
-        and <code class="filename">rc.site</code>, the values in the script
-        specific files have precedence.
+        可选的 <code class="filename">/etc/sysconfig/rc.site</code>
+        文件包含给每个引导脚本自动进行的设置。它也可以用于指定 <code class=
+        "filename">/etc/sysconfig/</code> 中 <code class=
+        "filename">hostname</code>、<code class="filename">console</code> 和
+        <code class="filename">clock</code> 文件中指定的值。如果关联的变量在这些独立的文件和
+        <code class="filename">rc.site</code> 中都存在，以脚本指定的文件为准。
       </p>
       <p>
-        <code class="filename">rc.site</code> also contains parameters that
-        can customize other aspects of the boot process. Setting the IPROMPT
-        variable will enable selective running of bootscripts. Other options
-        are described in the file comments. The default version of the file
-        is as follows:
+        <code class="filename">rc.site</code> 还包括可以自定义引导进程其他方面的参数。设置 IPROMPT
+        变量会启用引导脚本的选择性运行。其他选项在文件中的注释有介绍。此文件的默认版本如下：
       </p>
       <pre class="auto">
 # rc.site
@@ -158,6 +152,86 @@
 #LEGACY_CHARSET=
 
 </pre>
+      <div class="sect2" lang="zh-cn" xml:lang="zh-cn">
+        <h2 class="sect2">
+          7.12.1. 自定义引导和关机脚本
+        </h2>
+        <p>
+          LFS 引导脚本以比较高效的方式引导和关闭序同，但是你仍然可以在 rc.site
+          文件中进行几项调校使它更快或者按照你的喜好调节信息。要如此做，调节以上的 <code class=
+          "filename">/etc/sysconfig/rc.site</code> 文件。
+        </p>
+        <div class="itemizedlist">
+          <ul>
+            <li>
+              <p>
+                在引导脚本 <code class="filename">udev</code> 中调用了 <span class=
+                "command"><strong>udev
+                settle</strong></span>，需要一定时间才能完成。这个时间是否需要取决于系统上出现的设备。如果你只有简单分区和一块以太网卡，引导进程可能就不必等待这一命令。要跳过之，设置变量
+                OMIT_UDEV_SETTLE=y。
+              </p>
+            </li>
+            <li>
+              <p>
+                引导脚本 <code class="filename">udev_retry</code> 默认也会运行
+                <span class="command"><strong>udev
+                settle</strong></span>。此命令只在 <code class=
+                "filename">/var</code> 目录独立挂载时必须。这是因为时钟需要 <code class=
+                "filename">/var/lib/hwclock/adjtime</code> 这个文件。其他的自定义可能也要等待
+                udev 完成，但是在很多安装副本中并不是必须的。要跳过此命令，设置变量
+                OMIT_UDEV_RETRY_SETTLE=y。
+              </p>
+            </li>
+            <li>
+              <p>
+                文件系统检查默认是静默的。看起来是在引导过程中出现了一次延迟。要打开 <span class=
+                "command"><strong>fsck</strong></span> 的输出，设置变量
+                VERBOSE_FSCK=y。
+              </p>
+            </li>
+            <li>
+              <p>
+                在重新引导过程中你可能会想要完全跳过文件系统检查，即 <span class=
+                "command"><strong>fsck</strong></span>。要如此做，要么创建文件
+                <code class="filename">/fastboot</code>，要么在重新引导系统时使用命令
+                <span class="command"><strong>/sbin/shutdown -f -r
+                now</strong></span>。另一方面，你也可以强制检查所有的文件系统，创建 <code class=
+                "filename">/forcefsck</code> 或者运行 <span class=
+                "command"><strong>shutdown</strong></span> 时传递 <em class=
+                "parameter"><code>-F</code></em> 参数而不是 <em class=
+                "parameter"><code>-f</code></em>。
+              </p>
+              <p>
+                设置变量 FASTBOOT=y 会在引导过程中禁用 <span class=
+                "command"><strong>fsck</strong></span> 直到被移除为止。不推荐长期如此。
+              </p>
+            </li>
+            <li>
+              <p>
+                通常在 <code class="filename">/tmp</code>
+                目录中的所有文件在引导时都会删除。由于出现的文件或目录的数量不同，这一步会在引导过程中产生明显延迟。要跳过移除这些文件，设置变量
+                SKIPTMPCLEAN=y。
+              </p>
+            </li>
+            <li>
+              <p>
+                在关机过程中 <span class="command"><strong>init</strong></span>
+                程序会给它启动的每个程序 (例如 agetty) 发送一个 TERM 信号，等待一个设置的时间 (默认 3
+                秒)，然后给每个进程发送一个 KILL 信号并且再次等待。此进程在 <span class=
+                "command"><strong>sendsignals</strong></span>
+                中对于每个没有被自己的脚本关闭的程序循环进行。<span class=
+                "command"><strong>init</strong></span> 的延迟可以通过传递一个参数来设置。例如要移除
+                <span class="command"><strong>init</strong></span>
+                的延迟，在关机护着重新引导时传递 -t0 参数 (如 <span class=
+                "command"><strong>/sbin/shutdown -t0 -r
+                now</strong></span>)。<span class=
+                "command"><strong>sendsignals</strong></span> 脚本的延迟可以通过设置参数
+                KILLDELAY=0 来跳过。
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="navfooter">
       <ul>

@@ -49,8 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The LFS-Bootscripts package contains a set of scripts to start/stop
-          the LFS system at bootup/shutdown.
+          LFS-Bootscripts 程序包包含一组脚本用于在引导/关机时启动/停止 LFS 系统。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -67,10 +66,10 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          7.6.1. Installation of LFS-Bootscripts
+          7.6.1. 安装 LFS-Bootscripts
         </h2>
         <p>
-          Install the package:
+          安装程序包：
         </p>
         <pre class="userinput">
 <kbd class="command">make install</kbd>
@@ -79,27 +78,25 @@
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
           <a id="contents-bootscripts" name="contents-bootscripts"></a>7.6.2.
-          Contents of LFS-Bootscripts
+          LFS-Bootscripts 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed scripts:</strong>
-              <span class="segbody">checkfs, cleanfs, console, functions,
-              halt, ifdown, ifup, localnet, modules, mountfs, mountkernfs,
-              network, rc, reboot, sendsignals, setclock, static, swap,
-              sysctl, sysklogd, template, udev, and udev_retry</span>
+              <strong class="segtitle">安装的脚本:</strong> <span class=
+              "segbody">checkfs、cleanfs、console、functions、halt、ifdown、ifup、localnet、modules、mountfs、mountkernfs、network、rc、reboot、sendsignals、setclock、static、swap、sysctl、sysklogd、template、udev
+              和 udev_retry</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
-              <span class="segbody">/etc/rc.d, /etc/init.d (symbolic link),
-              /etc/sysconfig, /lib/services, /lib/lsb (symbolic link)</span>
+              <strong class="segtitle">安装的目录:</strong> <span class=
+              "segbody">/etc/rc.d、/etc/init.d
+              (符号链接)、/etc/sysconfig、/lib/services、/lib/lsb (符号链接)</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -114,9 +111,7 @@
                 </td>
                 <td>
                   <p>
-                    Checks the integrity of the file systems before they are
-                    mounted (with the exception of journal and network based
-                    file systems)
+                    在挂载文件系统之前检查其完整性 (但日志和基于网络的文件系统除外)
                   </p>
                 </td>
               </tr>
@@ -130,14 +125,12 @@
                 </td>
                 <td>
                   <p>
-                    Removes files that should not be preserved between
-                    reboots, such as those in <code class=
-                    "filename">/var/run/</code> and <code class=
-                    "filename">/var/lock/</code>; it re-creates <code class=
-                    "filename">/var/run/utmp</code> and removes the possibly
-                    present <code class="filename">/etc/nologin</code>,
-                    <code class="filename">/fastboot</code>, and <code class=
-                    "filename">/forcefsck</code> files
+                    移除重新引导时不应保留的文件，例如 <code class="filename">/var/run/</code>
+                    和 <code class="filename">/var/lock/</code> 中的文件；它重新创建
+                    <code class="filename">/var/run/utmp</code> 并移除可能存在的
+                    <code class="filename">/etc/nologin</code>、<code class=
+                    "filename">/fastboot</code> 和 <code class=
+                    "filename">/forcefsck</code> 文件
                   </p>
                 </td>
               </tr>
@@ -151,8 +144,7 @@
                 </td>
                 <td>
                   <p>
-                    Loads the correct keymap table for the desired keyboard
-                    layout; it also sets the screen font
+                    为选中的键盘布局加载正确的的键盘映射表并设置屏幕字体
                   </p>
                 </td>
               </tr>
@@ -167,8 +159,7 @@
                 </td>
                 <td>
                   <p>
-                    Contains common functions, such as error and status
-                    checking, that are used by several bootscripts
+                    包含多个引导脚本的共用功能，例如错误和状态检查
                   </p>
                 </td>
               </tr>
@@ -182,7 +173,7 @@
                 </td>
                 <td>
                   <p>
-                    Halts the system
+                    终止系统运行
                   </p>
                 </td>
               </tr>
@@ -196,7 +187,7 @@
                 </td>
                 <td>
                   <p>
-                    Stops a network device
+                    停止一个网络设备
                   </p>
                 </td>
               </tr>
@@ -210,7 +201,7 @@
                 </td>
                 <td>
                   <p>
-                    Initializes a network device
+                    初始化一个网络设备
                   </p>
                 </td>
               </tr>
@@ -224,7 +215,7 @@
                 </td>
                 <td>
                   <p>
-                    Sets up the system's hostname and local loopback device
+                    设置系统的主机名和本地回环设备
                   </p>
                 </td>
               </tr>
@@ -238,9 +229,8 @@
                 </td>
                 <td>
                   <p>
-                    Loads kernel modules listed in <code class=
-                    "filename">/etc/sysconfig/modules</code>, using arguments
-                    that are also given there
+                    加载在 <code class="filename">/etc/sysconfig/modules</code>
+                    中列出的内核模块，使用其中给定的参数
                   </p>
                 </td>
               </tr>
@@ -254,9 +244,8 @@
                 </td>
                 <td>
                   <p>
-                    Mounts all file systems, except ones that are marked
-                    <span class="emphasis"><em>noauto</em></span> or are
-                    network based
+                    挂载所有的文件系统，但标记为 <span class=
+                    "emphasis"><em>noauto</em></span> 或基于网络的除外
                   </p>
                 </td>
               </tr>
@@ -271,8 +260,7 @@
                 </td>
                 <td>
                   <p>
-                    Mounts virtual kernel file systems, such as <code class=
-                    "systemitem">proc</code>
+                    挂载虚拟内核文件系统，例如 <code class="systemitem">proc</code>
                   </p>
                 </td>
               </tr>
@@ -286,8 +274,7 @@
                 </td>
                 <td>
                   <p>
-                    Sets up network interfaces, such as network cards, and
-                    sets up the default gateway (where applicable)
+                    设置网络接口，例如网卡，并且设置默认网关 (如果可用)
                   </p>
                 </td>
               </tr>
@@ -301,10 +288,7 @@
                 </td>
                 <td>
                   <p>
-                    The master run-level control script; it is responsible
-                    for running all the other bootscripts one-by-one, in a
-                    sequence determined by the name of the symbolic links
-                    being processed
+                    主要的运行级别控制脚本；负责逐一运行所有其他的引导脚本，序列由处理的符号链接名称产生
                   </p>
                 </td>
               </tr>
@@ -318,7 +302,7 @@
                 </td>
                 <td>
                   <p>
-                    Reboots the system
+                    重新引导系统
                   </p>
                 </td>
               </tr>
@@ -333,8 +317,7 @@
                 </td>
                 <td>
                   <p>
-                    Makes sure every process is terminated before the system
-                    reboots or halts
+                    确保每个进程在系统终止或重新引导之前都结束
                   </p>
                 </td>
               </tr>
@@ -348,8 +331,7 @@
                 </td>
                 <td>
                   <p>
-                    Resets the kernel clock to local time in case the
-                    hardware clock is not set to UTC time
+                    如果硬件时钟没有设为 UTC 时间则重设内核时钟为本地时间
                   </p>
                 </td>
               </tr>
@@ -363,8 +345,7 @@
                 </td>
                 <td>
                   <p>
-                    Provides the functionality needed to assign a static
-                    Internet Protocol (IP) address to a network interface
+                    提供给网络接口分配静态 IP 地址的功能
                   </p>
                 </td>
               </tr>
@@ -378,7 +359,7 @@
                 </td>
                 <td>
                   <p>
-                    Enables and disables swap files and partitions
+                    启用和禁用交换文件和分区
                   </p>
                 </td>
               </tr>
@@ -392,9 +373,8 @@
                 </td>
                 <td>
                   <p>
-                    Loads system configuration values from <code class=
-                    "filename">/etc/sysctl.conf</code>, if that file exists,
-                    into the running kernel
+                    如果存在，从 <code class="filename">/etc/sysctl.conf</code>
+                    中加载系统配置的值到内核中
                   </p>
                 </td>
               </tr>
@@ -408,7 +388,7 @@
                 </td>
                 <td>
                   <p>
-                    Starts and stops the system and kernel log daemons
+                    启动和停止系统和内核日志 daemon
                   </p>
                 </td>
               </tr>
@@ -422,7 +402,7 @@
                 </td>
                 <td>
                   <p>
-                    A template to create custom bootscripts for other daemons
+                    一个模板，用于给其他 daemon 创建自定义引导脚本
                   </p>
                 </td>
               </tr>
@@ -436,8 +416,7 @@
                 </td>
                 <td>
                   <p>
-                    Prepares the <code class="filename">/dev</code> directory
-                    and starts Udev
+                    准备 <code class="filename">/dev</code> 目录并启动 Udev
                   </p>
                 </td>
               </tr>
@@ -452,9 +431,8 @@
                 </td>
                 <td>
                   <p>
-                    Retries failed udev uevents, and copies generated rules
-                    files from to <code class=
-                    "filename">/etc/udev/rules.d</code> if required
+                    重试失败的 uevent，如果需要则将产生的规则文件复制到 <code class=
+                    "filename">/etc/udev/rules.d</code>
                   </p>
                 </td>
               </tr>
