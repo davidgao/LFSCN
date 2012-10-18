@@ -48,48 +48,36 @@
         <a id="ch-scripts-usage" name="ch-scripts-usage"></a>7.7. 引导脚本如何工作？
       </h1>
       <p>
-        Linux uses a special booting facility named SysVinit that is based on
-        a concept of <span class="emphasis"><em>run-levels</em></span>. It
-        can be quite different from one system to another, so it cannot be
-        assumed that because things worked in one particular Linux
-        distribution, they should work the same in LFS too. LFS has its own
-        way of doing things, but it respects generally accepted standards.
+        Linux 使用一种特殊的引导工具，名为 SysVinit，基于 <span class=
+        "emphasis"><em>运行级别</em></span> 的概念。他在不同系统上差异可能会很大，所以不要认为某个 Linux
+        发行版上能够工作的在 LFS 上就一定能够工作。LFS 处理问题有自己的方式，但遵守广泛接受的标准。
       </p>
       <p>
-        SysVinit (which will be referred to as “<span class=
-        "quote">init</span>” from now on) works using a run-levels scheme.
-        There are seven (numbered 0 to 6) run-levels (actually, there are
-        more run-levels, but they are for special cases and are generally not
-        used. See <code class="filename">init(8)</code> for more details),
-        and each one of those corresponds to the actions the computer is
-        supposed to perform when it starts up. The default run-level is 3.
-        Here are the descriptions of the different run-levels as they are
-        implemented:
+        SysVinit (以下简称 “<span class="quote">init</span>”) 使用运行级别的方式工作。有 7 种
+        (编号为 0 到 6) 运行级别 (其实有更多，但只用于特殊情况，通常并不使用。更多细节参见 <code class=
+        "filename">init(8)</code>)，每个都对应计算机在它启动时要进行的动作。默认运行级别为
+        3。以下列出不同运行级别实现的描述：
       </p>
       <div class="literallayout">
         <p>
-          0:&nbsp;halt&nbsp;the&nbsp;computer<br />
-          1:&nbsp;single-user&nbsp;mode<br />
-          2:&nbsp;multi-user&nbsp;mode&nbsp;without&nbsp;networking<br />
-          3:&nbsp;multi-user&nbsp;mode&nbsp;with&nbsp;networking<br />
-          4:&nbsp;reserved&nbsp;for&nbsp;customization,&nbsp;otherwise&nbsp;does&nbsp;the&nbsp;same&nbsp;as&nbsp;3<br />
+          0：关闭计算机<br />
+          1：单用户模式<br />
+          2：不带网络的多用户模式<br />
+          3：带网络的多用户模式<br />
+          4：保留，用于自定义，否则与&nbsp;3&nbsp;相同<br />
+          5：与&nbsp;4&nbsp;相同，但通常用于&nbsp;GUI&nbsp;登录&nbsp;(如&nbsp;X&nbsp;的&nbsp;<span class="command"><strong>xdm</strong></span>&nbsp;或者&nbsp;KDE&nbsp;的&nbsp;<span class="command"><strong>kdm</strong></span>)<br />
 
-          5:&nbsp;same&nbsp;as&nbsp;4,&nbsp;it&nbsp;is&nbsp;usually&nbsp;used&nbsp;for&nbsp;GUI&nbsp;login&nbsp;(like&nbsp;X's&nbsp;<span class="command"><strong>xdm</strong></span>&nbsp;or&nbsp;KDE's&nbsp;<span class="command"><strong>kdm</strong></span>)<br />
-
-          6:&nbsp;reboot&nbsp;the&nbsp;computer
+          6：重新引导计算机
         </p>
       </div>
       <div class="configuration" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="conf-sysvinit" name="conf-sysvinit"></a>7.7.1. Configuring
-          Sysvinit
+          <a id="conf-sysvinit" name="conf-sysvinit"></a>7.7.1. 配置 Sysvinit
         </h2>
         <p>
-          During the kernel initialization, the first program that is run is
-          either specified on the command line or, by default <span class=
-          "command"><strong>init</strong></span>. This program reads the
-          initialization file <code class="filename">/etc/inittab</code>.
-          Create this file with:
+          在内核初始化过程中，第一个要运行的程序如不再命令行中指定，默认为 <span class=
+          "command"><strong>init</strong></span>。此程序读取初始化文件 <code class=
+          "filename">/etc/inittab</code>。如此创建之：
         </p>
         <pre class="userinput">
 <kbd class="command">cat &gt; /etc/inittab &lt;&lt; "EOF"
@@ -122,98 +110,73 @@ su:S016:once:/sbin/sulogin
 EOF</kbd>
 </pre>
         <p>
-          An explanation of this initialization file is in the man page for
-          <span class="emphasis"><em>inittab</em></span>. For LFS, the key
-          command that is run is <span class=
-          "command"><strong>rc</strong></span>. The intialization file above
-          will instruct <span class="command"><strong>rc</strong></span> to
-          run all the scripts starting with an S in the <code class=
-          "filename">/etc/rc.d/rcsysinit.d</code> directory followed by all
-          the scripts starting with an S in the <code class=
-          "filename">/etc/rc.d/rc?.d</code> directory where the question mark
-          is specified by the initdefault value.
+          对此文件的解释位于 <span class="emphasis"><em>inittab</em></span> 的手册页中。对于
+          LFS，运行的核心命令是 <span class=
+          "command"><strong>rc</strong></span>。以上的初始化文件将会要求 <span class=
+          "command"><strong>rc</strong></span> 运行 <code class=
+          "filename">/etc/rc.d/rcsysinit.d</code> 目录中所有以 S 开头的脚本，然后是
+          <code class="filename">/etc/rc.d/rc?.d</code> 目录中所有以 S 开头的脚本，其中问号由
+          initdefault 的值指定。
         </p>
         <p>
-          As a convenience, the <span class=
-          "command"><strong>rc</strong></span> script reads a library of
-          functions in <code class="filename">/lib/lsb/init-functions</code>.
-          This library also reads an optional configuration file,
-          <code class="filename">/etc/sysconfig/rc.site</code>. Any of the
-          system configuration file parameters described in subsequent
-          sections can be alternatively placed in this file allowing
-          consolidation of all system parameters in this one file.
+          出于方便考虑，<span class="command"><strong>rc</strong></span> 脚本读取
+          <code class="filename">/lib/lsb/init-functions</code>
+          中的功能库。此库还读取可选的配置文件 <code class=
+          "filename">/etc/sysconfig/rc.site</code>。之前几节中描述的任何系统配置文件参数都可以置于此文件中，使得所有的系统参数合并在这一个文件中。
         </p>
         <p>
-          As a debugging convenience, the functions script also logs all
-          output to <code class="filename">/run/var/bootlog</code>. Since the
-          <code class="filename">/run</code> directory is a tmpfs, this file
-          is not persistent across boots, however it is appended to the more
-          permanent file <code class="filename">/var/log/boot.log</code> at
-          the end of the boot process.
+          出于调试方便考虑，功能脚本还将所有输出以日志的形式记录于 <code class=
+          "filename">/run/var/bootlog</code> 中。由于 <code class=
+          "filename">/run</code> 目录是一个
+          tmpfs，此文件在重新引导过后不会保留，然而它在引导结束时会被附加到一个更稳定的文件 <code class=
+          "filename">/var/log/boot.log</code> 之后。
         </p>
       </div>
       <div class="sect2" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="init-levels" name="init-levels"></a>7.7.2. Changing Run
-          Levels
+          <a id="init-levels" name="init-levels"></a>7.7.2. 改变运行级别
         </h2>
         <p>
-          Changing run-levels is done with <span class="command"><strong>init
-          <em class=
-          "replaceable"><code>&lt;runlevel&gt;</code></em></strong></span>,
-          where <em class="replaceable"><code>&lt;runlevel&gt;</code></em> is
-          the target run-level. For example, to reboot the computer, a user
-          could issue the <span class="command"><strong>init
-          6</strong></span> command, which is an alias for the <span class=
-          "command"><strong>reboot</strong></span> command. Likewise,
-          <span class="command"><strong>init 0</strong></span> is an alias
-          for the <span class="command"><strong>halt</strong></span> command.
+          改变运行级别通过 <span class="command"><strong>init <em class=
+          "replaceable"><code>&lt;运行级别&gt;</code></em></strong></span> 完成，其中
+          <em class="replaceable"><code>&lt;运行级别&gt;</code></em>
+          就是目标运行级别了。例如要重新引导计算机，用户可以执行 <span class="command"><strong>init
+          6</strong></span> 命令，也就是 <span class=
+          "command"><strong>reboot</strong></span> 命令的别名。相似地， <span class=
+          "command"><strong>init 0</strong></span> 也是 <span class=
+          "command"><strong>halt</strong></span> 的别名。
         </p>
         <p>
-          There are a number of directories under <code class=
-          "filename">/etc/rc.d</code> that look like <code class=
-          "filename">rc?.d</code> (where ? is the number of the run-level)
-          and <code class="filename">rcsysinit.d</code>, all containing a
-          number of symbolic links. Some begin with a <span class=
-          "emphasis"><em>K</em></span>, the others begin with an <span class=
-          "emphasis"><em>S</em></span>, and all of them have two numbers
-          following the initial letter. The K means to stop (kill) a service
-          and the S means to start a service. The numbers determine the order
-          in which the scripts are run, from 00 to 99—the lower the number
-          the earlier it gets executed. When <span class=
-          "command"><strong>init</strong></span> switches to another
-          run-level, the appropriate services are either started or stopped,
-          depending on the runlevel chosen.
+          在 <code class="filename">/etc/rc.d</code> 和 <code class=
+          "filename">rcsysinit.d</code> 中有一些与 <code class=
+          "filename">rc?.d</code> 相似的目录 (其中问号是运行级别号码)，都包含一些符号链接，有些以
+          <span class="emphasis"><em>K</em></span> 开头，其他的以 <span class=
+          "emphasis"><em>S</em></span> 开头，在开头字母之后都有两位数字。K 代表停止 (kill) 服务，S
+          代表开始服务。数字表示脚本的运行顺序，从 00 到 99——数字越小执行越早。当 <span class=
+          "command"><strong>init</strong></span>
+          切换至另一个运行级别时，对应的服务就会开始或者停止，这取决于选定的运行级别。
         </p>
         <p>
-          The real scripts are in <code class=
-          "filename">/etc/rc.d/init.d</code>. They do the actual work, and
-          the symlinks all point to them. K links and S links point to the
-          same script in <code class="filename">/etc/rc.d/init.d</code>. This
-          is because the scripts can be called with different parameters like
-          <em class="parameter"><code>start</code></em>, <em class=
-          "parameter"><code>stop</code></em>, <em class=
-          "parameter"><code>restart</code></em>, <em class=
-          "parameter"><code>reload</code></em>, and <em class=
-          "parameter"><code>status</code></em>. When a K link is encountered,
-          the appropriate script is run with the <em class=
-          "parameter"><code>stop</code></em> argument. When an S link is
-          encountered, the appropriate script is run with the <em class=
-          "parameter"><code>start</code></em> argument.
+          真实的脚本位于 <code class=
+          "filename">/etc/rc.d/init.d</code>。它们完成实际工作，符号链接也指向它们。K 链接和 S 链接都指向
+          <code class="filename">/etc/rc.d/init.d</code> 中的同一个脚本，这是因为这些脚本可以带有
+          <em class="parameter"><code>start</code></em>、<em class=
+          "parameter"><code>stop</code></em>、<em class=
+          "parameter"><code>restart</code></em>、<em class=
+          "parameter"><code>reload</code></em> 和 <em class=
+          "parameter"><code>status</code></em> 这些参数调用。当遇到 K 的时候，对应的脚本被带
+          <em class="parameter"><code>stop</code></em> 参数调用。当遇到 S 的时候，对应的脚本被带
+          <em class="parameter"><code>start</code></em> 参数调用。
         </p>
         <p>
-          There is one exception to this explanation. Links that start with
-          an <span class="emphasis"><em>S</em></span> in the <code class=
-          "filename">rc0.d</code> and <code class="filename">rc6.d</code>
-          directories will not cause anything to be started. They will be
-          called with the parameter <em class=
-          "parameter"><code>stop</code></em> to stop something. The logic
-          behind this is that when a user is going to reboot or halt the
-          system, nothing needs to be started. The system only needs to be
-          stopped.
+          这个解释有一个例外。在 <code class="filename">rc0.d</code> 和 <code class=
+          "filename">rc6.d</code> 中的以 <span class=
+          "emphasis"><em>S</em></span> 开头的链接不会开始任何服务。他们会以 <em class=
+          "parameter"><code>stop</code></em>
+          参数调用，来停止服务。它背后的逻辑是用户要重新引导或者关闭系统，没有什么需要开始的，系统正要终止。
         </p>
         <p>
-          These are descriptions of what the arguments make the scripts do:
+          以下介绍这些参数使得脚本进行的操作：
         </p>
         <div class="variablelist">
           <dl>
@@ -223,7 +186,7 @@ EOF</kbd>
             </dt>
             <dd>
               <p>
-                The service is started.
+                服务被开始。
               </p>
             </dd>
             <dt>
@@ -232,7 +195,7 @@ EOF</kbd>
             </dt>
             <dd>
               <p>
-                The service is stopped.
+                服务被停止。
               </p>
             </dd>
             <dt>
@@ -241,7 +204,7 @@ EOF</kbd>
             </dt>
             <dd>
               <p>
-                The service is stopped and then started again.
+                服务先被停止然后被重新开始。
               </p>
             </dd>
             <dt>
@@ -250,9 +213,7 @@ EOF</kbd>
             </dt>
             <dd>
               <p>
-                The configuration of the service is updated. This is used
-                after the configuration file of a service was modified, when
-                the service does not need to be restarted.
+                服务的配置被更新。此项在服务的配置文件经过修改，却无需重新开始之的时候使用。
               </p>
             </dd>
             <dt>
@@ -261,15 +222,13 @@ EOF</kbd>
             </dt>
             <dd>
               <p>
-                Tells if the service is running and with which PIDs.
+                输出服务是否在运行，若在运行则输出 PID。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Feel free to modify the way the boot process works (after all, it
-          is your own LFS system). The files given here are an example of how
-          it can be done.
+          你可以自由修改引导脚本工作的方式 (无论如何这是你自己的 LFS 系统)。此处给出的文件只是完成此任务的一个例子。
         </p>
       </div>
     </div>
