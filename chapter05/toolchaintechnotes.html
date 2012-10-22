@@ -76,7 +76,7 @@
           "command"><strong>ld</strong></span> 混淆)。动态链接器由 Glibc
           提供，会寻找并加载程序需要的共享库，准备并运行程序。32 位英特尔处理器使用的动态链接器名应为 <code class=
           "filename">ld-linux.so.2</code>。在宿主系统中随意查看一个二进制就可以获知动态链接器名：<strong class="userinput"><code>readelf
-          -l &lt;二进制名&gt; | grep interpreter</code></strong>
+          -l &lt;binary&gt; | grep interpreter</code></strong>
           并注意输出。官方的覆盖了所有平台的参考位于 Glibc 源代码树中的 <code class=
           "filename">shlib-versions</code> 文件中。
         </p>

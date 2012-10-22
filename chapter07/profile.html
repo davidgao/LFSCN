@@ -123,13 +123,13 @@
         字符映射可能会有多个别名。某些应用程序无法正确处理同义 (例如要求 “<span class="quote">UTF-8</span>”
         必须写成 “<span class="quote">UTF-8</span>” 而不允许写成 “<span class=
         "quote">utf8</span>”)，所以大多数情况下选择特定区域数据的正规名称是最安全的。要获知正规名称，运行以下命令，其中
-        <em class="replaceable"><code>&lt;区域数据名&gt;</code></em> 要替换为
+        <em class="replaceable"><code>&lt;locale&gt;</code></em> 要替换为
         <span class="command"><strong>locale -a</strong></span>
         对于需要的区域数据提供的输出。
       </p>
       <pre class="userinput">
 <kbd class="command">LC_ALL=<em class=
-"replaceable"><code>&lt;区域数据名&gt;</code></em> locale charmap</kbd>
+"replaceable"><code>&lt;locale&gt;</code></em> locale charmap</kbd>
 </pre>
       <p>
         对于 “<span class="quote">zh_CN.utf8</span>” 这个区域数据，以上命令将会输出：
@@ -142,10 +142,10 @@
         "quote">zh_CN.UTF-8</span>”。以上试探找到的区域数据在添加到 Bash 的起始文件之前要经过测试是很重要的：
       </p>
       <pre class="userinput">
-<kbd class="command">LC_ALL=&lt;区域数据名&gt; locale language
-LC_ALL=&lt;区域数据名&gt; locale charmap
-LC_ALL=&lt;区域数据名&gt; locale int_curr_symbol
-LC_ALL=&lt;区域数据名&gt; locale int_prefix</kbd>
+<kbd class="command">LC_ALL=&lt;locale&gt; locale language
+LC_ALL=&lt;locale&gt; locale charmap
+LC_ALL=&lt;locale&gt; locale int_curr_symbol
+LC_ALL=&lt;locale&gt; locale int_prefix</kbd>
 </pre>
       <p>
         以上命令应该打印语言名称、字符编码、本地货币和电话号码前缀。如果其中任何一项失败并且输出类似以下的消息，就意味着你的区域数据要么在第六章中没有安装，要不不被
@@ -187,7 +187,7 @@ LC_ALL=&lt;区域数据名&gt; locale int_prefix</kbd>
 <code class="literal"># Begin /etc/profile
 
 export LANG=<em class=
-"replaceable"><code>&lt;语言&gt;_&lt;国家&gt;.&lt;字符集&gt;&lt;@修改&gt;</code></em>
+"replaceable"><code>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifier&gt;</code></em>
 
 # End /etc/profile</code>
 EOF</kbd>

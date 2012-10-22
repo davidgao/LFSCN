@@ -230,9 +230,9 @@ EOF</kbd>
 <kbd class="command">cat &gt; /etc/resolv.conf &lt;&lt; "EOF"
 <code class="literal"># Begin /etc/resolv.conf
 
-domain <em class="replaceable"><code>&lt;你的域名&gt;</code></em>
-nameserver <em class="replaceable"><code>&lt;首选名称服务器地址&gt;</code></em>
-nameserver <em class="replaceable"><code>&lt;备选名称服务器地址&gt;</code></em>
+domain <em class="replaceable"><code>&lt;domain&gt;</code></em>
+nameserver <em class="replaceable"><code>&lt;address&gt;</code></em>
+nameserver <em class="replaceable"><code>&lt;address&gt;</code></em>
 
 # End /etc/resolv.conf</code>
 EOF</kbd>
@@ -242,7 +242,7 @@ EOF</kbd>
           "varname">search</code> 声明替换。参考 resolv.conf 的手册页获取更多细节。
         </p>
         <p>
-          将 <em class="replaceable"><code>&lt;名称服务器地址&gt;</code></em> 替换为最适合的
+          将 <em class="replaceable"><code>&lt;address&gt;</code></em> 替换为最适合的
           DNS 的 IP 地址。经常会有超过一个条目 (要求备选服务器有相关兼容性)。如果你只想要一个 DNS 服务器，移除文件中
           <span class="emphasis"><em>nameserver</em></span> 的第二行。该 IP
           地址可以是本地网络上的一台路由器。

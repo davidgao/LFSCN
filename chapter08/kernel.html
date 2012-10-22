@@ -49,7 +49,7 @@
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          The Linux package contains the Linux kernel.
+          Linux 程序包包含 linux 内核。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
@@ -66,35 +66,30 @@
       </div>
       <div class="installation" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          8.3.1. Installation of the kernel
+          8.3.1. 安装内核
         </h2>
         <p>
-          Building the kernel involves a few steps—configuration,
-          compilation, and installation. Read the <code class=
-          "filename">README</code> file in the kernel source tree for
-          alternative methods to the way this book configures the kernel.
+          编制内核包含一些步骤——配置，编译和安装。阅读内核源代码树中的 <code class=
+          "filename">README</code> 文件来获知不同于本书所述的配置内核方法。
         </p>
         <p>
-          Prepare for compilation by running the following command:
+          运行以下命令来准备编译：
         </p>
         <pre class="userinput">
 <kbd class="command">make mrproper</kbd>
 </pre>
         <p>
-          This ensures that the kernel tree is absolutely clean. The kernel
-          team recommends that this command be issued prior to each kernel
-          compilation. Do not rely on the source tree being clean after
-          un-tarring.
+          这确保内核树完全干净。内核开发组建议先于每个内核编译运行此命令。不要期望内核树在 un-tarring 后保持干净。
         </p>
         <p>
-          Configure the kernel via a menu-driven interface. For general
-          information on kernel configuration see <a class="ulink" href=
+          经由一个目录驱动的接口配置内核。查阅 <a class="ulink" href=
           "http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt">
-          http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt</a>.
-          BLFS has some information regarding particular kernel configuration
-          requirements of packages outside of LFS at <a class="ulink" href=
+          http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt</a>
+          来获得内核配置的常规信息。 BLFS 中有关某些需求 LFS 不包含的程序包的内核配置的一些信息可在 <a class="ulink"
+          href=
           "http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index">
-          http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index</a>.
+          http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index</a>
+          找到。
         </p>
         <div class="admon note">
           <img alt="[注意]" src="../images/note.png" />
@@ -102,8 +97,7 @@
             注意
           </h3>
           <p>
-            Due to recent changes in <span class="application">udev</span>,
-            be sure to select:
+            由于近期在 <span class="application">udev</span> 中的改动，确保选择了：
           </p>
           <pre class="screen">
 Device Drivers  ---&gt;
@@ -117,7 +111,7 @@ Device Drivers  ---&gt;
 </pre>
         <div class="variablelist">
           <p class="title">
-            <b>The meaning of the make parameters:</b>
+            <b>make 参数的含义：</b>
           </p>
           <dl>
             <dt>
@@ -127,122 +121,95 @@ Device Drivers  ---&gt;
             </dt>
             <dd>
               <p>
-                This establishes the locale setting to the one used on the
-                host. This is needed for a proper menuconfig ncurses
-                interface line drawing on UTF-8 linux text console.
+                这建立区域设置为宿主所使用的。这对一个正确的 menuconfig ncurses 界面线在 UTF-8 linux
+                文本控制台上绘制是必须的。
               </p>
               <p>
-                Be sure to replace <em class=
-                "replaceable"><code>&lt;host_LANG_value&gt;</code></em> by
-                the value of the <code class="envar">$LANG</code> variable
-                from your host. If not set, you could use instead the host's
-                value of <code class="envar">$LC_ALL</code> or <code class=
-                "envar">$LC_CTYPE</code>.
+                确保替换 <em class=
+                "replaceable"><code>&lt;host_LANG_value&gt;</code></em> 为来自你的
+                host 的 <code class="envar">$LANG</code> 变量值。如果没有设置，你可以使用 host
+                的 <code class="envar">$LC_ALL</code> 或 <code class=
+                "envar">$LC_CTYPE</code> 的值。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          Alternatively, <span class="command"><strong>make
-          oldconfig</strong></span> may be more appropriate in some
-          situations. See the <code class="filename">README</code> file for
-          more information.
+          可以替代地， <span class="command"><strong>make oldconfig</strong></span>
+          在一些场合可能更加合适。查阅 <code class="filename">README</code> 文件来获得更多信息。
         </p>
         <p>
-          If desired, skip kernel configuration by copying the kernel config
-          file, <code class="filename">.config</code>, from the host system
-          (assuming it is available) to the unpacked <code class=
-          "filename">linux-3.6.2</code> directory. However, we do not
-          recommend this option. It is often better to explore all the
-          configuration menus and create the kernel configuration from
-          scratch.
+          如果需要，通过拷贝宿主系统的内核配置文件 <code class="filename">.config</code>
+          (这里默认它可用) 到未打包的 <code class="filename">linux-3.6.2</code>
+          目录，来跳过内核配置。但是我们不推荐如此做。探索整个配置菜单并白手起家创建一个内核配置通常更好。
         </p>
         <p>
-          Compile the kernel image and modules:
+          编译内核镜像和模块：
         </p>
         <pre class="userinput">
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          If using kernel modules, module configuration in <code class=
-          "filename">/etc/modprobe.d</code> may be required. Information
-          pertaining to modules and kernel configuration is located in
-          <a class="xref" href="../chapter07/udev.html" title=
+          如果使用内核模块，<code class="filename">/etc/modprobe.d</code>
+          中的模块配置可能被需要。关于模块和内核配置的信息位于 <a class="xref" href=
+          "../chapter07/udev.html" title=
           "7.4.&nbsp;LFS 系统上的设备和模块管理">第&nbsp;7.4&nbsp;节 “LFS 系统上的设备和模块管理”</a>
-          and in the kernel documentation in the <code class=
-          "filename">linux-3.6.2/Documentation</code> directory. Also,
-          <code class="filename">modprobe.conf(5)</code> may be of interest.
+          和 <code class="filename">linux-3.6.2/Documentation</code>
+          目录的内核文档中。同时， <code class="filename">modprobe.conf(5)</code>
+          可能包含需要的信息。
         </p>
         <p>
-          Install the modules, if the kernel configuration uses them:
+          如果内核配置需要，安装这些模块：
         </p>
         <pre class="userinput">
 <kbd class="command">make modules_install</kbd>
 </pre>
         <p>
-          After kernel compilation is complete, additional steps are required
-          to complete the installation. Some files need to be copied to the
-          <code class="filename">/boot</code> directory.
+          在内核编译完成后，需要额外的步骤来完成安装。一些文件需要被拷贝到 <code class=
+          "filename">/boot</code> 目录。
         </p>
         <p>
-          The path to the kernel image may vary depending on the platform
-          being used. The filename below can be changed to suit your taste,
-          but the stem of the filename should be <span class=
-          "emphasis"><em>vmlinuz</em></span> to be compatible with the
-          automatic setup of the boot process described in the next section.
-          The following command assumes an x86 architecture:
+          到内核镜像的路径可能根据所使用的平台而改变。下面的文件名可根据你的喜好改变，但文件名的主干必须是 <span class=
+          "emphasis"><em>vmlinuz</em></span> 以和下个部分中的提及的引导进程自动安装相兼容。以下的命令默认在
+          x86 架构上运行：
         </p>
         <pre class="userinput">
 <kbd class=
 "command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.6.2-lfs-SVN-20121015</kbd>
 </pre>
         <p>
-          <code class="filename">System.map</code> is a symbol file for the
-          kernel. It maps the function entry points of every function in the
-          kernel API, as well as the addresses of the kernel data structures
-          for the running kernel. It is used as a resource when investigating
-          kernel problems. Issue the following command to install the map
-          file:
+          <code class="filename">System.map</code> 是内核的一个符号文件。它映射内核 API
+          中的每个函数的函数入口点以及正在运行的内核的内核数据结构地址。它被用作调查内核问题时的一个资源。运行以下命令来安装映射文件：
         </p>
         <pre class="userinput">
 <kbd class="command">cp -v System.map /boot/System.map-3.6.2</kbd>
 </pre>
         <p>
-          The kernel configuration file <code class="filename">.config</code>
-          produced by the <span class="command"><strong>make
-          menuconfig</strong></span> step above contains all the
-          configuration selections for the kernel that was just compiled. It
-          is a good idea to keep this file for future reference:
+          由上面的 <span class="command"><strong>make menuconfig</strong></span>
+          步骤生成的内核配置文件 <code class="filename">.config</code>
+          包含所有刚刚被编译的内核配置选项。保存此文件以备日后查阅是一个好主意：
         </p>
         <pre class="userinput">
 <kbd class="command">cp -v .config /boot/config-3.6.2</kbd>
 </pre>
         <p>
-          Install the documentation for the Linux kernel:
+          安装 Linux 内核文档：
         </p>
         <pre class="userinput">
 <kbd class="command">install -d /usr/share/doc/linux-3.6.2
 cp -r Documentation/* /usr/share/doc/linux-3.6.2</kbd>
 </pre>
         <p>
-          It is important to note that the files in the kernel source
-          directory are not owned by <span class=
-          "emphasis"><em>root</em></span>. Whenever a package is unpacked as
-          user <span class="emphasis"><em>root</em></span> (like we did
-          inside chroot), the files have the user and group IDs of whatever
-          they were on the packager's computer. This is usually not a problem
-          for any other package to be installed because the source tree is
-          removed after the installation. However, the Linux source tree is
-          often retained for a long time. Because of this, there is a chance
-          that whatever user ID the packager used will be assigned to
-          somebody on the machine. That person would then have write access
-          to the kernel source.
+          注意内核源目录中的文件不属于 <span class="emphasis"><em>root</em></span>
+          是很重要的。每当一个程序包被以用户 <span class="emphasis"><em>root</em></span> 解压
+          (就像我们在 chroot 中做的那样) ，文件得到打包者的电脑上的用户和组 ID
+          。这对其他任何要安装的程序包通常不成问题，鉴于源代码树在安装后移除。然而 Linux 源代码树通常会保存较长的时间。因此，打包者使用的
+          ID 有机会被赋值到机器上的某处。那个人将会得到修改内核源代码的权限。
         </p>
         <p>
-          If the kernel source tree is going to be retained, run <span class=
-          "command"><strong>chown -R 0:0</strong></span> on the <code class=
-          "filename">linux-3.6.2</code> directory to ensure all files are
-          owned by user <span class="emphasis"><em>root</em></span>.
+          如果内核源代码树要被保存，在 <code class="filename">linux-3.6.2</code> 目录运行
+          <span class="command"><strong>chown -R 0:0</strong></span>
+          来确保所有文件被用户 <span class="emphasis"><em>root</em></span> 所有。
         </p>
         <div class="admon warning">
           <img alt="[警告]" src="../images/warning.png" />
@@ -250,12 +217,10 @@ cp -r Documentation/* /usr/share/doc/linux-3.6.2</kbd>
             警告
           </h3>
           <p>
-            Some kernel documentation recommends creating a symlink from
-            <code class="filename">/usr/src/linux</code> pointing to the
-            kernel source directory. This is specific to kernels prior to the
-            2.6 series and <span class="emphasis"><em>must not</em></span> be
-            created on an LFS system as it can cause problems for packages
-            you may wish to build once your base LFS system is complete.
+            一些内核文档建议创建一个从 <code class="filename">/usr/src/linux</code>
+            指向内核源代码目录的符号链接。这是针对 2.6 之前版本内核的并且 <span class=
+            "emphasis"><em>一定不要</em></span> 在一个 LFS 系统上创建，因为它可能在你在基本 LFS
+            系统完成后试图编制程序包时造成问题。
           </p>
         </div>
         <div class="admon warning">
@@ -264,32 +229,27 @@ cp -r Documentation/* /usr/share/doc/linux-3.6.2</kbd>
             警告
           </h3>
           <p>
-            The headers in the system's <code class="filename">include</code>
-            directory should <span class="emphasis"><em>always</em></span> be
-            the ones against which Glibc was compiled, that is, the sanitised
-            headers from this Linux kernel tarball. Therefore, they should
-            <span class="emphasis"><em>never</em></span> be replaced by
-            either the raw kernel headers or any other kernel sanitized
-            headers.
+            系统的 <code class="filename">include</code> 目录下的头文件应该 <span class=
+            "emphasis"><em>始终</em></span> 和 Glibc 一起编译，也就是说，来自这个 Linux 系统内核中
+            tarball 的纯净头文件。这样一来，它们应当 <span class=
+            "emphasis"><em>永不</em></span> 被原始的内核头文件或任何其他内核纯净头文件替换。
           </p>
         </div>
       </div>
       <div class="configuration" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="conf-modprobe" name="conf-modprobe"></a>8.3.2. Configuring
-          Linux Module Load Order
+          <a id="conf-modprobe" name="conf-modprobe"></a>8.3.2. 配置 Linux
+          模块加载序列
         </h2>
         <p>
-          The <code class="filename">/etc/modprobe.d/usb.conf</code> file
-          needs to be created so that if the USB drivers (ehci_hcd, ohci_hcd
-          and uhci_hcd) have been built as modules, they will be loaded in
-          the correct order; ehci_hcd needs to be loaded prior to ohci_hcd
-          and uhci_hcd in order to avoid a warning being output at boot time.
+          <code class="filename">/etc/modprobe.d/usb.conf</code>
+          需要被创建。这样一来，如果 USB 驱动 (ehci_hcd， ohci_hcd 和 uhci_hcd)
+          已被编制为模块，他们会按正确的序列被加载；ehci_hcd 需要先于 ohci_hcd 和 uhci_hcd
+          被加载以避免引导时输出警告。
         </p>
         <p>
-          Create a new file <code class=
-          "filename">/etc/modprobe.d/usb.conf</code> by running the
-          following:
+          运行以下命令来创建一个新 <code class="filename">/etc/modprobe.d/usb.conf</code>
+          文件：
         </p>
         <pre class="userinput">
 <kbd class="command">install -v -m755 -d /etc/modprobe.d
@@ -305,26 +265,24 @@ EOF</kbd>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <h2 class="sect2">
-          <a id="contents-kernel" name="contents-kernel"></a>8.3.3. Contents
-          of Linux
+          <a id="contents-kernel" name="contents-kernel"></a>8.3.3. Linux 的内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed files：</strong><span class=
-              "segbody">config-3.6.2, vmlinux-3.6.2-lfs-SVN-20121015-3.6.2,
-              and System.map-3.6.2</span>
+              <strong class="segtitle">安装的文件：</strong><span class=
+              "segbody">config-3.6.2、vmlinux-3.6.2-lfs-SVN-20121015-3.6.2 和
+              System.map-3.6.2</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed
-              directories：</strong><span class="segbody">/lib/modules,
-              /usr/share/doc/linux-3.6.2</span>
+              <strong class="segtitle">安装的目录：</strong><span class=
+              "segbody">/lib/modules、/usr/share/doc/linux-3.6.2</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简介
           </h3>
           <table border="0">
             <col align="left" valign="top" />
@@ -338,7 +296,7 @@ EOF</kbd>
                 </td>
                 <td>
                   <p>
-                    Contains all the configuration selections for the kernel
+                    包含所有内核配置选项
                   </p>
                 </td>
               </tr>
@@ -352,14 +310,9 @@ EOF</kbd>
                 </td>
                 <td>
                   <p>
-                    The engine of the Linux system. When turning on the
-                    computer, the kernel is the first part of the operating
-                    system that gets loaded. It detects and initializes all
-                    components of the computer's hardware, then makes these
-                    components available as a tree of files to the software
-                    and turns a single CPU into a multitasking machine
-                    capable of running scores of programs seemingly at the
-                    same time
+                    Linux
+                    系统的引擎。当开启电脑时，内核是运行系统中首先被加载的部分。它检测并初始化电脑硬件的所有组件，然后让这些组件以一个文件树的形式对软件可用并转换一个单个的
+                    CPU 为可以看上去是同时地运行大量程序的多线程机
                   </p>
                 </td>
               </tr>
@@ -373,9 +326,7 @@ EOF</kbd>
                 </td>
                 <td>
                   <p>
-                    A list of addresses and symbols; it maps the entry points
-                    and addresses of all the functions and data structures in
-                    the kernel
+                    一个地址和符号的列表；它映射内核中所有函数和数据结构的入口点和地址
                   </p>
                 </td>
               </tr>
