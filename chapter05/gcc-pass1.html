@@ -80,9 +80,9 @@
             注意
           </h3>
           <p>
-            关于这一节经常出现误解。此过程与其他每一节都是一样的，就像之前在<a class="xref" href=
-            "generalinstructions.html#buildinstr">程序包编制指令</a>中解释的那样。首先从源代码目录中提取
-            gcc 压缩包然后改变到创建的目录，到这个时候再继续运行以下指令。
+            关于这一节经常出现误解。此过程与其他每一节都是一样的，就像之前在 <a class="xref" href=
+            "generalinstructions.html#buildinstr">程序包编制指令</a>
+            中解释的那样。首先从源代码目录中提取 GCC 压缩包然后改变到创建的目录，再继续运行以下指令。
           </p>
         </div>
         <pre class="userinput">
@@ -118,11 +118,12 @@ done</kbd>
           目录中所有名为 <code class="filename">linux.h</code>、<code class=
           "filename">linux64.h</code> 或者 <code class=
           "filename">sysv4.h</code> 的文件。对于找到的每个文件，我们把它复制为一个有同样名字但是加上
-          “<span class="quote">.orig</span>” 后缀。然后第一个 sed 表达式将出现的所有
-          “<span class="quote">/lib/ld</span>”、“<span class=
-          "quote">/lib64/ld</span>” 或 “<span class="quote">/lib32/ld</span>”
-          替换为 “<span class="quote">/tools</span>”，第二个替换不可更改的 “<span class=
-          "quote">/usr</span>”。然后我们在文件末尾添加我们的声明，调节包含搜索路径和起始文件前缀。最后我们用
+          “<span class="quote">.orig</span>” 后缀。然后第一个 <span class=
+          "command"><strong>sed</strong></span> 表达式将出现的所有 <code class=
+          "filename">/lib/ld</code>、<code class="filename">/lib64/ld</code> 或
+          <code class="filename">/lib32/ld</code> 替换为 <code class=
+          "filename">/tools</code>，第二个替换不可更改的 <code class=
+          "filename">/usr</code>。然后我们在文件末尾添加我们的声明，调节包含搜索路径和起始文件前缀。最后我们用
           <span class="command"><strong>touch</strong></span> 来更新复制的文件的时间戳。在与
           <span class="command"><strong>cp -u</strong></span>
           联用时这可以防止由于误操作将命令运行两次而改变原有文件。
@@ -177,8 +178,9 @@ cd ../gcc-build</kbd>
             </dt>
             <dd>
               <p>
-                由于现在还没有能够工作的 C 库可用，此项确保编制 libgcc 时 inhibit_libc
-                常量是已经定义了的。此项防止编译任何需要 libc 支持的代码。
+                由于现在还没有能够工作的 C 库可用，此项确保编制 <code class=
+                "filename">libgcc</code> 时 inhibit_libc 常量是已经定义了的。此项防止编译任何需要
+                libc 支持的代码。
               </p>
             </dd>
             <dt>
@@ -210,7 +212,8 @@ cd ../gcc-build</kbd>
             <dd>
               <p>
                 GCC 默认搜索 <code class="filename">/usr/include</code> 寻找系统头文件。与
-                sysroot 开关联用时，它通常会被翻译为 <code class=
+                <em class="parameter"><code>sysroot</code></em>
+                开关联用时，它通常会被翻译为 <code class=
                 "filename">$LFS/usr/include</code>。然而下两节将要安装的头文件会去往
                 <code class="filename">$LFS/tools/include</code>。此开关确保 gcc
                 会正确地找到他们。在第二遍的 GCC 中，相同的开关将会确保不会找到宿主上的头文件。
@@ -233,7 +236,11 @@ cd ../gcc-build</kbd>
             </dt>
             <dd>
               <p>
-                这些开关禁用十进制浮点扩展、线程、libmudflap、libssp 和 libgomp 和 libquadmath
+                这些开关禁用十进制浮点扩展、线程、<code class=
+                "filename">libmudflap</code>、<code class=
+                "filename">libssp</code>、<code class=
+                "filename">libgomp</code> 和 <code class=
+                "filename">libquadmath</code>
                 的支持。这些特性在编制交叉编译器时会编译失败，而且对于交叉编译临时的 libc 没有必要。
               </p>
             </dd>
@@ -289,7 +296,7 @@ sed 's/libgcc/&amp;_eh/'`</kbd>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          有关此程序包的细节位于<a class="xref" href=
+          有关此程序包的细节位于 <a class="xref" href=
           "../chapter06/gcc.html#contents-gcc" title=
           "6.17.2.&nbsp;GCC 的内容">第&nbsp;6.17.2&nbsp;节 “GCC 的内容”</a>。
         </p>

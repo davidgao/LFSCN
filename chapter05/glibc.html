@@ -85,7 +85,7 @@ fi</kbd>
 <kbd class="command">sed -i 's/ -lgcc_s//' Makeconfig</kbd>
 </pre>
         <p>
-          Glibc 文档推荐在源代码目录外另建目录编译 Glibc：
+          Glibc 文档推荐在源代码目录外创建目录编译 Glibc：
         </p>
         <pre class="userinput">
 <kbd class="command">mkdir -v ../glibc-build
@@ -155,7 +155,8 @@ cd ../glibc-build</kbd>
             </dt>
             <dd>
               <p>
-                告诉 Glibc 使用 tools 文件夹里的头文件编译自身，这样可以让 Glibc 根据新的内核进行优化。
+                告诉 Glibc 使用 <code class="filename">tools</code>
+                文件夹里的头文件编译自身，这样可以让 Glibc 根据新的内核进行优化。
               </p>
             </dd>
             <dt>
@@ -164,11 +165,12 @@ cd ../glibc-build</kbd>
             </dt>
             <dd>
               <p>
-                在<a class="xref" href="binutils-pass1.html" title=
+                在 <a class="xref" href="binutils-pass1.html" title=
                 "5.4.&nbsp;Binutils-2.22 - 第一遍">第&nbsp;5.4&nbsp;节
-                “Binutils-2.22 -
-                第一遍”</a>安装的链接器是交叉编译得到的，在Glibc安装好之前，它不能正常工作。这意味着 configure 对
-                force-unwind 的检查会失败。libc_cv_forced_unwind=yes 告诉 <span class=
+                “Binutils-2.22 - 第一遍”</a> 安装的链接器是交叉编译得到的，在 Glibc
+                安装好之前，它不能正常工作。这意味着 <span class=
+                "command"><strong>configure</strong></span> 对 force-unwind
+                的检查会失败。libc_cv_forced_unwind=yes 告诉 <span class=
                 "command"><strong>configure</strong></span> 脚本不进行这项检查。
               </p>
             </dd>
@@ -178,9 +180,10 @@ cd ../glibc-build</kbd>
             </dt>
             <dd>
               <p>
-                同样，我们传递 libc_cv_c_cleanup=yes 给 <span class=
-                "command"><strong>configure</strong></span> 脚本跳过检查但仍配置 C
-                清理控制支持。
+                同样，我们传递 <em class=
+                "parameter"><code>libc_cv_c_cleanup=yes</code></em> 给
+                <span class="command"><strong>configure</strong></span>
+                脚本跳过检查但仍配置 C 清理控制支持。
               </p>
             </dd>
             <dt>
@@ -189,9 +192,10 @@ cd ../glibc-build</kbd>
             </dt>
             <dd>
               <p>
-                同样，我们传递 libc_cv_ctors_header=yes 给 <span class=
-                "command"><strong>configure</strong></span> 脚本跳过检查但仍配置 gcc
-                构造函数支持。
+                同样，我们传递 <em class=
+                "parameter"><code>libc_cv_ctors_header=yes</code></em> 给
+                <span class="command"><strong>configure</strong></span>
+                脚本跳过检查但仍配置 GCC 构造函数支持。
               </p>
             </dd>
           </dl>
@@ -213,7 +217,7 @@ cd ../glibc-build</kbd>
         <p>
           这个丢失或不合适的 <span class="command"><strong>msgfmt</strong></span>
           程序在这里是无害的。这个 <span class="command"><strong>msgfmt</strong></span> 是
-          gettext 的一部分，宿主系统应该提供这个。
+          Gettext 的一部分，宿主系统应该会提供。
         </p>
         <p>
           编译程序包：
@@ -289,7 +293,7 @@ readelf -l a.out | grep ': /tools'</kbd>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
         <p>
-          有关此程序包的细节位于<a class="xref" href=
+          有关此程序包的细节位于 <a class="xref" href=
           "../chapter06/glibc.html#contents-glibc" title=
           "6.9.4.&nbsp;Glibc 的内容">第&nbsp;6.9.4&nbsp;节 “Glibc 的内容”</a>。
         </p>
