@@ -56,7 +56,7 @@
         <ul>
           <li>
             <p>
-              有几个程序包在编译之前要打补丁，但是只是在需要它来解决问题时才要求如此做。在本章和下一章中通常都会用到补丁，有时只有一章用到。因此，如果下载的某个补丁对应的指令似乎丢失，不要困扰。有关
+              有几个程序包在编译之前要打补丁，但是只是在需要它来解决问题时才要求如此做。在本章和下一章中通常都会用到补丁。因此，如果下载的某个补丁对应的指令似乎丢失，不要困扰。有关
               <span class="emphasis"><em>offset</em></span> 或者 <span class=
               "emphasis"><em>fuzz</em></span>
               的警告信息可能在应用补丁的时候也会遇到。不要担心，补丁依然成功应用了。
@@ -64,13 +64,13 @@
           </li>
           <li>
             <p>
-              编译多数程序包时，会有一些警告在屏幕上滚动。这很正常，可以安全地忽略。这些警告如它们所说—有关不推荐但并非不可用的 C 或
+              编译多数程序包时，会有一些警告在屏幕上滚动。这很正常，可以安全地忽略。这些警告如它们所说——有关不推荐但并非不可用的 C 或
               C++ 语法。C 标准经常变更，有的程序包仍然使用旧的标准。这不是问题，但确实会产生警告。
             </p>
           </li>
           <li>
             <p>
-              最后检查一次 <code class="envar">LFS</code> 环境变量是否正确设置：
+              最后检查一次 <code class="envar">LFS</code> 环境变量是否设置正确：
             </p>
             <pre class="userinput">
 <kbd class="command">echo $LFS</kbd>
@@ -106,9 +106,11 @@
                 <ol class="compact">
                   <li>
                     <p>
-                      把所有的源代码和补丁放在 chroot 环境以内的一个目录，比如 <code class=
+                      把所有的源代码和补丁放在 <span class=
+                      "command"><strong>chroot</strong></span> 环境以内的一个目录，比如
+                      <code class=
                       "filename">/mnt/lfs/sources/</code>。<span class=
-                      "emphasis"><em>不要</em></span>把源代码放在 <code class=
+                      "strong"><strong>不要</strong></span>把源代码放在 <code class=
                       "filename">/mnt/lfs/tools/</code> 中。
                     </p>
                   </li>
