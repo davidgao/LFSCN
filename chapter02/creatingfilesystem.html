@@ -49,16 +49,16 @@
         "space-creatingfilesystem"></a>2.3. 在新分区上创建文件系统
       </h1>
       <p>
-        现在创建好了空白分区，就可以创建文件系统了。Linux 世界中最常用的系统是第二扩展文件系统 (<code class=
-        "systemitem">ext2</code>)，但有了新的大容量硬盘，日志文件系统逐渐受欢迎。第三扩展文件系统
-        (<code class="systemitem">ext3</code>) 是 <code class=
-        "systemitem">ext2</code> 的一种广泛应用的增强，加入了日志兼容性并且与 E2fsprogs 工具兼容。我们将创建
-        <code class="systemitem">ext3</code> 文件系统。创建其他文件系统的指令位于<a class=
-        "ulink" href=
-        "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/filesystems.html">此处</a>。
+        现在创建好了空白分区，就可以创建文件系统了。Linux 中最常用的是 <code class=
+        "systemitem">ext2</code> 文件系统，但有了新的大容量硬盘，日志文件系统越来越受欢迎。<code class=
+        "systemitem">ext3</code> 文件系统是 <code class="systemitem">ext2</code>
+        的一种广泛应用的增强，加入了日志兼容性并且与 E2fsprogs 工具兼容。我们将创建 <code class=
+        "systemitem">ext3</code> 文件系统。创建其他文件系统的指令位于 <a class="ulink" href=
+        "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/filesystems.html">
+        此处</a>。
       </p>
       <p>
-        要在 LFS 分区上创建 <code class="systemitem">ext3</code> 文件系统，运行以下：
+        要在 LFS 分区上创建 <code class="systemitem">ext3</code> 文件系统，运行以下命令：
       </p>
       <pre class="userinput">
 <kbd class="command">mke2fs -jv /dev/<em class=
@@ -74,7 +74,7 @@
           注意
         </h3>
         <p>
-          有些发行版在他们的文件系统创建工具 (E2fsprogs) 中使用了自定义特性，这可能导致在第九章启动到新的 LFS
+          有些发行版在他们的文件系统创建工具 (E2fsprogs) 中使用了自定义特性，这可能导致在第九章引导到新的 LFS
           系统时遇到麻烦，因为 LFS 安装的 E2fsprogs 不支持这些特性；你会收到类似 “<span class=
           "quote">unsupported filesystem features, upgrade your
           e2fsprogs</span>” 的错误消息。要检查你的宿主系统是否使用了自定义增强，运行以下命令：
@@ -91,7 +91,7 @@
           "option">filetype</code>、<code class=
           "option">sparse_super</code>、<code class="option">large_file</code>
           或 <code class="option">needs_recovery</code>
-          之外的选项，你的宿主可能就有自定义增强。这样的话，为了防止以后出问题，你应该编译一下 E2fsprogs
+          之外的选项，你的宿主就可能有自定义增强。这种情况下，为了防止以后出问题，你应该编译一下 E2fsprogs
           程序包并使用产生的二进制来重新创建 LFS 分区上的文件系统：
         </p>
         <pre class="userinput">
@@ -108,7 +108,7 @@ rm -rfv e2fsprogs-1.42.5</kbd>
 </pre>
       </div>
       <p>
-        如果你要使用已存在的 <code class="systemitem">swap</code>分区，就不必再创建一个。如果创建了新的
+        如果你要使用已存在的 <code class="systemitem">swap</code> 分区，就不必再创建一个。如果创建了新的
         <code class="systemitem">swap</code> 分区，需要用以下命令初始化之：
       </p>
       <pre class="userinput">

@@ -49,8 +49,8 @@
         <a id="space-mounting" name="space-mounting"></a>2.4. 挂载新分区
       </h1>
       <p>
-        新的文件已经创建，现在要让它可以被我们读写。为此，我们需要将这个分区挂载到一个指定的挂载点。根据本书中的需求，我门假定这个文件系统被挂载到
-        <code class="filename">/mnt/lfs</code>，但是这个可以自己选择。
+        新的文件系统已经创建，现在要让它可以读写。为此，我们需要将其挂载到一个指定的挂载点。本书中，我们假定这个文件系统被挂载到
+        <code class="filename">/mnt/lfs</code>，这个路径可以自己选择。
       </p>
       <p>
         选择一个挂载点并将其赋值给环境变量 <code class="envar">LFS</code>，运行：
@@ -71,7 +71,7 @@ mount -v -t ext3 /dev/<em class=
       </p>
       <p>
         如果你打算在 LFS 系统中使用多个文件系统 (例如一个挂载到 <code class="filename">/</code>
-        另一个挂载到 <code class="filename">/usr</code>)，可通过如下方式挂载它们：
+        另一个挂载到 <code class="filename">/usr</code>)，可通过以下方法挂载：
       </p>
       <pre class="userinput">
 <kbd class="command">mkdir -pv $LFS
@@ -88,10 +88,10 @@ mount -v -t ext3 /dev/<em class=
       <p>
         确保这个新的分区没有使用过于苛刻的限制条件进行挂载 (例如 <code class=
         "option">nosuid</code>、<code class="option">nodev</code> 或者
-        <code class="option">noatime</code> 选项)。不添加任何命令行参数运行使用 <span class=
-        "command"><strong>mount</strong></span> 命令，他会显示当前被挂载分区的信息。如果
+        <code class="option">noatime</code> 选项)。不添加任何命令行参数运行 <span class=
+        "command"><strong>mount</strong></span>，就会显示当前被挂载分区的信息。如果设置了
         <code class="option">nosuid</code>、<code class="option">nodev</code>
-        或者 <code class="option">noatime</code> 被设置, 这个分区需要重新挂载。
+        或者 <code class="option">noatime</code>，这个分区需要重新挂载。
       </p>
       <p>
         如果要使用 <code class="systemitem">swap</code> 分区，确保它被 <span class=
@@ -103,7 +103,7 @@ mount -v -t ext3 /dev/<em class=
 </pre>
       <p>
         将 <em class="replaceable"><code>&lt;zzz&gt;</code></em> 替换成你希望使用的
-        <code class="systemitem">swap</code> 分区。
+        <code class="systemitem">swap</code> 分区名。
       </p>
       <p>
         现在一个工作区域已经被建立起来了，是时候去下载 LFS 系统需要的软件包了。
