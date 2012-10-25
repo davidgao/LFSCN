@@ -122,36 +122,27 @@ EOF</kbd>
         都可以由系统管理员自由选择，因为写得好的程序会使用组的名字而不是 ID。
       </p>
       <p>
-        要移除 “<span class="quote">I have no name!</span>” 这个提示符，启动一个新的prompt,
-        start a new shell. Since a full Glibc was installed in <a class=
-        "xref" href="../chapter05/chapter05.html" title=
-        "第&nbsp;5&nbsp;章&nbsp;搭建临时系统">第五章</a> and the <code class=
-        "filename">/etc/passwd</code> and <code class=
-        "filename">/etc/group</code> files have been created, user name and
-        group name resolution will now work:
+        要移除 “<span class="quote">I have no name!</span>” 这个提示符，启动一个新的
+        shell。因为在 <a class="xref" href="../chapter05/chapter05.html" title=
+        "第&nbsp;5&nbsp;章&nbsp;搭建临时系统">第五章</a> 中已经安装了完整的 Glibc 并且 <code class=
+        "filename">/etc/passwd</code> 和 <code class=
+        "filename">/etc/group</code> 这两个文件也创建了，用户和组名称的解析就能够工作了：
       </p>
       <pre class="userinput">
 <kbd class="command">exec /tools/bin/bash --login +h</kbd>
 </pre>
       <p>
-        Note the use of the <em class="parameter"><code>+h</code></em>
-        directive. This tells <span class=
-        "command"><strong>bash</strong></span> not to use its internal path
-        hashing. Without this directive, <span class=
-        "command"><strong>bash</strong></span> would remember the paths to
-        binaries it has executed. To ensure the use of the newly compiled
-        binaries as soon as they are installed, the <em class=
-        "parameter"><code>+h</code></em> directive will be used for the
-        duration of this chapter.
+        注意使用 <em class="parameter"><code>+h</code></em> 参数。此项告知 <span class=
+        "command"><strong>bash</strong></span>
+        不要使用内置的路径哈希。没有这个参数，<span class="command"><strong>bash</strong></span>
+        会记住执行过的二进制的路径。要确保新编译的二进制一旦安装就立刻使用， <em class=
+        "parameter"><code>+h</code></em> 参数在本章的余下部分一直都要使用。
       </p>
       <p>
-        The <span class="command"><strong>login</strong></span>, <span class=
-        "command"><strong>agetty</strong></span>, and <span class=
-        "command"><strong>init</strong></span> programs (and others) use a
-        number of log files to record information such as who was logged into
-        the system and when. However, these programs will not write to the
-        log files if they do not already exist. Initialize the log files and
-        give them proper permissions:
+        <span class="command"><strong>login</strong></span>、<span class=
+        "command"><strong>agetty</strong></span> 和 <span class=
+        "command"><strong>init</strong></span> 程序 (还有其他一些)
+        使用大量日志文件记录信息，例如谁在什么时候登录过系统。然而，如果日志文件不存在，这些程序就不会写入。初始化日志文件并且给出适当的权限：
       </p>
       <pre class="userinput">
 <kbd class="command">touch /var/log/{btmp,lastlog,wtmp}
@@ -160,11 +151,9 @@ chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp</kbd>
 </pre>
       <p>
-        The <code class="filename">/var/log/wtmp</code> file records all
-        logins and logouts. The <code class=
-        "filename">/var/log/lastlog</code> file records when each user last
-        logged in. The <code class="filename">/var/log/btmp</code> file
-        records the bad login attempts.
+        <code class="filename">/var/log/wtmp</code> 文件记录所偶的登入登出。<code class=
+        "filename">/var/log/lastlog</code> 文件记录每个用户上次登录的时间。<code class=
+        "filename">/var/log/btmp</code> 文件记录失败的登录尝试。
       </p>
       <div class="admon note">
         <img alt="[注意]" src="../images/note.png" />
@@ -172,9 +161,7 @@ chmod -v 600  /var/log/btmp</kbd>
           注意
         </h3>
         <p>
-          The <code class="filename">/run/utmp</code> file records the users
-          that are currently logged in. This file is created dynamically in
-          the boot scripts.
+          <code class="filename">/run/utmp</code> 文件记录当前登录的用户。此文件在引导脚本种动态创建。
         </p>
       </div>
     </div>

@@ -71,7 +71,7 @@
           <li>
             <p>
               <span class="strong"><strong>Bison-2.3</strong></span>
-              (/usr/bin/yacc 应为到 bison 的链接或运行 bison 的小脚本)
+              (/usr/bin/yacc 应为到 bison 的链接或运行 bison 的脚本)
             </p>
           </li>
           <li>
@@ -102,7 +102,7 @@
           </li>
           <li>
             <p>
-              <span class="strong"><strong>Gcc-4.1.2</strong></span> (高于
+              <span class="strong"><strong>GCC-4.1.2</strong></span> (高于
               4.7.2 的版本因未经测试而不推荐)
             </p>
           </li>
@@ -124,18 +124,20 @@
           </li>
           <li>
             <p>
-              <span class="strong"><strong>Linux
-              Kernel-2.6.25</strong></span> (以 GCC-4.1.2 或更高版本编译)
+              <span class="strong"><strong>Linux-2.6.25</strong></span> (以
+              GCC-4.1.2 或更高版本编译)
             </p>
             <p>
-              有内核版本需求的原因是根据开发人员推荐，在第六章编译 <span class=
-              "application">glibc</span> 时指定此版本。udev 也需求此版本。
+              有内核版本需求的原因是根据开发人员推荐，在 <a class="xref" href=
+              "../chapter06/chapter06.html" title=
+              "第&nbsp;6&nbsp;章&nbsp;安装基本系统软件">第六章</a> 编译 Glibc 时指定此版本。Udev
+              也要求此版本。
             </p>
             <p>
               如果宿主内核早于 2.6.25 或并非以 GCC-4.1.2 (或更高版本)
-              编译，你就需要用一个符合要求的内核来替换。有两种方法。其一，看看你的发行版是否提供 2.6.25
-              或更高版本的内核程序包。如果有，直接安装即可。如果没有，或者你不想安装，也可以自己编译一个。编译内核并配置引导加载器
-              (确保宿主系统使用 GRUB) 位于<a class="xref" href=
+              编译，你就需要用一个符合要求的内核来替换。有两种方法。其一，查看你的发行版是否提供 2.6.25
+              或更高版本的内核程序包。如果有，直接安装即可。如果没有，或者你不想安装，也可以自己编译一个。编译内核并配置引导加载器的方法
+              (请确保宿主系统使用 Grub) 位于 <a class="xref" href=
               "../chapter08/chapter08.html" title=
               "第&nbsp;8&nbsp;章&nbsp;使 LFS 系统可以引导">第八章</a>。
             </p>
@@ -188,7 +190,7 @@
       </p>
       <p>
         <a id="version-check" name=
-        "version-check"></a>要查看你的宿主系统是否有所有正确版本并有能力编译程序，运行以下：
+        "version-check"></a>要查看你的宿主系统是否有所有正确版本并有能力编译程序，运行以下命令：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; version-check.sh &lt;&lt; "EOF"
