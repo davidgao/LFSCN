@@ -105,7 +105,7 @@
 "command">patch -Np1 -i ../glibc-2.16.0-fix_test_installation-1.patch</kbd>
 </pre>
         <p>
-          <span class="command"><strong>ldd</strong></span> 这个 shell 脚本包含
+          <span class="command"><strong>ldd</strong></span> 这个 Shell 脚本包含
           Bash 特有的语法。如果按照 BLFS 中 <a class="ulink" href=
           "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/shells.html">
           Shells</a> 一章中的介绍安装了另外的 <span class=
@@ -212,9 +212,12 @@ grep Error glibc-check-log</kbd>
             </li>
             <li>
               <p>
-                在某些架构上已知可能失败的测试包括
-                posix/bug-regex32、misc/tst-writev、elf/check-textrel、nptl/tst-getpid2
-                和 stdio-common/bug22。
+                在某些架构上已知可能失败的测试包括 <span class=
+                "emphasis"><em>posix/bug-regex32</em></span>、<span class=
+                "emphasis"><em>misc/tst-writev</em></span>、<span class=
+                "emphasis"><em>elf/check-textrel</em></span>、<span class=
+                "emphasis"><em>nptl/tst-getpid2</em></span> 和 <span class=
+                "emphasis"><em>stdio-common/bug22</em></span>。
               </p>
             </li>
           </ul>
@@ -475,17 +478,35 @@ mkdir /etc/ld.so.conf.d</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序：</strong><span class=
-              "segbody">catchsegv、gencat、getconf、getent、iconv、iconvconfig、ldconfig、ldd、lddlibc4、locale、localedef、makedb、mtrace、nscd、pcprofiledump、pldd、pt_chown、rpcgen、sln、sotruss、sprof、tzselect、xtrace、dump
-              和 zic</span>
+              "segbody">catchsegv, gencat, getconf, getent, iconv,
+              iconvconfig, ldconfig, ldd, lddlibc4, locale, localedef,
+              makedb, mtrace, nscd, pcprofiledump, pldd, pt_chown, rpcgen,
+              sln, sotruss, sprof, tzselect, xtrace, dump 和 zic</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的库：</strong><span class=
-              "segbody">ld.so、libBrokenLocale.{a,so}、libSegFault.so、libanl.{a,so}、libbsd-compat.a、libc.{a,so}、libc_nonshared.a、libcidn.so、libcrypt.{a,so}、libdl.{a,so}、libg.a、libieee.a、libm.{a,so}、libmcheck.a、libmemusage.so、libnsl.{a,so}、libnss_compat.so、libnss_dns.so、libnss_files.so、libnss_hesiod.so、libnss_nis.so、libnss_nisplus.so、libpcprofile.so、libpthread.{a,so}、libpthread_nonshared.a、libresolv.{a,so}、librpcsvc.a、librt.{a,so}、libthread_db.so
-              和 libutil.{a,so}</span>
+              "segbody">ld.so, libBrokenLocale.{a,so}, libSegFault.so,
+              libanl.{a,so}, libbsd-compat.a, libc.{a,so}, libc_nonshared.a,
+              libcidn.so, libcrypt.{a,so}, libdl.{a,so}, libg.a, libieee.a,
+              libm.{a,so}, libmcheck.a, libmemusage.so, libnsl.{a,so},
+              libnss_compat.so, libnss_dns.so, libnss_files.so,
+              libnss_hesiod.so, libnss_nis.so, libnss_nisplus.so,
+              libpcprofile.so, libpthread.{a,so}, libpthread_nonshared.a,
+              libresolv.{a,so}, librpcsvc.a, librt.{a,so}, libthread_db.so 和
+              libutil.{a,so}</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的目录：</strong><span class=
-              "segbody">/usr/include/arpa、/usr/include/bits、/usr/include/gnu、/usr/include/net、/usr/include/netash、/usr/include/netatalk、/usr/include/netax25、/usr/include/neteconet、/usr/include/netinet、/usr/include/netipx、/usr/include/netiucv、/usr/include/netpacket、/usr/include/netrom、/usr/include/netrose、/usr/include/nfs、/usr/include/protocols、/usr/include/rpc、/usr/include/rpcsvc、/usr/include/sys、/usr/lib/audit、/usr/lib/gconv、/usr/lib/glibc、/usr/lib/locale、/usr/share/i18n、/usr/share/zoneinfo</span>
+              "segbody">/usr/include/arpa, /usr/include/bits,
+              /usr/include/gnu, /usr/include/net, /usr/include/netash,
+              /usr/include/netatalk, /usr/include/netax25,
+              /usr/include/neteconet, /usr/include/netinet,
+              /usr/include/netipx, /usr/include/netiucv,
+              /usr/include/netpacket, /usr/include/netrom,
+              /usr/include/netrose, /usr/include/nfs, /usr/include/protocols,
+              /usr/include/rpc, /usr/include/rpcsvc, /usr/include/sys,
+              /usr/lib/audit, /usr/lib/gconv, /usr/lib/glibc,
+              /usr/lib/locale, /usr/share/i18n 和 /usr/share/zoneinfo</span>
             </div>
           </div>
         </div>

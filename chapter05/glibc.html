@@ -70,7 +70,8 @@
           5.7.1. 安装 Glibc
         </h2>
         <p>
-          在某些情况下，尤其是在 LFS 7.1 中，rpc 头文件并没有正确安装。检测它们在宿主系统上是否已经安装，如果没有则安装之：
+          在某些情况下，尤其是在 LFS 7.1 中，<code class="filename">rpc</code>
+          头文件并没有正确安装。检测它们在宿主系统上是否已经安装，如果没有则安装之：
         </p>
         <pre class="userinput">
 <kbd class="command">if [ ! -r /usr/include/rpc/types.h ]; then 
@@ -252,7 +253,7 @@ cd ../glibc-build</kbd>
             小心
           </h3>
           <p>
-            在这里，停下来确保新工具链的基本功能 (编译和链接) 能正常工作很重要。要进行完整性检查，运行以下命令：
+            在这里，停下来确保新工具链的基本功能 (编译和链接) 能正常工作很重要。要进行稳定性检查，运行以下命令：
           </p>
           <pre class="userinput">
 <kbd class="command">echo 'main(){}' &gt; dummy.c

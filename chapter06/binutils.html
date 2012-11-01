@@ -96,7 +96,7 @@ Ask your system administrator to create more.</code>
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in</kbd>
 </pre>
         <p>
-          应用一个补丁防止在使用编译器优化是编制失败：
+          应用一个补丁防止在使用编译器优化时编制失败：
         </p>
         <pre class="userinput">
 <kbd class="command">patch -Np1 -i ../binutils-2.22-build_fix-1.patch</kbd>
@@ -197,12 +197,13 @@ cd ../binutils-build</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序：</strong><span class=
-              "segbody">addr2line、ar、as、c++filt、elfedit、gprof、ld、ld.bfd、nm、objcopy、objdump、ranlib、readelf、size、strings
-              和 strip</span>
+              "segbody">addr2line, ar, as, c++filt, elfedit, gprof, ld,
+              ld.bfd, nm, objcopy, objdump, ranlib, readelf, size, strings 和
+              strip</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的库：</strong><span class=
-              "segbody">libiberty.a、libbfd.{a,so} 和 libopcodes.{a,so}</span>
+              "segbody">libiberty.a, libbfd.{a,so} 和 libopcodes.{a,so}</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的目录：</strong><span class=
