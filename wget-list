@@ -41,7 +41,7 @@ http://www.multiprecision.org/mpc/download/mpc-1.0.1.tar.gz
 http://www.mpfr.org/mpfr-3.1.1/mpfr-3.1.1.tar.xz
 ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz
 http://ftp.gnu.org/gnu/patch/patch-2.7.1.tar.xz
-http://www.cpan.org/src/5.0/perl-5.16.1.tar.bz2
+http://www.cpan.org/src/5.0/perl-5.16.2.tar.bz2
 http://pkgconfig.freedesktop.org/releases/pkg-config-0.27.1.tar.gz
 http://procps.sourceforge.net/procps-3.2.8.tar.gz
 http://prdownloads.sourceforge.net/psmisc/psmisc-22.20.tar.gz
@@ -72,7 +72,7 @@ http://www.linuxfromscratch.org/patches/lfs/development/kbd-1.15.3-upstream_fixe
 http://www.linuxfromscratch.org/patches/lfs/development/kbd-1.15.3-backspace-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/kmod-10-testsuite-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/make-3.82-upstream_fixes-3.patch
-http://www.linuxfromscratch.org/patches/lfs/development/perl-5.16.1-libc-2.patch
+http://www.linuxfromscratch.org/patches/lfs/development/perl-5.16.2-libc-2.patch
 http://www.linuxfromscratch.org/patches/lfs/development/procps-3.2.8-fix_HZ_errors-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/procps-3.2.8-watch_unicode-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/readline-6.2-fixes-1.patch
