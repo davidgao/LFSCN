@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121113">
+  <body class="lfs" id="lfs-SVN-20121118">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121113
+        Linux From Scratch - 版本 SVN-20121118
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121113">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121118">起始页</a>
         </li>
       </ul>
     </div>
@@ -140,9 +140,9 @@ mkdir -pv /var/lib/hwclock</kbd>
               chrt, col, colcrt, colrm, column, ctrlaltdel, cytune, delpart,
               dmesg, eject, fallocate, fdformat, fdisk, findfs, findmnt,
               flock, fsck, fsck.cramfs, fsck.minix, fsfreeze, fstrim, getopt,
-              hexdump, hwclock, i386, ionice, ipcmk, ipcrm, ipcs, isosize,
-              ldattach, linux32, linux64, logger, look, losetup, lsblk,
-              lscpu, lslocks, mcookie, mkfs, mkfs.bfs, mkfs.cramfs,
+              hexdump, hwclock, i386, ionice, ipcmk, ipcrm, ipcs, kill,
+              isosize, ldattach, linux32, linux64, logger, look, losetup,
+              lsblk, lscpu, lslocks, mcookie, mkfs, mkfs.bfs, mkfs.cramfs,
               mkfs.minix, mkswap, more, mount, mountpoint, namei, partx, pg,
               pivot_root, prlimit, raw, readprofile, rename, renice,
               resizepart, rev, rtcwake, script, scriptreplay, setarch,
@@ -159,7 +159,7 @@ mkdir -pv /var/lib/hwclock</kbd>
             <div class="seg">
               <strong class="segtitle">安装的目录：</strong><span class=
               "segbody">/usr/include/blkid, /usr/include/libmount,
-              /usr/include/uuid, /usr/share/getopt、/var/lib/hwclock</span>
+              /usr/include/uuid, /usr/share/getopt, /var/lib/hwclock</span>
             </div>
           </div>
         </div>
@@ -685,6 +685,20 @@ mkdir -pv /var/lib/hwclock</kbd>
                 <td>
                   <p>
                     报告 iso9660 文件系统的尺寸
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kill" name="kill"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kill</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    给进程发信号
                   </p>
                 </td>
               </tr>
@@ -1505,7 +1519,7 @@ mkdir -pv /var/lib/hwclock</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121113">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121118">起始页</a>
         </li>
       </ul>
     </div>

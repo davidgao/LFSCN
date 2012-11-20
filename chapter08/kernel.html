@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      8.3.&nbsp;Linux-3.6.6
+      8.3.&nbsp;Linux-3.6.7
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121113">
+  <body class="lfs" id="lfs-SVN-20121118">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121113
+        Linux From Scratch - 版本 SVN-20121118
       </h4>
       <h3>
         第&nbsp;8&nbsp;章&nbsp;使 LFS 系统可以引导
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121113">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121118">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
         <a id="ch-bootable-kernel" name="ch-bootable-kernel"></a>8.3.
-        Linux-3.6.6
+        Linux-3.6.7
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -140,7 +140,7 @@ Device Drivers  ---&gt;
         </p>
         <p>
           如果需要，通过拷贝宿主系统的内核配置文件 <code class="filename">.config</code>
-          (这里默认它可用) 到未打包的 <code class="filename">linux-3.6.6</code>
+          (这里默认它可用) 到未打包的 <code class="filename">linux-3.6.7</code>
           目录，来跳过内核配置。但是我们不推荐如此做。探索整个配置菜单并白手起家创建一个内核配置通常更好。
         </p>
         <p>
@@ -154,7 +154,7 @@ Device Drivers  ---&gt;
           中的模块配置可能被需要。关于模块和内核配置的信息位于 <a class="xref" href=
           "../chapter07/udev.html" title=
           "7.4.&nbsp;LFS 系统上的设备和模块管理">第&nbsp;7.4&nbsp;节 “LFS 系统上的设备和模块管理”</a>
-          和 <code class="filename">linux-3.6.6/Documentation</code>
+          和 <code class="filename">linux-3.6.7/Documentation</code>
           目录的内核文档中。同时， <code class="filename">modprobe.conf(5)</code>
           可能包含需要的信息。
         </p>
@@ -175,14 +175,14 @@ Device Drivers  ---&gt;
         </p>
         <pre class="userinput">
 <kbd class=
-"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.6.6-lfs-SVN-20121113</kbd>
+"command">cp -v arch/x86/boot/bzImage /boot/vmlinuz-3.6.7-lfs-SVN-20121118</kbd>
 </pre>
         <p>
           <code class="filename">System.map</code> 是内核的一个符号文件。它映射内核 API
           中的每个函数的函数入口点以及正在运行的内核的内核数据结构地址。它被用作调查内核问题时的一个资源。运行以下命令来安装映射文件：
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v System.map /boot/System.map-3.6.6</kbd>
+<kbd class="command">cp -v System.map /boot/System.map-3.6.7</kbd>
 </pre>
         <p>
           由上面的 <span class="command"><strong>make menuconfig</strong></span>
@@ -190,14 +190,14 @@ Device Drivers  ---&gt;
           包含所有刚刚被编译的内核配置选项。保存此文件以备日后查阅是一个好主意：
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v .config /boot/config-3.6.6</kbd>
+<kbd class="command">cp -v .config /boot/config-3.6.7</kbd>
 </pre>
         <p>
           安装 Linux 内核文档：
         </p>
         <pre class="userinput">
-<kbd class="command">install -d /usr/share/doc/linux-3.6.6
-cp -r Documentation/* /usr/share/doc/linux-3.6.6</kbd>
+<kbd class="command">install -d /usr/share/doc/linux-3.6.7
+cp -r Documentation/* /usr/share/doc/linux-3.6.7</kbd>
 </pre>
         <p>
           注意内核源目录中的文件不属于 <span class="emphasis"><em>root</em></span>
@@ -207,7 +207,7 @@ cp -r Documentation/* /usr/share/doc/linux-3.6.6</kbd>
           ID 有机会被赋值到机器上的某处。那个人将会得到修改内核源代码的权限。
         </p>
         <p>
-          如果内核源代码树要被保存，在 <code class="filename">linux-3.6.6</code> 目录运行
+          如果内核源代码树要被保存，在 <code class="filename">linux-3.6.7</code> 目录运行
           <span class="command"><strong>chown -R 0:0</strong></span>
           来确保所有文件被用户 <span class="emphasis"><em>root</em></span> 所有。
         </p>
@@ -271,12 +271,12 @@ EOF</kbd>
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的文件：</strong><span class=
-              "segbody">config-3.6.6、vmlinux-3.6.6-lfs-SVN-20121113-3.6.6 和
-              System.map-3.6.6</span>
+              "segbody">config-3.6.7、vmlinux-3.6.7-lfs-SVN-20121118-3.6.7 和
+              System.map-3.6.7</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的目录：</strong><span class=
-              "segbody">/lib/modules、/usr/share/doc/linux-3.6.6</span>
+              "segbody">/lib/modules、/usr/share/doc/linux-3.6.7</span>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@ EOF</kbd>
                 <td>
                   <p>
                     <a id="config" name="config"></a><span class=
-                    "term"><code class="filename">config-3.6.6</code></span>
+                    "term"><code class="filename">config-3.6.7</code></span>
                   </p>
                 </td>
                 <td>
@@ -305,7 +305,7 @@ EOF</kbd>
                   <p>
                     <a id="lfskernel" name="lfskernel"></a><span class=
                     "term"><code class=
-                    "filename">vmlinux-3.6.6-lfs-SVN-20121113</code></span>
+                    "filename">vmlinux-3.6.7-lfs-SVN-20121118</code></span>
                   </p>
                 </td>
                 <td>
@@ -321,7 +321,7 @@ EOF</kbd>
                   <p>
                     <a id="System.map" name="System.map"></a><span class=
                     "term"><code class=
-                    "filename">System.map-3.6.6</code></span>
+                    "filename">System.map-3.6.7</code></span>
                   </p>
                 </td>
                 <td>
@@ -355,7 +355,7 @@ EOF</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121113">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121118">起始页</a>
         </li>
       </ul>
     </div>

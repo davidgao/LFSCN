@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121113">
+  <body class="lfs" id="lfs-SVN-20121118">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121113
+        Linux From Scratch - 版本 SVN-20121118
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121113">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121118">起始页</a>
         </li>
       </ul>
     </div>
@@ -84,7 +84,8 @@
 "command">patch -Np1 -i ../procps-3.2.8-watch_unicode-1.patch</kbd>
 </pre>
         <p>
-          修复 Makefile 中的一个问题，此问题使 procps 无法以 make-3.82 编制：
+          不安装 kill 程序，它已由 util-linux 安装过。还要修复 Makefile 中的一个问题，此问题使 procps 无法以
+          make-3.82 编制：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -116,9 +117,8 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序：</strong><span class=
-              "segbody">free, kill, pgrep, pkill, pmap, ps, pwdx, skill,
-              slabtop, snice, sysctl, tload, top, uptime, vmstat, w 和
-              watch</span>
+              "segbody">free, pgrep, pkill, pmap, ps, pwdx, skill, slabtop,
+              snice, sysctl, tload, top, uptime, vmstat, w 和 watch</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的库：</strong><span class=
@@ -144,20 +144,6 @@
                 <td>
                   <p>
                     报告系统中已用和可用内存的数量 (包括物理内存和交换)
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>
-                    <a id="kill" name="kill"></a><span class=
-                    "term"><span class=
-                    "command"><strong>kill</strong></span></span>
-                  </p>
-                </td>
-                <td>
-                  <p>
-                    给进程发信号
                   </p>
                 </td>
               </tr>
@@ -406,7 +392,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121113">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121118">起始页</a>
         </li>
       </ul>
     </div>
