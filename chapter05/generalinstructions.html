@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121122">
+  <body class="lfs" id="lfs-SVN-20121126">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121122
+        Linux From Scratch - 版本 SVN-20121126
       </h4>
       <h3>
         第&nbsp;5&nbsp;章&nbsp;搭建临时系统
@@ -40,7 +40,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121122">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121126">起始页</a>
         </li>
       </ul>
     </div>
@@ -90,9 +90,42 @@
                 重要
               </h3>
               <p>
-                编制指令要求使用 <span class="command"><strong>bash</strong></span>
-                shell。
+                编制指令认为 <a class="xref" href="../prologue/hostreqs.html"
+                title="宿主系统需求">Host System Requirements</a>，包括符号链接，已经被正确设置：
               </p>
+              <div class="itemizedlist">
+                <ul>
+                  <li>
+                    <p>
+                      <span class="command"><strong>bash</strong></span>
+                      是正在使用的 shell。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class="command"><strong>sh</strong></span> 是一个到
+                      <span class="command"><strong>bash</strong></span>
+                      的符号链接。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class=
+                      "command"><strong>/usr/bin/awk</strong></span> 是一个到
+                      <span class="command"><strong>gawk</strong></span>
+                      的符号链接。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span class=
+                      "command"><strong>/usr/bin/yacc</strong></span> 是一个到
+                      <span class="command"><strong>bison</strong></span>
+                      或一个运行 bison 的小脚本的符号链接。
+                    </p>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="admon important">
               <img alt="[重要]" src="../images/important.png" />
@@ -188,7 +221,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121122">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121126">起始页</a>
         </li>
       </ul>
     </div>
