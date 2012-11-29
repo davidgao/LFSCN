@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121126">
+  <body class="lfs" id="lfs-SVN-20121128">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121126
+        Linux From Scratch - 版本 SVN-20121128
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121126">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121128">起始页</a>
         </li>
       </ul>
     </div>
@@ -83,7 +83,7 @@
           udev-lfs 压缩包包含 LFS 特有的文件，用于编制 Udev。将其解包至 systemd 原地码目录中：
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-196.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-196-2.tar.bz2</kbd>
 </pre>
         <p>
           修复 <strong class="userinput"><code>udevadm</code></strong>
@@ -97,13 +97,30 @@
           编译程序包：
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-196/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-196-2/Makefile.lfs</kbd>
 </pre>
         <p>
           安装程序包：
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-196/Makefile.lfs install</kbd>
+<kbd class="command">make -f udev-lfs-196-2/Makefile.lfs install</kbd>
+</pre>
+        <div class="admon caution">
+          <img alt="[小心]" src="../images/caution.png" />
+          <h3>
+            小心
+          </h3>
+          <p>
+            在 <span class="application">systemd</span>
+            源代码中有几处嵌入了明确的目录路径。例如硬件数据库二进制版本的路径和文件名 <code class=
+            "filename">/etc/udev/hwdb.bin</code>，运行时使用，不直接改动源代码无法更改。
+          </p>
+        </div>
+        <p>
+          现在初始化硬件数据库：
+        </p>
+        <pre class="userinput">
+<kbd class="command">build/udevadm hwdb --update</kbd>
 </pre>
         <p>
           最后设置稳定的 udev 网络规则。此任务在<a class="xref" href=
@@ -114,7 +131,7 @@
           环境中，以下脚本才能够工作。
         </p>
         <pre class="userinput">
-<kbd class="command">bash udev-lfs-196/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-196-2/init-net-rules.sh</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -282,7 +299,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121126">起始页</a>
+          "Linux From Scratch - 版本 SVN-20121128">起始页</a>
         </li>
       </ul>
     </div>
