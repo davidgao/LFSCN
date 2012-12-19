@@ -8,7 +8,7 @@ http://sourceforge.net/projects/check/files/check/0.9.9/check-0.9.9.tar.gz
 http://ftp.gnu.org/gnu/coreutils/coreutils-8.19.tar.xz
 http://ftp.gnu.org/gnu/dejagnu/dejagnu-1.5.tar.gz
 http://ftp.gnu.org/gnu/diffutils/diffutils-3.2.tar.gz
-http://prdownloads.sourceforge.net/e2fsprogs/e2fsprogs-1.42.5.tar.gz
+http://prdownloads.sourceforge.net/e2fsprogs/e2fsprogs-1.42.6.tar.gz
 http://prdownloads.sourceforge.net/expect/expect5.45.tar.gz
 ftp://ftp.astron.com/pub/file/file-5.11.tar.gz
 http://ftp.gnu.org/gnu/findutils/findutils-4.4.2.tar.gz
@@ -25,14 +25,14 @@ http://ftp.gnu.org/gnu/grub/grub-2.00.tar.xz
 http://ftp.gnu.org/gnu/gzip/gzip-1.5.tar.xz
 http://anduin.linuxfromscratch.org/sources/LFS/lfs-packages/conglomeration//iana-etc/iana-etc-2.30.tar.bz2
 http://ftp.gnu.org/gnu/inetutils/inetutils-1.9.1.tar.gz
-http://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-3.6.0.tar.xz
+http://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-3.7.0.tar.xz
 http://ftp.altlinux.org/pub/people/legion/kbd/kbd-1.15.3.tar.gz
-http://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-11.tar.xz
+http://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-12.tar.xz
 http://www.greenwoodsoftware.com/less/less-451.tar.gz
 http://www.linuxfromscratch.org/lfs/downloads/development/lfs-bootscripts-20121013.tar.bz2
 http://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.2.2.tar.gz
 http://ftp.gnu.org/gnu/libtool/libtool-2.4.2.tar.gz
-http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.6.8.tar.xz
+http://www.kernel.org/pub/linux/kernel/v3.x/linux-3.7.tar.xz
 http://ftp.gnu.org/gnu/m4/m4-1.4.16.tar.bz2
 http://ftp.gnu.org/gnu/make/make-3.82.tar.bz2
 http://download.savannah.gnu.org/releases/man-db/man-db-2.6.3.tar.xz
@@ -66,7 +66,6 @@ http://www.linuxfromscratch.org/patches/lfs/development/coreutils-8.19-i18n-1.pa
 http://www.linuxfromscratch.org/patches/lfs/development/flex-2.5.37-bison-2.6.1-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/glibc-2.16.0-res_query_fix-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/glibc-2.16.0-fix_test_installation-1.patch
-http://www.linuxfromscratch.org/patches/lfs/development/iproute2-3.6.0-ipset-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/kbd-1.15.3-upstream_fixes-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/kbd-1.15.3-backspace-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/make-3.82-upstream_fixes-3.patch
