@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
@@ -83,7 +83,7 @@
           udev-lfs 压缩包包含 LFS 特有的文件，用于编制 Udev。将其解包至 systemd 原地码目录中：
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-196-3.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-196-4.tar.bz2</kbd>
 </pre>
         <p>
           修复 <strong class="userinput"><code>udevadm</code></strong>
@@ -97,13 +97,13 @@
           编译程序包：
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-196-3/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-196-4/Makefile.lfs</kbd>
 </pre>
         <p>
           安装程序包：
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-196-3/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-196-4/Makefile.lfs install</kbd>
 </pre>
         <div class="admon caution">
           <img alt="[小心]" src="../images/caution.png" />
@@ -131,7 +131,7 @@
           环境中，以下脚本才能够工作。
         </p>
         <pre class="userinput">
-<kbd class="command">bash udev-lfs-196-3/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-196-4/init-net-rules.sh</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -299,7 +299,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

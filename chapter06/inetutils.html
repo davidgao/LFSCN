@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
@@ -69,7 +69,7 @@
           6.36.1. 安装 Inetutils
         </h2>
         <p>
-          修复此程序包与 Glibc-2.16.0 不兼容的问题：
+          修复此程序包与 Glibc-2.17 不兼容的问题：
         </p>
         <pre class="userinput">
 <kbd class="command">sed -i -e '/gets is a/d' lib/stdio.in.h</kbd>
@@ -98,7 +98,7 @@
             </dt>
             <dd>
               <p>
-                此许想阻止 Inetutils 安装 <span class=
+                此选项阻止 Inetutils 安装 <span class=
                 "command"><strong>ifconfig</strong></span> 程序，此程序用于配置网络接口。LFS
                 使用 IPRoute2 中的 <span class=
                 "command"><strong>ip</strong></span> 完成此任务。
@@ -170,11 +170,11 @@ make -C doc html
 make -C doc install-html docdir=/usr/share/doc/inetutils-1.9.1</kbd>
 </pre>
         <p>
-          将某些程序移动到与 FHS 兼容的位置：
+          如果 <code class="filename">/usr</code> 不可使用，移动一些程序来让他们可用：
         </p>
         <pre class="userinput">
-<kbd class="command">mv -v /usr/bin/{hostname,ping,ping6} /bin
-mv -v /usr/bin/traceroute /sbin</kbd>
+<kbd class=
+"command">mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -389,7 +389,7 @@ mv -v /usr/bin/traceroute /sbin</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

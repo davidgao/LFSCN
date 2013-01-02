@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      5.7.&nbsp;Glibc-2.16.0
+      5.7.&nbsp;Glibc-2.17
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;5&nbsp;章&nbsp;搭建临时系统
@@ -40,13 +40,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-tools-glibc" name="ch-tools-glibc"></a>5.7. Glibc-2.16.0
+        <a id="ch-tools-glibc" name="ch-tools-glibc"></a>5.7. Glibc-2.17
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -80,12 +80,6 @@
 fi</kbd>
 </pre>
         <p>
-          修复一个以 GCC-4.7.2 编制 Glibc-2.16.0 时出现的问题：
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i 's/ -lgcc_s//' Makeconfig</kbd>
-</pre>
-        <p>
           Glibc 文档推荐在源代码目录外创建目录编译 Glibc：
         </p>
         <pre class="userinput">
@@ -96,10 +90,10 @@ cd ../glibc-build</kbd>
           接下来，准备编译 Glibc：
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.16.0/configure                             \
+<kbd class="command">../glibc-2.17/configure                             \
       --prefix=/tools                                 \
       --host=$LFS_TGT                                 \
-      --build=$(../glibc-2.16.0/scripts/config.guess) \
+      --build=$(../glibc-2.17/scripts/config.guess) \
       --disable-profile                               \
       --enable-kernel=2.6.25                          \
       --with-headers=/tools/include                   \
@@ -114,7 +108,7 @@ cd ../glibc-build</kbd>
           <dl>
             <dt>
               <span class="term"><em class="parameter"><code>--host=$LFS_TGT,
-              --build=$(../glibc-2.16.0/scripts/config.guess)</code></em></span>
+              --build=$(../glibc-2.17/scripts/config.guess)</code></em></span>
             </dt>
             <dd>
               <p>
@@ -228,7 +222,7 @@ cd ../glibc-build</kbd>
             这些测试的成功执行同样需要正确安装的区域数据。区域数据提供系统默认的信息，比如日期、时间、货币格式以及系统工具的输出。如果在本章不运行测试套件，就没必要现在安装区域数据
             (推荐)。合适的区域数据将会在下一章安装。如果无论如何都要安装 Glibc 区域数据，参考<a class="xref"
             href="../chapter06/glibc.html" title=
-            "6.9.&nbsp;Glibc-2.16.0">第&nbsp;6.9&nbsp;节 “Glibc-2.16.0”</a>。
+            "6.9.&nbsp;Glibc-2.17">第&nbsp;6.9&nbsp;节 “Glibc-2.17”</a>。
           </p>
         </div>
         <p>
@@ -312,7 +306,7 @@ readelf -l a.out | grep ': /tools'</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

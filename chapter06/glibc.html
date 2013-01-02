@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.9.&nbsp;Glibc-2.16.0
+      6.9.&nbsp;Glibc-2.17
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -22,9 +22,9 @@
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.44">上一页</a>
+          "Man-pages-3.45">上一页</a>
           <p>
-            Man-pages-3.44
+            Man-pages-3.45
           </p>
         </li>
         <li class="next">
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.16.0
+        <a id="ch-system-glibc" name="ch-system-glibc"></a>6.9. Glibc-2.17
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -89,40 +89,6 @@
           Glibc 的 autoconf 测试会给出不正确的结果，也就无法实现清洁的编制。
         </p>
         <p>
-          修复一个导致在 LFS 环境中导致编制失败的问题：
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i 's#&lt;rpc/types.h&gt;#"rpc/types.h"#' sunrpc/rpc_clntout.c</kbd>
-</pre>
-        <p>
-          在运行 <span class="command"><strong>make install</strong></span>
-          的时候，一个叫做 <code class="filename">test-installation.pl</code>
-          的脚本会对新安装的 Glibc 进行一个小的稳定性测试。用一个补丁修复导致它失败的漏洞：
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../glibc-2.16.0-fix_test_installation-1.patch</kbd>
-</pre>
-        <p>
-          <span class="command"><strong>ldd</strong></span> 这个 Shell 脚本包含
-          Bash 特有的语法。如果按照 BLFS 中 <a class="ulink" href=
-          "http://www.linuxfromscratch.org/blfs/view/svn/postlfs/shells.html">
-          Shells</a> 一章中的介绍安装了另外的 <span class=
-          "command"><strong>/bin/sh</strong></span>，将其默认解释器改为 <span class=
-          "command"><strong>/bin/bash</strong></span>：
-        </p>
-        <pre class="userinput">
-<kbd class="command">sed -i 's|@BASH@|/bin/bash|' elf/ldd.bash.in</kbd>
-</pre>
-        <p>
-          现在修复一个在使用有问题的名称服务器时导致某些程序崩溃的问题：
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">patch -Np1 -i ../glibc-2.16.0-res_query_fix-1.patch</kbd>
-</pre>
-        <p>
           Glibc 文档推荐在源代码目录外另建目录编译 Glibc：
         </p>
         <pre class="userinput">
@@ -133,7 +99,7 @@ cd ../glibc-build</kbd>
           准备编译 Glibc：
         </p>
         <pre class="userinput">
-<kbd class="command">../glibc-2.16.0/configure  \
+<kbd class="command">../glibc-2.17/configure  \
     --prefix=/usr          \
     --disable-profile      \
     --enable-kernel=2.6.25 \
@@ -238,9 +204,9 @@ grep Error glibc-check-log</kbd>
           安装默认没有安装的 NIS 和 RPC 相关的头文件；重新编制 glibc 和几个 BLFS 程序包要求它们：
         </p>
         <pre class="userinput">
-<kbd class="command">cp -v ../glibc-2.16.0/sunrpc/rpc/*.h /usr/include/rpc
-cp -v ../glibc-2.16.0/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
-cp -v ../glibc-2.16.0/nis/rpcsvc/*.h /usr/include/rpcsvc</kbd>
+<kbd class="command">cp -v ../glibc-2.17/sunrpc/rpc/*.h /usr/include/rpc
+cp -v ../glibc-2.17/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
+cp -v ../glibc-2.17/nis/rpcsvc/*.h /usr/include/rpcsvc</kbd>
 </pre>
         <p>
           区域数据可以使系统以一种不同的语言响应，但没有被以上的命令安装。这些区域数据都不是必须的，但如果其中存在缺失，未来的程序包的测试套件可能会跳过重要的测试情况。
@@ -284,7 +250,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
         </p>
         <p>
           你可以用这样一条很消耗时间的命令一次性安装在 <code class=
-          "filename">glibc-2.16.0/localedata/SUPPORTED</code> 文件中列出的所有区域数据
+          "filename">glibc-2.17/localedata/SUPPORTED</code> 文件中列出的所有区域数据
           (它包含以上所有，以及很多其他的区域数据)：
         </p>
         <pre class="userinput">
@@ -292,7 +258,7 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030</kbd>
 </pre>
         <p>
           然后使用 <span class="command"><strong>localedef</strong></span> 命令创建
-          <code class="filename">glibc-2.16.0/localedata/SUPPORTED</code>
+          <code class="filename">glibc-2.17/localedata/SUPPORTED</code>
           文件中没有列出的区域数据。需要它们的情况并不多见。(译注：简体中文 UTF-8 的用户不需要如此)。
         </p>
       </div>
@@ -891,8 +857,7 @@ mkdir /etc/ld.so.conf.d</kbd>
                   <p>
                     被 Glibc 内部用作一个总的修改，使得破损的程序 (如某些 Motif 应用) 能够运行。参考
                     <code class=
-                    "filename">glibc-2.16.0/locale/broken_cur_max.c</code>
-                    中的注释
+                    "filename">glibc-2.17/locale/broken_cur_max.c</code> 中的注释
                   </p>
                 </td>
               </tr>
@@ -1183,9 +1148,9 @@ mkdir /etc/ld.so.conf.d</kbd>
       <ul>
         <li class="prev">
           <a accesskey="p" href="man-pages.html" title=
-          "Man-pages-3.44">上一页</a>
+          "Man-pages-3.45">上一页</a>
           <p>
-            Man-pages-3.44
+            Man-pages-3.45
           </p>
         </li>
         <li class="next">
@@ -1200,7 +1165,7 @@ mkdir /etc/ld.so.conf.d</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

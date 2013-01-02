@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;1&nbsp;章&nbsp;介绍
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
@@ -48,7 +48,7 @@
         变更日志
       </h1>
       <p>
-        此 Linux From Scratch 译本对应版本 SVN-20121218，发布日期为 2012 年 12 月 18
+        此 Linux From Scratch 译本对应版本 SVN-20130101，发布日期为 2013 年 1 月 1
         日。如果本书已经超过六个月了，或许会有更新的版本发布。请查看 <a class="ulink" href=
         "http://www.linuxfromscratch.org/mirrors.html">镜像站点</a>。(译注：LFSCN
         始终对应 LFS 的 开发版本，LFS 中的更新会在几天内进入 LFSCN，请确保使用最新版本的 LFSCN。)
@@ -61,6 +61,133 @@
           <b>变更日志条目：</b>
         </p>
         <ul>
+          <li>
+            <p>
+              2013-01-01
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 在 "重启系统"一节添加推荐的程序包。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - 从 gmp 的指令中移除废弃的 --enable-mpbsd。感谢 hauradou
+                    提供报告。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2012-12-31
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 添加一个补丁修复 binutils 的测试套件。其所有测试现在都能通过，所以移除调用时使用的
+                    "-k" 标记。感谢 Pierre Labastie 提供补丁。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2012-12-30
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Kbd-1.15.5。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3239">#3239</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 现在 E2fsprogs 所有的测试都能通过，所以移除调用时使用的 "-k" 标记。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2012-12-28
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 基于一致性的考虑将 traceroute 放到 /bin 下。修复<a class=
+                    "ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3264">#3264</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - 修复在 choot 中挂载 /dev/shm 的位置。修复 <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3258">#3258</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 将 Procps 的编制移至 E2fsprogs 之前，因为后者需要
+                    <span class="command"><strong>ps</strong></span>
+                    在它的测试套件运行时可用。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Gettext-0.18.2。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3263">#3263</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Gawk-4.0.2。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3262">#3262</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Glibc-2.17。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3261">#3261</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Sed-4.2.2。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3260">#3260</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 GMP-5.1.0。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3259">#3259</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Tcl-8.6.0。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3257">#3257</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Man-Pages-3.45。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3256">#3256</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
           <li>
             <p>
               2012-12-18
@@ -759,7 +886,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;9&nbsp;章&nbsp;结束
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
@@ -48,11 +48,67 @@
       </h1>
       <p>
         现在已经安装了所有的软件，该是重启系统的时候了。然而，你需要知道一些事情。根据本书创建的系统相当精简，可能没有足够的功能让你继续下去。通过在
-        chroot 环境安装一些 BLFS 书中提到的软件，你可以准备充足的进入新安装的 LFS 系统。安装一个像 Lynx
-        的文本模式网页浏览器，你可以同时在两个虚拟终端查看 BLFS 边安装。GPM 可以让你在虚拟终端中进行复制/粘贴操作。最后，如果静态 IP
-        不适合你的网络状况，安装 Dhcpd 或者 PPP 会非常有用 (译注：ADSL用户应该安装 PPP 和 rp-pppoe
-        或其他命令行拨号软件，这样联网比较方便)。
+        chroot 环境安装一些 BLFS 书中提到的软件，你可以准备充足的进入新安装的 LFS 系统。以下给出一些建议：
       </p>
+      <div class="itemizedlist">
+        <ul>
+          <li>
+            <p>
+              一个文本模式浏览器，例如 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/basicnet/lynx.html">
+              Lynx</a>，可以允许你在一个虚拟终端中阅读 BLFS 同时在另一个中编制程序包。
+            </p>
+          </li>
+          <li>
+            <p>
+              <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/general/gpm.html">
+              GPM</a> 程序包允许你在虚拟终端中进行复制/粘贴操作。
+            </p>
+          </li>
+          <li>
+            <p>
+              如果你的网络环境中静态 IP 地址不能满足需求，安装 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/basicnet/dhcpcd.html">
+              dhcpcd</a> 等程序包或者 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/basicnet/dhcp.html">
+              dhcp</a> 的客户端可能会有帮助。
+            </p>
+          </li>
+          <li>
+            <p>
+              安装 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/sudo.html">
+              sudo</a> 对于作为非特权用户编制和安装程序包可能会有用。
+            </p>
+          </li>
+          <li>
+            <p>
+              如果你想在一个有舒适图形界面的远程访问你的新系统，安装 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/openssh.html">
+              openssh</a> 和它的前提条件 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/openssl.html">
+              openssl</a>。
+            </p>
+          </li>
+          <li>
+            <p>
+              如果你的磁盘使用了 GUID 分区表 (GPT)，<a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/gptfdisk.html">gptfdisk</a>
+              或者 <a class="ulink" href=
+              "http://www.linuxfromscratch.org/blfs//view/svn/postlfs/parted.html">
+              parted</a> 会很有用。
+            </p>
+          </li>
+          <li>
+            <p>
+              最后检查一遍配置文件，例如 /etc/vimrc, /etc/dircolors, /etc/profile,
+              /etc/bashrc, /etc/hosts, /etc/inputrc, /etc/resolv.conf,
+              /root/.bash_profile 和 /root/.bashrc。
+            </p>
+          </li>
+        </ul>
+      </div>
       <p>
         现在我们要首次进入我们安装的 LFS 系统。首先，退出 chroot 环境：
       </p>
@@ -64,7 +120,15 @@
       </p>
       <pre class="userinput">
 <kbd class="command">umount -v $LFS/dev/pts
-umount -v $LFS/dev/shm
+    
+if [ -h $LFS/dev/shm ]; then
+  link=$(readlink $LFS/dev/shm)
+  umount -v $LFS/$link
+  unset link
+else
+  umount -v $LFS/dev/shm
+fi
+    
 umount -v $LFS/dev
 umount -v $LFS/proc
 umount -v $LFS/sys</kbd>
@@ -91,7 +155,7 @@ umount -v $LFS</kbd>
 </pre>
       <p>
         假设 GRUB 的启动菜单已经设置好，并已经自动选择了 <span class="emphasis"><em>LFS
-        SVN-20121218</em></span> 菜单项。
+        SVN-20130101</em></span> 菜单项。
       </p>
       <p>
         当重启完毕，LFS 系统就可以使用了。根据你的需要安装一些其他的软件。
@@ -117,7 +181,7 @@ umount -v $LFS</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

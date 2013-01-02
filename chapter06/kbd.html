@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.51.&nbsp;Kbd-1.15.3
+      6.51.&nbsp;Kbd-1.15.5
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -39,13 +39,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-system-kbd" name="ch-system-kbd"></a>6.51. Kbd-1.15.3
+        <a id="ch-system-kbd" name="ch-system-kbd"></a>6.51. Kbd-1.15.5
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -69,53 +69,26 @@
           6.51.1. 安装 Kbd
         </h2>
         <p>
-          此发布版本中 <span class="command"><strong>loadkeys</strong></span>
-          在不带有文件名运行时的行为是不正常的。以下补丁修复之：
-        </p>
-        <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../kbd-1.15.3-upstream_fixes-1.patch</kbd>
-</pre>
-        <p>
           退格键和删除键的行为在 Kbd 程序包中不同的键盘映射中是不一致的。以下补丁为 i386 键盘映射解决此问题：
         </p>
         <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../kbd-1.15.3-backspace-1.patch</kbd>
+<kbd class="command">patch -Np1 -i ../kbd-1.15.5-backspace-1.patch</kbd>
 </pre>
         <p>
           应用补丁后，Backspace 键生成为 127 号字符，而 Delete 键生成广为人知的转义序列。
         </p>
         <p>
-          修复西班牙语信息翻译阻止 kbd 与 gettext-0.18.1.1 一同编制的一个漏洞：
+          修复一个漏洞，此漏洞会导致某些按键表不能正确加载：
         </p>
         <pre class="userinput">
-<kbd class=
-"command">sed -i '/guardado\ el/s/\(^.*en\ %\)\(.*\)/\14\$\2/' po/es.po</kbd>
-</pre>
-        <p>
-          移除多余的 <span class="command"><strong>resizecons</strong></span> 程序
-          (只移除 32 位 x86 版本，因为它需要由早于 linux-2.6 且与现代 KMS 不兼容而已不存在的 svgalib
-          来提供视频模式文件——通常使用 <span class=
-          "command"><strong>setfont</strong></span> 来重设控制台尺寸) 和它的手册页。
-        </p>
-        <p>
-          装载的 <code class="filename">configure.ac</code> 的版本比 <code class=
-          "filename">aclocal.m4</code> 更新,所以 autotools 会被 <span class=
-          "command"><strong>make</strong></span> 运行，将改变覆盖到 <code class=
-          "filename">configure</code> 中。改变 <code class=
-          "filename">configure.ac</code>
-          的日期与时间——这用到系统时区，所以我们选择一个在所有时区中足够老的一个。
-        </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/' configure &amp;&amp;
-sed -i 's/resizecons.8 //' man/man8/Makefile.in &amp;&amp;
-touch -d '2011-05-07 08:30' configure.ac</kbd>
+<kbd class="command">sed -i -e '326 s/if/while/' src/loadkeys.analyze.l</kbd>
 </pre>
         <p>
           准备编译 Kbd ：
         </p>
         <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr --datadir=/lib/kbd</kbd>
+<kbd class="command">./configure --prefix=/usr --datadir=/lib/kbd \
+  --disable-vlock</kbd>
 </pre>
         <div class="variablelist">
           <p class="title">
@@ -130,6 +103,15 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
               <p>
                 此选项将键盘布局数据存置于一个总是位于根分区的目录下而非默认的 <code class=
                 "filename">/usr/share/kbd</code>。
+              </p>
+            </dd>
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--disable-vlock</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                此选项阻止编制 vlock 工具，它需求的 PAM 库在 chroot 环境中不可用。
               </p>
             </dd>
           </dl>
@@ -176,9 +158,9 @@ touch -d '2011-05-07 08:30' configure.ac</kbd>
           如果需要，安装文档：
         </p>
         <pre class="userinput">
-<kbd class="command">mkdir -v /usr/share/doc/kbd-1.15.3
+<kbd class="command">mkdir -v /usr/share/doc/kbd-1.15.5
 cp -R -v doc/* \
-         /usr/share/doc/kbd-1.15.3</kbd>
+         /usr/share/doc/kbd-1.15.5</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -189,11 +171,12 @@ cp -R -v doc/* \
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">安装的程序：</strong><span class=
-              "segbody">chvt、deallocvt、dumpkeys、fgconsole、getkeycodes、kbdinfo、kbd_mode、kbdrate、loadkeys、loadunimap、mapscrn、openvt、psfaddtable
-              (到 psfxtable 的链接)、psfgettable (到 psfxtable 的链接)、psfstriptable
-              (到 psfxtable 的链接)、psfxtable、
-              setfont、setkeycodes、setleds、setmetamode、showconsolefont、showkey、unicode_start、and
-              unicode_stop</span>
+              "segbody">chvt, deallocvt, dumpkeys, fgconsole, getkeycodes,
+              kbdinfo, kbd_mode, kbdrate, loadkeys, loadunimap, mapscrn,
+              openvt, psfaddtable (到 psfxtable 的链接), psfgettable (到 psfxtable
+              的链接), psfstriptable (到 psfxtable 的链接), psfxtable, setfont,
+              setkeycodes, setleds, setmetamode, showconsolefont, showkey,
+              unicode_start 和 unicode_stop</span>
             </div>
             <div class="seg">
               <strong class="segtitle">安装的目录：</strong><span class=
@@ -575,7 +558,7 @@ cp -R -v doc/* \
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

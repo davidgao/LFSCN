@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -27,9 +27,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gmp.html" title="GMP-5.0.5">下一页</a>
+          <a accesskey="n" href="gmp.html" title="GMP-5.1.0">下一页</a>
           <p>
-            GMP-5.0.5
+            GMP-5.1.0
           </p>
         </li>
         <li class="up">
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
@@ -94,6 +94,13 @@ Ask your system administrator to create more.</code>
         <pre class="userinput">
 <kbd class="command">rm -fv etc/standards.info
 sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in</kbd>
+</pre>
+        <p>
+          修复一些测试套件脚本确保所有测试通过：
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../binutils-2.23.1-testsuite_fix-1.patch</kbd>
 </pre>
         <p>
           Binutils 文档推荐在源代码目录外另建目录编制 Binutils：
@@ -166,7 +173,7 @@ cd ../binutils-build</kbd>
           测试结果：
         </p>
         <pre class="userinput">
-<kbd class="command">make -k check</kbd>
+<kbd class="command">make check</kbd>
 </pre>
         <p>
           安装程序包：
@@ -494,9 +501,9 @@ cd ../binutils-build</kbd>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="gmp.html" title="GMP-5.0.5">下一页</a>
+          <a accesskey="n" href="gmp.html" title="GMP-5.1.0">下一页</a>
           <p>
-            GMP-5.0.5
+            GMP-5.1.0
           </p>
         </li>
         <li class="up">
@@ -505,7 +512,7 @@ cd ../binutils-build</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>

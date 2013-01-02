@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20121218">
+  <body class="lfs" id="lfs-SVN-20130101">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20121218
+        Linux From Scratch - 版本 SVN-20130101
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
@@ -104,16 +104,18 @@ mount -vt sysfs sysfs $LFS/sys</kbd>
 </pre>
         <p>
           在某些宿主系统上，<code class="filename">/dev/shm</code> 是到<code class=
-          "filename">/run/shm</code> 的符号链接。在 chroot
-          环境中，这个符号链接需要在挂载为临时文件系统之前改为一个普通目录：
+          "filename">/run/shm</code> 的符号链接。在一个 chroot
+          环境中，这个临时文件需要被从宿主文件系统分别挂载：
         </p>
         <pre class="userinput">
-<kbd class="command">if [ -h /dev/shm ]; then
-   rm -f $LFS/dev/shm
-   mkdir $LFS/dev/shm
-fi
-
-mount -vt tmpfs shm $LFS/dev/shm</kbd>
+<kbd class="command">if [ -h $LFS/dev/shm ]; then
+  link=$(readlink $LFS/dev/shm)
+  mkdir -p $LFS/$link
+  mount -vt tmpfs shm $LFS/$link
+  unset link
+else
+  mount -vt tmpfs shm $LFS/dev/shm
+fi</kbd>
 </pre>
       </div>
     </div>
@@ -137,7 +139,7 @@ mount -vt tmpfs shm $LFS/dev/shm</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20121218">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
         </li>
       </ul>
     </div>
