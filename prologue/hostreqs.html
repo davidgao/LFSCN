@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130101">
+  <body class="lfs" id="lfs-SVN-20130226">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130101
+        Linux From Scratch - 版本 SVN-20130226
       </h4>
       <h3>
         序
@@ -37,7 +37,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
         </li>
       </ul>
     </div>
@@ -46,10 +46,10 @@
         <a id="pre-hostreqs" name="pre-hostreqs"></a>vii. 宿主系统需求
       </h1>
       <p>
-        你的宿主系统需要安装不低于列出版本的如下软件。对多数的现代 Linux
+        您的宿主系统需要安装不低于列出版本的如下软件。对多数的现代 Linux
         发行版来说这应该不成问题。要注意很多发行版将软件头文件装入分立的程序包，通常以 “<span class=
         "quote">&lt;程序包名称&gt;-devel</span>” 或 “<span class=
-        "quote">&lt;程序包名称&gt;-dev</span>” 的形式存在。如果你的发行版提供，请你安装。
+        "quote">&lt;程序包名称&gt;-dev</span>” 的形式存在。如果您的发行版提供，请您安装。
       </p>
       <p>
         比列出软件包更早的版本可能工作，但未被测试过。
@@ -139,8 +139,8 @@
             </p>
             <p>
               如果宿主内核早于 2.6.25 或并非以 GCC-4.1.2 (或更高版本)
-              编译，你就需要用一个符合要求的内核来替换。有两种方法。其一，查看你的发行版是否提供 2.6.25
-              或更高版本的内核程序包。如果有，直接安装即可。如果没有，或者你不想安装，也可以自己编译一个。编译内核并配置引导加载器的方法
+              编译，您就需要用一个符合要求的内核来替换。有两种方法。其一，查看您的发行版是否提供 2.6.25
+              或更高版本的内核程序包。如果有，直接安装即可。如果没有，或者您不想安装，也可以自己编译一个。编译内核并配置引导加载器的方法
               (请确保宿主系统使用 Grub) 位于 <a class="xref" href=
               "../chapter08/chapter08.html" title=
               "第&nbsp;8&nbsp;章&nbsp;使 LFS 系统可以引导">第八章</a>。
@@ -196,7 +196,7 @@
       </p>
       <p>
         <a id="version-check" name=
-        "version-check"></a>要查看你的宿主系统是否有所有正确版本并有能力编译程序，运行以下命令：
+        "version-check"></a>要查看您的宿主系统是否有所有正确版本并有能力编译程序，运行以下命令：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; version-check.sh &lt;&lt; "EOF"
@@ -209,7 +209,7 @@ echo "/bin/sh -&gt; `readlink -f /bin/sh`"
 echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-
 bison --version | head -n1
 if [ -e /usr/bin/yacc ];
-  then echo "/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`"; 
+  then echo "/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`";
   else echo "yacc not found"; fi
 
 bzip2 --version 2&gt;&amp;1 &lt; /dev/null | head -n1 | cut -d" " -f1,6-
@@ -218,7 +218,7 @@ diff --version | head -n1
 find --version | head -n1
 gawk --version | head -n1
 if [ -e /usr/bin/awk ];
-  then echo "/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`"; 
+  then echo "/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`";
   else echo "awk not found"; fi
 
 gcc --version | head -n1
@@ -236,7 +236,7 @@ echo "Texinfo: `makeinfo --version | head -n1`"
 xz --version | head -n1
 
 echo 'main(){}' &gt; dummy.c &amp;&amp; gcc -o dummy dummy.c
-if [ -x dummy ] 
+if [ -x dummy ]
   then echo "gcc compilation OK";
   else echo "gcc compilation failed"; fi
 rm -f dummy.c dummy</code>
@@ -264,7 +264,7 @@ bash version-check.sh</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
         </li>
       </ul>
     </div>

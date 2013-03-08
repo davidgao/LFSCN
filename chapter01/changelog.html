@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130101">
+  <body class="lfs" id="lfs-SVN-20130226">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130101
+        Linux From Scratch - 版本 SVN-20130226
       </h4>
       <h3>
         第&nbsp;1&nbsp;章&nbsp;介绍
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
         </li>
       </ul>
     </div>
@@ -48,7 +48,7 @@
         变更日志
       </h1>
       <p>
-        此 Linux From Scratch 译本对应版本 SVN-20130101，发布日期为 2013 年 1 月 1
+        此 Linux From Scratch 译本对应版本 SVN-20130226，发布日期为 2013 年 2 月 26
         日。如果本书已经超过六个月了，或许会有更新的版本发布。请查看 <a class="ulink" href=
         "http://www.linuxfromscratch.org/mirrors.html">镜像站点</a>。(译注：LFSCN
         始终对应 LFS 的 开发版本，LFS 中的更新会在几天内进入 LFSCN，请确保使用最新版本的 LFSCN。)
@@ -63,19 +63,342 @@
         <ul>
           <li>
             <p>
-              2013-01-01
+              2013-02-26
             </p>
             <div class="itemizedlist">
               <ul>
                 <li>
                   <p>
-                    [bdubbs] - 在 "重启系统"一节添加推荐的程序包。
+                    [bdubbs] - 升级至 File-5.13。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3292">#3292</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-02-26
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [ken] - 再次从 kbd 中移除移除废弃的 resizecons 程序。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-02-24
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - 升级至 IPRoute2-3.8.0。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3291">#3291</a>。
                   </p>
                 </li>
                 <li>
                   <p>
-                    [bdubbs] - 从 gmp 的指令中移除废弃的 --enable-mpbsd。感谢 hauradou
-                    提供报告。
+                    [matthew] - 升级至 Linux-3.8。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3290">#3290</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-02-19
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 更新 7.5.1 节中调整 CD-ROM 规则中的文件名。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-02-18
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 Coreutils-8.21。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3286">#3286</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 Texinfo-5.0。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3289">#3284</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 Linux-3.7.9。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3287">#3281</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-02-13
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Man-pages-3.47。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3284">#3284</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 GMP-5.1.1。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3283">#3283</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 使用来自 Fedora 的最新的 Coreutils-i18n 补丁。修复
+                    <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3282">#3282</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Linux-3.7.7。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3281">#3281</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Groff-1.22.2。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3280">#3280</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-30
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 改变 ncurses 指令，创建并安装 .pc 文件。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-29
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Man-Pages-3.46。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3278">#3278</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Linux-3.7.5。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3277">#3277</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-27
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 pkg-config-0.28。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3276">#3276</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-25
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 修订 procps-ng 安装指令，将文件置于正确的位置。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-24
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 移除引导脚本中 init-functions 文件中的 bash 语句。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-24
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 e2fsprogs-1.42.7。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3274">#3274</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-22
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 Linux-3.7.4。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3273">#3273</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-21
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 升级至 Procps-ng-3.3.6。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3095">#3095</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-20
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Linux-3.7.3。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3272">#3272</a>。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-11
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 修订 /etc/modprobe.conf 的解释。修复 <a class="ulink"
+                    href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3270">#3270</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - 升级 udev-lfs 中的 init-net-rules.sh 脚本处理
+                    systemd-197 中引入的 “<span class="quote">en*</span>” 设备。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-09
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [bdubbs] - 重新格式化 “<span class="quote">重新格式化系统</span>” 推荐。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [bdubbs] - 升级 udev-lfs 脚本。升级至 systemd-197。
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p>
+              2013-01-02
+            </p>
+            <div class="itemizedlist">
+              <ul>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Bash-4.2.42。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3268">#3268</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Groff-1.22.1。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3266">#3266</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Automake-1.13.1。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3265">#3265</a>。
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    [matthew] - 升级至 Coreutils-8.20。修复 <a class="ulink" href=
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3215">#3215</a>。
                   </p>
                 </li>
               </ul>
@@ -490,37 +813,37 @@
                   <p>
                     [matthew] - 将 Freshmeat.net 参考改为 Freecode。感谢 Chris Staub
                     提供报告和补丁。修复 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3216">#3216</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3216">#3216</a>。
                   </p>
                 </li>
                 <li>
                   <p>
                     [matthew] - 升级至 Check-0.9.9。修复 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3214">#3214</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3214">#3214</a>。
                   </p>
                 </li>
                 <li>
                   <p>
                     [matthew] - 升级至 Bison-2.6.4。修复 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3212">#3212</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3212">#3212</a>。
                   </p>
                 </li>
                 <li>
                   <p>
                     [matthew] - 升级至 Linux-3.6.5。修复 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3211">#3211</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3211">#3211</a>。
                   </p>
                 </li>
                 <li>
                   <p>
                     [matthew] - 升级至 Tzdata-2012h。修复 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3209">#3209</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3209">#3209</a>。
                   </p>
                 </li>
                 <li>
                   <p>
                     [matthew] - 升级至 Man-Pages-3.43。修复 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3208">#3208</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3208">#3208</a>。
                   </p>
                 </li>
                 <li>
@@ -529,7 +852,7 @@
                     <a class="ulink" href=
                     "http://wiki.linuxfromscratch.org/lfs/ticket/3206">3206</a>
                     和 <a class="ulink" href=
-                    "http://wiki.linuxfromscratch.org/lfs/ticket/3210">3210</a>.
+                    "http://wiki.linuxfromscratch.org/lfs/ticket/3210">3210</a>。
                   </p>
                 </li>
               </ul>
@@ -886,7 +1209,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
         </li>
       </ul>
     </div>

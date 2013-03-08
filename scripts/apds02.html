@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130101">
+  <body class="lfs" id="lfs-SVN-20130226">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130101
+        Linux From Scratch - 版本 SVN-20130226
       </h4>
       <h3>
-        附录&nbsp;D.&nbsp;引导与系统配置脚本 版本-20121013
+        附录&nbsp;D.&nbsp;引导与系统配置脚本 版本-20130123
       </h3>
       <ul>
         <li class="prev">
@@ -36,11 +36,11 @@
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "附录&nbsp;D.&nbsp;引导与系统配置脚本 版本-20121013">上一级</a>
+          "附录&nbsp;D.&nbsp;引导与系统配置脚本 版本-20130123">上一级</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
         </li>
       </ul>
     </div>
@@ -574,18 +574,18 @@ statusproc()
    base="${1##*/}"
 
    if [ -n "${pidlist}" ]; then
-      echo -e "${INFO}${base} is running with Process" \
+      /bin/echo -e "${INFO}${base} is running with Process" \
          "ID(s) ${pidlist}.${NORMAL}"
    else
       if [ -n "${base}" -a -e "/var/run/${base}.pid" ]; then
-         echo -e "${WARNING}${1} is not running but" \
+         /bin/echo -e "${WARNING}${1} is not running but" \
             "/var/run/${base}.pid exists.${NORMAL}"
       else
          if [ -n "${pidfile}" -a -e "${pidfile}" ]; then
-            echo -e "${WARNING}${1} is not running" \
+            /bin/echo -e "${WARNING}${1} is not running" \
                "but ${pidfile} exists.${NORMAL}"
          else
-            echo -e "${INFO}${1} is not running.${NORMAL}"
+            /bin/echo -e "${INFO}${1} is not running.${NORMAL}"
          fi
       fi
    fi
@@ -618,22 +618,22 @@ timespec()
 ################################################################################
 log_success_msg()
 {
-    echo -n -e "${BMPREFIX}${@}"
-    echo -e "${CURS_ZERO}${SUCCESS_PREFIX}${SET_COL}${SUCCESS_SUFFIX}"
+    /bin/echo -n -e "${BMPREFIX}${@}"
+    /bin/echo -e "${CURS_ZERO}${SUCCESS_PREFIX}${SET_COL}${SUCCESS_SUFFIX}"
 
     # Strip non-printable characters from log file
-    local logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
+    logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
 
     timespec
-    echo -e "${STAMP} ${logmessage} OK" &gt;&gt; ${BOOTLOG}
+    /bin/echo -e "${STAMP} ${logmessage} OK" &gt;&gt; ${BOOTLOG}
     
     return 0
 }
 
 log_success_msg2()
 {
-    echo -n -e "${BMPREFIX}${@}"
-    echo -e "${CURS_ZERO}${SUCCESS_PREFIX}${SET_COL}${SUCCESS_SUFFIX}"
+    /bin/echo -n -e "${BMPREFIX}${@}"
+    /bin/echo -e "${CURS_ZERO}${SUCCESS_PREFIX}${SET_COL}${SUCCESS_SUFFIX}"
 
     echo " OK" &gt;&gt; ${BOOTLOG}
     
@@ -653,22 +653,22 @@ log_success_msg2()
 ################################################################################
 log_failure_msg()
 {
-    echo -n -e "${BMPREFIX}${@}"
-    echo -e "${CURS_ZERO}${FAILURE_PREFIX}${SET_COL}${FAILURE_SUFFIX}"
+    /bin/echo -n -e "${BMPREFIX}${@}"
+    /bin/echo -e "${CURS_ZERO}${FAILURE_PREFIX}${SET_COL}${FAILURE_SUFFIX}"
 
     # Strip non-printable characters from log file
 
     timespec
-    local logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
-    echo -e "${STAMP} ${logmessage} FAIL" &gt;&gt; ${BOOTLOG}
+    logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
+    /bin/echo -e "${STAMP} ${logmessage} FAIL" &gt;&gt; ${BOOTLOG}
     
     return 0
 }
 
 log_failure_msg2()
 {
-    echo -n -e "${BMPREFIX}${@}"
-    echo -e "${CURS_ZERO}${FAILURE_PREFIX}${SET_COL}${FAILURE_SUFFIX}"
+    /bin/echo -n -e "${BMPREFIX}${@}"
+    /bin/echo -e "${CURS_ZERO}${FAILURE_PREFIX}${SET_COL}${FAILURE_SUFFIX}"
 
     echo "FAIL" &gt;&gt; ${BOOTLOG}
     
@@ -686,13 +686,13 @@ log_failure_msg2()
 ################################################################################
 log_warning_msg()
 {
-    echo -n -e "${BMPREFIX}${@}"
-    echo -e "${CURS_ZERO}${WARNING_PREFIX}${SET_COL}${WARNING_SUFFIX}"
+    /bin/echo -n -e "${BMPREFIX}${@}"
+    /bin/echo -e "${CURS_ZERO}${WARNING_PREFIX}${SET_COL}${WARNING_SUFFIX}"
 
     # Strip non-printable characters from log file
-    local logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
+    logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
     timespec
-    echo -e "${STAMP} ${logmessage} WARN" &gt;&gt; ${BOOTLOG}
+    /bin/echo -e "${STAMP} ${logmessage} WARN" &gt;&gt; ${BOOTLOG}
     
     return 0
 }
@@ -708,23 +708,23 @@ log_warning_msg()
 ################################################################################
 log_info_msg()
 {
-    echo -n -e "${BMPREFIX}${@}"
+    /bin/echo -n -e "${BMPREFIX}${@}"
 
     # Strip non-printable characters from log file
-    local logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
+    logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
     timespec
-    echo -n -e "${STAMP} ${logmessage}" &gt;&gt; ${BOOTLOG}
+    /bin/echo -n -e "${STAMP} ${logmessage}" &gt;&gt; ${BOOTLOG}
     
     return 0
 }
 
 log_info_msg2()
 {
-    echo -n -e "${@}"
+    /bin/echo -n -e "${@}"
 
     # Strip non-printable characters from log file
-    local logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
-    echo -n -e "${logmessage}" &gt;&gt; ${BOOTLOG}
+    logmessage=`echo "${@}" | sed 's/\\\033[^a-zA-Z]*.//g'`
+    /bin/echo -n -e "${logmessage}" &gt;&gt; ${BOOTLOG}
     
     return 0
 }
@@ -859,11 +859,11 @@ is_true()
         </li>
         <li class="up">
           <a accesskey="u" href="scripts.html" title=
-          "附录&nbsp;D.&nbsp;引导与系统配置脚本 版本-20121013">上一级</a>
+          "附录&nbsp;D.&nbsp;引导与系统配置脚本 版本-20130123">上一级</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130101">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
         </li>
       </ul>
     </div>
