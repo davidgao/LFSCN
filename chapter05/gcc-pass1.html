@@ -136,6 +136,14 @@ done</kbd>
 "command">sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure</kbd>
 </pre>
         <p>
+          不要构建 .info 文件。这些文件在新版 <span class=
+          "command"><strong>makeinfo</strong></span> 下无法正常编译，而且我们也不会用到。
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure</kbd>
+</pre>
+        <p>
           GCC 文档推荐在源代码目录外创建目录编制 GCC：
         </p>
         <pre class="userinput">

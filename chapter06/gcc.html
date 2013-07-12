@@ -77,6 +77,14 @@
 "command">sed -i 's/install_to_$(INSTALL_DEST) //' libiberty/Makefile.in</kbd>
 </pre>
         <p>
+          一样不要构建 .info 文件。这些文件在新版 <span class=
+          "command"><strong>makeinfo</strong></span> 下无法正常编译，而且我们也不会用到。
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure</kbd>
+</pre>
+        <p>
           与<a class="xref" href="../chapter05/gcc-pass2.html" title=
           "5.9.&nbsp;GCC-4.8.1 - 第二遍">第&nbsp;5.9&nbsp;节 “GCC-4.8.1 - 第二遍”</a>
           相同，应用以下 <span class="command"><strong>sed</strong></span> 命令强制编制使用

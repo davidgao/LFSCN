@@ -123,6 +123,14 @@ tar -zxf ../mpc-1.0.1.tar.gz
 mv -v mpc-1.0.1 mpc</kbd>
 </pre>
         <p>
+          这次同样不要构建 .info 文件。这些文件在新版 <span class=
+          "command"><strong>makeinfo</strong></span> 下无法正常编译，而且我们也不会用到。
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure</kbd>
+</pre>
+        <p>
           再创建一个独立的编制目录：
         </p>
         <pre class="userinput">
