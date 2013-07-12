@@ -48,8 +48,8 @@
         /etc/fstab 文件
       </h1>
       <p>
-        <code class="filename">/etc/fstab</code>
-        文件被某些程序决定默认的文件系统挂载点。在挂载文件系统的时候会被优先检查，以防整合错误。像这样创建这个文件：
+        某些程序使用 <code class="filename">/etc/fstab</code>
+        文件来确定文件系统挂载的默认位置、顺序以及挂载前是否需要查错。如此创建一个新的文件系统表：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; /etc/fstab &lt;&lt; "EOF"
@@ -76,19 +76,19 @@ EOF</kbd>
         将 <em class="replaceable"><code>&lt;xxx&gt;</code></em>、<em class=
         "replaceable"><code>&lt;yyy&gt;</code></em> 和 <em class=
         "replaceable"><code>&lt;fff&gt;</code></em> 替换成合适的值，例如 <code class=
-        "filename">hda2</code>、<code class="filename">hda5</code> 和
-        <code class="systemitem">ext3</code>。关于这六个域的细节，可通过 <span class=
-        "command"><strong>man 5 fstab</strong></span>查看。
+        "filename">sda2</code>、<code class="filename">sda5</code> 和
+        <code class="systemitem">ext4</code>。关于这六个域的细节，参考 <span class=
+        "command"><strong>man 5 fstab</strong></span>。
       </p>
       <p>
         源自 MS-DOS 或者 Windows 的文件系统 (例如：vfat、ntfs、smbfs、cifs、iso9660、udf)
         需要使用挂载选项 “<span class="quote">iocharset</span>” 使得文件名中的非 ASCII
-        字符能够正确转码。此选项的值应该与你的区域数据的字符集相同，内核才能够理解。如果对应的字符集定义 (位于 File systems
+        字符能够正确转码。此选项的值应设置为与你的区域数据的字符集相同，使得内核能够理解。如果对应的字符集定义 (位于 File systems
         -&gt; Native Language Support，即文件系统 -&gt; 原生语言支持)
-        编译到内核中或者编译成一个模块，它就能正常工作。vfat 和 smbfs 文件系统还需要 “<span class=
-        "quote">codepage</span>” 这个选项。它应该设置为你所在的国家在 MS-DOS 下使用的编码页号码。例如，为了挂载
-        USB 闪存驱动器，zh_CN.GB2312 用户的 <code class="filename">/etc/fstab</code>
-        文件中会需要：
+        编译到内核中或者编制成模块，它就能工作。vfat 和 smbfs 文件系统还需要 “<span class=
+        "quote">codepage</span>” 选项。它应该设置为你所在的国家在 MS-DOS 下使用的 codepage
+        号码。例如，为了挂载优盘，zh_CN.GB2312 用户的 <code class=
+        "filename">/etc/fstab</code> 文件中会需要：
       </p>
       <pre class="screen">
 <code class=
@@ -114,12 +114,12 @@ EOF</kbd>
 "computeroutput">FAT: utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive! </code>
 </pre>
         <p>
-          这个消极的推荐可以忽略，因为其他所有的 “<span class="quote">iocharset</span>” 选项都会导致
+          可以忽略此消息，因为 “<span class="quote">iocharset</span>” 选项任何其他的值都会导致
           UTF-8 区域数据中文件名显示不正确。
         </p>
       </div>
       <p>
-        还可以在内核配置的过程中为某些文件系统指定默认的编码页和 iocharset 值。对应的参数名为 “<span class=
+        还可以在内核配置的过程中为某些文件系统指定默认的 codepage 和 iocharset 值。对应的参数名为 “<span class=
         "quote">Default NLS Option</span>” (<code class=
         "option">CONFIG_NLS_DEFAULT</code>，默认 NLS 选项)、“<span class=
         "quote">Default Remote NLS Option</span>” (<code class=
@@ -135,13 +135,13 @@ EOF</kbd>
         "filename">/etc/fstab</code> 中对应的条目添加 <code class=
         "option">barrier=1</code> 挂载选项。要检查磁盘驱动器是否支持此选项，给对应的磁盘驱动器运行 <a class=
         "ulink" href=
-        "http://www.linuxfromscratch.org/blfs/view/cvs/general/hdparm.html">hdparm</a>。例如，如果：
+        "http://www.linuxfromscratch.org/blfs/view/cvs/general/hdparm.html">hdparm</a>。例如：
       </p>
       <pre class="userinput">
 <kbd class="command">hdparm -I /dev/sda | grep NCQ</kbd>
 </pre>
       <p>
-        返回非空的值表示支持这一选项。
+        若以上命令返回非空的值，表示磁盘支持这一选项。
       </p>
       <p>
         注意：基于逻辑卷管理 (LVM) 的分区不能使用 <code class="option">barrier</code> 选项。

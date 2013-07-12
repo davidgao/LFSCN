@@ -69,8 +69,8 @@
           8.3.1. 安装内核
         </h2>
         <p>
-          编制内核包含一些步骤——配置，编译和安装。阅读内核源代码树中的 <code class=
-          "filename">README</code> 文件来获知不同于本书所述的配置内核方法。
+          编制内核包含数个步骤——配置，编译和安装。阅读内核源代码树中的 <code class=
+          "filename">README</code> 文件来获知不同于本书的配置方法。
         </p>
         <p>
           运行以下命令来准备编译：
@@ -79,17 +79,14 @@
 <kbd class="command">make mrproper</kbd>
 </pre>
         <p>
-          这确保内核树完全干净。内核开发组建议先于每个内核编译运行此命令。不要期望内核树在 un-tarring 后保持干净。
+          此步骤确保内核树完全干净。内核团队建议每次编译内核前都运行此命令。不要依赖内核树在解包后就是干净的。
         </p>
         <p>
-          经由一个目录驱动的接口配置内核。查阅 <a class="ulink" href=
+          通过一个目录驱动的接口配置内核。要获得内核配置的常规信息，参考 <a class="ulink" href=
           "http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt">
-          http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt</a>
-          来获得内核配置的常规信息。 BLFS 中有关某些需求 LFS 不包含的程序包的内核配置的一些信息可在 <a class="ulink"
-          href=
-          "http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index">
-          http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index</a>
-          找到。
+          http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt</a>。LFS
+          以外的部分程序包有特定的内核配置要求，BLFS 中有相关信息，位于<a class="ulink" href=
+          "http://www.linuxfromscratch.org/blfs/view/svn/longindex.html#kernel-config-index">此处</a>。
         </p>
         <div class="admon note">
           <img alt="[注意]" src="../images/note.png" />
@@ -121,27 +118,27 @@ Device Drivers  ---&gt;
             </dt>
             <dd>
               <p>
-                这建立区域设置为宿主所使用的。这对一个正确的 menuconfig ncurses 界面线在 UTF-8 linux
+                此项建立宿主系统使用的区域设置，对于 menuconfig 的 ncurses 界面在 linux UTF-8
                 文本控制台上绘制是必须的。
               </p>
               <p>
-                确保替换 <em class=
-                "replaceable"><code>&lt;host_LANG_value&gt;</code></em> 为来自你的
-                host 的 <code class="envar">$LANG</code> 变量值。如果没有设置，你可以使用 host
-                的 <code class="envar">$LC_ALL</code> 或 <code class=
+                确保将 <em class=
+                "replaceable"><code>&lt;host_LANG_value&gt;</code></em>
+                替换为宿主上 <code class="envar">$LANG</code> 变量的值。如果没有设置，您可以使用宿主上
+                <code class="envar">$LC_ALL</code> 或 <code class=
                 "envar">$LC_CTYPE</code> 的值。
               </p>
             </dd>
           </dl>
         </div>
         <p>
-          可以替代地， <span class="command"><strong>make oldconfig</strong></span>
-          在一些场合可能更加合适。查阅 <code class="filename">README</code> 文件来获得更多信息。
+          <span class="command"><strong>make oldconfig</strong></span>
+          在一些情况下可能更加合适。要获得更多信息，参考 <code class="filename">README</code> 文件。
         </p>
         <p>
-          如果需要，通过拷贝宿主系统的内核配置文件 <code class="filename">.config</code>
+          如果需要，通过复制宿主系统的内核配置文件 <code class="filename">.config</code>
           (这里默认它可用) 到未打包的 <code class="filename">linux-3.10</code>
-          目录，来跳过内核配置。但是我们不推荐如此做。探索整个配置菜单并白手起家创建一个内核配置通常更好。
+          目录中，可以跳过内核配置，但是我们并不推荐如此。探索整个配置菜单并从头创建一个内核配置通常更好。
         </p>
         <p>
           编译内核镜像和模块：
@@ -150,28 +147,27 @@ Device Drivers  ---&gt;
 <kbd class="command">make</kbd>
 </pre>
         <p>
-          如果使用内核模块，<code class="filename">/etc/modprobe.d</code>
-          中的模块配置可能被需要。关于模块和内核配置的信息位于 <a class="xref" href=
-          "../chapter07/udev.html" title=
-          "7.4.&nbsp;LFS 系统上的设备和模块管理">第&nbsp;7.4&nbsp;节 “LFS 系统上的设备和模块管理”</a>
-          和 <code class="filename">linux-3.10/Documentation</code>
-          目录的内核文档中。同时， <code class="filename">modprobe.conf(5)</code>
-          可能包含需要的信息。
+          如果使用内核模块，可能会需要<code class="filename">/etc/modprobe.d</code>
+          中的模块配置。有关模块和内核配置的信息位于 <a class="xref" href="../chapter07/udev.html"
+          title="7.4.&nbsp;LFS 系统上的设备和模块管理">第&nbsp;7.4&nbsp;节 “LFS
+          系统上的设备和模块管理”</a> 和 <code class=
+          "filename">linux-3.10/Documentation</code> 目录的内核文档中。同时，<code class=
+          "filename">modprobe.conf(5)</code> 也可能有用。
         </p>
         <p>
-          如果内核配置需要，安装这些模块：
+          如果内核配置需要，安装模块：
         </p>
         <pre class="userinput">
 <kbd class="command">make modules_install</kbd>
 </pre>
         <p>
-          在内核编译完成后，需要额外的步骤来完成安装。一些文件需要被拷贝到 <code class=
-          "filename">/boot</code> 目录。
+          在内核编译完成后，需要额外的步骤来完成安装。一些文件需要复制到 <code class="filename">/boot</code>
+          目录。
         </p>
         <p>
-          到内核镜像的路径可能根据所使用的平台而改变。下面的文件名可根据你的喜好改变，但文件名的主干必须是 <span class=
-          "emphasis"><em>vmlinuz</em></span> 以和下个部分中的提及的引导进程自动安装相兼容。以下的命令默认在
-          x86 架构上运行：
+          到内核镜像的路径可能随所使用的平台改变。以下文件名可根据你的喜好改变，但文件名的主干必须是 <span class=
+          "emphasis"><em>vmlinuz</em></span> 以和下一节中的提及的引导进程自动设置相兼容。以下的命令默认
+          x86 架构：
         </p>
         <pre class="userinput">
 <kbd class=
@@ -179,7 +175,7 @@ Device Drivers  ---&gt;
 </pre>
         <p>
           <code class="filename">System.map</code> 是内核的一个符号文件。它映射内核 API
-          中的每个函数的函数入口点以及正在运行的内核的内核数据结构地址。它被用作调查内核问题时的一个资源。运行以下命令来安装映射文件：
+          中的每个函数的函数入口以及正在运行的内核的内核数据结构地址。它被用作调查内核问题时的一个资源。运行以下命令来安装映射文件：
         </p>
         <pre class="userinput">
 <kbd class="command">cp -v System.map /boot/System.map-3.10</kbd>
