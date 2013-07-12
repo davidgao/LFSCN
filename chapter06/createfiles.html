@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130226">
+  <body class="lfs" id="lfs-SVN-20130711">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130226
+        Linux From Scratch - 版本 SVN-20130711
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -28,9 +28,9 @@
         </li>
         <li class="next">
           <a accesskey="n" href="linux-headers.html" title=
-          "Linux-3.8 API 头文件">下一页</a>
+          "Linux-3.10 API 头文件">下一页</a>
           <p>
-            Linux-3.8 API 头文件
+            Linux-3.10 API 头文件
           </p>
         </li>
         <li class="up">
@@ -39,7 +39,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>
@@ -75,7 +75,7 @@ ln -sv bash /bin/sh</kbd>
         "filename">/etc/group</code> 这两个文件中就要有对应的条目存在。
       </p>
       <p>
-        运行一下命令创建 <code class="filename">/etc/passwd</code> 文件：
+        运行以下命令创建 <code class="filename">/etc/passwd</code> 文件：
       </p>
       <pre class="userinput">
 <kbd class="command">cat &gt; /etc/passwd &lt;&lt; "EOF"
@@ -151,7 +151,7 @@ chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp</kbd>
 </pre>
       <p>
-        <code class="filename">/var/log/wtmp</code> 文件记录所偶的登入登出。<code class=
+        <code class="filename">/var/log/wtmp</code> 文件记录所有的登入登出。<code class=
         "filename">/var/log/lastlog</code> 文件记录每个用户上次登录的时间。<code class=
         "filename">/var/log/btmp</code> 文件记录失败的登录尝试。
       </p>
@@ -161,7 +161,7 @@ chmod -v 600  /var/log/btmp</kbd>
           注意
         </h3>
         <p>
-          <code class="filename">/run/utmp</code> 文件记录当前登录的用户。此文件在引导脚本种动态创建。
+          <code class="filename">/run/utmp</code> 文件记录当前登录的用户。此文件在引导脚本中动态创建。
         </p>
       </div>
     </div>
@@ -175,9 +175,9 @@ chmod -v 600  /var/log/btmp</kbd>
         </li>
         <li class="next">
           <a accesskey="n" href="linux-headers.html" title=
-          "Linux-3.8 API 头文件">下一页</a>
+          "Linux-3.10 API 头文件">下一页</a>
           <p>
-            Linux-3.8 API 头文件
+            Linux-3.10 API 头文件
           </p>
         </li>
         <li class="up">
@@ -186,7 +186,7 @@ chmod -v 600  /var/log/btmp</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>

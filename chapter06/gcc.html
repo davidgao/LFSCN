@@ -4,17 +4,17 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.17.&nbsp;GCC-4.7.2
+      6.17.&nbsp;GCC-4.8.1
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130226">
+  <body class="lfs" id="lfs-SVN-20130711">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130226
+        Linux From Scratch - 版本 SVN-20130711
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -38,13 +38,13 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-system-gcc" name="ch-system-gcc"></a>6.17. GCC-4.7.2
+        <a id="ch-system-gcc" name="ch-system-gcc"></a>6.17. GCC-4.8.1
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -54,11 +54,11 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">预计编制时间：</strong><span class=
-              "segbody">53.5 SBU</span>
+              "segbody">55.6 SBU</span>
             </div>
             <div class="seg">
               <strong class="segtitle">需求磁盘空间：</strong><span class=
-              "segbody">2.0 GB</span>
+              "segbody">2.2 GB</span>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
 </pre>
         <p>
           与<a class="xref" href="../chapter05/gcc-pass2.html" title=
-          "5.9.&nbsp;GCC-4.7.2 - 第二遍">第&nbsp;5.9&nbsp;节 “GCC-4.7.2 - 第二遍”</a>
+          "5.9.&nbsp;GCC-4.8.1 - 第二遍">第&nbsp;5.9&nbsp;节 “GCC-4.8.1 - 第二遍”</a>
           相同，应用以下 <span class="command"><strong>sed</strong></span> 命令强制编制使用
           <code class="option">-fomit-frame-pointer</code> 编译器标记以确保编译器编制稳定：
         </p>
@@ -105,7 +105,7 @@ cd ../gcc-build</kbd>
           准备编译 GCC：
         </p>
         <pre class="userinput">
-<kbd class="command">../gcc-4.7.2/configure --prefix=/usr            \
+<kbd class="command">../gcc-4.8.1/configure --prefix=/usr            \
                        --libexecdir=/usr/lib    \
                        --enable-shared          \
                        --enable-threads=posix   \
@@ -181,7 +181,7 @@ cd ../gcc-build</kbd>
           要获取测试套件结果的摘要，运行：
         </p>
         <pre class="userinput">
-<kbd class="command">../gcc-4.7.2/contrib/test_summary</kbd>
+<kbd class="command">../gcc-4.8.1/contrib/test_summary</kbd>
 </pre>
         <p>
           如果只要摘要，将结果以管道传送给 <strong class="userinput"><code>grep -A7
@@ -230,7 +230,7 @@ cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</kbd>
 </pre>
         <p>
-          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异) 应为：
+          如果一切工作正常，就不应该出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异) 应为：
         </p>
         <pre class="screen">
 <code class=
@@ -243,13 +243,13 @@ readelf -l a.out | grep ': /lib'</kbd>
 <kbd class="command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd>
 </pre>
         <p>
-          如果一切工作正常，就不应改出错，最后一条命令的输出应为：
+          如果一切工作正常，就不应该出错，最后一条命令的输出应为：
         </p>
         <pre class="screen">
 <code class=
-"computeroutput">/usr/lib/gcc/i686-pc-linux-gnu/4.7.2/../../../crt1.o succeeded
-/usr/lib/gcc/i686-pc-linux-gnu/4.7.2/../../../crti.o succeeded
-/usr/lib/gcc/i686-pc-linux-gnu/4.7.2/../../../crtn.o succeeded</code>
+"computeroutput">/usr/lib/gcc/i686-pc-linux-gnu/4.8.1/../../../crt1.o succeeded
+/usr/lib/gcc/i686-pc-linux-gnu/4.8.1/../../../crti.o succeeded
+/usr/lib/gcc/i686-pc-linux-gnu/4.8.1/../../../crtn.o succeeded</code>
 </pre>
         <p>
           取决于你的计算机架构，以上信息可能会有轻微差异，差异通常位于 <code class=
@@ -271,8 +271,8 @@ readelf -l a.out | grep ': /lib'</kbd>
         <pre class="screen">
 <code class="computeroutput">#include &lt;...&gt; search starts here:
  /usr/local/include
- /usr/lib/gcc/i686-pc-linux-gnu/4.7.2/include
- /usr/lib/gcc/i686-pc-linux-gnu/4.7.2/include-fixed
+ /usr/lib/gcc/i686-pc-linux-gnu/4.8.1/include
+ /usr/lib/gcc/i686-pc-linux-gnu/4.8.1/include-fixed
  /usr/include</code>
 </pre>
         <p>
@@ -295,7 +295,7 @@ readelf -l a.out | grep ': /lib'</kbd>
 <kbd class="command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd>
 </pre>
         <p>
-          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许目标三联字串中有针对平台的差异) 应为：
+          如果一切工作正常，就不应该出错，最后一条命令的输出 (允许目标三联字串中有针对平台的差异) 应为：
         </p>
         <pre class="screen">
 <code class="computeroutput">SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")
@@ -324,7 +324,7 @@ SEARCH_DIR("/usr/lib");</code>
 <kbd class="command">grep "/lib.*/libc.so.6 " dummy.log</kbd>
 </pre>
         <p>
-          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许 64 位宿主上有 <code class=
+          如果一切工作正常，就不应该出错，最后一条命令的输出 (允许 64 位宿主上有 <code class=
           "filename">lib64</code> 目录) 应为：
         </p>
         <pre class="screen">
@@ -337,7 +337,7 @@ SEARCH_DIR("/usr/lib");</code>
 <kbd class="command">grep found dummy.log</kbd>
 </pre>
         <p>
-          如果一切工作正常，就不应改出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异、64 位宿主上有 <code class=
+          如果一切工作正常，就不应该出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异、64 位宿主上有 <code class=
           "filename">lib64</code> 目录) 应为：
         </p>
         <pre class="screen">
@@ -382,7 +382,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
             <div class="seg">
               <strong class="segtitle">安装的目录：</strong><span class=
               "segbody">/usr/include/c++, /usr/lib/gcc,
-              /usr/share/gcc-4.7.2</span>
+              /usr/share/gcc-4.8.1</span>
             </div>
           </div>
         </div>
@@ -678,7 +678,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>

@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130226">
+  <body class="lfs" id="lfs-SVN-20130711">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130226
+        Linux From Scratch - 版本 SVN-20130711
       </h4>
       <h3>
         序
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>
@@ -66,10 +66,10 @@
           <li>
             <p>
               <a class="ulink" href=
-              "http://refspecs.freestandards.org/LSB_4.0.0/">LSB-4.0.0</a>
+              "http://refspecs.linuxfoundation.org/lsb.shtml">LSB</a>
             </p>
             <p>
-              LSB 有五个分立的标准：核心、C++、桌面、解释型语言和打印。除通用要求之外，还有一些架构特有的要求。LFS
+              LSB 有五个分立的标准：核心、C++、桌面、运行时语言和打印。除共有要求之外，还有一些架构特有的要求。LFS
               试图符合前一节中提及的架构的相关要求。
             </p>
             <div class="admon note">
@@ -86,11 +86,11 @@
         </ul>
       </div>
       <p>
-        创建一个完整的 LFS 系统并通过 LSB 认证可以做到，但仍需很多 LFS 以外的程序包。所有的附加程序包在 BLFS 中都有安装指令。
+        创建一个完整的 LFS 系统并通过 LSB 认证可以做到，但仍需很多 LFS 以外的程序包。这些附加程序包在 BLFS 中都有安装指令。
       </p>
       <div class="variablelist">
         <h3>
-          LSB 需求且 LFS 支持的程序包
+          LSB 需求且 LFS 提供的程序包
         </h3>
         <table border="0">
           <col align="left" valign="top" />
@@ -104,7 +104,7 @@
               </td>
               <td>
                 <p>
-                  Bash, Binutils, Coreutils, Diffutils, File, Findutils,
+                  Bash, Bc, Binutils, Coreutils, Diffutils, File, Findutils,
                   Gawk, Grep, Gzip, M4, Man-DB, Ncurses, Procps, Psmisc, Sed,
                   Shadow, Tar, Util-linux 和 Zlib
                 </p>
@@ -140,7 +140,7 @@
               <td>
                 <p>
                   <span class="term"><span class="strong"><strong>LSB
-                  解释型语言：</strong></span></span>
+                  运行时语言：</strong></span></span>
                 </p>
               </td>
               <td>
@@ -180,7 +180,7 @@
       </div>
       <div class="variablelist">
         <h3>
-          LSB 需求且 BLFS 支持的程序包
+          LSB 需求且 BLFS 提供的程序包
         </h3>
         <table border="0">
           <col align="left" valign="top" />
@@ -194,8 +194,8 @@
               </td>
               <td>
                 <p>
-                  At, Batch (作为 At 的一部分), Bc, Cpio, Ed, Fcrontab,
-                  Initd-tools, PAM 和 Sendmail (或 Postfix 或 Exim)
+                  At, Batch (作为 At 的一部分), Cpio, Ed, Fcrontab, Initd-tools,
+                  PAM 和 Sendmail (或 Postfix 或 Exim)
                 </p>
               </td>
             </tr>
@@ -223,7 +223,7 @@
                 <p>
                   ATK, Cairo, Desktop-file-utils, Freetype, Fontconfig,
                   Glib2, GTK+2, Icon-naming-utils, Libjpeg, Libpng, Libxml2,
-                  MesaLib, Pango, Qt3, Qt4 和 Xorg
+                  MesaLib, Pango, Qt4 和 Xorg
                 </p>
               </td>
             </tr>
@@ -231,7 +231,7 @@
               <td>
                 <p>
                   <span class="term"><span class="strong"><strong>LSB
-                  解释型语言：</strong></span></span>
+                  运行时语言：</strong></span></span>
                 </p>
               </td>
               <td>
@@ -269,6 +269,94 @@
           </tbody>
         </table>
       </div>
+      <div class="variablelist">
+        <h3>
+          LSB 需求但 LFS 和 BLFS 都不提供的程序包
+        </h3>
+        <table border="0">
+          <col align="left" valign="top" />
+          <tbody>
+            <tr>
+              <td>
+                <p>
+                  <span class="term"><span class="strong"><strong>LSB
+                  核心：</strong></span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  无
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <span class="term"><span class="strong"><strong>LSB
+                  C++：</strong></span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  无
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <span class="term"><span class="strong"><strong>LSB
+                  桌面：</strong></span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  Qt3
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <span class="term"><span class="strong"><strong>LSB
+                  运行时语言：</strong></span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  无
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <span class="term"><span class="strong"><strong>LSB
+                  打印：</strong></span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  无
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  <span class="term"><span class="strong"><strong>LSB
+                  多媒体：</strong></span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  无
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="navfooter">
       <ul>
@@ -290,7 +378,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>

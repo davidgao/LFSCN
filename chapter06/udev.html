@@ -4,26 +4,26 @@
   <head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
     <title>
-      6.61.&nbsp;Udev-197 (提取自 systemd-197)
+      6.61.&nbsp;Udev-205 (提取自 systemd-205)
     </title>
     <link rel="stylesheet" href="../stylesheets/lfs.css" type="text/css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130226">
+  <body class="lfs" id="lfs-SVN-20130711">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130226
+        Linux From Scratch - 版本 SVN-20130711
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
       </h3>
       <ul>
         <li class="prev">
-          <a accesskey="p" href="texinfo.html" title="Texinfo-5.0">上一页</a>
+          <a accesskey="p" href="texinfo.html" title="Texinfo-5.1">上一页</a>
           <p>
-            Texinfo-5.0
+            Texinfo-5.1
           </p>
         </li>
         <li class="next">
@@ -38,14 +38,14 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="zh-cn" xml:lang="zh-cn">
       <h1 class="sect1">
-        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-197 (提取自
-        systemd-197)
+        <a id="ch-system-udev" name="ch-system-udev"></a>6.61. Udev-205 (提取自
+        systemd-205)
       </h1>
       <div class="package" lang="zh-cn" xml:lang="zh-cn">
         <p>
@@ -60,7 +60,7 @@
             </div>
             <div class="seg">
               <strong class="segtitle">需求磁盘空间：</strong><span class=
-              "segbody">23 MB</span>
+              "segbody">36 MB</span>
             </div>
           </div>
         </div>
@@ -76,14 +76,14 @@
           </h3>
           <p>
             此程序包与其他程序包略有不同，虽然安装的应用程序是 udev 但是初始解压缩的程序包是 <code class=
-            "filename">systemd-197.tar.xz</code>。在切换至 systemd 目录中之后按以下指令执行。
+            "filename">systemd-205.tar.xz</code>。在切换至 systemd 目录中之后按以下指令执行。
           </p>
         </div>
         <p>
           udev-lfs 压缩包包含 LFS 特有的文件，用于编制 Udev。将其解包至 systemd 原地码目录中：
         </p>
         <pre class="userinput">
-<kbd class="command">tar -xvf ../udev-lfs-197-2.tar.bz2</kbd>
+<kbd class="command">tar -xvf ../udev-lfs-205-1.tar.bz2</kbd>
 </pre>
         <p>
           修复 <strong class="userinput"><code>udevadm</code></strong>
@@ -97,13 +97,13 @@
           编译程序包：
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-197-2/Makefile.lfs</kbd>
+<kbd class="command">make -f udev-lfs-205-1/Makefile.lfs</kbd>
 </pre>
         <p>
           安装程序包：
         </p>
         <pre class="userinput">
-<kbd class="command">make -f udev-lfs-197-2/Makefile.lfs install</kbd>
+<kbd class="command">make -f udev-lfs-205-1/Makefile.lfs install</kbd>
 </pre>
         <div class="admon caution">
           <img alt="[小心]" src="../images/caution.png" />
@@ -131,7 +131,7 @@
           环境中，以下脚本才能够工作。
         </p>
         <pre class="userinput">
-<kbd class="command">bash udev-lfs-197-2/init-net-rules.sh</kbd>
+<kbd class="command">bash udev-lfs-205-1/init-net-rules.sh</kbd>
 </pre>
       </div>
       <div class="content" lang="zh-cn" xml:lang="zh-cn">
@@ -282,9 +282,9 @@
     <div class="navfooter">
       <ul>
         <li class="prev">
-          <a accesskey="p" href="texinfo.html" title="Texinfo-5.0">上一页</a>
+          <a accesskey="p" href="texinfo.html" title="Texinfo-5.1">上一页</a>
           <p>
-            Texinfo-5.0
+            Texinfo-5.1
           </p>
         </li>
         <li class="next">
@@ -299,7 +299,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>

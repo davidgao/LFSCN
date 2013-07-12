@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
     "text/css" media="print" />
   </head>
-  <body class="lfs" id="lfs-SVN-20130226">
+  <body class="lfs" id="lfs-SVN-20130711">
     <div class="navheader">
       <h4>
-        Linux From Scratch - 版本 SVN-20130226
+        Linux From Scratch - 版本 SVN-20130711
       </h4>
       <h3>
         第&nbsp;6&nbsp;章&nbsp;安装基本系统软件
@@ -27,9 +27,9 @@
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="zlib.html" title="Zlib-1.2.7">下一页</a>
+          <a accesskey="n" href="zlib.html" title="Zlib-1.2.8">下一页</a>
           <p>
-            Zlib-1.2.7
+            Zlib-1.2.8
           </p>
         </li>
         <li class="up">
@@ -38,7 +38,7 @@
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>
@@ -85,7 +85,7 @@ cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</kbd>
 </pre>
       <p>
-        如果一切工作正常，就不应改出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异) 应为：
+        如果一切工作正常，就不应该出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异) 应为：
       </p>
       <pre class="screen">
 <code class=
@@ -101,7 +101,7 @@ readelf -l a.out | grep ': /lib'</kbd>
 <kbd class="command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd>
 </pre>
       <p>
-        如果一切工作正常，就不应改出错，最后一条命令的输出应为：
+        如果一切工作正常，就不应该出错，最后一条命令的输出应为：
       </p>
       <pre class="screen">
 <code class="computeroutput">/usr/lib/crt1.o succeeded
@@ -128,7 +128,7 @@ readelf -l a.out | grep ': /lib'</kbd>
 <kbd class="command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd>
 </pre>
       <p>
-        如果一切工作正常，就不应改出错，最后一条命令的输出 (允许目标三联字串中有针对平台的差异) 应为：
+        如果一切工作正常，就不应该出错，最后一条命令的输出 (允许目标三联字串中有针对平台的差异) 应为：
       </p>
       <pre class="screen">
 <code class="computeroutput">SEARCH_DIR("/tools/i686-pc-linux-gnu/lib")
@@ -142,7 +142,7 @@ SEARCH_DIR("/lib");</code>
 <kbd class="command">grep "/lib.*/libc.so.6 " dummy.log</kbd>
 </pre>
       <p>
-        如果一切工作正常，就不应改出错，最后一条命令的输出 (允许 64 位宿主上有 <code class=
+        如果一切工作正常，就不应该出错，最后一条命令的输出 (允许 64 位宿主上有 <code class=
         "filename">lib64</code> 目录) 应为：
       </p>
       <pre class="screen">
@@ -155,7 +155,7 @@ SEARCH_DIR("/lib");</code>
 <kbd class="command">grep found dummy.log</kbd>
 </pre>
       <p>
-        如果一切工作正常，就不应改出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异、64 位宿主上有 <code class=
+        如果一切工作正常，就不应该出错，最后一条命令的输出 (允许动态链接器名称中有针对平台的差异、64 位宿主上有 <code class=
         "filename">lib64</code> 目录) 应为：
       </p>
       <pre class="screen">
@@ -181,9 +181,9 @@ SEARCH_DIR("/lib");</code>
           </p>
         </li>
         <li class="next">
-          <a accesskey="n" href="zlib.html" title="Zlib-1.2.7">下一页</a>
+          <a accesskey="n" href="zlib.html" title="Zlib-1.2.8">下一页</a>
           <p>
-            Zlib-1.2.7
+            Zlib-1.2.8
           </p>
         </li>
         <li class="up">
@@ -192,7 +192,7 @@ SEARCH_DIR("/lib");</code>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - 版本 SVN-20130226">起始页</a>
+          "Linux From Scratch - 版本 SVN-20130711">起始页</a>
         </li>
       </ul>
     </div>
